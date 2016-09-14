@@ -1,0 +1,538 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
+		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
+		E25982081D89EC5D00C07236 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982071D89EC5D00C07236 /* ViewController.m */; };
+		E259820B1D89EC5D00C07236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25982091D89EC5D00C07236 /* Main.storyboard */; };
+		E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */; };
+		E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259820F1D89EC5D00C07236 /* Assets.xcassets */; };
+		E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */; };
+		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
+		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E259821A1D89EC5D00C07236 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E25981F51D89EC5D00C07236 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E25981FC1D89EC5D00C07236;
+			remoteInfo = RidingMechanic;
+		};
+		E25982251D89EC5D00C07236 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E25981F51D89EC5D00C07236 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E25981FC1D89EC5D00C07236;
+			remoteInfo = RidingMechanic;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E25981FD1D89EC5D00C07236 /* RidingMechanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidingMechanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E25982011D89EC5D00C07236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E25982041D89EC5D00C07236 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E25982061D89EC5D00C07236 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E25982071D89EC5D00C07236 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E259820A1D89EC5D00C07236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E259820D1D89EC5D00C07236 /* RidingMechanic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RidingMechanic.xcdatamodel; sourceTree = "<group>"; };
+		E259820F1D89EC5D00C07236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E25982121D89EC5D00C07236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E25982141D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E25982191D89EC5D00C07236 /* RidingMechanicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicTests.m; sourceTree = "<group>"; };
+		E259821F1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicUITests.m; sourceTree = "<group>"; };
+		E259822A1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E25981FA1D89EC5D00C07236 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E25982161D89EC5D00C07236 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E25982211D89EC5D00C07236 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E25981F41D89EC5D00C07236 = {
+			isa = PBXGroup;
+			children = (
+				E25981FF1D89EC5D00C07236 /* RidingMechanic */,
+				E259821C1D89EC5D00C07236 /* RidingMechanicTests */,
+				E25982271D89EC5D00C07236 /* RidingMechanicUITests */,
+				E25981FE1D89EC5D00C07236 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E25981FE1D89EC5D00C07236 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E25981FD1D89EC5D00C07236 /* RidingMechanic.app */,
+				E25982191D89EC5D00C07236 /* RidingMechanicTests.xctest */,
+				E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
+			isa = PBXGroup;
+			children = (
+				E25982031D89EC5D00C07236 /* AppDelegate.h */,
+				E25982041D89EC5D00C07236 /* AppDelegate.m */,
+				E25982061D89EC5D00C07236 /* ViewController.h */,
+				E25982071D89EC5D00C07236 /* ViewController.m */,
+				E25982091D89EC5D00C07236 /* Main.storyboard */,
+				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
+				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
+				E25982141D89EC5D00C07236 /* Info.plist */,
+				E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */,
+				E25982001D89EC5D00C07236 /* Supporting Files */,
+			);
+			path = RidingMechanic;
+			sourceTree = "<group>";
+		};
+		E25982001D89EC5D00C07236 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E25982011D89EC5D00C07236 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E259821C1D89EC5D00C07236 /* RidingMechanicTests */ = {
+			isa = PBXGroup;
+			children = (
+				E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */,
+				E259821F1D89EC5D00C07236 /* Info.plist */,
+			);
+			path = RidingMechanicTests;
+			sourceTree = "<group>";
+		};
+		E25982271D89EC5D00C07236 /* RidingMechanicUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */,
+				E259822A1D89EC5D00C07236 /* Info.plist */,
+			);
+			path = RidingMechanicUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E25981FC1D89EC5D00C07236 /* RidingMechanic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E259822D1D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanic" */;
+			buildPhases = (
+				E25981F91D89EC5D00C07236 /* Sources */,
+				E25981FA1D89EC5D00C07236 /* Frameworks */,
+				E25981FB1D89EC5D00C07236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RidingMechanic;
+			productName = RidingMechanic;
+			productReference = E25981FD1D89EC5D00C07236 /* RidingMechanic.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E25982181D89EC5D00C07236 /* RidingMechanicTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E25982301D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanicTests" */;
+			buildPhases = (
+				E25982151D89EC5D00C07236 /* Sources */,
+				E25982161D89EC5D00C07236 /* Frameworks */,
+				E25982171D89EC5D00C07236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E259821B1D89EC5D00C07236 /* PBXTargetDependency */,
+			);
+			name = RidingMechanicTests;
+			productName = RidingMechanicTests;
+			productReference = E25982191D89EC5D00C07236 /* RidingMechanicTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E25982231D89EC5D00C07236 /* RidingMechanicUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E25982331D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanicUITests" */;
+			buildPhases = (
+				E25982201D89EC5D00C07236 /* Sources */,
+				E25982211D89EC5D00C07236 /* Frameworks */,
+				E25982221D89EC5D00C07236 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E25982261D89EC5D00C07236 /* PBXTargetDependency */,
+			);
+			name = RidingMechanicUITests;
+			productName = RidingMechanicUITests;
+			productReference = E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E25981F51D89EC5D00C07236 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Dezheng Wang";
+				TargetAttributes = {
+					E25981FC1D89EC5D00C07236 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					E25982181D89EC5D00C07236 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = E25981FC1D89EC5D00C07236;
+					};
+					E25982231D89EC5D00C07236 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = E25981FC1D89EC5D00C07236;
+					};
+				};
+			};
+			buildConfigurationList = E25981F81D89EC5D00C07236 /* Build configuration list for PBXProject "RidingMechanic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E25981F41D89EC5D00C07236;
+			productRefGroup = E25981FE1D89EC5D00C07236 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E25981FC1D89EC5D00C07236 /* RidingMechanic */,
+				E25982181D89EC5D00C07236 /* RidingMechanicTests */,
+				E25982231D89EC5D00C07236 /* RidingMechanicUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E25981FB1D89EC5D00C07236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */,
+				E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */,
+				E259820B1D89EC5D00C07236 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E25982171D89EC5D00C07236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E25982221D89EC5D00C07236 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E25981F91D89EC5D00C07236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
+				E25982081D89EC5D00C07236 /* ViewController.m in Sources */,
+				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
+				E25982021D89EC5D00C07236 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E25982151D89EC5D00C07236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E25982201D89EC5D00C07236 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E259821B1D89EC5D00C07236 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E25981FC1D89EC5D00C07236 /* RidingMechanic */;
+			targetProxy = E259821A1D89EC5D00C07236 /* PBXContainerItemProxy */;
+		};
+		E25982261D89EC5D00C07236 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E25981FC1D89EC5D00C07236 /* RidingMechanic */;
+			targetProxy = E25982251D89EC5D00C07236 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E25982091D89EC5D00C07236 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E259820A1D89EC5D00C07236 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E25982121D89EC5D00C07236 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E259822B1D89EC5D00C07236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E259822C1D89EC5D00C07236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E259822E1D89EC5D00C07236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RidingMechanic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E259822F1D89EC5D00C07236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = RidingMechanic/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E25982311D89EC5D00C07236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RidingMechanicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RidingMechanic.app/RidingMechanic";
+			};
+			name = Debug;
+		};
+		E25982321D89EC5D00C07236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RidingMechanicTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanicTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RidingMechanic.app/RidingMechanic";
+			};
+			name = Release;
+		};
+		E25982341D89EC5D00C07236 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RidingMechanicUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanicUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RidingMechanic;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		E25982351D89EC5D00C07236 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = RidingMechanicUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanicUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = RidingMechanic;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E25981F81D89EC5D00C07236 /* Build configuration list for PBXProject "RidingMechanic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E259822B1D89EC5D00C07236 /* Debug */,
+				E259822C1D89EC5D00C07236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E259822D1D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E259822E1D89EC5D00C07236 /* Debug */,
+				E259822F1D89EC5D00C07236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E25982301D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanicTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E25982311D89EC5D00C07236 /* Debug */,
+				E25982321D89EC5D00C07236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E25982331D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanicUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E25982341D89EC5D00C07236 /* Debug */,
+				E25982351D89EC5D00C07236 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E259820D1D89EC5D00C07236 /* RidingMechanic.xcdatamodel */,
+			);
+			currentVersion = E259820D1D89EC5D00C07236 /* RidingMechanic.xcdatamodel */;
+			path = RidingMechanic.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = E25981F51D89EC5D00C07236 /* Project object */;
+}
