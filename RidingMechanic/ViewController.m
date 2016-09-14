@@ -2,7 +2,7 @@
 //  ViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 9/14/16.
+//  Created by Dezheng Wang  on 9/14/16.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSLog(@"wang dezheng");
 }
 
 - (void)didReceiveMemoryWarning {
