@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  MainViewController.h
 //  RidingMechanic
 //
-//  Created by Dezheng Wang  on 9/14/16.
+//  Created by 王德正  on 07/10/2016.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MainViewController : UIViewController
 
 @end
-

@@ -9,13 +9,15 @@
 /* Begin PBXBuildFile section */
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
-		E25982081D89EC5D00C07236 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982071D89EC5D00C07236 /* ViewController.m */; };
-		E259820B1D89EC5D00C07236 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25982091D89EC5D00C07236 /* Main.storyboard */; };
 		E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */; };
 		E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259820F1D89EC5D00C07236 /* Assets.xcassets */; };
 		E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */; };
 		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
+		E2F1598E1DA8024900CCFEDE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1598C1DA8024900CCFEDE /* MainViewController.m */; };
+		E2F1598F1DA8024900CCFEDE /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1598D1DA8024900CCFEDE /* MainViewController.xib */; };
+		E2F159931DA80C5D00CCFEDE /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F159911DA80C5D00CCFEDE /* RegisterViewController.m */; };
+		E2F159941DA80C5D00CCFEDE /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F159921DA80C5D00CCFEDE /* RegisterViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +42,6 @@
 		E25982011D89EC5D00C07236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E25982041D89EC5D00C07236 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E25982061D89EC5D00C07236 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E25982071D89EC5D00C07236 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		E259820A1D89EC5D00C07236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E259820D1D89EC5D00C07236 /* RidingMechanic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RidingMechanic.xcdatamodel; sourceTree = "<group>"; };
 		E259820F1D89EC5D00C07236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E25982121D89EC5D00C07236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -53,6 +52,12 @@
 		E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicUITests.m; sourceTree = "<group>"; };
 		E259822A1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E2F1598B1DA8024900CCFEDE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E2F1598C1DA8024900CCFEDE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		E2F1598D1DA8024900CCFEDE /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		E2F159901DA80C5D00CCFEDE /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		E2F159911DA80C5D00CCFEDE /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		E2F159921DA80C5D00CCFEDE /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,9 +110,12 @@
 			children = (
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
-				E25982061D89EC5D00C07236 /* ViewController.h */,
-				E25982071D89EC5D00C07236 /* ViewController.m */,
-				E25982091D89EC5D00C07236 /* Main.storyboard */,
+				E2F1598B1DA8024900CCFEDE /* MainViewController.h */,
+				E2F1598C1DA8024900CCFEDE /* MainViewController.m */,
+				E2F159901DA80C5D00CCFEDE /* RegisterViewController.h */,
+				E2F159911DA80C5D00CCFEDE /* RegisterViewController.m */,
+				E2F159921DA80C5D00CCFEDE /* RegisterViewController.xib */,
+				E2F1598D1DA8024900CCFEDE /* MainViewController.xib */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
 				E25982141D89EC5D00C07236 /* Info.plist */,
@@ -247,8 +255,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */,
+				E2F1598F1DA8024900CCFEDE /* MainViewController.xib in Resources */,
 				E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */,
-				E259820B1D89EC5D00C07236 /* Main.storyboard in Resources */,
+				E2F159941DA80C5D00CCFEDE /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,10 +282,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F159931DA80C5D00CCFEDE /* RegisterViewController.m in Sources */,
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
-				E25982081D89EC5D00C07236 /* ViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
+				E2F1598E1DA8024900CCFEDE /* MainViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,14 +322,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E25982091D89EC5D00C07236 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E259820A1D89EC5D00C07236 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -421,6 +423,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -432,6 +435,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanic;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -502,6 +506,7 @@
 				E259822F1D89EC5D00C07236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E25982301D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanicTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +515,7 @@
 				E25982321D89EC5D00C07236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E25982331D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanicUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +524,7 @@
 				E25982351D89EC5D00C07236 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
