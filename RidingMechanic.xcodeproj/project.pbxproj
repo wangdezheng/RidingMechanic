@@ -15,8 +15,8 @@
 		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
-		E28ACCE71DADBFEB008C0E59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE61DADBFEB008C0E59 /* ViewController.m */; };
 		E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE91DADC008008C0E59 /* RootViewController.m */; };
+		E28ACCED1DADCC1C008C0E59 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCEC1DADCC1C008C0E59 /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,9 +52,10 @@
 		E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicUITests.m; sourceTree = "<group>"; };
 		E259822A1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E28ACCDE1DAD4389008C0E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		E28ACCE61DADBFEB008C0E59 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E28ACCE81DADC008008C0E59 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		E28ACCE91DADC008008C0E59 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		E28ACCEB1DADCC1C008C0E59 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		E28ACCEC1DADCC1C008C0E59 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,17 +106,18 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
-				E28ACCE81DADC008008C0E59 /* RootViewController.h */,
-				E28ACCE91DADC008008C0E59 /* RootViewController.m */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
+				E28ACCE81DADC008008C0E59 /* RootViewController.h */,
+				E28ACCE91DADC008008C0E59 /* RootViewController.m */,
+				E28ACCEB1DADCC1C008C0E59 /* RegisterViewController.h */,
+				E28ACCEC1DADCC1C008C0E59 /* RegisterViewController.m */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
 				E25982141D89EC5D00C07236 /* Info.plist */,
 				E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */,
 				E25982001D89EC5D00C07236 /* Supporting Files */,
-				E28ACCE61DADBFEB008C0E59 /* ViewController.m */,
 			);
 			path = RidingMechanic;
 			sourceTree = "<group>";
@@ -278,8 +280,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
+				E28ACCED1DADCC1C008C0E59 /* RegisterViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
-				E28ACCE71DADBFEB008C0E59 /* ViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,
 			);
