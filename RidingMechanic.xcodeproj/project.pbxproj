@@ -14,10 +14,9 @@
 		E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */; };
 		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
-		E2F1598E1DA8024900CCFEDE /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F1598C1DA8024900CCFEDE /* MainViewController.m */; };
-		E2F1598F1DA8024900CCFEDE /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F1598D1DA8024900CCFEDE /* MainViewController.xib */; };
-		E2F159931DA80C5D00CCFEDE /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F159911DA80C5D00CCFEDE /* RegisterViewController.m */; };
-		E2F159941DA80C5D00CCFEDE /* RegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E2F159921DA80C5D00CCFEDE /* RegisterViewController.xib */; };
+		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
+		E28ACCE71DADBFEB008C0E59 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE61DADBFEB008C0E59 /* ViewController.m */; };
+		E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE91DADC008008C0E59 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,12 +51,10 @@
 		E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicUITests.m; sourceTree = "<group>"; };
 		E259822A1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2F1598B1DA8024900CCFEDE /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		E2F1598C1DA8024900CCFEDE /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
-		E2F1598D1DA8024900CCFEDE /* MainViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
-		E2F159901DA80C5D00CCFEDE /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
-		E2F159911DA80C5D00CCFEDE /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		E2F159921DA80C5D00CCFEDE /* RegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RegisterViewController.xib; sourceTree = "<group>"; };
+		E28ACCDE1DAD4389008C0E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E28ACCE61DADBFEB008C0E59 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E28ACCE81DADC008008C0E59 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		E28ACCE91DADC008008C0E59 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,19 +105,17 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
+				E28ACCE81DADC008008C0E59 /* RootViewController.h */,
+				E28ACCE91DADC008008C0E59 /* RootViewController.m */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
-				E2F1598B1DA8024900CCFEDE /* MainViewController.h */,
-				E2F1598C1DA8024900CCFEDE /* MainViewController.m */,
-				E2F159901DA80C5D00CCFEDE /* RegisterViewController.h */,
-				E2F159911DA80C5D00CCFEDE /* RegisterViewController.m */,
-				E2F159921DA80C5D00CCFEDE /* RegisterViewController.xib */,
-				E2F1598D1DA8024900CCFEDE /* MainViewController.xib */,
+				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
 				E25982141D89EC5D00C07236 /* Info.plist */,
 				E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */,
 				E25982001D89EC5D00C07236 /* Supporting Files */,
+				E28ACCE61DADBFEB008C0E59 /* ViewController.m */,
 			);
 			path = RidingMechanic;
 			sourceTree = "<group>";
@@ -218,6 +213,7 @@
 				TargetAttributes = {
 					E25981FC1D89EC5D00C07236 = {
 						CreatedOnToolsVersion = 7.2.1;
+						DevelopmentTeam = LWU597X333;
 					};
 					E25982181D89EC5D00C07236 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -255,9 +251,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */,
-				E2F1598F1DA8024900CCFEDE /* MainViewController.xib in Resources */,
+				E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */,
 				E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */,
-				E2F159941DA80C5D00CCFEDE /* RegisterViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,11 +277,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2F159931DA80C5D00CCFEDE /* RegisterViewController.m in Sources */,
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
+				E28ACCE71DADBFEB008C0E59 /* ViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
-				E2F1598E1DA8024900CCFEDE /* MainViewController.m in Sources */,
+				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LWU597X333;
 				INFOPLIST_FILE = RidingMechanic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanic;
@@ -431,6 +427,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = LWU597X333;
 				INFOPLIST_FILE = RidingMechanic/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = edu.uwlax.cs.RidingMechanic;

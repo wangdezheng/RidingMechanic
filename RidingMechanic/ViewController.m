@@ -1,22 +1,22 @@
 //
-//  RegisterViewController.m
+//  ViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 07/10/2016.
+//  Created by 王德正  on 11/10/2016.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
-#import "RegisterViewController.h"
+#import "ViewController.h"
 
-@interface RegisterViewController ()
+@interface ViewController ()
 
 @end
 
-@implementation RegisterViewController
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
