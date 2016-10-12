@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Rlj-vX-IyB">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M8c-A4-iBe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -47,6 +47,9 @@
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="pCc-LX-Ye7" kind="push" identifier="SwitchToRegister" id="8la-92-EPf"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Riding Mechanic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzx-h2-bZE">
                                 <frame key="frameInset" minX="50" minY="124" width="205" height="62"/>
@@ -62,12 +65,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FWV-TI-gWG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-860" y="-1075.4122938530736"/>
+            <point key="canvasLocation" x="-1031" y="-1075"/>
         </scene>
         <!--Register-->
         <scene sceneID="J5G-HL-OcQ">
             <objects>
-                <viewController title="Register" id="pCc-LX-Ye7" sceneMemberID="viewController">
+                <viewController title="Register" id="pCc-LX-Ye7" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FP0-6t-fOP"/>
                         <viewControllerLayoutGuide type="bottom" id="k2A-aA-IxN"/>
@@ -104,24 +107,31 @@
                                 <state key="normal" title="Summit">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
+                                <connections>
+                                    <segue destination="cxd-Rg-qsp" kind="push" identifier="SwitchToActiavtion" id="F7D-WG-CgI"/>
+                                </connections>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Register" id="h55-cV-z97">
                         <barButtonItem key="backBarButtonItem" title="Back" id="tSL-5t-6sR"/>
                         <barButtonItem key="leftBarButtonItem" title="Back" id="L5u-nv-5Db">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backToRoot:" destination="pCc-LX-Ye7" id="HoI-sc-r6T"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q9u-Mf-E33" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41" y="-1075"/>
+            <point key="canvasLocation" x="-263" y="-1075"/>
         </scene>
         <!--Verify Activation-->
         <scene sceneID="2My-NX-ZHl">
             <objects>
-                <viewController id="cxd-Rg-qsp" sceneMemberID="viewController">
+                <viewController id="cxd-Rg-qsp" customClass="ActivationViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="R1S-zG-zcR"/>
                         <viewControllerLayoutGuide type="bottom" id="RYW-85-N3h"/>
@@ -131,14 +141,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter the code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6tq-a1-Pak">
-                                <frame key="frameInset" minX="44" minY="158" width="263" height="30"/>
+                                <frame key="frameInset" minX="30" minY="158" width="263" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fTN-7h-v0O">
-                                <frame key="frameInset" minX="85" minY="196" width="180" height="100"/>
+                                <frame key="frameInset" minX="71" minY="196" width="180" height="100"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Activate now">
@@ -146,16 +156,20 @@
                                 </state>
                             </button>
                         </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Verify Activation" id="ZwY-AL-hUR">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="RNw-lI-9cY">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="backToRegister:" destination="cxd-Rg-qsp" id="sMk-nx-7GR"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ofT-2m-tWh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="754" y="-1075"/>
+            <point key="canvasLocation" x="514" y="-1075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="KbP-pU-fgx">
@@ -169,13 +183,11 @@
                     <nil name="viewControllers"/>
                     <connections>
                         <segue destination="Rlj-vX-IyB" kind="relationship" relationship="rootViewController" id="Mrw-ML-GXP"/>
-                        <segue destination="pCc-LX-Ye7" kind="show" id="lYj-qD-k1y"/>
-                        <segue destination="cxd-Rg-qsp" kind="show" id="DKt-cg-s5H"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eXq-If-vBw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1799.2" y="-1075.4122938530736"/>
+            <point key="canvasLocation" x="-1791" y="-1075"/>
         </scene>
     </scenes>
 </document>
