@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E219C4391DAEA39A0049AC79 /* MianTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E219C4381DAEA39A0049AC79 /* MianTableViewController.m */; };
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
 		E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */; };
@@ -18,6 +19,7 @@
 		E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE91DADC008008C0E59 /* RootViewController.m */; };
 		E28ACCED1DADCC1C008C0E59 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCEC1DADCC1C008C0E59 /* RegisterViewController.m */; };
 		E28ACCF01DADECFA008C0E59 /* ActivationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCEF1DADECFA008C0E59 /* ActivationViewController.m */; };
+		E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E219C4371DAEA39A0049AC79 /* MianTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianTableViewController.h; sourceTree = "<group>"; };
+		E219C4381DAEA39A0049AC79 /* MianTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianTableViewController.m; sourceTree = "<group>"; };
 		E25981FD1D89EC5D00C07236 /* RidingMechanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidingMechanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982011D89EC5D00C07236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -59,6 +63,8 @@
 		E28ACCEC1DADCC1C008C0E59 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		E28ACCEE1DADECFA008C0E59 /* ActivationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivationViewController.h; sourceTree = "<group>"; };
 		E28ACCEF1DADECFA008C0E59 /* ActivationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivationViewController.m; sourceTree = "<group>"; };
+		E28ACCFA1DADF302008C0E59 /* ChooseModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseModelViewController.h; sourceTree = "<group>"; };
+		E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseModelViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,10 @@
 				E28ACCEC1DADCC1C008C0E59 /* RegisterViewController.m */,
 				E28ACCEE1DADECFA008C0E59 /* ActivationViewController.h */,
 				E28ACCEF1DADECFA008C0E59 /* ActivationViewController.m */,
+				E28ACCFA1DADF302008C0E59 /* ChooseModelViewController.h */,
+				E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */,
+				E219C4371DAEA39A0049AC79 /* MianTableViewController.h */,
+				E219C4381DAEA39A0049AC79 /* MianTableViewController.m */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
@@ -284,12 +294,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E219C4391DAEA39A0049AC79 /* MianTableViewController.m in Sources */,
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E28ACCED1DADCC1C008C0E59 /* RegisterViewController.m in Sources */,
 				E28ACCF01DADECFA008C0E59 /* ActivationViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,
+				E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

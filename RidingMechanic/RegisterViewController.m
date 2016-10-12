@@ -14,9 +14,5 @@
 
 @implementation RegisterViewController
 
--(IBAction) backToRoot:(id)sender
-{
-    [self.navigationController popToRootViewControllerAnimated:YES];
-}
 
 @end

@@ -14,13 +14,5 @@
 @end
 
 @implementation RootViewController
--(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    if([segue.identifier isEqualToString:@"SwitchToRegister"]){
-        if([segue.destinationViewController isKindOfClass:[RegisterViewController class]]){
-            
-        }
-    }
-}
 
 @end

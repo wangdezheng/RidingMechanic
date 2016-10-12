@@ -14,9 +14,5 @@
 
 @implementation ActivationViewController
 
--(IBAction) backToRegister:(id)sender
-{
-    [self.navigationController popViewControllerAnimated:YES];
-}
 
 @end
