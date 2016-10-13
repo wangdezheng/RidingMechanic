@@ -7,8 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E219C4391DAEA39A0049AC79 /* MianTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E219C4381DAEA39A0049AC79 /* MianTableViewController.m */; };
-		E219C43C1DAEB8B50049AC79 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E219C43B1DAEB8B50049AC79 /* MainViewController.m */; };
+		E23D12021DB04522003451D3 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E23D12011DB04522003451D3 /* MainViewController.m */; };
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
 		E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */; };
@@ -41,10 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E219C4371DAEA39A0049AC79 /* MianTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MianTableViewController.h; sourceTree = "<group>"; };
-		E219C4381DAEA39A0049AC79 /* MianTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MianTableViewController.m; sourceTree = "<group>"; };
-		E219C43A1DAEB8B50049AC79 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		E219C43B1DAEB8B50049AC79 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		E23D12001DB04522003451D3 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E23D12011DB04522003451D3 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		E25981FD1D89EC5D00C07236 /* RidingMechanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidingMechanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982011D89EC5D00C07236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -128,10 +125,8 @@
 				E28ACCEF1DADECFA008C0E59 /* ActivationViewController.m */,
 				E28ACCFA1DADF302008C0E59 /* ChooseModelViewController.h */,
 				E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */,
-				E219C4371DAEA39A0049AC79 /* MianTableViewController.h */,
-				E219C4381DAEA39A0049AC79 /* MianTableViewController.m */,
-				E219C43A1DAEB8B50049AC79 /* MainViewController.h */,
-				E219C43B1DAEB8B50049AC79 /* MainViewController.m */,
+				E23D12001DB04522003451D3 /* MainViewController.h */,
+				E23D12011DB04522003451D3 /* MainViewController.m */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
@@ -299,11 +294,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E219C4391DAEA39A0049AC79 /* MianTableViewController.m in Sources */,
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E28ACCED1DADCC1C008C0E59 /* RegisterViewController.m in Sources */,
 				E28ACCF01DADECFA008C0E59 /* ActivationViewController.m in Sources */,
-				E219C43C1DAEB8B50049AC79 /* MainViewController.m in Sources */,
+				E23D12021DB04522003451D3 /* MainViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,

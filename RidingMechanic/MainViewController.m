@@ -2,22 +2,42 @@
 //  MainViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 12/10/2016.
+//  Created by 王德正  on 13/10/2016.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
 #import "MainViewController.h"
 
 @interface MainViewController ()
-@property (weak, nonatomic) IBOutlet UIButton *imageButton;
 
 @end
 
 @implementation MainViewController
 
+-(void) viewWillAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+    self.navigationItem.hidesBackButton=YES;
+}
+
 - (void)viewDidLoad {
+   
+    self.navigationController.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithTitle:@"" style:UIBarButtonItemStylePlain target:self action:@selector(test)];
+    
     [super viewDidLoad];
-    [_imageButton setBackgroundImage:[UIImage imageNamed:@"image"] forState:UIControlStateNormal];
+    // Do any additional setup after loading the view.
+    
+//    UITextField *text = [[UITextField alloc]initWithFrame:CGRectMake(self.view.center.x,self.view.center.y, 100, 100)];
+//    text.text = @"123";
+//    text.borderStyle = UITextBorderStyleLine;
+//    [self.view addSubview:text];
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0,1, self.view.frame.size.width, 100)];
+//    label.layer.borderWidth = 1.0;
+//    [self.view addSubview:label];
+}
+
+- (void)test {
+    
 }
 
 - (void)didReceiveMemoryWarning {

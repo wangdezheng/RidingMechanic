@@ -15,4 +15,9 @@
 
 @implementation RootViewController
 
+- (void) viewDidLoad {
+    self.navigationController.navigationBar.hidden = YES;
+    [super viewDidLoad];
+}
+
 @end

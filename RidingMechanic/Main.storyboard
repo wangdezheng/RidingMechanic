@@ -40,7 +40,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="pPt-Q7-Imj" kind="push" identifier="SwitchToMain" id="Oto-s9-Ffu"/>
+                                    <segue destination="nKG-fX-Gja" kind="show" identifier="SwitchToMain" id="aJb-eO-z2y"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Riding Mechanic" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xzx-h2-bZE">
@@ -58,7 +58,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="pCc-LX-Ye7" kind="push" identifier="SwitchToRegister" id="8la-92-EPf"/>
+                                    <segue destination="pCc-LX-Ye7" kind="show" identifier="SwitchToRegister" id="6UC-Rt-Bvu"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -71,71 +71,23 @@
             <point key="canvasLocation" x="-1031" y="-1075"/>
         </scene>
         <!--Riding Mechanic-->
-        <scene sceneID="DG7-rv-UUl">
+        <scene sceneID="ZF5-4j-uSk">
             <objects>
-                <viewController id="pPt-Q7-Imj" customClass="MainViewController" sceneMemberID="viewController">
+                <viewController id="nKG-fX-Gja" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7LV-fB-4Fr"/>
-                        <viewControllerLayoutGuide type="bottom" id="Nl9-CJ-Z6F"/>
+                        <viewControllerLayoutGuide type="top" id="UaM-ph-MJG"/>
+                        <viewControllerLayoutGuide type="bottom" id="7fg-ka-GLc"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rJT-RJ-VV7">
+                    <view key="view" contentMode="scaleToFill" id="jCO-sF-tLq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEJ-zg-GCS">
-                                <frame key="frameInset" minY="64" width="375" height="331"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12P-eO-vh3">
-                                        <frame key="frameInset" minX="107" minY="27" width="151" height="130"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gSq-UJ-Rgh">
-                                        <frame key="frameInset" minX="107" minY="220" width="151" height="57"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <state key="normal" title="Start connecting">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Not connected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kvl-br-ErD">
-                                        <frame key="frameInset" minX="118" minY="187" width="128" height="36"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rB3-Mx-RWx">
-                                <frame key="frameInset" minY="395" width="375" height="272"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QaF-o6-mbO">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QaF-o6-mbO" id="fPj-eH-SP6">
-                                            <frame key="frameInset" width="375" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Riding Mechanic" id="bQ6-e6-CEN">
-                        <barButtonItem key="leftBarButtonItem" title="Profile" id="LfQ-6a-Lf4"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="imageButton" destination="12P-eO-vh3" id="e2Y-2d-uQs"/>
-                    </connections>
+                    <navigationItem key="navigationItem" title="Riding Mechanic" id="Zob-Tr-1B7"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pJY-nn-H4R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ayk-NL-vfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1031.2" y="-270.31484257871068"/>
+            <point key="canvasLocation" x="-1031.2" y="-346.77661169415296"/>
         </scene>
         <!--Register-->
         <scene sceneID="J5G-HL-OcQ">
@@ -171,7 +123,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="cxd-Rg-qsp" kind="push" identifier="SwitchToActiavtion" id="F7D-WG-CgI"/>
+                                    <segue destination="cxd-Rg-qsp" kind="show" identifier="SwitchToActivation" id="sSC-i2-Pay"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9bw-UT-j45">
@@ -217,7 +169,7 @@
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="nrj-Gu-92X" kind="push" identifier="SwitchToChooseModel" id="lTH-CY-RQV"/>
+                                    <segue destination="nrj-Gu-92X" kind="show" identifier="SwitchToChooseModel" id="maN-fH-LuY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please check your email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nqT-ip-A40">
@@ -249,7 +201,7 @@
                                 <rect key="frame" x="0.0" y="92" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOH-GL-oP0" id="OaN-Ze-bV6">
-                                    <frame key="frameInset" width="375" height="43"/>
+                                    <frame key="frameInset" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
