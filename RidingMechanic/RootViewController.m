@@ -2,21 +2,34 @@
 //  RootViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 11/10/2016.
+//  Created by Dezheng Wang  on 11/10/2016.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
 #import "RootViewController.h"
-#import "RegisterViewController.h"
+
 
 @interface RootViewController ()
+@property (strong, nonatomic) IBOutlet UILabel *imageLabel;
+@property (strong, nonatomic) IBOutlet UILabel *carModelLabel;
+@property (strong, nonatomic) IBOutlet UILabel *connectionStatusLabel;
+@property (strong, nonatomic) IBOutlet UIButton *startLabel;
+@property (strong, nonatomic) IBOutlet UILabel *routeAnalysisLabel;
+@property (strong, nonatomic) IBOutlet UILabel *healthScanLabel;
+
 
 @end
 
 @implementation RootViewController
 
+-(void) viewWillAppear:(BOOL)animated
+{
+
+    //[self.routeAnalysisLabel setBackgroundColor:[UIColor cyanColor] ];
+    //[self.healthScanLabel setBackgroundColor:[UIColor cyanColor]];
+}
+
 - (void) viewDidLoad {
-    self.navigationController.navigationBar.hidden = YES;
     [super viewDidLoad];
 }
 
