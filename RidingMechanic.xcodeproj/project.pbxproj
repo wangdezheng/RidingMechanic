@@ -17,6 +17,8 @@
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
 		E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE91DADC008008C0E59 /* RootViewController.m */; };
 		E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */; };
+		E2CE53841DB489450009E5CA /* CarModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CE53811DB489450009E5CA /* CarModel+CoreDataClass.m */; };
+		E2CE53851DB489450009E5CA /* CarModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2CE53831DB489450009E5CA /* CarModel+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		E28ACCE91DADC008008C0E59 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		E28ACCFA1DADF302008C0E59 /* ChooseModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseModelViewController.h; sourceTree = "<group>"; };
 		E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseModelViewController.m; sourceTree = "<group>"; };
+		E2CE53801DB489450009E5CA /* CarModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataClass.h"; sourceTree = "<group>"; };
+		E2CE53811DB489450009E5CA /* CarModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataClass.m"; sourceTree = "<group>"; };
+		E2CE53821DB489450009E5CA /* CarModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E2CE53831DB489450009E5CA /* CarModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +112,7 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
+				E2CE53791DB4887C0009E5CA /* Model */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
 				E28ACCE81DADC008008C0E59 /* RootViewController.h */,
@@ -146,6 +153,17 @@
 				E259822A1D89EC5D00C07236 /* Info.plist */,
 			);
 			path = RidingMechanicUITests;
+			sourceTree = "<group>";
+		};
+		E2CE53791DB4887C0009E5CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E2CE53801DB489450009E5CA /* CarModel+CoreDataClass.h */,
+				E2CE53811DB489450009E5CA /* CarModel+CoreDataClass.m */,
+				E2CE53821DB489450009E5CA /* CarModel+CoreDataProperties.h */,
+				E2CE53831DB489450009E5CA /* CarModel+CoreDataProperties.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,8 +299,10 @@
 			files = (
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
+				E2CE53841DB489450009E5CA /* CarModel+CoreDataClass.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,
+				E2CE53851DB489450009E5CA /* CarModel+CoreDataProperties.m in Sources */,
 				E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

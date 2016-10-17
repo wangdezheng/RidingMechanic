@@ -7,6 +7,7 @@
 //
 
 #import "ChooseModelViewController.h"
+#import "AppDelegate.h"
 
 @interface ChooseModelViewController ()<UITableViewDataSource,UITabBarDelegate>
 
@@ -14,9 +15,9 @@
 
 @implementation ChooseModelViewController
 
--(IBAction) backToMain:(id)sender
+-(void) viewWillAppear:(BOOL)animated
 {
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    
 }
 
 

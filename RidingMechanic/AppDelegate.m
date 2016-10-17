@@ -14,6 +14,53 @@
 
 @implementation AppDelegate
 
+-(NSManagedObjectModel *)managedObjectModel
+{
+    if (self.managedObjectModel != nil) {
+        return self.managedObjectModel;
+    }
+    self.managedObjectModel =[NSManagedObjectModel mergedModelFromBundles:nil];
+    return self.managedObjectModel;
+}
+
+-(NSPersistentStoreCoordinator *)persistentStoreCoordinator
+{
+    if (self.persistentStoreCoordinator != nil) {
+        return self.persistentStoreCoordinator;
+    }
+    
+    //get database url
+    NSString *docs = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    //CoreData should have same name with Xcdatamodel
+    NSURL *storeUrl = [NSURL fileURLWithPath:[docs stringByAppendingPathComponent:@"RidingMechanic.sqlite"]];
+    
+    NSError *error = nil;
+    self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:[self managedObjectModel]];
+    
+    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+        NSLog(@"Error: %@,%@",error,[error userInfo]);
+    }
+    
+    return self.persistentStoreCoordinator;
+}
+
+-(NSManagedObjectContext *)managedObjectContext
+{
+    if (self.managedObjectContext != nil) {
+        return self.managedObjectContext;
+    }
+    
+    NSPersistentStoreCoordinator *coordinator =[self persistentStoreCoordinator];
+    
+    if (coordinator != nil) {
+        self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:0];
+        [self.managedObjectContext setPersistentStoreCoordinator:coordinator];
+    }
+    
+    
+    
+    return self.managedObjectContext;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
@@ -44,8 +91,14 @@
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    NSError *error;
+    if (self.managedObjectContext != nil) {
+        //if change, save context
+        if ([self.managedObjectContext hasChanges] && ![self.managedObjectContext save:&error]) {
+            NSLog(@"Error: %@,%@",error,[error userInfo]);
+            abort();
+        }
+    }
 }
-
 
 @end
