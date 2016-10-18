@@ -9,6 +9,7 @@
 #import "RootViewController.h"
 
 
+
 @interface RootViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *imageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *carModelLabel;
@@ -21,6 +22,7 @@
 @end
 
 @implementation RootViewController
+
 
 -(void) viewWillAppear:(BOOL)animated
 {

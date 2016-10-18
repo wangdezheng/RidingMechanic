@@ -7,7 +7,8 @@
 //
 
 #import "ChooseModelViewController.h"
-#import "AppDelegate.h"
+
+
 
 @interface ChooseModelViewController ()<UITableViewDataSource,UITabBarDelegate>
 
@@ -15,32 +16,55 @@
 
 @implementation ChooseModelViewController
 
--(void) viewWillAppear:(BOOL)animated
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    //获取当前应用程序的委托（UIApplication sharedApplication为整个应用程序上下文）
+    self.myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+}
+
+-(void) setManagedObjectContex:(NSManagedObjectContext *)managedObjectContex
+{
+    _managedObjectContex=managedObjectContex;
+    
+    NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"CarModel"];
+    request.predicate=nil;
+    request.sortDescriptors=@[[NSSortDescriptor sortDescriptorWithKey:@"brand" ascending:YES selector:@selector(localizedStandardCompare:)]];
+    
+    self.fetchedRequestController=[[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:self.myDelegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+
 }
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
+    NSInteger sections=[[self.fetchedRequestController sections] count];
+    return sections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    NSInteger rows=0;
+    if([[self.fetchedRequestController sections] count]>0)
+    {
+        id <NSFetchedResultsSectionInfo> sectionInfo=[[self.fetchedRequestController sections] objectAtIndex:section];
+        rows=[sectionInfo numberOfObjects];
+    }
+    return rows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
- cell.textLabel.text=@"test";
+    CarModel * carModel=[self.fetchedRequestController objectAtIndexPath:indexPath];
+   cell.textLabel.text=carModel.brand;
  
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:( NSIndexPath *)indexPath{
     CGFloat height;
-    if(indexPath.section==0&&indexPath.row==0) height=100;//[tableView cellForRowAtIndexPath:indexPath]
+    if(indexPath.section==0&&indexPath.row==0) height=10;//[tableView cellForRowAtIndexPath:indexPath]
     return height;
 }
 

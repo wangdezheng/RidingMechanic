@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AppDelegate.h"
+#import "CarModel+CoreDataProperties.h"
 
 @interface ChooseModelViewController : UITableViewController
-
+@property (strong,nonatomic) NSFetchedResultsController* fetchedRequestController;
+@property (strong,nonatomic) NSManagedObjectContext* managedObjectContex;
+@property (strong,nonatomic) AppDelegate *myDelegate;
 @end

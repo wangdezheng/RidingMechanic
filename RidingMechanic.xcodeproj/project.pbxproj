@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E236B39B1DB5685600EEE8B1 /* CarModel+ConfigurationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E236B39A1DB5685600EEE8B1 /* CarModel+ConfigurationModel.m */; };
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
 		E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */; };
@@ -39,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E236B3991DB5685600EEE8B1 /* CarModel+ConfigurationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+ConfigurationModel.h"; sourceTree = "<group>"; };
+		E236B39A1DB5685600EEE8B1 /* CarModel+ConfigurationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+ConfigurationModel.m"; sourceTree = "<group>"; };
 		E25981FD1D89EC5D00C07236 /* RidingMechanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidingMechanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982011D89EC5D00C07236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +165,8 @@
 				E2CE53811DB489450009E5CA /* CarModel+CoreDataClass.m */,
 				E2CE53821DB489450009E5CA /* CarModel+CoreDataProperties.h */,
 				E2CE53831DB489450009E5CA /* CarModel+CoreDataProperties.m */,
+				E236B3991DB5685600EEE8B1 /* CarModel+ConfigurationModel.h */,
+				E236B39A1DB5685600EEE8B1 /* CarModel+ConfigurationModel.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,6 +305,7 @@
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E2CE53841DB489450009E5CA /* CarModel+CoreDataClass.m in Sources */,
+				E236B39B1DB5685600EEE8B1 /* CarModel+ConfigurationModel.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,
 				E2CE53851DB489450009E5CA /* CarModel+CoreDataProperties.m in Sources */,
