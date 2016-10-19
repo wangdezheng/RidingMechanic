@@ -2,7 +2,7 @@
 //  ChooseModelViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 11/10/2016.
+//  Created by Dezheng Wang   on 11/10/2016.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
@@ -16,39 +16,75 @@
 
 @implementation ChooseModelViewController
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     //获取当前应用程序的委托（UIApplication sharedApplication为整个应用程序上下文）
     self.myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    
+    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"isDataLoad"])
+    {
+        CarModel *car1=(CarModel *)[NSEntityDescription insertNewObjectForEntityForName:@"CarModel" inManagedObjectContext: self.myDelegate.managedObjectContext];
+        
+        [car1 setBrand:@"Ford"];
+        [car1 setYear:@"2010"];
+        [car1 setVersion:@"Taurus"];
+        [car1 setModel:@"F250"];
+        
+        CarModel *car2=(CarModel *)[NSEntityDescription insertNewObjectForEntityForName:@"CarModel" inManagedObjectContext: self.myDelegate.managedObjectContext];
+        
+        [car2 setBrand:@"BMW"];
+        [car2 setYear:@"2007"];
+        [car2 setVersion:@"525"];
+        [car2 setModel:@"xi"];
+        
+        NSError *error;
+        BOOL isSaveSuccess = [self.myDelegate.managedObjectContext save:&error];
+        
+        if (!isSaveSuccess) {
+            NSLog(@"Error: %@,%@",error,[error userInfo]);
+        }else {
+            NSLog(@"Save successful!");
+        }
+        [[NSUserDefaults standardUserDefaults] setObject:@"Yes" forKey:@"isDataLoad"];
+    }
+        
 }
 
--(void) setManagedObjectContex:(NSManagedObjectContext *)managedObjectContex
+-(NSFetchedResultsController *)fetchedResultstController
 {
-    _managedObjectContex=managedObjectContex;
     
     NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"CarModel"];
     request.predicate=nil;
     request.sortDescriptors=@[[NSSortDescriptor sortDescriptorWithKey:@"brand" ascending:YES selector:@selector(localizedStandardCompare:)]];
     
-    self.fetchedRequestController=[[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:self.myDelegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
-
+    _fetchedResultstController=[[NSFetchedResultsController alloc]initWithFetchRequest:request managedObjectContext:self.myDelegate.managedObjectContext sectionNameKeyPath:nil cacheName:nil];
+    
+    
+    NSError *error = nil;
+    if (![_fetchedResultstController performFetch:&error]) {
+        NSLog(@"Failed to initialize FetchedResultsController: %@\n%@", [error localizedDescription], [error userInfo]);
+        abort();
+    }
+    
+    return _fetchedResultstController;
 }
 
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger sections=[[self.fetchedRequestController sections] count];
+    NSInteger sections=[[self.fetchedResultstController sections] count];
     return sections;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger rows=0;
-    if([[self.fetchedRequestController sections] count]>0)
+    if([[self.fetchedResultstController sections] count]>0)
     {
-        id <NSFetchedResultsSectionInfo> sectionInfo=[[self.fetchedRequestController sections] objectAtIndex:section];
+        id <NSFetchedResultsSectionInfo> sectionInfo=[[self.fetchedResultstController sections] objectAtIndex:section];
         rows=[sectionInfo numberOfObjects];
     }
     return rows;
@@ -56,17 +92,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    CarModel * carModel=[self.fetchedRequestController objectAtIndexPath:indexPath];
+    CarModel * carModel=[self.fetchedResultstController objectAtIndexPath:indexPath];
    cell.textLabel.text=carModel.brand;
  
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:( NSIndexPath *)indexPath{
-    CGFloat height;
-    if(indexPath.section==0&&indexPath.row==0) height=10;//[tableView cellForRowAtIndexPath:indexPath]
-    return height;
-}
 
 
 /*

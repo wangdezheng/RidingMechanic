@@ -16,17 +16,17 @@
 
 -(NSManagedObjectModel *)managedObjectModel
 {
-    if (self.managedObjectModel != nil) {
-        return self.managedObjectModel;
+    if (_managedObjectModel != nil) {
+        return _managedObjectModel;
     }
-    self.managedObjectModel =[NSManagedObjectModel mergedModelFromBundles:nil];
-    return self.managedObjectModel;
+    _managedObjectModel =[NSManagedObjectModel mergedModelFromBundles:nil];
+    return _managedObjectModel;
 }
 
 -(NSPersistentStoreCoordinator *)persistentStoreCoordinator
 {
-    if (self.persistentStoreCoordinator != nil) {
-        return self.persistentStoreCoordinator;
+    if (_persistentStoreCoordinator != nil) {
+        return _persistentStoreCoordinator;
     }
     
     //get database url
@@ -35,31 +35,31 @@
     NSURL *storeUrl = [NSURL fileURLWithPath:[docs stringByAppendingPathComponent:@"RidingMechanic.sqlite"]];
     
     NSError *error = nil;
-    self.persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:[self managedObjectModel]];
+    _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc]initWithManagedObjectModel:[self managedObjectModel]];
     
-    if (![self.persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeUrl options:nil error:&error]) {
         NSLog(@"Error: %@,%@",error,[error userInfo]);
     }
     
-    return self.persistentStoreCoordinator;
+    return _persistentStoreCoordinator;
 }
 
 -(NSManagedObjectContext *)managedObjectContext
 {
-    if (self.managedObjectContext != nil) {
-        return self.managedObjectContext;
+    if (_managedObjectContext != nil) {
+        return _managedObjectContext;
     }
     
     NSPersistentStoreCoordinator *coordinator =[self persistentStoreCoordinator];
     
     if (coordinator != nil) {
-        self.managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:0];
-        [self.managedObjectContext setPersistentStoreCoordinator:coordinator];
+        _managedObjectContext = [[NSManagedObjectContext alloc] initWithConcurrencyType:0];
+        [_managedObjectContext setPersistentStoreCoordinator:coordinator];
     }
     
     
     
-    return self.managedObjectContext;
+    return _managedObjectContext;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

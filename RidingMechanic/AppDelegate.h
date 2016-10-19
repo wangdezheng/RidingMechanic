@@ -17,7 +17,6 @@
 
 @property(strong,nonatomic) NSManagedObjectContext *managedObjectContext; // object context
 
-@property(strong,nonatomic) NSManagedObjectContext *carModelDatabaseContext;
 
 @property(strong,nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
