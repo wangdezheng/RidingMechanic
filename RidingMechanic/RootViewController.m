@@ -7,7 +7,7 @@
 //
 
 #import "RootViewController.h"
-
+#import "QuartzCore/QuartzCore.h"
 
 
 @interface RootViewController ()
@@ -17,6 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIButton *startLabel;
 @property (strong, nonatomic) IBOutlet UILabel *routeAnalysisLabel;
 @property (strong, nonatomic) IBOutlet UILabel *healthScanLabel;
+@property (strong, nonatomic) IBOutlet UILabel *lineLabel;
+@property (strong, nonatomic) IBOutlet UILabel *upperLineLabel;
+@property (strong, nonatomic) IBOutlet UILabel *bottomLineLabel;
 
 
 @end
@@ -33,6 +36,9 @@
 
 - (void) viewDidLoad {
     [super viewDidLoad];
+    self.lineLabel.layer.borderWidth=0.5;
+    self.upperLineLabel.layer.borderWidth=0.5;
+    self.bottomLineLabel.layer.borderWidth=0.5;
 }
 
 @end

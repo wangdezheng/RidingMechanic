@@ -20,42 +20,18 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    //获取当前应用程序的委托（UIApplication sharedApplication为整个应用程序上下文）
+    //get app delegate
     self.myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"isDataLoad"])
+    if(![[NSUserDefaults standardUserDefaults] valueForKey:@"isDataLoad"])//load initial data
     {
-        CarModel *car1=(CarModel *)[NSEntityDescription insertNewObjectForEntityForName:@"CarModel" inManagedObjectContext: self.myDelegate.managedObjectContext];
-        
-        [car1 setBrand:@"Ford"];
-        [car1 setYear:@"2010"];
-        [car1 setVersion:@"Taurus"];
-        [car1 setModel:@"F250"];
-        
-        CarModel *car2=(CarModel *)[NSEntityDescription insertNewObjectForEntityForName:@"CarModel" inManagedObjectContext: self.myDelegate.managedObjectContext];
-        
-        [car2 setBrand:@"BMW"];
-        [car2 setYear:@"2007"];
-        [car2 setVersion:@"525"];
-        [car2 setModel:@"xi"];
-        
-        NSError *error;
-        BOOL isSaveSuccess = [self.myDelegate.managedObjectContext save:&error];
-        
-        if (!isSaveSuccess) {
-            NSLog(@"Error: %@,%@",error,[error userInfo]);
-        }else {
-            NSLog(@"Save successful!");
-        }
+        LoadInitialData *startInit=[[LoadInitialData alloc] init];
+        [startInit loadInitialData];
         [[NSUserDefaults standardUserDefaults] setObject:@"Yes" forKey:@"isDataLoad"];
     }
-        
 }
 
 -(NSFetchedResultsController *)fetchedResultstController
 {
-    
     NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"CarModel"];
     request.predicate=nil;
     request.sortDescriptors=@[[NSSortDescriptor sortDescriptorWithKey:@"brand" ascending:YES selector:@selector(localizedStandardCompare:)]];

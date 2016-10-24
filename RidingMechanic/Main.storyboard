@@ -43,16 +43,40 @@
                                 <frame key="frameInset" minX="123" minY="390" width="119" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Start Connecting"/>
+                                <connections>
+                                    <segue destination="dTA-7h-QqH" kind="show" identifier="SwitchToConnection" id="n6a-Q3-ud6"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Route Analysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxC-kY-kjn">
-                                <frame key="frameInset" minY="478" width="375" height="70"/>
+                                <frame key="frameInset" minX="-8" minY="499" width="391" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Health Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3g-O1-sQn">
-                                <frame key="frameInset" minY="544" width="375" height="70"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lineLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gje-c4-ULD">
+                                <frame key="frameInset" minX="-8" minY="568" width="391" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="upperLineLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14P-22-a59">
+                                <frame key="frameInset" minX="-8" minY="499" width="391" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bottomLineLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7Z-xD-4LM">
+                                <frame key="frameInset" minX="-8" minY="638" width="391" height="1"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Health Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3g-O1-sQn">
+                                <frame key="frameInset" minX="-8" minY="568" width="391" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -65,7 +89,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Model" id="LUg-6q-yrp">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="nrj-Gu-92X" kind="show" id="KSb-Eo-4HJ"/>
+                                <segue destination="nrj-Gu-92X" kind="show" identifier="SwitchToChooseModel" id="KSb-Eo-4HJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="b3K-4F-z6G">
@@ -73,17 +97,38 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomLineLabel" destination="R7Z-xD-4LM" id="ro0-Ty-vz2"/>
                         <outlet property="carModelLabel" destination="tHk-tf-iHJ" id="N3a-dJ-NZK"/>
                         <outlet property="connectionStatusLabel" destination="K40-5O-zhN" id="5bT-0u-6y5"/>
                         <outlet property="healthScanLabel" destination="J3g-O1-sQn" id="Pwn-Xq-o0C"/>
                         <outlet property="imageLabel" destination="uDU-h4-JQC" id="jX4-QR-KSy"/>
+                        <outlet property="lineLabel" destination="Gje-c4-ULD" id="1QV-s6-hxg"/>
                         <outlet property="routeAnalysisLabel" destination="IxC-kY-kjn" id="0Vb-96-UvM"/>
                         <outlet property="startLabel" destination="4DG-2e-lpX" id="idu-Fz-UMo"/>
+                        <outlet property="upperLineLabel" destination="14P-22-a59" id="aqo-JY-BYx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayk-NL-vfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7.2000000000000002" y="-1075.4122938530736"/>
+            <point key="canvasLocation" x="-4" y="-1075.4122938530736"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="SE0-IJ-YOo">
+            <objects>
+                <viewController id="dTA-7h-QqH" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="f43-0b-wzn"/>
+                        <viewControllerLayoutGuide type="bottom" id="qXD-cL-pcJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7IM-Qn-ASw">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xeK-QE-nAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4" y="-1881"/>
         </scene>
         <!--Choose Model View Controller-->
         <scene sceneID="Ody-38-hvT">
@@ -112,7 +157,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="331-sA-uBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="913" y="-1075"/>
+            <point key="canvasLocation" x="988" y="-1075"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7J8-Dx-Vbb">

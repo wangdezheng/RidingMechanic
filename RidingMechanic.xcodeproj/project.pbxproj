@@ -19,6 +19,7 @@
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
 		E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE91DADC008008C0E59 /* RootViewController.m */; };
 		E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */; };
+		E2C3329E1DBE858300FB7F3D /* LoadInitialData.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		E28ACCE91DADC008008C0E59 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		E28ACCFA1DADF302008C0E59 /* ChooseModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseModelViewController.h; sourceTree = "<group>"; };
 		E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseModelViewController.m; sourceTree = "<group>"; };
+		E2C3329C1DBE858300FB7F3D /* LoadInitialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadInitialData.h; sourceTree = "<group>"; };
+		E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadInitialData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +128,8 @@
 				E25982141D89EC5D00C07236 /* Info.plist */,
 				E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */,
 				E25982001D89EC5D00C07236 /* Supporting Files */,
+				E2C3329C1DBE858300FB7F3D /* LoadInitialData.h */,
+				E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */,
 			);
 			path = RidingMechanic;
 			sourceTree = "<group>";
@@ -297,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C3329E1DBE858300FB7F3D /* LoadInitialData.m in Sources */,
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E236B3A21DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.m in Sources */,
