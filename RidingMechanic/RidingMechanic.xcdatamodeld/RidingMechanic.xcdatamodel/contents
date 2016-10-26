@@ -3,10 +3,9 @@
     <entity name="CarModel" representedClassName="CarModel" syncable="YES">
         <attribute name="brand" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="model" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="version" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="year" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="CarModel" positionX="-63" positionY="-18" width="128" height="105"/>
+        <element name="CarModel" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>

@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E236B3A21DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E236B39F1DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.m */; };
-		E236B3A31DB6AB9F00EEE8B1 /* CarModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E236B3A11DB6AB9F00EEE8B1 /* CarModel+CoreDataProperties.m */; };
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
 		E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259820C1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld */; };
@@ -20,6 +18,8 @@
 		E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE91DADC008008C0E59 /* RootViewController.m */; };
 		E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */; };
 		E2C3329E1DBE858300FB7F3D /* LoadInitialData.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */; };
+		E2E36B271DC01DC00086FB8A /* CarModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */; };
+		E2E36B281DC01DC00086FB8A /* CarModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B261DC01DC00086FB8A /* CarModel+CoreDataProperties.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,10 +40,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E236B39E1DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataClass.h"; sourceTree = "<group>"; };
-		E236B39F1DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataClass.m"; sourceTree = "<group>"; };
-		E236B3A01DB6AB9F00EEE8B1 /* CarModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataProperties.h"; sourceTree = "<group>"; };
-		E236B3A11DB6AB9F00EEE8B1 /* CarModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 		E25981FD1D89EC5D00C07236 /* RidingMechanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidingMechanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982011D89EC5D00C07236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -65,6 +61,10 @@
 		E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseModelViewController.m; sourceTree = "<group>"; };
 		E2C3329C1DBE858300FB7F3D /* LoadInitialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadInitialData.h; sourceTree = "<group>"; };
 		E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadInitialData.m; sourceTree = "<group>"; };
+		E2E36B231DC01DC00086FB8A /* CarModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataClass.h"; sourceTree = "<group>"; };
+		E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataClass.m"; sourceTree = "<group>"; };
+		E2E36B251DC01DC00086FB8A /* CarModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataProperties.h"; sourceTree = "<group>"; };
+		E2E36B261DC01DC00086FB8A /* CarModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataProperties.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,10 +163,10 @@
 		E2CE53791DB4887C0009E5CA /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				E236B39E1DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.h */,
-				E236B39F1DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.m */,
-				E236B3A01DB6AB9F00EEE8B1 /* CarModel+CoreDataProperties.h */,
-				E236B3A11DB6AB9F00EEE8B1 /* CarModel+CoreDataProperties.m */,
+				E2E36B231DC01DC00086FB8A /* CarModel+CoreDataClass.h */,
+				E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */,
+				E2E36B251DC01DC00086FB8A /* CarModel+CoreDataProperties.h */,
+				E2E36B261DC01DC00086FB8A /* CarModel+CoreDataProperties.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -302,13 +302,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2E36B271DC01DC00086FB8A /* CarModel+CoreDataClass.m in Sources */,
 				E2C3329E1DBE858300FB7F3D /* LoadInitialData.m in Sources */,
+				E2E36B281DC01DC00086FB8A /* CarModel+CoreDataProperties.m in Sources */,
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
-				E236B3A21DB6AB9F00EEE8B1 /* CarModel+CoreDataClass.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,
-				E236B3A31DB6AB9F00EEE8B1 /* CarModel+CoreDataProperties.m in Sources */,
 				E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
