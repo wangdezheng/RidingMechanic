@@ -7,11 +7,12 @@
 //
 
 #import "ChooseModelViewController.h"
-
+#define SECTION_NAMES @[@"A", @"B", @"C",@"D", @"F",@"G", @"H",@"I", @"J",@"K", @"L",@"M", @"N",@"P", @"R",@"S", @"T",@"V"]
 
 
 @interface ChooseModelViewController ()<UITableViewDataSource,UITabBarDelegate>
 
+-(NSInteger) calculateRows: (NSInteger) section;
 @end
 
 @implementation ChooseModelViewController
@@ -52,23 +53,95 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    NSInteger sections=[[self.fetchedResultstController sections] count];
-    return sections;
+//    NSInteger sections=[[self.fetchedResultstController sections] count];
+//    return sections;
+    return 18;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger rows=0;
-    if([[self.fetchedResultstController sections] count]>0)
-    {
-        id <NSFetchedResultsSectionInfo> sectionInfo=[[self.fetchedResultstController sections] objectAtIndex:section];
-        rows=[sectionInfo numberOfObjects];
+//    if([[self.fetchedResultstController sections] count]>0)
+//    {
+//        id <NSFetchedResultsSectionInfo> sectionInfo=[[self.fetchedResultstController sections] objectAtIndex:section];
+//        rows=[sectionInfo numberOfObjects];
+//    }
+    if(section==0 ||section==1||section==4){
+        rows=4;
+    }else if(section==2||section==6){
+        rows=3;
+    }else if (section==3||section==5||section==8||section==13||section==14||section==16||section==17){
+        rows=2;
+    }else if(section==7||section==9||section==12){
+        rows=1;
+    }else if(section==10){
+        rows=5;
+    }else if(section==11){
+        rows=8;
+    }else if(section==15){
+        rows=6;
     }
     return rows;
 }
 
+- (NSString *) tableView: (UITableView *) tableView titleForHeaderInSection: (NSInteger) section {
+    NSString *sectionName;
+    for(int i=0;i<18;i++){
+        if(section==i){
+            sectionName=SECTION_NAMES[i];
+            break;
+        }
+    }
+    return sectionName;
+}
+
+-(NSInteger)calculateRows:(NSInteger )section{
+    NSInteger result;
+    if(section==0){
+        result=0;
+    }else if (section==1){
+        result=4;
+    }else if (section==2){
+        result=8;
+    }else if (section==3){
+        result=11;
+    }else if (section==4){
+        result=13;
+    }else if (section==5){
+        result=17;
+    }else if (section==6){
+        result=19;
+    }else if (section==7){
+        result=22;
+    }else if (section==8){
+        result=23;
+    }else if (section==9){
+        result=25;
+    }else if (section==10){
+        result=26;
+    }else if (section==11){
+        result=31;
+    }else if (section==12){
+        result=39;
+    }else if (section==13){
+        result=40;
+    }else if (section==14){
+        result=42;
+    }else if (section==15){
+        result=44;
+    }else if (section==16){
+        result=50;
+    }else if (section==17){
+        result=52;
+    }
+    return result;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    CarModel * carModel=[self.fetchedResultstController objectAtIndexPath:indexPath];
+    NSIndexPath * index;
+    index=[NSIndexPath indexPathForRow:indexPath.row+[self calculateRows:indexPath.section] inSection:0];
+
+    CarModel * carModel=[self.fetchedResultstController objectAtIndexPath:index];
    cell.textLabel.text=carModel.brand;
  
     return cell;
