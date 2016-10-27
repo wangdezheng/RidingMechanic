@@ -86,6 +86,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Riding Mechanic" id="Zob-Tr-1B7">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="adv-rV-rTW"/>
                         <barButtonItem key="leftBarButtonItem" title="Model" id="LUg-6q-yrp">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
@@ -112,10 +113,10 @@
             </objects>
             <point key="canvasLocation" x="-4" y="-1075.4122938530736"/>
         </scene>
-        <!--View Controller-->
+        <!--Device Connecting-->
         <scene sceneID="SE0-IJ-YOo">
             <objects>
-                <viewController id="dTA-7h-QqH" sceneMemberID="viewController">
+                <viewController id="dTA-7h-QqH" customClass="ConnectionViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="f43-0b-wzn"/>
                         <viewControllerLayoutGuide type="bottom" id="qXD-cL-pcJ"/>
@@ -123,12 +124,55 @@
                     <view key="view" contentMode="scaleToFill" id="7IM-Qn-ASw">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Open WIFI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M99-nh-5ER">
+                                <frame key="frameInset" minX="-1" minY="64" width="377" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Plug in device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LyE-w7-HiU">
+                                <frame key="frameInset" minY="115" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8D-ac-7i5">
+                                <frame key="frameInset" minY="165" width="375" height="226"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="imagePortButton" image="OBD_Port"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device plugged please scan now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3c-xY-dsy">
+                                <frame key="frameInset" minX="30" minY="399" width="315" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.66027797086728623" green="0.83330391137313031" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Connect to device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRV-Rv-xzY">
+                                <frame key="frameInset" minX="-1" minY="451" width="377" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Device Connecting" id="vKk-Yk-0sQ"/>
+                    <connections>
+                        <outlet property="connectToDeviceLabel" destination="bRV-Rv-xzY" id="eL6-qc-VuJ"/>
+                        <outlet property="imagePortButton" destination="o8D-ac-7i5" id="JD0-fJ-5et"/>
+                        <outlet property="openWIfiLabel" destination="M99-nh-5ER" id="Ipu-Dd-bLu"/>
+                        <outlet property="plguInLabel" destination="z3c-xY-dsy" id="uVj-Zd-kSE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeK-QE-nAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4" y="-1881"/>
+            <point key="canvasLocation" x="-4" y="-1881.4092953523241"/>
         </scene>
         <!--Choose Model View Controller-->
         <scene sceneID="Ody-38-hvT">
@@ -178,4 +222,7 @@
             <point key="canvasLocation" x="-932" y="-1075.4122938530736"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="OBD_Port" width="750" height="420"/>
+    </resources>
 </document>

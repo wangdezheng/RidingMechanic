@@ -20,6 +20,7 @@
 		E2C3329E1DBE858300FB7F3D /* LoadInitialData.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */; };
 		E2E36B271DC01DC00086FB8A /* CarModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */; };
 		E2E36B281DC01DC00086FB8A /* CarModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B261DC01DC00086FB8A /* CarModel+CoreDataProperties.m */; };
+		E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataClass.m"; sourceTree = "<group>"; };
 		E2E36B251DC01DC00086FB8A /* CarModel+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataProperties.h"; sourceTree = "<group>"; };
 		E2E36B261DC01DC00086FB8A /* CarModel+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataProperties.m"; sourceTree = "<group>"; };
+		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
+		E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				E28ACCE91DADC008008C0E59 /* RootViewController.m */,
 				E28ACCFA1DADF302008C0E59 /* ChooseModelViewController.h */,
 				E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */,
+				E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */,
+				E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
@@ -307,6 +312,7 @@
 				E2E36B281DC01DC00086FB8A /* CarModel+CoreDataProperties.m in Sources */,
 				E259820E1D89EC5D00C07236 /* RidingMechanic.xcdatamodeld in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
+				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */,
 				E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */,
