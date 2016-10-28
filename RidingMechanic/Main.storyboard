@@ -48,35 +48,14 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Route Analysis" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IxC-kY-kjn">
-                                <frame key="frameInset" minX="-8" minY="499" width="391" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="lineLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gje-c4-ULD">
-                                <frame key="frameInset" minX="-8" minY="568" width="391" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="upperLineLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="14P-22-a59">
-                                <frame key="frameInset" minX="-8" minY="499" width="391" height="1"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bottomLineLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7Z-xD-4LM">
-                                <frame key="frameInset" minX="-8" minY="638" width="391" height="1"/>
+                                <frame key="frameInset" minX="-8" minY="500" width="391" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Health Scan" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J3g-O1-sQn">
-                                <frame key="frameInset" minX="-8" minY="568" width="391" height="70"/>
+                                <frame key="frameInset" minX="-8" minY="570" width="391" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -98,15 +77,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomLineLabel" destination="R7Z-xD-4LM" id="ro0-Ty-vz2"/>
                         <outlet property="carModelLabel" destination="tHk-tf-iHJ" id="N3a-dJ-NZK"/>
                         <outlet property="connectionStatusLabel" destination="K40-5O-zhN" id="5bT-0u-6y5"/>
                         <outlet property="healthScanLabel" destination="J3g-O1-sQn" id="Pwn-Xq-o0C"/>
                         <outlet property="imageLabel" destination="uDU-h4-JQC" id="jX4-QR-KSy"/>
-                        <outlet property="lineLabel" destination="Gje-c4-ULD" id="1QV-s6-hxg"/>
                         <outlet property="routeAnalysisLabel" destination="IxC-kY-kjn" id="0Vb-96-UvM"/>
                         <outlet property="startLabel" destination="4DG-2e-lpX" id="idu-Fz-UMo"/>
-                        <outlet property="upperLineLabel" destination="14P-22-a59" id="aqo-JY-BYx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayk-NL-vfy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -144,37 +120,86 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="imagePortButton" image="OBD_Port"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device plugged please scan now" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3c-xY-dsy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Connect to device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRV-Rv-xzY">
+                                <frame key="frameInset" minX="-1" minY="165" width="377" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6K4-M3-8wL">
+                                <frame key="frameInset" minX="320" minY="79" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt7-uD-tmC">
+                                <frame key="frameInset" minX="320" minY="130" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="✓" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z0-MD-UZk">
+                                <frame key="frameInset" minX="320" minY="180" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="35"/>
+                                <color key="textColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4d0-UT-cdf">
                                 <frame key="frameInset" minX="30" minY="399" width="315" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.66027797086728623" green="0.83330391137313031" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="    Connect to device" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bRV-Rv-xzY">
-                                <frame key="frameInset" minX="-1" minY="451" width="377" height="50"/>
+                                <color key="backgroundColor" red="0.64353884724223143" green="1" blue="0.98670554092125562" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Device plugged please scan now">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="readyToScan:" destination="dTA-7h-QqH" eventType="touchUpInside" id="8zf-tS-Tgm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Hint: Pay attention to new WIFI appears in WIFI list" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RYT-Ep-LAf">
+                                <frame key="frameInset" minX="39" minY="215" width="297" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rr2-lo-SXa">
+                                <frame key="frameInset" minX="101" minY="275" width="148" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.64353884719999999" green="1" blue="0.98670554089999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="Yes, Wifi conneted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="checkWifiConneted:" destination="dTA-7h-QqH" eventType="touchUpInside" id="8vH-pR-WPY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Device Connecting" id="vKk-Yk-0sQ"/>
                     <connections>
+                        <outlet property="confirmButton" destination="Rr2-lo-SXa" id="9N0-zb-Php"/>
                         <outlet property="connectToDeviceLabel" destination="bRV-Rv-xzY" id="eL6-qc-VuJ"/>
+                        <outlet property="hintLabel" destination="RYT-Ep-LAf" id="ehV-cO-P9T"/>
                         <outlet property="imagePortButton" destination="o8D-ac-7i5" id="JD0-fJ-5et"/>
                         <outlet property="openWIfiLabel" destination="M99-nh-5ER" id="Ipu-Dd-bLu"/>
-                        <outlet property="plguInLabel" destination="z3c-xY-dsy" id="uVj-Zd-kSE"/>
+                        <outlet property="plugInLbael" destination="LyE-w7-HiU" id="N5N-lc-k6k"/>
+                        <outlet property="scanButton" destination="4d0-UT-cdf" id="mdx-hw-kAj"/>
+                        <outlet property="statusOfConnectionLabel" destination="8z0-MD-UZk" id="wRp-HB-VtR"/>
+                        <outlet property="statusOfDevice" destination="Yt7-uD-tmC" id="2Zk-bN-Csy"/>
+                        <outlet property="statusOfWifiLabel" destination="6K4-M3-8wL" id="Kvn-Wd-P6t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xeK-QE-nAs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-4" y="-1881.4092953523241"/>
         </scene>
-        <!--Choose Model View Controller-->
+        <!--Choose Model-->
         <scene sceneID="Ody-38-hvT">
             <objects>
                 <tableViewController id="nrj-Gu-92X" customClass="ChooseModelViewController" sceneMemberID="viewController">
@@ -197,7 +222,7 @@
                             <outlet property="delegate" destination="nrj-Gu-92X" id="xK5-pc-1OJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="Fgj-Br-g7O"/>
+                    <navigationItem key="navigationItem" title="Choose Model" id="jLN-C5-Vgq"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="331-sA-uBI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
