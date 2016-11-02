@@ -17,6 +17,7 @@
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
 		E28ACCEA1DADC008008C0E59 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCE91DADC008008C0E59 /* RootViewController.m */; };
 		E28ACCFC1DADF302008C0E59 /* ChooseModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */; };
+		E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E2C3329E1DBE858300FB7F3D /* LoadInitialData.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */; };
 		E2E36B271DC01DC00086FB8A /* CarModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */; };
 		E2E36B281DC01DC00086FB8A /* CarModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B261DC01DC00086FB8A /* CarModel+CoreDataProperties.m */; };
@@ -61,6 +62,7 @@
 		E28ACCE91DADC008008C0E59 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		E28ACCFA1DADF302008C0E59 /* ChooseModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseModelViewController.h; sourceTree = "<group>"; };
 		E28ACCFB1DADF302008C0E59 /* ChooseModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseModelViewController.m; sourceTree = "<group>"; };
+		E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2C3329C1DBE858300FB7F3D /* LoadInitialData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadInitialData.h; sourceTree = "<group>"; };
 		E2C3329D1DBE858300FB7F3D /* LoadInitialData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadInitialData.m; sourceTree = "<group>"; };
 		E2E36B231DC01DC00086FB8A /* CarModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataClass.h"; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +108,7 @@
 				E259821C1D89EC5D00C07236 /* RidingMechanicTests */,
 				E25982271D89EC5D00C07236 /* RidingMechanicUITests */,
 				E25981FE1D89EC5D00C07236 /* Products */,
+				E2BC6C9B1DC6915A000A2E49 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -168,6 +172,14 @@
 				E259822A1D89EC5D00C07236 /* Info.plist */,
 			);
 			path = RidingMechanicUITests;
+			sourceTree = "<group>";
+		};
+		E2BC6C9B1DC6915A000A2E49 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		E2CE53791DB4887C0009E5CA /* Model */ = {

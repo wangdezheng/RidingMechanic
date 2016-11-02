@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class Reachability;
 @interface ConnectionViewController : UIViewController
+
+@property Reachability* internetReachable;
+
+-(void) checkNetworkStatus:(NSNotification *)notice;
 
 @end

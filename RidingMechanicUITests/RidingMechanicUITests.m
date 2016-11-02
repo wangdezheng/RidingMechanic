@@ -32,9 +32,66 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // Use recording to get started writing UI tests
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+- (void)testIfConnectionWork {  //test if the  "Connect to device screen exists"
+    XCUIApplication *app=[[XCUIApplication alloc] init];
+    [app.buttons[@"Start Connecting"] tap];
+    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
 }
+
+-(void) testWifiCloseDisplay{ //test when wifi closes, if the screen can display normally
+    XCUIApplication *app=[[XCUIApplication alloc] init];
+    [app.buttons[@"Start Connecting"] tap];
+    
+    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
+    XCTAssert(app.staticTexts[@"    Plug in device"].exists);
+    XCTAssert(app.staticTexts[@"    Connect to device"].exists);
+    
+    XCTAssert(!app.buttons[@"Device plugged please scan now"].exists);
+    XCTAssert(!app.buttons[@"imagePortButton"].exists);
+    XCTAssert(!app.staticTexts[@"Hint: Pay attention to new WIFI appears in WIFI list"].exists);
+    XCTAssert(!app.buttons[@"Yes, Wifi conneted"].exists);
+}
+
+-(void) testWifiOpenDisplay{//test if the screen can display normally when wifi opens
+    XCUIApplication *app=[[XCUIApplication alloc] init];
+    [app.buttons[@"Start Connecting"] tap];
+    
+    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
+    XCTAssert(app.staticTexts[@"    Plug in device"].exists);
+    XCTAssert(app.buttons[@"Device plugged please scan now"].exists);
+    XCTAssert(app.buttons[@"imagePortButton"].exists);
+    XCTAssert(app.staticTexts[@"    Connect to device"].exists);
+    
+    XCTAssert(!app.staticTexts[@"Hint: Pay attention to new WIFI appears in WIFI list"].exists);
+    XCTAssert(!app.buttons[@"Yes, Wifi conneted"].exists);
+
+}
+
+-(void) testClickPlugInButton{//test if screen can display normally when click plugInButton
+    XCUIApplication *app=[[XCUIApplication alloc] init];
+    [app.buttons[@"Start Connecting"] tap];
+    [app.buttons[@"Device plugged please scan now"] tap];
+
+    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
+    XCTAssert(app.staticTexts[@"    Plug in device"].exists);
+    XCTAssert(app.staticTexts[@"    Connect to device"].exists);
+    XCTAssert(app.staticTexts[@"Hint: Pay attention to new WIFI appears in WIFI list"].exists);
+    XCTAssert(app.buttons[@"Yes, Wifi conneted"].exists);
+    
+    XCTAssert(!app.buttons[@"Device plugged please scan now"].exists);
+    XCTAssert(!app.buttons[@"imagePortButton"].exists);
+}
+
+
+
+
+
+//
+//- (void)testWifiCloseWhenConnecting {
+//    [[[XCUIApplication alloc] init].buttons[@"Start Connecting"] tap];
+//
+//    
+//}
 
 @end

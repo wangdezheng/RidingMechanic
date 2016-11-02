@@ -25,16 +25,14 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
 
-@property Reachability *reachabilityInfo;
-
--(void)reachabilityChanged: (NSNotification *) aNSNotification;
 -(void)readyToPlugIn;
+-(void)wifiCloseAfterOpen;
 
 @end
 
 @implementation ConnectionViewController
 
-- (void)viewDidLoad {
+- (void)viewWillAppear:(BOOL)animated {
     [super viewDidLoad];
     self.openWIfiLabel.layer.borderWidth=0.5;
     self.connectToDeviceLabel.layer.borderWidth=0.5;
@@ -52,21 +50,27 @@
     [self.openWIfiLabel setTextColor:[UIColor blueColor]];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reachabilityChanged:)
+                                             selector:@selector(checkNetworkStatus:)
                                                  name:kReachabilityChangedNotification
                                                object:nil];
+
     
-    self.reachabilityInfo = [Reachability reachabilityForInternetConnection];
-    [self.reachabilityInfo startNotifier];
-    
+    self.internetReachable = [Reachability reachabilityForInternetConnection];
+    [self.internetReachable startNotifier];
+    NetworkStatus internetStatus = [self.internetReachable currentReachabilityStatus];
+    if(internetStatus==ReachableViaWiFi){
+        [self readyToPlugIn];
+    }
+
 }
 
--(void)reachabilityChanged: (NSNotification *) aNSNotification{
-    Reachability *reachability=[aNSNotification object];
-    NetworkStatus status=[reachability currentReachabilityStatus];
-    NSLog(@"Status:%ld",status);
-    if(status==1){
+
+-(void)checkNetworkStatus: (NSNotification *) aNSNotification{
+   NetworkStatus internetStatus = [self.internetReachable currentReachabilityStatus];
+    if(internetStatus==ReachableViaWiFi){
         [self readyToPlugIn];
+    }else if(internetStatus==NotReachable){
+        [self wifiCloseAfterOpen];
     }
 }
 
@@ -86,10 +90,37 @@
     [self.plugInLbael setTextColor:[UIColor blueColor]];
 }
 
+-(void)wifiCloseAfterOpen{
+    [self.plugInLbael setTextColor:[UIColor blackColor]];
+    
+    if([self.imagePortButton isHidden]&&[self.scanButton isHidden]){
+                [self.statusOfDevice setHidden:YES];
+    }else{
+        [self.scanButton setHidden:YES];
+        
+        [self.imagePortButton setHidden:YES];
+        [self.imagePortButton setEnabled:YES];
+        
+        float newY=self.connectToDeviceLabel.frame.origin.y-self.imagePortButton.frame.size.height-self.scanButton.frame.size.height-20;
+        self.connectToDeviceLabel.frame = CGRectMake(self.connectToDeviceLabel.frame.origin.x, newY, self.connectToDeviceLabel.frame.size.width,self.connectToDeviceLabel.frame.size.height);
+    }
+    
+    if([self.connectToDeviceLabel textColor]==[UIColor blueColor]){
+        [self.connectToDeviceLabel setTextColor:[UIColor blackColor]];
+        [self.hintLabel setHidden:YES];
+        [self.confirmButton setHidden:YES];
+        
+    }
+    
+    [self.statusOfWifiLabel setHidden:YES];
+    [self.openWIfiLabel setTextColor:[UIColor blueColor]];
+}
+
 
 -(IBAction) readyToScan:(id)sender{
     [self.plugInLbael setTextColor:[UIColor cyanColor]];
     [self.statusOfDevice setHidden:NO];
+    
     [self.hintLabel setHidden:NO];
     [self.confirmButton setHidden:NO];
     
@@ -103,6 +134,12 @@
 }
 
 -(IBAction)checkWifiConneted:(id)sender{
+    [self.statusOfConnectionLabel setHidden:NO];
+    
+    [self.hintLabel setHidden:YES];
+    [self.confirmButton setHidden:YES];
+    
+    [self.navigationController popViewControllerAnimated:YES];
     
 }
 
@@ -120,7 +157,7 @@
     // Pass the selected object to the new view controller.
 }
 */
--(void)viewWillAppear:(BOOL)animated{
+-(void)viewDidDisappear:(BOOL)animated{
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
