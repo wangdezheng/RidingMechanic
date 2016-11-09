@@ -64,6 +64,20 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    self.client = [MSClient
+                   clientWithApplicationURLString:@"https://ridingmechanic.azurewebsites.net"
+                   ];
+    
+    MSClient *client = [(AppDelegate *) [[UIApplication sharedApplication] delegate] client];
+    NSDictionary *item = @{ @"text" : @"Awesome item" };
+    MSTable *itemTable = [client tableWithName:@"TodoItem"];
+    [itemTable insert:item completion:^(NSDictionary *insertedItem, NSError *error) {
+        if (error) {
+            NSLog(@"Error: %@", error);
+        } else {
+            NSLog(@"Item inserted, id: %@", [insertedItem objectForKey:@"id"]);
+        }
+    }];
     return YES;
 }
 

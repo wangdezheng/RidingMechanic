@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
+#import <MicrosoftAzureMobile/MicrosoftAzureMobile.h>
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
+
+@property (strong, nonatomic) MSClient *client;
 
 @property (strong, nonatomic) UIWindow *window;
 

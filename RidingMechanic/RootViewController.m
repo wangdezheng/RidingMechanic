@@ -26,9 +26,8 @@
 
 -(void) viewWillAppear:(BOOL)animated
 {
+    
 
-    //[self.routeAnalysisLabel setBackgroundColor:[UIColor cyanColor] ];
-    //[self.healthScanLabel setBackgroundColor:[UIColor cyanColor]];
 }
 
 - (void) viewDidLoad {
