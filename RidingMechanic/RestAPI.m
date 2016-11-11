@@ -8,11 +8,10 @@
 
 #import "RestAPI.h"
 
-@interface RestAPI() <NSURLSessionDataDelegate>
+@interface RestAPI() <NSURLSessionTaskDelegate,NSURLSessionDataDelegate>
 
 @property (nonatomic,strong) NSMutableData * receivedData;
 @property (nonatomic,strong) NSURLSession *requestSession;
-@property (nonatomic,strong) NSURLSessionConfiguration * config;
 
 @end
 
@@ -29,7 +28,7 @@
 
 -(NSURLSession *) requestSession
 {
-    if(_requestSession){
+    if(!_requestSession){
         _requestSession=[[NSURLSession alloc] init];
     }
     
@@ -38,14 +37,14 @@
 
 -(void)httpRequest:(NSMutableURLRequest *)request
 {
-    self.config=[NSURLSessionConfiguration defaultSessionConfiguration];
-    self.requestSession=[NSURLSession sessionWithConfiguration:self.config delegate:self delegateQueue:nil];
+    self.requestSession=[NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:nil];
     
     NSURLSessionDataTask *task = [self.requestSession dataTaskWithRequest:request];
     
     [task resume];
     
 }
+                                  
 
 -(void) URLSession:(NSURLSession *)session dataTask:(nonnull NSURLSessionDataTask *)dataTask didReceiveResponse:(nonnull NSURLResponse *)response completionHandler:(nonnull void (^)(NSURLSessionResponseDisposition))completionHandler{
     
@@ -60,12 +59,12 @@
 - (void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didCompleteWithError:(NSError *)error {
     if(error){
     NSLog(@"%@",error.description);
+    }else{
+        [self.delegate getReceivedData:self.receivedData sender:self];
+        self.delegate=nil;
+        self.requestSession=nil;
+        self.receivedData=nil;
     }
-    
-    [self.delegate getReceivedData:self.receivedData sender:self];
-    self.delegate=nil;
-    self.requestSession=nil;
-    self.receivedData=nil;
 }
 
 @end

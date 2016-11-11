@@ -205,7 +205,7 @@
         <!--Choose Model-->
         <scene sceneID="Ody-38-hvT">
             <objects>
-                <tableViewController id="nrj-Gu-92X" customClass="ChooseModelViewController" sceneMemberID="viewController">
+                <tableViewController id="nrj-Gu-92X" customClass="TestTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="mfx-y8-DlY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
