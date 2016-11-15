@@ -10,7 +10,7 @@
 
 @class RestAPI;
 
-@protocol RequestAPIDelegate
+@protocol RestAPIDelegate
 -(void) getReceivedData:(NSMutableData *)data sender:(RestAPI *) sender;
 
 @end
@@ -19,7 +19,7 @@
 
 -(void)httpRequest:(NSMutableURLRequest *) request;
 
-@property (nonatomic, weak) id <RequestAPIDelegate> delegate;
+@property (nonatomic, weak) id <RestAPIDelegate> delegate;
 @end
 
 #define POST @"POST"

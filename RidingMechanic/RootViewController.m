@@ -24,16 +24,15 @@
 @implementation RootViewController
 
 
--(void) viewWillAppear:(BOOL)animated
-{
-    
-
-}
-
 - (void) viewDidLoad {
     [super viewDidLoad];
     self.routeAnalysisLabel.layer.borderWidth=0.25;
     self.healthScanLabel.layer.borderWidth=0.3;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 @end

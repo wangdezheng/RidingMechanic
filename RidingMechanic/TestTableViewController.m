@@ -2,7 +2,7 @@
 //  TestTableViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 11/9/16.
+//  Created by Dezheng Wang  on 11/9/16.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "RestAPI.h"
 
 
-@interface TestTableViewController ()<RequestAPIDelegate>
+@interface TestTableViewController ()<RestAPIDelegate>
 
 @property (nonatomic,strong) RestAPI * restApi;
 
@@ -29,7 +29,7 @@
 
 -(void)httpGetRequest
 {
-     NSString *str=@"http://localhost:9000/carmodels";
+    NSString *str=@"http://localhost:9000/carmodels";
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     str=[str stringByAddingPercentEncodingWithAllowedCharacters:set];
     NSURL *url=[NSURL URLWithString:str];
