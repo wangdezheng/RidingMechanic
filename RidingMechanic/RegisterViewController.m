@@ -28,7 +28,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *passwordErrorLabel;
 @property (strong, nonatomic) IBOutlet UILabel *confirErrorLabel;
 
-
+@property (strong,nonatomic) UIAlertController * alertController;
 
 @property (nonatomic,strong) RestAPI * restApi;
 @property (strong,nonatomic) NSMutableArray  *emailArray;
@@ -97,6 +97,9 @@
 {
     [self.navigationController setNavigationBarHidden:NO];
     [self httpGetRequest];
+    self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: nil preferredStyle: UIAlertControllerStyleAlert];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"Please check your input" style: UIAlertActionStyleCancel handler:nil]];
+ 
 }
 
 
@@ -152,7 +155,13 @@
 
 -(IBAction)submit:(id)sender
 {
-    
+    if([self.emailPassLabel isHidden]||[self.passwordPassLabel isHidden]||[self.confirmPassLabel isHidden]){
+        [self presentViewController: self.alertController animated: YES completion: nil];
+        return;
+    }else{
+        
+    }
+
 }
 
 
