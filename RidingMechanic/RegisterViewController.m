@@ -31,7 +31,9 @@
 @property (strong,nonatomic) UIAlertController * alertController;
 
 @property (nonatomic,strong) RestAPI * restApi;
-@property (strong,nonatomic) NSMutableArray  *emailArray;
+
+@property (strong,nonatomic) NSData *postBody;
+
 @property (strong,nonatomic) NSMutableArray  *emailList;
 
 @end
@@ -45,16 +47,6 @@
         _restApi=[[RestAPI alloc] init];
     }
     return _restApi;
-}
-
-
--(NSMutableArray *)emailArray
-{
-    if(!_emailArray)
-    {
-        _emailArray=[[NSMutableArray alloc] init];
-    }
-    return _emailArray;
 }
 
 -(NSMutableArray *)emailList
@@ -78,15 +70,30 @@
     [self.restApi httpRequest:request];
 }
 
+-(void)httpPostRequest
+{
+    NSString *str=@"http://localhost:9000/userInfo";
+    NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
+    str=[str stringByAddingPercentEncodingWithAllowedCharacters:set];
+    NSURL *url=[NSURL URLWithString:str];
+    NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
+    [request setHTTPBody:self.postBody];
+    [request setHTTPMethod:POST];
+    self.restApi.delegate=self;
+    [self.restApi httpRequest:request];
+}
+
 -(void)getReceivedData:(NSMutableData *)data sender:(RestAPI *)sender
 {
     NSError *error=nil;
-    self.emailArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    for(int i=0;i<self.emailArray.count;i++){
-        [self.emailList addObject:self.emailArray[i][@"email"]];
-        NSLog(@"%@",self.emailArray[i][@"email"]);
+    NSMutableArray *emailArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    for(int i=0;i<emailArray.count;i++){
+        [self.emailList addObject:emailArray[i][@"email"]];
+//        NSLog(@"%@",emailArray[i][@"email"]);
     }
 }
+
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -159,7 +166,21 @@
         [self presentViewController: self.alertController animated: YES completion: nil];
         return;
     }else{
+        NSMutableDictionary *data=[[NSMutableDictionary alloc] init];
+        NSLog(@"%@,%@",self.emailField.text,self.passwordField.text);
         
+        [data setObject:self.emailField.text forKey:@"email"];
+        [data setObject:self.passwordField.text forKey:@"password"];
+        
+        if([NSJSONSerialization isValidJSONObject:data]){
+            self.postBody=nil;
+            NSError *error=nil;
+            self.postBody=[NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
+        }else{
+            NSLog(@"data can't convert to JSON type");
+        }
+        
+        [self httpPostRequest];
     }
 
 }
@@ -169,15 +190,4 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end
