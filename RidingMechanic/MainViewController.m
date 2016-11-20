@@ -6,11 +6,11 @@
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "MainViewController.h"
 #import "QuartzCore/QuartzCore.h"
 
 
-@interface RootViewController ()
+@interface MainViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *imageLabel;
 @property (strong, nonatomic) IBOutlet UILabel *carModelLabel;
 @property (strong, nonatomic) IBOutlet UILabel *connectionStatusLabel;
@@ -21,7 +21,7 @@
 
 @end
 
-@implementation RootViewController
+@implementation MainViewController
 
 
 - (void) viewDidLoad {

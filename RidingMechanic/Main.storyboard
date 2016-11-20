@@ -12,7 +12,7 @@
         <!--Riding Mechanic-->
         <scene sceneID="ZF5-4j-uSk">
             <objects>
-                <viewController id="nKG-fX-Gja" customClass="RootViewController" sceneMemberID="viewController">
+                <viewController id="nKG-fX-Gja" customClass="MainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="UaM-ph-MJG"/>
                         <viewControllerLayoutGuide type="bottom" id="7fg-ka-GLc"/>
@@ -124,7 +124,7 @@
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login"/>
                                 <connections>
-                                    <segue destination="nKG-fX-Gja" kind="show" id="ciF-TS-uNl"/>
+                                    <action selector="login:" destination="4b0-oT-a2k" eventType="touchUpInside" id="z1o-AC-sGh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KHR-47-OjH">
@@ -142,10 +142,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5De-QR-96T">
+                                <rect key="frame" x="44" y="323" width="282" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <color key="textColor" red="1" green="0.42997095470000002" blue="0.2364157707" alpha="0.80259018459999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="MUo-q6-1co"/>
+                    <connections>
+                        <outlet property="emailField" destination="DCX-2Y-Y5O" id="wmW-ad-Odl"/>
+                        <outlet property="loginFailedLabel" destination="5De-QR-96T" id="fLp-TT-n2T"/>
+                        <outlet property="passwordField" destination="KUR-qz-BIl" id="idz-T8-a2e"/>
+                        <segue destination="nKG-fX-Gja" kind="show" identifier="loginSuccessfully" id="Z9F-Qe-Dga"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6fv-xN-yPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,7 +198,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKP-Vb-n0e">
                                 <rect key="frame" x="123" y="81" width="128" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="account"/>
+                                <state key="normal" image="account"/>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pHw-Co-Ulj">
                                 <rect key="frame" x="49" y="260" width="277" height="30"/>
@@ -293,11 +306,12 @@
                         <outlet property="passwordField" destination="wCh-Ci-F6n" id="w35-58-O8h"/>
                         <outlet property="passwordPassLabel" destination="1H5-XI-W3K" id="Adh-RH-hpp"/>
                         <outlet property="passwordWarnLabel" destination="kSj-SE-vpW" id="p6P-ai-dV9"/>
+                        <segue destination="4b0-oT-a2k" kind="show" identifier="registerSuccessfully" id="9t7-JS-mrL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7D-VX-wPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-599.20000000000005" y="-332.38380809595208"/>
+            <point key="canvasLocation" x="-599" y="-203"/>
         </scene>
         <!--Device Connecting-->
         <scene sceneID="SE0-IJ-YOo">
@@ -422,7 +436,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hOH-GL-oP0" id="OaN-Ze-bV6">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -454,11 +468,14 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tan-mb-fBl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1522" y="-1075"/>
+            <point key="canvasLocation" x="-1655" y="-1075"/>
         </scene>
     </scenes>
     <resources>
         <image name="OBD_Port" width="750" height="420"/>
         <image name="account" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9t7-JS-mrL"/>
+    </inferredMetricsTieBreakers>
 </document>

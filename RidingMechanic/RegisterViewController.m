@@ -93,23 +93,6 @@
     }
 }
 
-
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [self.navigationController setNavigationBarHidden:NO];
-    [self httpGetRequest];
-    self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: nil preferredStyle: UIAlertControllerStyleAlert];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"Please check your input" style: UIAlertActionStyleCancel handler:nil]];
- 
-}
-
-
 -(IBAction)emailFieldEditingChange:(id)sender
 {
     if(![_emailField.text containsString:@"@"]){
@@ -165,9 +148,9 @@
     if([self.emailPassLabel isHidden]||[self.passwordPassLabel isHidden]||[self.confirmPassLabel isHidden]){
         [self presentViewController: self.alertController animated: YES completion: nil];
         return;
+        
     }else{
         NSMutableDictionary *data=[[NSMutableDictionary alloc] init];
-        NSLog(@"%@,%@",self.emailField.text,self.passwordField.text);
         
         [data setObject:self.emailField.text forKey:@"email"];
         [data setObject:self.passwordField.text forKey:@"password"];
@@ -181,10 +164,25 @@
         }
         
         [self httpPostRequest];
+        [self performSegueWithIdentifier:@"registerSuccessfully" sender:sender];
     }
 
 }
 
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [self.navigationController setNavigationBarHidden:NO];
+    [self httpGetRequest];
+    self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: nil preferredStyle: UIAlertControllerStyleAlert];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"Please check your input" style: UIAlertActionStyleCancel handler:nil]];
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
