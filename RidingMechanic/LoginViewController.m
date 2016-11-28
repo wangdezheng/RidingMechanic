@@ -8,7 +8,6 @@
 
 #import "LoginViewController.h"
 #import "RestAPI.h"
-#import "MainViewController.h"
 
 @interface LoginViewController ()<RestAPIDelegate>
 
