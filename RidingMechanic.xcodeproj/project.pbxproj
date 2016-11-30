@@ -21,6 +21,7 @@
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004361DECF24600FCC18E /* ChooseModelTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004341DECF24600FCC18E /* ChooseModelTableViewController.m */; };
+		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
 		E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E2E36B271DC01DC00086FB8A /* CarModel+CoreDataClass.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */; };
 		E2E36B281DC01DC00086FB8A /* CarModel+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B261DC01DC00086FB8A /* CarModel+CoreDataProperties.m */; };
@@ -73,6 +74,8 @@
 		E2A004321DECF24500FCC18E /* CarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModelViewController.m; sourceTree = "<group>"; };
 		E2A004331DECF24500FCC18E /* ChooseModelTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseModelTableViewController.h; sourceTree = "<group>"; };
 		E2A004341DECF24600FCC18E /* ChooseModelTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseModelTableViewController.m; sourceTree = "<group>"; };
+		E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2E36B231DC01DC00086FB8A /* CarModel+CoreDataClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CarModel+CoreDataClass.h"; sourceTree = "<group>"; };
 		E2E36B241DC01DC00086FB8A /* CarModel+CoreDataClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CarModel+CoreDataClass.m"; sourceTree = "<group>"; };
@@ -150,6 +153,8 @@
 				E2A004321DECF24500FCC18E /* CarModelViewController.m */,
 				E2A004331DECF24500FCC18E /* ChooseModelTableViewController.h */,
 				E2A004341DECF24600FCC18E /* ChooseModelTableViewController.m */,
+				E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */,
+				E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
@@ -348,6 +353,7 @@
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
+				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
 				E2A004361DECF24600FCC18E /* ChooseModelTableViewController.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
