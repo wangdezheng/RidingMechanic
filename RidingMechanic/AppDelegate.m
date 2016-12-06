@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "Car+CoreDataClass.h"
 
 @interface AppDelegate ()
 
@@ -64,6 +65,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    Car *car=(Car *)[NSEntityDescription insertNewObjectForEntityForName:@"Car" inManagedObjectContext: self.managedObjectContext];
+    car.wifiStatus=@"unconnected";
     return YES;
 }
 

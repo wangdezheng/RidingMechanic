@@ -7,31 +7,44 @@
 //
 
 #import "CarModelViewController.h"
+#import "QueryFromCoreData.h"
+#import "Reachability.h"
 
 @interface CarModelViewController ()
+@property (strong, nonatomic) IBOutlet UIBarButtonItem *wifiStatus;
+@property (strong, nonatomic) IBOutlet UIButton *startTripButton;
+
 
 @end
 
 @implementation CarModelViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
+- (void)viewDidLoad
+{
+    
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    QueryFromCoreData *query=[[QueryFromCoreData alloc] init];
+    if([[query queryWifiStatus ] isEqualToString:@"connected"]){
+        self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi Filled"];
+        [self.startTripButton setHidden:NO];
+    }else{
+        self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi"];
+        [self.startTripButton setHidden:YES];
+    }
+}
+
+-(IBAction)startTrip:(id)sender
+{
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

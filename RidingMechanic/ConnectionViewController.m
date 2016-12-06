@@ -8,6 +8,9 @@
 
 #import "ConnectionViewController.h"
 #import "Reachability.h"
+#import "QueryFromCoreData.h"
+#import "Car+CoreDataClass.h"
+
 
 @interface ConnectionViewController ()
 @property (strong, nonatomic) IBOutlet UILabel *openWIfiLabel;
@@ -25,6 +28,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
 
+
 -(void)readyToPlugIn;
 -(void)wifiCloseAfterOpen;
 
@@ -33,7 +37,10 @@
 @implementation ConnectionViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    [super viewDidLoad];
+    QueryFromCoreData* query=[[QueryFromCoreData alloc] init];
+    Car * car=[query changeWifiStatus];
+    car.wifiStatus=@"unconnected";
+    
     self.openWIfiLabel.layer.borderWidth=0.5;
     self.connectToDeviceLabel.layer.borderWidth=0.5;
     
@@ -138,6 +145,10 @@
     
     [self.hintLabel setHidden:YES];
     [self.confirmButton setHidden:YES];
+    
+    QueryFromCoreData* query=[[QueryFromCoreData alloc] init];
+    Car * car=[query changeWifiStatus];
+    car.wifiStatus=@"connected";
     
     [self.navigationController popViewControllerAnimated:YES];
     

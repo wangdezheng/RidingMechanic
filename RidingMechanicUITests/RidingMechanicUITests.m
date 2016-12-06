@@ -83,15 +83,91 @@
     XCTAssert(!app.buttons[@"imagePortButton"].exists);
 }
 
+-(void) testLoginFunction{//test if login funtion works correctly
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    
+    XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123456"];
+    XCUIElement *loginButton = app.buttons[@"Login"];
+    [loginButton tap];
+    XCTAssert(app.staticTexts[@"Incorrect username or password"].exists);
+    
+    [emailAddressTextField tap];
+    [app.buttons[@"Clear text"] tap];
+    [passwordSecureTextField tap];
+    [app.buttons[@"Clear text"] tap];
+    [loginButton tap];
+    XCTAssert(app.staticTexts[@"Incorrect username or password"].exists);
+    
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    [loginButton tap];
+    
+    
+    XCTAssert(!emailAddressTextField.exists);
+    XCTAssert(!passwordSecureTextField.exists);
+    XCTAssert(!loginButton.exists);
+    XCTAssert(!app.buttons[@"Register"].exists);
+    XCTAssert(!app.staticTexts[@"Incorrect username or password"].exists);
+}
+
+-(void)testRegisterFunction{
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    [app.buttons[@"Register"] tap];
+    
+    XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    XCTAssert(app.staticTexts[@"!"].exists);
+    XCTAssert(app.staticTexts[@"Sorry, this email had been used!"].exists);
+    
+    [emailAddressTextField typeText:@"793013053@qq.com"];
+    XCTAssert(!app.staticTexts[@"!"].exists);
+    XCTAssert(!app.staticTexts[@"Sorry, this email had been used!"].exists);
+
+    XCUIElement *submitButton = app.buttons[@"Submit"];
+    [submitButton tap];
+    
+    XCUIElement *errorAlert = app.alerts[@"Error!"];
+    XCTAssert(errorAlert.exists);
+    XCUIElement *pleaseCheckYourInputButton = errorAlert.buttons[@"Please check your input"];
+    XCTAssert(pleaseCheckYourInputButton.exists);
+    [pleaseCheckYourInputButton tap];
+    
+    XCUIElement *passwordSecureTextField = app.textFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    
+    XCUIElement *confirmPasswordSecureTextField = app.textFields[@"Confirm password"];
+    [confirmPasswordSecureTextField tap];
+    [confirmPasswordSecureTextField typeText:@"123456"];
+    
+    XCTAssert(app.staticTexts[@"!"].exists);
+    XCTAssert(app.staticTexts[@"Passwords must match"].exists);
+    
+    [submitButton tap];
+    XCTAssert(errorAlert.exists);
+    XCTAssert(pleaseCheckYourInputButton.exists);
+    [pleaseCheckYourInputButton tap];
+    
+    
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    [confirmPasswordSecureTextField tap];
+    [confirmPasswordSecureTextField typeText:@"123"];
+    [app.buttons[@"Submit"] tap];
+    
+    XCTAssert(app.buttons[@"Login"].exists);
+}
 
 
 
-
-//
-//- (void)testWifiCloseWhenConnecting {
-//    [[[XCUIApplication alloc] init].buttons[@"Start Connecting"] tap];
-//
-//    
-//}
 
 @end
