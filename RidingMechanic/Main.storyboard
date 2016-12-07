@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewq-5n-osY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1618" y="-715"/>
+            <point key="canvasLocation" x="1570" y="-837"/>
         </scene>
         <!--Riding Mechanic-->
         <scene sceneID="p3d-5T-msi">
@@ -112,13 +112,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gvu-A5-tf2">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="car" translatesAutoresizingMaskIntoConstraints="NO" id="DlS-bZ-bU2">
+                                <rect key="frame" x="0.0" y="58" width="375" height="565"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <state key="normal" image="car"/>
-                            </button>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Li-nv-Sa0">
                                 <rect key="frame" x="154" y="115" width="66" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -144,7 +141,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcu-js-q7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1168" y="-139"/>
+            <point key="canvasLocation" x="1167.2" y="-139.880059970015"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gWJ-oJ-9km">
@@ -194,7 +191,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XQn-aM-l9z">
-                            <rect key="frame" x="0.0" y="182" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="182" width="375" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="1" green="0.51692873147631335" blue="0.54944092306513248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Log Out">
@@ -217,10 +214,69 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Account" id="XEg-Dp-bHG"/>
+                    <connections>
+                        <segue destination="hip-Hf-HKn" kind="show" identifier="showResetPassword" id="stR-na-E0X"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XK-aX-qBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2452" y="-3143"/>
+            <point key="canvasLocation" x="2452" y="-3143.4782608695655"/>
+        </scene>
+        <!--Reset Password-->
+        <scene sceneID="QgI-Np-D5p">
+            <objects>
+                <viewController id="hip-Hf-HKn" customClass="ResetPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="xga-u8-4Bo"/>
+                        <viewControllerLayoutGuide type="bottom" id="8FE-3v-ksG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XFO-vL-bc9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Current password" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ipF-qX-faS">
+                                <rect key="frame" x="34" y="100" width="306" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qOU-nQ-LgK">
+                                <rect key="frame" x="34" y="170" width="306" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Confirm password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CD0-SK-NaH">
+                                <rect key="frame" x="34" y="240" width="306" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lQH-Wd-n8o">
+                                <rect key="frame" x="68" y="300" width="239" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="submit:" destination="hip-Hf-HKn" eventType="touchUpInside" id="j54-1j-n4B"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reset Password" id="TaP-ad-Njh"/>
+                    <connections>
+                        <outlet property="confirmPwdTextField" destination="CD0-SK-NaH" id="i1r-Lo-4zS"/>
+                        <outlet property="currentPwdTextField" destination="ipF-qX-faS" id="uEW-al-Z2O"/>
+                        <outlet property="pwdTextField" destination="qOU-nQ-LgK" id="92K-bF-sik"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eSC-iS-GKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3429.5999999999999" y="-3143.4782608695655"/>
         </scene>
         <!--More-->
         <scene sceneID="qg2-aw-PSl">
@@ -232,7 +288,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="KOV-6Z-xp5">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KOV-6Z-xp5" id="7mT-6y-Rgi">
                                     <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
@@ -556,7 +612,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfB-EB-K0q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="XSa-Pn-Gfp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HBa-tO-mPL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HBa-tO-mPL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

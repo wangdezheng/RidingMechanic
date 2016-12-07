@@ -13,6 +13,7 @@
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
 		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
+		E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */; };
 		E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9DE1DCA6E9200D0776B /* Reachability.m */; };
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
@@ -57,6 +58,8 @@
 		E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		E21D27631DCE6722001EAD26 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		E21D27651DCE6A62001EAD26 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E224698F1DF86EC200A4C207 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
+		E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		E244C9DD1DCA6E9200D0776B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
 		E244C9DE1DCA6E9200D0776B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
 		E25981FD1D89EC5D00C07236 /* RidingMechanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidingMechanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -129,6 +132,8 @@
 				E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */,
 				E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */,
 				E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */,
+				E224698F1DF86EC200A4C207 /* ResetPasswordViewController.h */,
+				E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */,
 			);
 			name = "More Screen";
 			sourceTree = "<group>";
@@ -349,6 +354,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */,
+				E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */,
 				E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */,
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,

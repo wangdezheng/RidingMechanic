@@ -7,8 +7,12 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "AppDelegate.h"
+#import "Car+CoreDataClass.h"
+
 
 @interface RidingMechanicTests : XCTestCase
+@property (strong,nonatomic) AppDelegate *myDelegate;
 
 @end
 
@@ -24,10 +28,24 @@
     [super tearDown];
 }
 
-- (void)testExample {
-    // This is an example of a functional test case.
-    // Use XCTAssert and related functions to verify your tests produce the correct results.
+- (void)testQueryWifiStatus {
+    self.myDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSFetchRequest *request=[NSFetchRequest fetchRequestWithEntityName:@"Car"];
+    request.fetchLimit=1;
+    request.predicate=nil;
+    request.sortDescriptors=@[[NSSortDescriptor sortDescriptorWithKey:@"wifiStatus" ascending:YES selector:@selector(localizedStandardCompare:)]];
+    NSError *error = nil;
+    if(![self.myDelegate.managedObjectContext executeFetchRequest:request error:&error]){
+        NSLog(@"Query Error");
+    }
+    NSArray *results=[self.myDelegate.managedObjectContext executeFetchRequest:request error:&error];
+    XCTAssertNil(error);
+    XCTAssertEqual(results.count, 1);
+    NSDictionary * result = results[0];
+    XCTAssertEqual(result[@"wifiStatus"], @"unconnected");
+    
 }
+
 
 - (void)testPerformanceExample {
     // This is an example of a performance test case.

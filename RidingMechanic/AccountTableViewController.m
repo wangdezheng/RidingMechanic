@@ -2,7 +2,7 @@
 //  AccountTableViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 12/6/16.
+//  Created by Dezheng Wang  on 12/6/16.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
@@ -47,5 +47,13 @@
     return cell;
 }
 
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==1&&indexPath.row==0){
+        [self performSegueWithIdentifier:@"showResetPassword" sender:tableView];
+        
+        
+    }
+}
 
 @end
