@@ -16,20 +16,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - Table view data source
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 3;
@@ -38,10 +33,10 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     NSInteger rows=0;
     if(section==0){
-        rows=1;
+        rows=2;
     }else if(section==1){
         rows=2;
-    }else{
+    }else {
         rows=2;
     }
     return rows;
@@ -53,13 +48,25 @@
     switch (indexPath.section)
     {
         case 0:
-            cell.textLabel.text =@"1";
+            if(indexPath.row==0){
+                cell.textLabel.text =@"Account";
+            }else{
+                cell.textLabel.text =@"Alarm";
+            }
             break;
         case 1:
-            cell.textLabel.text =@"2";
+            if(indexPath.row==0){
+                cell.textLabel.text =@"Vehicle";
+            }else{
+                cell.textLabel.text =@"Adapter";
+            }
             break;
         case 2:
-            cell.textLabel.text =@"3";
+            if(indexPath.row==0){
+                cell.textLabel.text =@"Unit";
+            }else if(indexPath.row==1){
+                cell.textLabel.text =@"About";
+            }
             break;
         default:
             break;
@@ -72,19 +79,28 @@
     switch (section)
     {
         case 0:
-            sectionName =@"Account settings";
+            sectionName=@"Settings";
             break;
         case 1:
-            sectionName =@"Vehicle settings";
+            sectionName=@"Information";
             break;
         case 2:
-            sectionName =@"Alarm settings";
-            break;
+            sectionName=@"Other";
         default:
             break;
     }
     return sectionName;
 }
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.section==0&&indexPath.row==0){
+        [self performSegueWithIdentifier:@"showAccount" sender:tableView];
+        
+        
+    }
+}
+
 
 
 

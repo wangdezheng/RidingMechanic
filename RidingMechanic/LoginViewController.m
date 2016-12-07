@@ -82,6 +82,11 @@
 {
     for(int i=0;i<self.emailList.count;i++){
         if([self.emailList[i] isEqualToString: self.emailField.text]&&[self.passwordList[i] isEqualToString:self.passwordField.text]){
+            NSMutableArray *userInfoArray=[[NSMutableArray alloc] initWithCapacity:2];
+            userInfoArray[0]=self.emailField.text;
+            userInfoArray[1]=self.passwordField.text;
+            [[NSUserDefaults standardUserDefaults] setObject:userInfoArray forKey:@"userInfo"];//store userInfo in default dictionary
+            
             [self performSegueWithIdentifier:@"loginSuccessfully" sender:sender];
             break;
         }

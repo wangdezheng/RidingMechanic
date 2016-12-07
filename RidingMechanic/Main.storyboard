@@ -98,7 +98,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewq-5n-osY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1514" y="-889"/>
+            <point key="canvasLocation" x="1618" y="-715"/>
         </scene>
         <!--Riding Mechanic-->
         <scene sceneID="p3d-5T-msi">
@@ -144,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kcu-js-q7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1250.4000000000001" y="-205.54722638680661"/>
+            <point key="canvasLocation" x="1168" y="-139"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="gWJ-oJ-9km">
@@ -183,9 +183,46 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NGD-3c-J2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1513" y="-1574"/>
+            <point key="canvasLocation" x="1583" y="-1595"/>
         </scene>
-        <!--Settings-->
+        <!--Account-->
+        <scene sceneID="V5C-Xq-wFu">
+            <objects>
+                <tableViewController id="fPA-S3-A0t" customClass="AccountTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="ry1-R2-6C5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XQn-aM-l9z">
+                            <rect key="frame" x="0.0" y="182" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" red="1" green="0.51692873147631335" blue="0.54944092306513248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Log Out">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="account" id="HGS-io-34E">
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HGS-io-34E" id="3fy-lp-t1I">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="fPA-S3-A0t" id="0bH-IU-0ho"/>
+                            <outlet property="delegate" destination="fPA-S3-A0t" id="BOU-4y-GO9"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Account" id="XEg-Dp-bHG"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8XK-aX-qBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2452" y="-3143"/>
+        </scene>
+        <!--More-->
         <scene sceneID="qg2-aw-PSl">
             <objects>
                 <tableViewController id="0OD-b7-VAI" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -194,11 +231,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="KOV-6Z-xp5">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" id="KOV-6Z-xp5">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KOV-6Z-xp5" id="7mT-6y-Rgi">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -208,11 +245,14 @@
                             <outlet property="delegate" destination="0OD-b7-VAI" id="zkL-w4-gXg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="StC-q3-KNo"/>
+                    <navigationItem key="navigationItem" title="More" id="StC-q3-KNo"/>
+                    <connections>
+                        <segue destination="fPA-S3-A0t" kind="show" identifier="showAccount" id="SwR-3L-CsF"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REw-1E-jPW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2452" y="-2251.1244377811095"/>
+            <point key="canvasLocation" x="1827" y="-2492"/>
         </scene>
         <!--Register-->
         <scene sceneID="xlx-5i-G9K">
@@ -516,7 +556,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bfB-EB-K0q" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" systemItem="more" id="XSa-Pn-Gfp"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="HBa-tO-mPL">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="HBa-tO-mPL">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -527,7 +567,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gZW-4k-S05" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512.8" y="-2251.1244377811095"/>
+            <point key="canvasLocation" x="1095" y="-2491"/>
         </scene>
     </scenes>
     <resources>
@@ -540,6 +580,6 @@
         <image name="route-analysis" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="9t7-JS-mrL"/>
+        <segue reference="YPN-20-vpv"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -12,6 +12,7 @@
 		E20900581DF6727E00798A32 /* QueryFromCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E20900571DF6727E00798A32 /* QueryFromCoreData.m */; };
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
+		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
 		E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9DE1DCA6E9200D0776B /* Reachability.m */; };
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
@@ -52,6 +53,8 @@
 		E21210781DD66DE2002B4ED5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E212107A1DD66E56002B4ED5 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		E212107B1DD66E56002B4ED5 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
+		E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		E21D27631DCE6722001EAD26 /* MicrosoftAzureMobile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MicrosoftAzureMobile.framework; sourceTree = "<group>"; };
 		E21D27651DCE6A62001EAD26 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		E244C9DD1DCA6E9200D0776B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
@@ -108,6 +111,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E21B33D01DF784AA00BE2B8A /* CarModel Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E2A004311DECF24500FCC18E /* CarModelViewController.h */,
+				E2A004321DECF24500FCC18E /* CarModelViewController.m */,
+				E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */,
+				E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */,
+			);
+			name = "CarModel Screen";
+			sourceTree = "<group>";
+		};
+		E21B33D31DF7851200BE2B8A /* More Screen */ = {
+			isa = PBXGroup;
+			children = (
+				E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */,
+				E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */,
+				E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */,
+				E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */,
+			);
+			name = "More Screen";
+			sourceTree = "<group>";
+		};
 		E25981F41D89EC5D00C07236 = {
 			isa = PBXGroup;
 			children = (
@@ -132,7 +157,6 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
-				E2CE53791DB4887C0009E5CA /* Model */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
 				E2FA78861DD2AE38006E730A /* RestAPI.h */,
@@ -143,12 +167,8 @@
 				E21210781DD66DE2002B4ED5 /* LoginViewController.m */,
 				E212107A1DD66E56002B4ED5 /* RegisterViewController.h */,
 				E212107B1DD66E56002B4ED5 /* RegisterViewController.m */,
-				E2A004311DECF24500FCC18E /* CarModelViewController.h */,
-				E2A004321DECF24500FCC18E /* CarModelViewController.m */,
-				E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */,
-				E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */,
-				E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */,
-				E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */,
+				E21B33D01DF784AA00BE2B8A /* CarModel Screen */,
+				E21B33D31DF7851200BE2B8A /* More Screen */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
@@ -195,13 +215,6 @@
 				E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		E2CE53791DB4887C0009E5CA /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,6 +351,7 @@
 				E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */,
 				E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */,
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
+				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
 				E20900581DF6727E00798A32 /* QueryFromCoreData.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
