@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "Car+CoreDataClass.h"
 
 @interface QueryFromCoreData : NSObject
 
