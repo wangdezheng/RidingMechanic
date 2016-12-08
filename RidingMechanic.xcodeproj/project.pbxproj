@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E209004C1DF6509900798A32 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21D27651DCE6A62001EAD26 /* WebKit.framework */; };
-		E209004F1DF65BA400798A32 /* RidingMechanic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E209004D1DF65BA400798A32 /* RidingMechanic.xcdatamodeld */; };
 		E20900581DF6727E00798A32 /* QueryFromCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E20900571DF6727E00798A32 /* QueryFromCoreData.m */; };
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
@@ -21,6 +20,7 @@
 		E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */; };
 		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
+		E259CC741DF9FFE60018F9F2 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259CC721DF9FFE60018F9F2 /* Database.xcdatamodeld */; };
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
@@ -47,7 +47,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E209004E1DF65BA400798A32 /* RidingMechanic.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RidingMechanic.xcdatamodel; sourceTree = "<group>"; };
 		E20900561DF6727E00798A32 /* QueryFromCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryFromCoreData.h; sourceTree = "<group>"; };
 		E20900571DF6727E00798A32 /* QueryFromCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryFromCoreData.m; sourceTree = "<group>"; };
 		E21210771DD66DE2002B4ED5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -75,6 +74,7 @@
 		E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicUITests.m; sourceTree = "<group>"; };
 		E259822A1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E259CC731DF9FFE60018F9F2 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		E28ACCDE1DAD4389008C0E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E2A004311DECF24500FCC18E /* CarModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModelViewController.h; sourceTree = "<group>"; };
 		E2A004321DECF24500FCC18E /* CarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModelViewController.m; sourceTree = "<group>"; };
@@ -162,6 +162,7 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
+				E259CC751DFA00340018F9F2 /* Model */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
 				E2FA78861DD2AE38006E730A /* RestAPI.h */,
@@ -178,7 +179,6 @@
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
 				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
 				E25982141D89EC5D00C07236 /* Info.plist */,
-				E209004D1DF65BA400798A32 /* RidingMechanic.xcdatamodeld */,
 				E25982001D89EC5D00C07236 /* Supporting Files */,
 			);
 			path = RidingMechanic;
@@ -210,6 +210,14 @@
 				E259822A1D89EC5D00C07236 /* Info.plist */,
 			);
 			path = RidingMechanicUITests;
+			sourceTree = "<group>";
+		};
+		E259CC751DFA00340018F9F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E259CC721DF9FFE60018F9F2 /* Database.xcdatamodeld */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 		E2BC6C9B1DC6915A000A2E49 /* Frameworks */ = {
@@ -361,10 +369,10 @@
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
 				E20900581DF6727E00798A32 /* QueryFromCoreData.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
-				E209004F1DF65BA400798A32 /* RidingMechanic.xcdatamodeld in Sources */,
 				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
+				E259CC741DF9FFE60018F9F2 /* Database.xcdatamodeld in Sources */,
 				E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,13 +630,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E209004D1DF65BA400798A32 /* RidingMechanic.xcdatamodeld */ = {
+		E259CC721DF9FFE60018F9F2 /* Database.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E209004E1DF65BA400798A32 /* RidingMechanic.xcdatamodel */,
+				E259CC731DF9FFE60018F9F2 /* Database.xcdatamodel */,
 			);
-			currentVersion = E209004E1DF65BA400798A32 /* RidingMechanic.xcdatamodel */;
-			path = RidingMechanic.xcdatamodeld;
+			currentVersion = E259CC731DF9FFE60018F9F2 /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

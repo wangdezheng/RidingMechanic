@@ -8,8 +8,6 @@
 
 #import <XCTest/XCTest.h>
 #import "AppDelegate.h"
-#import "Car+CoreDataClass.h"
-
 
 @interface RidingMechanicTests : XCTestCase
 @property (strong,nonatomic) AppDelegate *myDelegate;
