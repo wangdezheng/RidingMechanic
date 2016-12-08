@@ -17,7 +17,6 @@
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
 		E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259820F1D89EC5D00C07236 /* Assets.xcassets */; };
-		E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */; };
 		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
 		E259CC741DF9FFE60018F9F2 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E259CC721DF9FFE60018F9F2 /* Database.xcdatamodeld */; };
@@ -25,6 +24,7 @@
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
 		E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		E2C87DA01DFA073F000E76FA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E2C87D9F1DFA073F000E76FA /* Base.lproj */; };
 		E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */; };
 		E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FA78871DD2AE38006E730A /* RestAPI.m */; };
 /* End PBXBuildFile section */
@@ -66,7 +66,6 @@
 		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E25982041D89EC5D00C07236 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		E259820F1D89EC5D00C07236 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E25982121D89EC5D00C07236 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E25982141D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E25982191D89EC5D00C07236 /* RidingMechanicTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicTests.m; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E2C87D9F1DFA073F000E76FA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = RidingMechanicTests/Base.lproj; sourceTree = SOURCE_ROOT; };
 		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
 		E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
 		E2FA78861DD2AE38006E730A /* RestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestAPI.h; sourceTree = "<group>"; };
@@ -177,7 +177,7 @@
 				E21B33D31DF7851200BE2B8A /* More Screen */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
-				E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */,
+				E2C87D9F1DFA073F000E76FA /* Base.lproj */,
 				E25982141D89EC5D00C07236 /* Info.plist */,
 				E25982001D89EC5D00C07236 /* Supporting Files */,
 			);
@@ -334,7 +334,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E25982131D89EC5D00C07236 /* LaunchScreen.storyboard in Resources */,
 				E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */,
 				E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */,
 			);
@@ -344,6 +343,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2C87DA01DFA073F000E76FA /* Base.lproj in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,17 +407,6 @@
 			targetProxy = E25982251D89EC5D00C07236 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		E25982111D89EC5D00C07236 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E25982121D89EC5D00C07236 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E259822B1D89EC5D00C07236 /* Debug */ = {
