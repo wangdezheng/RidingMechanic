@@ -24,3 +24,4 @@
 
 #define POST @"POST"
 #define GET @"GET"
+#define PUT @"PUT"

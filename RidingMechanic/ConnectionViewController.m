@@ -8,8 +8,6 @@
 
 #import "ConnectionViewController.h"
 #import "Reachability.h"
-#import "QueryFromCoreData.h"
-#import "Car+CoreDataClass.h"
 
 
 @interface ConnectionViewController ()
@@ -37,9 +35,7 @@
 @implementation ConnectionViewController
 
 - (void)viewWillAppear:(BOOL)animated {
-    QueryFromCoreData* query=[[QueryFromCoreData alloc] init];
-    Car * car=[query changeWifiStatus];
-    car.wifiStatus=@"unconnected";
+    [[NSUserDefaults standardUserDefaults] setObject:@"unconnected" forKey:@"wifiStatus"];
     
     self.openWIfiLabel.layer.borderWidth=0.5;
     self.connectToDeviceLabel.layer.borderWidth=0.5;
@@ -146,9 +142,7 @@
     [self.hintLabel setHidden:YES];
     [self.confirmButton setHidden:YES];
     
-    QueryFromCoreData* query=[[QueryFromCoreData alloc] init];
-    Car * car=[query changeWifiStatus];
-    car.wifiStatus=@"connected";
+    [[NSUserDefaults standardUserDefaults] setObject:@"connected" forKey:@"wifiStatus"];
     
     [self.navigationController popViewControllerAnimated:YES];
     

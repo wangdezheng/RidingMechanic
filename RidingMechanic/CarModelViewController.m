@@ -7,7 +7,6 @@
 //
 
 #import "CarModelViewController.h"
-#import "QueryFromCoreData.h"
 #import "Reachability.h"
 
 @interface CarModelViewController ()
@@ -26,8 +25,9 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    QueryFromCoreData *query=[[QueryFromCoreData alloc] init];
-    if([[query queryWifiStatus ] isEqualToString:@"connected"]){
+    NSString * wifiStatus=[[NSUserDefaults standardUserDefaults] objectForKey:@"wifiStatus"];
+    NSLog(@"%@",wifiStatus);
+    if([wifiStatus isEqualToString:@"connected"]){
         self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi Filled"];
         [self.startTripButton setHidden:NO];
     }else{

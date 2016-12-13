@@ -38,7 +38,7 @@
     if(indexPath.section==0){
         NSMutableArray *userInfoArray=[[NSMutableArray alloc] initWithCapacity:2];
         userInfoArray=[[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
-        cell.textLabel.text=userInfoArray[0];
+        cell.textLabel.text=userInfoArray[0];//get username
     }else{
         cell.textLabel.text=@"Reset Password";
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;

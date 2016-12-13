@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		E209004C1DF6509900798A32 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21D27651DCE6A62001EAD26 /* WebKit.framework */; };
-		E20900581DF6727E00798A32 /* QueryFromCoreData.m in Sources */ = {isa = PBXBuildFile; fileRef = E20900571DF6727E00798A32 /* QueryFromCoreData.m */; };
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
 		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
@@ -25,6 +24,7 @@
 		E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E2C87DA01DFA073F000E76FA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E2C87D9F1DFA073F000E76FA /* Base.lproj */; };
 		E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */; };
+		E2F000501DFA192100B58506 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F0004B1DFA161300B58506 /* Database.xcdatamodeld */; };
 		E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FA78871DD2AE38006E730A /* RestAPI.m */; };
 /* End PBXBuildFile section */
 
@@ -46,8 +46,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E20900561DF6727E00798A32 /* QueryFromCoreData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QueryFromCoreData.h; sourceTree = "<group>"; };
-		E20900571DF6727E00798A32 /* QueryFromCoreData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QueryFromCoreData.m; sourceTree = "<group>"; };
 		E21210771DD66DE2002B4ED5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E21210781DD66DE2002B4ED5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E212107A1DD66E56002B4ED5 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -80,6 +78,7 @@
 		E2C87D9F1DFA073F000E76FA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = RidingMechanicTests/Base.lproj; sourceTree = SOURCE_ROOT; };
 		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
 		E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
+		E2F0004C1DFA161300B58506 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		E2FA78861DD2AE38006E730A /* RestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestAPI.h; sourceTree = "<group>"; };
 		E2FA78871DD2AE38006E730A /* RestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestAPI.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,8 +163,6 @@
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
 				E2FA78861DD2AE38006E730A /* RestAPI.h */,
 				E2FA78871DD2AE38006E730A /* RestAPI.m */,
-				E20900561DF6727E00798A32 /* QueryFromCoreData.h */,
-				E20900571DF6727E00798A32 /* QueryFromCoreData.m */,
 				E21210771DD66DE2002B4ED5 /* LoginViewController.h */,
 				E21210781DD66DE2002B4ED5 /* LoginViewController.m */,
 				E212107A1DD66E56002B4ED5 /* RegisterViewController.h */,
@@ -212,6 +209,7 @@
 		E259CC751DFA00340018F9F2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				E2F0004B1DFA161300B58506 /* Database.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -356,13 +354,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2F000501DFA192100B58506 /* Database.xcdatamodeld in Sources */,
 				E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */,
 				E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */,
 				E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */,
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
-				E20900581DF6727E00798A32 /* QueryFromCoreData.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
@@ -611,6 +609,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2F0004B1DFA161300B58506 /* Database.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2F0004C1DFA161300B58506 /* Database.xcdatamodel */,
+			);
+			currentVersion = E2F0004C1DFA161300B58506 /* Database.xcdatamodel */;
+			path = Database.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E25981F51D89EC5D00C07236 /* Project object */;
 }

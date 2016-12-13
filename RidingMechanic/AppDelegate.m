@@ -64,9 +64,9 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-    Car *car=(Car *)[NSEntityDescription insertNewObjectForEntityForName:@"Car" inManagedObjectContext: self.managedObjectContext];
-    car.wifiStatus=@"unconnected";
+//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+//    NSLog(@"%@",[paths objectAtIndex:0]);
+    [[NSUserDefaults standardUserDefaults] setObject:@"unconnected" forKey:@"wifiStatus"];
     return YES;
 }
 

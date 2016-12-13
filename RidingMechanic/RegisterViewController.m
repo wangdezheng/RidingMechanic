@@ -156,7 +156,7 @@
         [data setObject:self.passwordField.text forKey:@"password"];
         
         if([NSJSONSerialization isValidJSONObject:data]){
-            self.postBody=nil;
+            self.postBody=[[NSData alloc]init];
             NSError *error=nil;
             self.postBody=[NSJSONSerialization dataWithJSONObject:data options:NSJSONWritingPrettyPrinted error:&error];
         }else{
@@ -179,8 +179,8 @@
 {
     [self.navigationController setNavigationBarHidden:NO];
     [self httpGetRequest];
-    self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: nil preferredStyle: UIAlertControllerStyleAlert];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"Please check your input" style: UIAlertActionStyleCancel handler:nil]];
+    self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: @"Please check your input" preferredStyle: UIAlertControllerStyleAlert];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler:nil]];
     
 }
 

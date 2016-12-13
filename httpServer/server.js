@@ -35,6 +35,22 @@ http.createServer(function(req, resp){
             }
             break;
         case "PUT":
+            if(req.url==="/userInfo"){
+                var reqBody='';
+                req.on("data",function(data){
+                    reqBody+=data;
+                    if(reqBody.length>1e7)//10mb
+                    {
+                        httpMsg.show413(req,resp);
+                    }
+                });
+                req.on("end",function(){
+                    table.updateUser(req,resp,reqBody);
+                });
+
+            }else{
+                httpMsg.show404(req,resp);
+            }
             break;
         case "DELETE":
             break;  
