@@ -14,7 +14,6 @@
 
 @implementation SettingsTableViewController
 
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -52,7 +51,7 @@
             if(indexPath.row==0){
                 cell.textLabel.text =@"Account";
             }else{
-                cell.textLabel.text =@"Alarm";
+                cell.textLabel.text =@"Alert";
             }
             break;
         case 1:
@@ -97,8 +96,8 @@
 {
     if(indexPath.section==0&&indexPath.row==0){
         [self performSegueWithIdentifier:@"showAccount" sender:tableView];
-        
-        
+    }else if(indexPath.section==0&&indexPath.row==1){
+        [self performSegueWithIdentifier:@"showAlert" sender:tableView];
     }
 }
 

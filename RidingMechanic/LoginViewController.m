@@ -86,7 +86,6 @@
             userInfoArray[0]=self.emailField.text;
             userInfoArray[1]=self.passwordField.text;
             [[NSUserDefaults standardUserDefaults] setObject:userInfoArray forKey:@"userInfo"];//store userInfo in default dictionary
-            
             [self performSegueWithIdentifier:@"loginSuccessfully" sender:sender];
             break;
         }
@@ -111,5 +110,6 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
 
 @end

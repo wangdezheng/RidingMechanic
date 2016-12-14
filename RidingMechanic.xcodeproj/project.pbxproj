@@ -18,6 +18,8 @@
 		E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259820F1D89EC5D00C07236 /* Assets.xcassets */; };
 		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
+		E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */; };
+		E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */; };
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
@@ -69,6 +71,10 @@
 		E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicUITests.m; sourceTree = "<group>"; };
 		E259822A1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E270DC3C1E00F87400A40DC8 /* AlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertTableViewController.h; sourceTree = "<group>"; };
+		E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertTableViewController.m; sourceTree = "<group>"; };
+		E270DC3F1E010B4300A40DC8 /* SpeedAlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedAlertTableViewController.h; sourceTree = "<group>"; };
+		E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedAlertTableViewController.m; sourceTree = "<group>"; };
 		E28ACCDE1DAD4389008C0E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E2A004311DECF24500FCC18E /* CarModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModelViewController.h; sourceTree = "<group>"; };
 		E2A004321DECF24500FCC18E /* CarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModelViewController.m; sourceTree = "<group>"; };
@@ -126,6 +132,10 @@
 			children = (
 				E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */,
 				E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */,
+				E270DC3C1E00F87400A40DC8 /* AlertTableViewController.h */,
+				E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */,
+				E270DC3F1E010B4300A40DC8 /* SpeedAlertTableViewController.h */,
+				E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */,
 				E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */,
 				E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */,
 				E224698F1DF86EC200A4C207 /* ResetPasswordViewController.h */,
@@ -361,6 +371,8 @@
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
+				E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */,
+				E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,

@@ -18,9 +18,10 @@
 
 @implementation CarModelViewController
 
+
 - (void)viewDidLoad
 {
-    
+   [super viewDidLoad]; 
 }
 
 -(void)viewWillAppear:(BOOL)animated

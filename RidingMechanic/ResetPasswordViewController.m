@@ -8,6 +8,7 @@
 
 #import "ResetPasswordViewController.h"
 #import "RestAPI.h"
+#import "LoginViewController.h"
 
 @interface ResetPasswordViewController ()<RestAPIDelegate>
 @property (strong, nonatomic) IBOutlet UITextField *currentPwdTextField;
@@ -105,8 +106,8 @@
     self.alertController.title=@"Password change succeed";
     self.alertController.message=@"Please login again";
     [self presentViewController:self.alertController animated:YES completion:nil];
-    
-    [self performSegueWithIdentifier:@"loginAgain" sender:sender];
+
+    [self.tabBarController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
