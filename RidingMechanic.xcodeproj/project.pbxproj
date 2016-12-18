@@ -8,11 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		E209004C1DF6509900798A32 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21D27651DCE6A62001EAD26 /* WebKit.framework */; };
+		E20A8D411E06129600D18DCA /* SetInitialStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A8D401E06129600D18DCA /* SetInitialStatus.m */; };
+		E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A8D431E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m */; };
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
 		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
 		E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */; };
 		E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9DE1DCA6E9200D0776B /* Reachability.m */; };
+		E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2494A291E01AC4400343E21 /* AlertTableViewCell.m */; };
+		E2494A3C1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2494A3B1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.m */; };
 		E25982021D89EC5D00C07236 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982011D89EC5D00C07236 /* main.m */; };
 		E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982041D89EC5D00C07236 /* AppDelegate.m */; };
 		E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259820F1D89EC5D00C07236 /* Assets.xcassets */; };
@@ -48,6 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E20A8D3F1E06129500D18DCA /* SetInitialStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetInitialStatus.h; sourceTree = "<group>"; };
+		E20A8D401E06129600D18DCA /* SetInitialStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetInitialStatus.m; sourceTree = "<group>"; };
+		E20A8D421E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterTemperatureAlertTableViewController.h; sourceTree = "<group>"; };
+		E20A8D431E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterTemperatureAlertTableViewController.m; sourceTree = "<group>"; };
 		E21210771DD66DE2002B4ED5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		E21210781DD66DE2002B4ED5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E212107A1DD66E56002B4ED5 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -59,6 +67,10 @@
 		E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		E244C9DD1DCA6E9200D0776B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
 		E244C9DE1DCA6E9200D0776B /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Reachability.m; path = Reachability/Reachability/Reachability.m; sourceTree = SOURCE_ROOT; };
+		E2494A281E01AC4400343E21 /* AlertTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertTableViewCell.h; sourceTree = "<group>"; };
+		E2494A291E01AC4400343E21 /* AlertTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertTableViewCell.m; sourceTree = "<group>"; };
+		E2494A3A1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiredDrivingAlertTableViewController.h; sourceTree = "<group>"; };
+		E2494A3B1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiredDrivingAlertTableViewController.m; sourceTree = "<group>"; };
 		E25981FD1D89EC5D00C07236 /* RidingMechanic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RidingMechanic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982011D89EC5D00C07236 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E25982031D89EC5D00C07236 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -136,10 +148,16 @@
 				E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */,
 				E270DC3F1E010B4300A40DC8 /* SpeedAlertTableViewController.h */,
 				E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */,
+				E2494A3A1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.h */,
+				E2494A3B1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.m */,
+				E20A8D421E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.h */,
+				E20A8D431E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m */,
 				E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */,
 				E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */,
 				E224698F1DF86EC200A4C207 /* ResetPasswordViewController.h */,
 				E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */,
+				E2494A281E01AC4400343E21 /* AlertTableViewCell.h */,
+				E2494A291E01AC4400343E21 /* AlertTableViewCell.m */,
 			);
 			name = "More Screen";
 			sourceTree = "<group>";
@@ -171,6 +189,8 @@
 				E259CC751DFA00340018F9F2 /* Model */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
+				E20A8D3F1E06129500D18DCA /* SetInitialStatus.h */,
+				E20A8D401E06129600D18DCA /* SetInitialStatus.m */,
 				E2FA78861DD2AE38006E730A /* RestAPI.h */,
 				E2FA78871DD2AE38006E730A /* RestAPI.m */,
 				E21210771DD66DE2002B4ED5 /* LoginViewController.h */,
@@ -365,15 +385,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2F000501DFA192100B58506 /* Database.xcdatamodeld in Sources */,
+				E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */,
 				E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */,
 				E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */,
 				E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */,
+				E20A8D411E06129600D18DCA /* SetInitialStatus.m in Sources */,
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
+				E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
 				E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */,
 				E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
+				E2494A3C1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.m in Sources */,
 				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,

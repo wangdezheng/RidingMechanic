@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "Car+CoreDataClass.h"
+#import "SetInitialStatus.h"
 
 @interface AppDelegate ()
 
@@ -66,7 +66,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 //    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
 //    NSLog(@"%@",[paths objectAtIndex:0]);
-    [[NSUserDefaults standardUserDefaults] setObject:@"unconnected" forKey:@"wifiStatus"];
+    SetInitialStatus *setInit=[[SetInitialStatus alloc] init];
+    [setInit setInitial];
     return YES;
 }
 

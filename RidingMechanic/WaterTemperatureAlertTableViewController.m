@@ -1,24 +1,19 @@
 //
-//  SpeedAlertTableViewController.m
+//  WaterTemperatureAlertTableViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 12/13/16.
+//  Created by 王德正  on 12/17/16.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
-#import "SpeedAlertTableViewController.h"
+#import "WaterTemperatureAlertTableViewController.h"
 #import "AlertTableViewCell.h"
 
-@interface SpeedAlertTableViewController ()
+@interface WaterTemperatureAlertTableViewController ()
 @property (strong,nonatomic) AlertTableViewCell *alertCell;
 @end
 
-@implementation SpeedAlertTableViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-
-}
+@implementation WaterTemperatureAlertTableViewController
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -27,7 +22,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.alertCell.speedTextField.text forKey:@"SpeedLimit"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.alertCell.waterTemperatureTextField.text forKey:@"WaterTemperature"];
 }
 
 #pragma mark - Table view data source
@@ -43,16 +38,16 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section==0 &&indexPath.row==0){
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-        cell.textLabel.text=@"Speed Alert";
+        cell.textLabel.text=@"Water Temperature Alert";
         UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
         cell.accessoryView=switchView;
         [switchView setOn:YES animated:NO];
         [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
         return cell;
     }else{
-        self.alertCell= (AlertTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SpeedLimit" forIndexPath:indexPath];
-        self.alertCell.speedTextField.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"SpeedLimit"];
-        self.alertCell.speedLabel.text=@"mph";
+        self.alertCell= (AlertTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"WaterTemperature" forIndexPath:indexPath];
+        self.alertCell.waterTemperatureTextField.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"WaterTemperature"];
+        self.alertCell.waterTemperatureLabel.text=@"℉";
         return self.alertCell;
     }
 }
@@ -60,13 +55,12 @@
 
 - (void)switchChanged:(id)sender {
     if([sender isOn]){
-        [[NSUserDefaults standardUserDefaults] setObject:@"On" forKey:@"SpeedAlertSwitch"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"On" forKey:@"WaterTemperatureSwitch"];
     }else{
-        [[NSUserDefaults standardUserDefaults] setObject:@"Off" forKey:@"SpeedAlertSwitch"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"Off" forKey:@"WaterTemperatureSwitch"];
     }
     
 }
-
 
 
 @end
