@@ -202,14 +202,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XQn-aM-l9z">
-                            <rect key="frame" x="0.0" y="181.5" width="375" height="42"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="fNQ-45-Kf6">
+                            <rect key="frame" x="0.0" y="182" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="1" green="0.51692873147631335" blue="0.54944092306513248" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Log Out">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                        </button>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ceD-Ap-KDs">
+                                    <rect key="frame" x="34" y="6" width="289" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="1" green="0.51692873149999996" blue="0.54944092310000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <state key="normal" title="Log Out">
+                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="logOut:" destination="fPA-S3-A0t" eventType="touchUpInside" id="aYp-Y5-qoS"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="account" id="HGS-io-34E">
                                 <rect key="frame" x="0.0" y="56" width="375" height="44"/>
@@ -228,11 +237,12 @@
                     <navigationItem key="navigationItem" title="Account" id="XEg-Dp-bHG"/>
                     <connections>
                         <segue destination="hip-Hf-HKn" kind="show" identifier="showResetPassword" id="stR-na-E0X"/>
+                        <segue destination="4b0-oT-a2k" kind="show" identifier="logOut" id="m4B-kj-ixa"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XK-aX-qBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1826" y="-3243"/>
+            <point key="canvasLocation" x="1778" y="-3227"/>
         </scene>
         <!--Reset Password-->
         <scene sceneID="QgI-Np-D5p">
@@ -874,6 +884,6 @@
         <image name="route-analysis" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YPN-20-vpv"/>
+        <segue reference="m4B-kj-ixa"/>
     </inferredMetricsTieBreakers>
 </document>

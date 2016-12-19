@@ -22,6 +22,11 @@
     [super didReceiveMemoryWarning];
 }
 
+- (IBAction)logOut:(id)sender {
+    [self performSegueWithIdentifier:@"logOut" sender:sender];
+}
+
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -51,8 +56,6 @@
 {
     if(indexPath.section==1&&indexPath.row==0){
         [self performSegueWithIdentifier:@"showResetPassword" sender:tableView];
-        
-        
     }
 }
 

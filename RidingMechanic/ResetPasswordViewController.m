@@ -54,7 +54,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: @"" preferredStyle: UIAlertControllerStyleAlert];
-     [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler:nil]];
+     [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+         if([self.alertController.message isEqualToString:@""]){
+            [self.navigationController popViewControllerAnimated:YES];
+         }
+     }]];
     
     // Do any additional setup after loading the view.
 }
@@ -64,11 +68,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 -(IBAction)submit:(id)sender
 {
     NSMutableArray *userInfoArray=[[NSMutableArray alloc] initWithCapacity:2];
     userInfoArray=[[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
-     NSLog(@"%@",userInfoArray[1]);
+    NSLog(@"%@",userInfoArray[0]);
+    NSLog(@"%@",userInfoArray[1]);
     if(![_currentPwdTextField.text isEqualToString:userInfoArray[1]]){
         self.alertController.message=@"Current password is incorrect";
         [self presentViewController:self.alertController animated:YES completion:nil];
@@ -103,11 +109,16 @@
     }
     
     [self httpPutRequest];
-    self.alertController.title=@"Password change succeed";
-    self.alertController.message=@"Please login again";
-    [self presentViewController:self.alertController animated:YES completion:nil];
 
-    [self.tabBarController.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    NSMutableArray *userInfo=[[NSMutableArray alloc] initWithCapacity:2];
+    userInfo[0]=userInfoArray[0];
+    userInfo[1]=self.pwdTextField.text;
+    [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"userInfo"];//update userInfo
+
+    self.alertController.title=@"Password change succeed";
+    self.alertController.message=@"";
+    [self presentViewController:self.alertController animated:YES completion:nil];
 }
 
 @end

@@ -46,7 +46,17 @@
         cell.textLabel.text=@"Speed Alert";
         UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
         cell.accessoryView=switchView;
-        [switchView setOn:YES animated:NO];
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"AlertSwitch" ] isEqualToString:@"On"]){
+            if([[[NSUserDefaults standardUserDefaults] objectForKey:@"SpeedAlertSwitch" ] isEqualToString:@"On"]){
+                [switchView setOn:YES];
+            }else{
+                [switchView setOn:NO];
+            }
+        }else{
+            [switchView setOn:NO];
+        }
+        
+        
         [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
         return cell;
     }else{
