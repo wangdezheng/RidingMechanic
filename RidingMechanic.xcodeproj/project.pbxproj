@@ -12,6 +12,7 @@
 		E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A8D431E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m */; };
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
+		E2159B261E11C45000E505E3 /* HUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2159B251E11C45000E505E3 /* HUDViewController.m */; };
 		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
 		E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */; };
 		E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9DE1DCA6E9200D0776B /* Reachability.m */; };
@@ -60,6 +61,8 @@
 		E21210781DD66DE2002B4ED5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E212107A1DD66E56002B4ED5 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		E212107B1DD66E56002B4ED5 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		E2159B241E11C45000E505E3 /* HUDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDViewController.h; sourceTree = "<group>"; };
+		E2159B251E11C45000E505E3 /* HUDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDViewController.m; sourceTree = "<group>"; };
 		E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
 		E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		E21D27651DCE6A62001EAD26 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -131,6 +134,8 @@
 		E21B33D01DF784AA00BE2B8A /* CarModel Screen */ = {
 			isa = PBXGroup;
 			children = (
+				E2159B241E11C45000E505E3 /* HUDViewController.h */,
+				E2159B251E11C45000E505E3 /* HUDViewController.m */,
 				E2A004311DECF24500FCC18E /* CarModelViewController.h */,
 				E2A004321DECF24500FCC18E /* CarModelViewController.m */,
 				E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */,
@@ -384,6 +389,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2159B261E11C45000E505E3 /* HUDViewController.m in Sources */,
 				E2F000501DFA192100B58506 /* Database.xcdatamodeld in Sources */,
 				E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */,
 				E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */,

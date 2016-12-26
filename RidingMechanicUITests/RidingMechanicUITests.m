@@ -128,43 +128,7 @@
     XCTAssert(app.staticTexts[@"!"].exists);
     XCTAssert(app.staticTexts[@"Sorry, this email had been used!"].exists);
     
-    [emailAddressTextField typeText:@"793013053@qq.com"];
-    XCTAssert(!app.staticTexts[@"!"].exists);
-    XCTAssert(!app.staticTexts[@"Sorry, this email had been used!"].exists);
 
-    XCUIElement *submitButton = app.buttons[@"Submit"];
-    [submitButton tap];
-    
-    XCUIElement *errorAlert = app.alerts[@"Error!"];
-    XCTAssert(errorAlert.exists);
-    XCUIElement *pleaseCheckYourInputButton = errorAlert.buttons[@"Please check your input"];
-    XCTAssert(pleaseCheckYourInputButton.exists);
-    [pleaseCheckYourInputButton tap];
-    
-    XCUIElement *passwordSecureTextField = app.textFields[@"Password"];
-    [passwordSecureTextField tap];
-    [passwordSecureTextField typeText:@"123"];
-    
-    XCUIElement *confirmPasswordSecureTextField = app.textFields[@"Confirm password"];
-    [confirmPasswordSecureTextField tap];
-    [confirmPasswordSecureTextField typeText:@"123456"];
-    
-    XCTAssert(app.staticTexts[@"!"].exists);
-    XCTAssert(app.staticTexts[@"Passwords must match"].exists);
-    
-    [submitButton tap];
-    XCTAssert(errorAlert.exists);
-    XCTAssert(pleaseCheckYourInputButton.exists);
-    [pleaseCheckYourInputButton tap];
-    
-    
-    [passwordSecureTextField tap];
-    [passwordSecureTextField typeText:@"123"];
-    [confirmPasswordSecureTextField tap];
-    [confirmPasswordSecureTextField typeText:@"123"];
-    [app.buttons[@"Submit"] tap];
-    
-    XCTAssert(app.buttons[@"Login"].exists);
 }
 
 

@@ -9,13 +9,17 @@
 #import "AccountTableViewController.h"
 
 @interface AccountTableViewController ()
-
+@property (strong,nonatomic) UIAlertController * alertController;
 @end
 
 @implementation AccountTableViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+   self.alertController = [UIAlertController alertControllerWithTitle: @"Log Out Succeed!" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    [self.alertController addAction:[UIAlertAction actionWithTitle:@"Ok" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+         [self performSegueWithIdentifier:@"logOut" sender:nil];
+    }]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -23,7 +27,7 @@
 }
 
 - (IBAction)logOut:(id)sender {
-    [self performSegueWithIdentifier:@"logOut" sender:sender];
+       [self presentViewController:self.alertController animated:YES completion:nil];
 }
 
 

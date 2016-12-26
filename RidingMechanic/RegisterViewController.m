@@ -164,7 +164,9 @@
         }
         
         [self httpPostRequest];
-        [self performSegueWithIdentifier:@"registerSuccessfully" sender:sender];
+        self.alertController.title=@"Register Succeed";
+        self.alertController.message=@"";
+        [self presentViewController:self.alertController animated:YES completion:nil];
     }
 
 }
@@ -180,7 +182,11 @@
     [self.navigationController setNavigationBarHidden:NO];
     [self httpGetRequest];
     self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: @"Please check your input" preferredStyle: UIAlertControllerStyleAlert];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler:nil]];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        if([self.alertController.title isEqualToString:@"Register Succeed"]){
+                   [self performSegueWithIdentifier:@"registerSuccessfully" sender:nil];
+        }
+    }]];
     
 }
 
