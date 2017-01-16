@@ -837,6 +837,9 @@
                                         <state key="normal" backgroundImage="Menu">
                                             <color key="titleColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="3MR-O8-n20" kind="show" id="uRN-oQ-mxf"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.37109375" colorSpace="calibratedRGB"/>
@@ -866,6 +869,9 @@
                                         <state key="normal" title="Stop">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="stop:" destination="ckh-Hu-0kA" eventType="touchUpInside" id="9Cr-7P-4Zr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.37109375" colorSpace="calibratedRGB"/>
@@ -881,6 +887,7 @@
                     <connections>
                         <outlet property="tabBarView" destination="Bfq-70-hJg" id="ohj-zd-gj3"/>
                         <outlet property="titleBarView" destination="kda-WJ-XEf" id="15c-is-ecL"/>
+                        <segue destination="zem-9m-5Tc" kind="presentation" identifier="goToCarModelView" id="mGq-LV-CZh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uJU-Ng-3do" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -890,7 +897,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="2685.5999999999999" y="1380.3598200899551"/>
+            <point key="canvasLocation" x="2721" y="1421"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7J8-Dx-Vbb">
@@ -948,10 +955,10 @@
             </objects>
             <point key="canvasLocation" x="1095" y="-2491"/>
         </scene>
-        <!--List-->
+        <!--Menu-->
         <scene sceneID="FfJ-WU-29R">
             <objects>
-                <viewController title="List" id="3MR-O8-n20" customClass="ListViewController" sceneMemberID="viewController">
+                <viewController title="Menu" id="3MR-O8-n20" customClass="MenuViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Apu-ig-G7h"/>
                         <viewControllerLayoutGuide type="bottom" id="Bum-Jh-qaf"/>
@@ -971,6 +978,9 @@
                                         <state key="normal" title="HUD">
                                             <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <segue destination="ckh-Hu-0kA" kind="show" id="eqv-pH-c9e"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fKv-tg-umf">
                                         <rect key="frame" x="256" y="15" width="40" height="30"/>
@@ -1007,6 +1017,9 @@
                                         <state key="normal" title="Stop">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="goBackCarModelView:" destination="3MR-O8-n20" eventType="touchUpInside" id="9Ft-HU-hg7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="0.37109375" colorSpace="calibratedRGB"/>
@@ -1019,11 +1032,14 @@
                         </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="HUD" id="c0R-fh-nwz"/>
+                    <connections>
+                        <segue destination="zem-9m-5Tc" kind="presentation" identifier="goBackCarModelView" id="Scp-aY-ItH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xQ3-0R-cJZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="uYY-Nb-KZ5"/>
             </objects>
-            <point key="canvasLocation" x="3460" y="1380"/>
+            <point key="canvasLocation" x="3833" y="1433"/>
         </scene>
     </scenes>
     <resources>
@@ -1038,6 +1054,8 @@
         <image name="route-analysis" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Scp-aY-ItH"/>
+        <segue reference="eqv-pH-c9e"/>
         <segue reference="m4B-kj-ixa"/>
     </inferredMetricsTieBreakers>
 </document>

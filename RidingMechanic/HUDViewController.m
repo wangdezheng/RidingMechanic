@@ -2,7 +2,7 @@
 //  HUDViewController.m
 //  RidingMechanic
 //
-//  Created by 王德正  on 12/26/16.
+//  Created by Dezheng Wang  on 12/26/16.
 //  Copyright © 2016 Dezheng Wang. All rights reserved.
 //
 
@@ -11,6 +11,7 @@
 @interface HUDViewController ()
 @property (strong, nonatomic) IBOutlet UIView *tabBarView;
 @property (strong, nonatomic) IBOutlet UIView *titleBarView;
+@property (strong,nonatomic) UIAlertController * alertController;
 
 @end
 
@@ -18,14 +19,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    [self.tabBarController setHidesBottomBarWhenPushed:YES];
+    
+    self.alertController = [UIAlertController alertControllerWithTitle: @"Stop Recording?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+            [self performSegueWithIdentifier:@"goToCarModelView" sender:nil];
+    }]];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"NO" style: UIAlertActionStyleDefault handler:nil]];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (IBAction)stop:(id)sender {
+    [self presentViewController:self.alertController animated:YES completion:nil];
+}
+
+
 
 -(IBAction)singleTap:(id)sender
 {

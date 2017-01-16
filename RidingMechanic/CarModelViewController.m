@@ -21,11 +21,13 @@
 
 - (void)viewDidLoad
 {
-   [super viewDidLoad]; 
+   [super viewDidLoad];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
+  
     NSString * wifiStatus=[[NSUserDefaults standardUserDefaults] objectForKey:@"wifiStatus"];
     NSLog(@"%@",wifiStatus);
     if([wifiStatus isEqualToString:@"connected"]){
@@ -36,6 +38,7 @@
         [self.startTripButton setHidden:YES];
     }
 }
+
 
 -(IBAction)startTrip:(id)sender
 {
