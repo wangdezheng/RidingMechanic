@@ -26,6 +26,9 @@
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
 		E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */; };
 		E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */; };
+		E27B74A01E5D384700FE5E54 /* RecvMessageAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B749F1E5D384700FE5E54 /* RecvMessageAnalysis.m */; };
+		E27B74A31E5D391B00FE5E54 /* InitSupportedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B74A21E5D391B00FE5E54 /* InitSupportedCommand.m */; };
+		E27B74A61E5D3A1E00FE5E54 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B74A51E5D3A1E00FE5E54 /* Session.m */; };
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
@@ -50,6 +53,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = E25981FC1D89EC5D00C07236;
 			remoteInfo = RidingMechanic;
+		};
+		E2AFC6EF1E6674FC00D51940 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C7C71AB619F9C08B006C9400;
+			remoteInfo = IM;
+		};
+		E2AFC6F11E6674FC00D51940 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C7C71ACF19F9C08B006C9400;
+			remoteInfo = IMTests;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -93,11 +110,18 @@
 		E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertTableViewController.m; sourceTree = "<group>"; };
 		E270DC3F1E010B4300A40DC8 /* SpeedAlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedAlertTableViewController.h; sourceTree = "<group>"; };
 		E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedAlertTableViewController.m; sourceTree = "<group>"; };
+		E27B749E1E5D384700FE5E54 /* RecvMessageAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecvMessageAnalysis.h; sourceTree = "<group>"; };
+		E27B749F1E5D384700FE5E54 /* RecvMessageAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecvMessageAnalysis.m; sourceTree = "<group>"; };
+		E27B74A11E5D391B00FE5E54 /* InitSupportedCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitSupportedCommand.h; sourceTree = "<group>"; };
+		E27B74A21E5D391B00FE5E54 /* InitSupportedCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitSupportedCommand.m; sourceTree = "<group>"; };
+		E27B74A41E5D3A1E00FE5E54 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
+		E27B74A51E5D3A1E00FE5E54 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		E28ACCDE1DAD4389008C0E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		E2A004311DECF24500FCC18E /* CarModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModelViewController.h; sourceTree = "<group>"; };
 		E2A004321DECF24500FCC18E /* CarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModelViewController.m; sourceTree = "<group>"; };
 		E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IM.xcodeproj; path = ../IM/IM.xcodeproj; sourceTree = "<group>"; };
 		E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2C87D9F1DFA073F000E76FA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = RidingMechanicTests/Base.lproj; sourceTree = SOURCE_ROOT; };
 		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
@@ -175,6 +199,7 @@
 		E25981F41D89EC5D00C07236 = {
 			isa = PBXGroup;
 			children = (
+				E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */,
 				E25981FF1D89EC5D00C07236 /* RidingMechanic */,
 				E259821C1D89EC5D00C07236 /* RidingMechanicTests */,
 				E25982271D89EC5D00C07236 /* RidingMechanicUITests */,
@@ -196,6 +221,7 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
+				E27B749A1E5D376900FE5E54 /* SensorConnection */,
 				E259CC751DFA00340018F9F2 /* Model */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
 				E25982041D89EC5D00C07236 /* AppDelegate.m */,
@@ -252,6 +278,28 @@
 				E2F0004B1DFA161300B58506 /* Database.xcdatamodeld */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		E27B749A1E5D376900FE5E54 /* SensorConnection */ = {
+			isa = PBXGroup;
+			children = (
+				E27B749E1E5D384700FE5E54 /* RecvMessageAnalysis.h */,
+				E27B749F1E5D384700FE5E54 /* RecvMessageAnalysis.m */,
+				E27B74A11E5D391B00FE5E54 /* InitSupportedCommand.h */,
+				E27B74A21E5D391B00FE5E54 /* InitSupportedCommand.m */,
+				E27B74A41E5D3A1E00FE5E54 /* Session.h */,
+				E27B74A51E5D3A1E00FE5E54 /* Session.m */,
+			);
+			name = SensorConnection;
+			sourceTree = "<group>";
+		};
+		E2AFC6EB1E6674FC00D51940 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E2AFC6F01E6674FC00D51940 /* IM.app */,
+				E2AFC6F21E6674FC00D51940 /* IMTests.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		E2BC6C9B1DC6915A000A2E49 /* Frameworks */ = {
@@ -353,6 +401,12 @@
 			mainGroup = E25981F41D89EC5D00C07236;
 			productRefGroup = E25981FE1D89EC5D00C07236 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E2AFC6EB1E6674FC00D51940 /* Products */;
+					ProjectRef = E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E25981FC1D89EC5D00C07236 /* RidingMechanic */,
@@ -361,6 +415,23 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E2AFC6F01E6674FC00D51940 /* IM.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = IM.app;
+			remoteRef = E2AFC6EF1E6674FC00D51940 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E2AFC6F21E6674FC00D51940 /* IMTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = IMTests.xctest;
+			remoteRef = E2AFC6F11E6674FC00D51940 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E25981FB1D89EC5D00C07236 /* Resources */ = {
@@ -403,6 +474,7 @@
 				E20A8D411E06129600D18DCA /* SetInitialStatus.m in Sources */,
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
 				E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */,
+				E27B74A31E5D391B00FE5E54 /* InitSupportedCommand.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
 				E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */,
@@ -413,7 +485,9 @@
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */,
+				E27B74A61E5D3A1E00FE5E54 /* Session.m in Sources */,
 				E21195651E2D747C0005F728 /* MenuViewController.m in Sources */,
+				E27B74A01E5D384700FE5E54 /* RecvMessageAnalysis.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

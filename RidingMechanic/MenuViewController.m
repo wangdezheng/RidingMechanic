@@ -8,7 +8,8 @@
 
 #import "MenuViewController.h"
 
-@interface MenuViewController ()
+@interface MenuViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UITableView *MenuTableView;
 @property (strong,nonatomic) UIAlertController * alertController;
 @end
 
@@ -16,6 +17,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.MenuTableView.delegate = self;
+    self.MenuTableView.dataSource=self;
+    
     self.alertController = [UIAlertController alertControllerWithTitle: @"Stop Recording?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         
@@ -33,14 +38,49 @@
     [self presentViewController:self.alertController animated:YES completion:Nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 11;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+
+        UILabel *detailLabel = (UILabel *)[cell viewWithTag:2];
+        UILabel *dataLabel = (UILabel *)[cell viewWithTag:3];
+        if(indexPath.row==0){
+            detailLabel.text =@"Drive Time";
+            dataLabel.text=@"111";
+        }else if(indexPath.row==1){
+            detailLabel.text =@"Driving Distance";
+        }else if(indexPath.row==2){
+            detailLabel.text =@"Speed";
+        }else if(indexPath.row==3){
+            detailLabel.text =@"Average Speed";
+        }else if(indexPath.row==4){
+            detailLabel.text =@"RPM";
+        }else if(indexPath.row==5){
+            detailLabel.text =@"Total Oil Consumption";
+        }else if(indexPath.row==6){
+            detailLabel.text =@"Average Oil Consumption";
+        }else if(indexPath.row==7){
+            detailLabel.text =@"Fuel Cost";
+        }else if(indexPath.row==8){
+            detailLabel.text =@"Engine Coolant Temperature";
+        }else if(indexPath.row==9){
+            detailLabel.text =@"Idle Time";
+        }else if(indexPath.row==10){
+            detailLabel.text =@"Sharp Acceleration Times";
+        }
+
+    return cell;
+}
+
+
+
+
 
 @end
