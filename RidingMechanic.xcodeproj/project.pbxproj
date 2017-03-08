@@ -27,9 +27,9 @@
 		E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */; };
 		E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */; };
 		E27B74A01E5D384700FE5E54 /* RecvMessageAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B749F1E5D384700FE5E54 /* RecvMessageAnalysis.m */; };
-		E27B74A31E5D391B00FE5E54 /* InitSupportedCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B74A21E5D391B00FE5E54 /* InitSupportedCommand.m */; };
 		E27B74A61E5D3A1E00FE5E54 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B74A51E5D3A1E00FE5E54 /* Session.m */; };
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
+		E29B3BA91E6FC90E00EC0D71 /* SendCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E29B3BA81E6FC90E00EC0D71 /* SendCommand.m */; };
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
 		E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
@@ -112,11 +112,11 @@
 		E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeedAlertTableViewController.m; sourceTree = "<group>"; };
 		E27B749E1E5D384700FE5E54 /* RecvMessageAnalysis.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecvMessageAnalysis.h; sourceTree = "<group>"; };
 		E27B749F1E5D384700FE5E54 /* RecvMessageAnalysis.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecvMessageAnalysis.m; sourceTree = "<group>"; };
-		E27B74A11E5D391B00FE5E54 /* InitSupportedCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InitSupportedCommand.h; sourceTree = "<group>"; };
-		E27B74A21E5D391B00FE5E54 /* InitSupportedCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InitSupportedCommand.m; sourceTree = "<group>"; };
 		E27B74A41E5D3A1E00FE5E54 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		E27B74A51E5D3A1E00FE5E54 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		E28ACCDE1DAD4389008C0E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E29B3BA71E6FC90E00EC0D71 /* SendCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCommand.h; sourceTree = "<group>"; };
+		E29B3BA81E6FC90E00EC0D71 /* SendCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendCommand.m; sourceTree = "<group>"; };
 		E2A004311DECF24500FCC18E /* CarModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModelViewController.h; sourceTree = "<group>"; };
 		E2A004321DECF24500FCC18E /* CarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModelViewController.m; sourceTree = "<group>"; };
 		E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -283,10 +283,10 @@
 		E27B749A1E5D376900FE5E54 /* SensorConnection */ = {
 			isa = PBXGroup;
 			children = (
+				E29B3BA71E6FC90E00EC0D71 /* SendCommand.h */,
+				E29B3BA81E6FC90E00EC0D71 /* SendCommand.m */,
 				E27B749E1E5D384700FE5E54 /* RecvMessageAnalysis.h */,
 				E27B749F1E5D384700FE5E54 /* RecvMessageAnalysis.m */,
-				E27B74A11E5D391B00FE5E54 /* InitSupportedCommand.h */,
-				E27B74A21E5D391B00FE5E54 /* InitSupportedCommand.m */,
 				E27B74A41E5D3A1E00FE5E54 /* Session.h */,
 				E27B74A51E5D3A1E00FE5E54 /* Session.m */,
 			);
@@ -474,13 +474,13 @@
 				E20A8D411E06129600D18DCA /* SetInitialStatus.m in Sources */,
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
 				E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */,
-				E27B74A31E5D391B00FE5E54 /* InitSupportedCommand.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
 				E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */,
 				E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
 				E2494A3C1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.m in Sources */,
+				E29B3BA91E6FC90E00EC0D71 /* SendCommand.m in Sources */,
 				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,

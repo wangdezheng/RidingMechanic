@@ -7,19 +7,57 @@
 //
 
 #import "MenuViewController.h"
+#import "SendCommand.h"
 
 @interface MenuViewController ()<UITableViewDelegate,UITableViewDataSource>
-@property (strong, nonatomic) IBOutlet UITableView *MenuTableView;
 @property (strong,nonatomic) UIAlertController * alertController;
 @end
 
 @implementation MenuViewController
+static dispatch_source_t timerForMain;
+static MenuViewController * menuController = nil;
+
++ (instancetype)sharedMenuController
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        menuController = [[self alloc] init];
+        
+    });
+    return menuController;
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    SendCommand * sendCommand=[SendCommand sharedSendCommand];
+    [sendCommand updateDataInTable];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.MenuTableView.delegate = self;
     self.MenuTableView.dataSource=self;
+    
+    dispatch_queue_t mainQueue = dispatch_get_main_queue();  // main thread
+    
+    // create timer
+    timerForMain = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, mainQueue);
+    
+    //set timer property
+    // GCD 1s=10^9 ns
+    // start time and time interval
+    dispatch_source_set_timer(timerForMain, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0);
+    
+    // call task
+    dispatch_source_set_event_handler(timerForMain, ^{
+        [self.MenuTableView reloadData];
+    });
+    
+    // start timer
+    dispatch_resume(timerForMain);
+    
+    
     
     self.alertController = [UIAlertController alertControllerWithTitle: @"Stop Recording?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
@@ -28,6 +66,7 @@
     }]];
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"NO" style: UIAlertActionStyleDefault handler:nil]];
     // Do any additional setup after loading the view.
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +87,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
-
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    
         UILabel *detailLabel = (UILabel *)[cell viewWithTag:2];
         UILabel *dataLabel = (UILabel *)[cell viewWithTag:3];
         if(indexPath.row==0){
@@ -62,6 +102,7 @@
             detailLabel.text =@"Average Speed";
         }else if(indexPath.row==4){
             detailLabel.text =@"RPM";
+            dataLabel.text=[dictionary valueForKey:@"RPM"];
         }else if(indexPath.row==5){
             detailLabel.text =@"Total Oil Consumption";
         }else if(indexPath.row==6){

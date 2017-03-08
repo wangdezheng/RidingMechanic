@@ -12,7 +12,7 @@
 #include <arpa/inet.h>
 
 #import "Session.h"
-#import "InitSupportedCommand.h"
+#import "SendCommand.h"
 
 #define MAX_MSG_CHUNK 1024
 
@@ -115,7 +115,6 @@ static Session * sharedSession = nil;
         timeout.tv_usec = 0;
         ret = select(FD_SETSIZE, &rset, NULL, NULL, &timeout);
         if (FD_ISSET(sktfd,&rset)) {
-            NSLog(@"33");
             [self recvMessage];
         }
     }
@@ -133,8 +132,8 @@ static Session * sharedSession = nil;
         NSLog(@"ERROR reading from socket");
         return;
     }
-    InitSupportedCommand * initSupportedCommand=[[InitSupportedCommand alloc] init];
-    [initSupportedCommand performSelectorOnMainThread: @selector(receiveMessage:) withObject: [NSString stringWithCString: recvBuf encoding: NSASCIIStringEncoding] waitUntilDone: NO];
+    SendCommand * sendCommand=[SendCommand sharedSendCommand];
+    [sendCommand performSelectorOnMainThread: @selector(receiveMessage:) withObject: [NSString stringWithCString: recvBuf encoding: NSASCIIStringEncoding] waitUntilDone: NO];
     
 }
 
@@ -150,8 +149,8 @@ static Session * sharedSession = nil;
     buf[strlen(buf)+1]= 0x00;
     ret = send(sktfd,buf,strlen(buf),0);
     //ret = write(sktfd, buf, strlen(buf));
-    NSLog(@"Send Message: %s",buf);
-    NSLog(@"bytes: %lu",strlen(buf));
+//    NSLog(@"Send Message: %s",buf);
+//    NSLog(@"bytes: %lu",strlen(buf));
     free(buf);
 }
 

@@ -8,6 +8,8 @@
 
 #import "ConnectionViewController.h"
 #import "Reachability.h"
+#import "Session.h"
+#import "SendCommand.h"
 
 
 @interface ConnectionViewController ()
@@ -33,6 +35,7 @@
 @end
 
 @implementation ConnectionViewController
+
 
 - (void)viewWillAppear:(BOOL)animated {
     [[NSUserDefaults standardUserDefaults] setObject:@"unconnected" forKey:@"wifiStatus"];
@@ -142,9 +145,26 @@
     [self.hintLabel setHidden:YES];
     [self.confirmButton setHidden:YES];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@"connected" forKey:@"wifiStatus"];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    Session * session=[Session sharedSession]; //check if connecting to sensor
+    Boolean status=false;
+    status=[session connectToServer:@"192.168.0.10" onPort:35000];
+    
+    if(status){
+        NSLog(@"Success! Start sneding initial commands");
+        
+        [[NSUserDefaults standardUserDefaults] setObject:@"connected" forKey:@"wifiStatus"];
+        
+        [self.navigationController popViewControllerAnimated:YES];
+        
+        SendCommand * sendCommand=[SendCommand sharedSendCommand];
+        [sendCommand sendInitialCommand];
+       
+    }else{
+        NSLog(@"Fail! Please check wifi conncetion");
+    }
+    
+
     
 }
 

@@ -7,6 +7,9 @@
 //
 
 #import "RecvMessageAnalysis.h"
+#import "SendCommand.h"
+
+
 @interface RecvMessageAnalysis(){
     NSString *substring;
     NSString *result;
@@ -92,7 +95,7 @@
     indexArray=[[NSMutableArray alloc] initWithCapacity:32];
     for(int i=0;i<=7;i++){
         substring=[code substringWithRange:NSMakeRange(i, 1)];
-        NSLog(@"%@",substring);
+//        NSLog(@"%@",substring);
         if([substring isEqualToString:@"0"]){
             indexArray[i*4]=@"0";
             indexArray[i*4+1]=@"0";
@@ -184,74 +187,112 @@
 -(NSString *)analysizeRcvcode:(NSString *)code baseOnPID:(NSString *)pid
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    if([[dictionary valueForKey:pid] isEqualToString:@"1"]){
-        if([pid isEqualToString:@"010C"]){//get Engine RPM (rmp)
+    
+    if([pid isEqualToString:@"0105"]){ //Engine coolant temperature(°C)
+        if(code.length==2){
+            NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
+            a=a-40;
+            if(a<-40||a>215){
+                NSLog(@"Engine coolant temperature is out of bounds");
+            }else{
+                result=[NSString stringWithFormat:@"%ld",(long)a];//get Engine coolant temperature (°C)
+            }
+        }else{
+            NSLog(@"Length of %@ is not correct",code);
+        }
+    }else if([pid isEqualToString:@"010C"]){//get Engine RPM (rmp)
             if(code.length==4){
-                NSInteger a=[[code substringWithRange:NSMakeRange(0, 1)] floatValue]*16+[[code substringWithRange:NSMakeRange(1, 1)] floatValue];
-                NSInteger b=[[code substringWithRange:NSMakeRange(2, 1)] floatValue]*16+[[code substringWithRange:NSMakeRange(3, 1)] floatValue];
+                NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
+                NSInteger b=[self convertToDecimal:[code substringWithRange:NSMakeRange(2, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(3, 1)]];
                 float sum=(256*a+b)/4;
                 if(sum>16383.75||sum<0){
                     NSLog(@"RPM out of bounds");
-                    return nil;
                 }else{
                     result=[NSString stringWithFormat:@"%.3f",sum];//get Engine RPM (rmp)
+                    [dictionary setValue:result forKey:@"RPM"];
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
-                return nil;
             }
         }else if([pid isEqualToString:@"010D"]){//get Vehicle speed(km/h)
             if(code.length==2){
-                NSInteger a=[[code substringWithRange:NSMakeRange(0, 1)] floatValue]*16+[[code substringWithRange:NSMakeRange(1, 1)] floatValue];
+                NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
                 a=a*1.6;
                 if(a<0||a>255){
                     NSLog(@"Speed out of bounds");
-                    return nil;
                 }else{
                     result=[NSString stringWithFormat:@"%ld",(long)a];//get Vehicle speed (m/h)
                     
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
-                return nil;
+            }
+        }else if([pid isEqualToString:@"0110"]){//get MAF air flow rate (grams/sec)
+            if(code.length==4){
+                NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
+                NSInteger b=[self convertToDecimal:[code substringWithRange:NSMakeRange(2, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(3, 1)]];
+                float sum=(a*256+b)/100;
+                if(sum<0||sum>655.35){
+                    NSLog(@"MAF air flow rate is out of bounds");
+                }else{
+                    result=[NSString stringWithFormat:@"%f",sum];//get MAF air flow rate (grams/sec)
+                }
+            }else{
+                NSLog(@"Length of %@ is not correct",code);
             }
         }else if([pid isEqualToString:@"011F"]){//get Run time since engine start (seconds)
             if(code.length==4){
-                NSInteger a=[[code substringWithRange:NSMakeRange(0, 1)] floatValue]*16+[[code substringWithRange:NSMakeRange(1, 1)] floatValue];
-                NSInteger b=[[code substringWithRange:NSMakeRange(2, 1)] floatValue]*16+[[code substringWithRange:NSMakeRange(3, 1)] floatValue];
+                NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
+                NSInteger b=[self convertToDecimal:[code substringWithRange:NSMakeRange(2, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(3, 1)]];
                 NSInteger sum=a*256+b;
                 if(sum<0||sum>65535){
                     NSLog(@"Run time since engine start out of bounds");
-                    return nil;
                 }else{
                     result=[NSString stringWithFormat:@"%ld",(long)sum];//get Run time since engine start(seconds)
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
-                return nil;
             }
-        }else if([pid isEqualToString:@"015E"]){//get Engine fuel rate (L/h)
+        }else if([pid isEqualToString:@"0142"]){//get Control module voltage (V)
             if(code.length==4){
-                NSInteger a=[[code substringWithRange:NSMakeRange(0, 1)] floatValue]*16+[[code substringWithRange:NSMakeRange(1, 1)] floatValue];
-                NSInteger b=[[code substringWithRange:NSMakeRange(2, 1)] floatValue]*16+[[code substringWithRange:NSMakeRange(3, 1)] floatValue];
-                float sum=(a*256+b)/20;
-                if(sum<0||sum>3276.75){
-                    NSLog(@"Engine fuel rate out of bounds");
-                    return nil;
+                NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
+                NSInteger b=[self convertToDecimal:[code substringWithRange:NSMakeRange(2, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(3, 1)]];
+                float sum=(a*256+b)/1000;
+                if(sum<0||sum>65.535){
+                    NSLog(@"Control module voltage is out of bounds");
                 }else{
-                    result=[NSString stringWithFormat:@"%f",sum];//get Engine fuel rate (L/h)
+                    result=[NSString stringWithFormat:@"%f",sum];//get Control module voltage (V)
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
-                return nil;
             }
         }
-        
-    }else{
-        NSLog(@"%@ is not supported",pid);
-        return nil;
-    }
+    
+    SendCommand *sendCommand=[SendCommand sharedSendCommand];
+    [sendCommand resumeTimerForUpdate];
     return result;
+}
+
+-(float)convertToDecimal: (NSString *) hexadecimalString
+{
+    float value;
+    
+    if([hexadecimalString isEqualToString:@"A"]){
+        value=10;
+    }else if([hexadecimalString isEqualToString:@"B"]){
+        value=11;
+    }else if([hexadecimalString isEqualToString:@"C"]){
+        value=12;
+    }else if([hexadecimalString isEqualToString:@"D"]){
+        value=13;
+    }else if([hexadecimalString isEqualToString:@"E"]){
+        value=14;
+    }else if([hexadecimalString isEqualToString:@"F"]){
+        value=15;
+    }else{
+        value=[hexadecimalString floatValue];
+    }
+    return  value;
 }
 
 @end

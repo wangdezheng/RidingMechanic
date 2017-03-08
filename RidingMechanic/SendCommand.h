@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 #import "Session.h"
 
-static id _instance;
 
-@interface InitSupportedCommand : NSObject <SessionReceiverProtocol>
+@interface SendCommand : NSObject <SessionReceiverProtocol>
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone;
-+ (instancetype)sharedSession;
++ (instancetype)sharedSendCommand;
 
--(BOOL) startConnectingToServer;
+-(void) sendInitialCommand;
+
+-(void) updateDataInTable;
+-(void) resumeTimerForUpdate;
 @end

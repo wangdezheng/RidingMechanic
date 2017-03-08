@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Session.h"
 
 @interface CarModelViewController : UIViewController
 

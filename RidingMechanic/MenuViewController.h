@@ -10,4 +10,8 @@
 
 @interface MenuViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UITableView *MenuTableView;
+
++ (instancetype)sharedMenuController;
+
 @end
