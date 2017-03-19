@@ -51,7 +51,7 @@ static  SendCommand* sharedSendCommand = nil;
     //set timer property
     // GCD 1s=10^9 ns
     // start time and time interval
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0);
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0);
     
     // call task
     dispatch_source_set_event_handler(timer, ^{

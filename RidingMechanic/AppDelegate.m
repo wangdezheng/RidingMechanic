@@ -100,7 +100,10 @@
     
     [dictionary setValue:@"0" forKey:@"Speed"];
     [dictionary setValue:@"0" forKey:@"PreviousSpeed"];
-    [dictionary setValue:@"0" forKey:@"DrivingDistance"]; //clear temporary database
+    [dictionary setValue:@"0" forKey:@"DrivingDistance"];
+    [dictionary setValue:@"0" forKey:@"RPM"];//clear temporary database
+
+    
     
     if (self.managedObjectContext != nil) {
         //if change, save context

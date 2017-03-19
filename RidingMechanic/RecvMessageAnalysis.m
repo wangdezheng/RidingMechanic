@@ -200,7 +200,7 @@ Boolean getPreviousSpeed=NO;
             }else{
                 result=[NSString stringWithFormat:@"%ld",(long)a];//get Engine coolant temperature (°C)
                 [dictionary setValue:result forKey:@"EngineCoolantTemperature"];
-//                sendCommand.pid=@"010C";
+                sendCommand.pid=@"010D";
             }
         }else{
             NSLog(@"Length of %@ is not correct",code);
@@ -233,7 +233,22 @@ Boolean getPreviousSpeed=NO;
                     }
                     [dictionary setValue:result forKey:@"Speed"];
                     getPreviousSpeed=YES;
-                    sendCommand.pid=@"010C";
+                    
+                    int drivingTime=[[dictionary valueForKey:@"DrivingTime"] intValue];
+                    NSLog(@"%d",drivingTime);
+                    if(drivingTime%4==0){
+                        sendCommand.pid=@"0105";
+                    }
+                    else if(drivingTime%4==1){
+                        sendCommand.pid=@"010C";
+                    }
+                    else if(drivingTime%4==2){
+                        sendCommand.pid=@"0110";
+                    }
+                    else{
+                        sendCommand.pid=@"0142";
+                    }
+
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
@@ -248,22 +263,7 @@ Boolean getPreviousSpeed=NO;
                 }else{
                     result=[NSString stringWithFormat:@"%f",sum];//get MAF air flow rate (grams/sec)
                     [dictionary setValue:result forKey:@"MAF"];
-                    sendCommand.pid=@"011F";
-                }
-            }else{
-                NSLog(@"Length of %@ is not correct",code);
-            }
-    }else if([pid isEqualToString:@"011F"]){//get Run time since engine start (seconds)
-            if(code.length==4){
-                NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
-                NSInteger b=[self convertToDecimal:[code substringWithRange:NSMakeRange(2, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(3, 1)]];
-                NSInteger sum=a*256+b;
-                if(sum<0||sum>65535){
-                    NSLog(@"Run time since engine start out of bounds");
-                }else{
-                    result=[NSString stringWithFormat:@"%ld",(long)sum];//get Run time since engine start(seconds)
-                    [dictionary setValue:result forKey:@"RunTime"];
-                    sendCommand.pid=@"0142";
+                    sendCommand.pid=@"010D";
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
@@ -278,7 +278,7 @@ Boolean getPreviousSpeed=NO;
                 }else{
                     result=[NSString stringWithFormat:@"%f",sum];//get Control module voltage (V)
                     [dictionary setValue:result forKey:@"ControlModuleVoltage"];
-                    sendCommand.pid=@"0105";
+                    sendCommand.pid=@"010D";
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);

@@ -16,6 +16,8 @@
 @implementation MenuViewController
 
 float totalDistance=0;
+float averageSpeed=0;
+int drivingTime=0;
 int interval=1; //reload data interval
 static dispatch_source_t timerForMain;
 static MenuViewController * menuController = nil;
@@ -33,7 +35,7 @@ static MenuViewController * menuController = nil;
 -(void)viewWillAppear:(BOOL)animated
 {
     SendCommand * sendCommand=[SendCommand sharedSendCommand];
-    sendCommand.pid=@"010C";
+    sendCommand.pid=@"010D";
     [sendCommand updateDataInTable];
 }
 
@@ -56,6 +58,7 @@ static MenuViewController * menuController = nil;
     // call task
     dispatch_source_set_event_handler(timerForMain, ^{
         [self.MenuTableView reloadData];
+        drivingTime++;
     });
     
     // start timer
@@ -97,7 +100,8 @@ static MenuViewController * menuController = nil;
         UILabel *dataLabel = (UILabel *)[cell viewWithTag:3];
         if(indexPath.row==0){
             detailLabel.text =@"Driving Time";
-            dataLabel.text=[dictionary valueForKey:@"RunTime"];
+            dataLabel.text=[NSString stringWithFormat:@"%d",drivingTime];
+            [dictionary setValue:[NSString stringWithFormat:@"%d",drivingTime] forKey:@"DrivingTime"];
         }else if(indexPath.row==1){
             [self getDrivingDistance];
             detailLabel.text =@"Driving Distance";
@@ -107,6 +111,7 @@ static MenuViewController * menuController = nil;
             dataLabel.text=[dictionary valueForKey:@"Speed"];
         }else if(indexPath.row==3){
             detailLabel.text =@"Average Speed";
+            dataLabel.text=[dictionary valueForKey:@"AverageSpeed"];
         }else if(indexPath.row==4){
             detailLabel.text =@"RPM";
             dataLabel.text=[dictionary valueForKey:@"RPM"];
@@ -133,9 +138,13 @@ static MenuViewController * menuController = nil;
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
 
-    totalDistance+=([[dictionary valueForKey:@"Speed"] floatValue]+[[dictionary valueForKey:@"PreviousSpeed"] floatValue])/2/3600;// calculate distance using Calculus
-   
-    [dictionary setValue:[NSString stringWithFormat:@"%f", totalDistance] forKey:@"DrivingDistance"];
+    totalDistance+=([[dictionary valueForKey:@"Speed"] floatValue]+[[dictionary valueForKey:@"PreviousSpeed"] floatValue])*interval/2/3600;// calculate distance using Calculus
+    
+    averageSpeed=3600*totalDistance/drivingTime;
+    NSLog(@"Average Speed:%f",averageSpeed);
+    [dictionary setValue:[NSString stringWithFormat:@"%2f", averageSpeed] forKey:@"AverageSpeed"];
+    
+    [dictionary setValue:[NSString stringWithFormat:@"%2f", totalDistance] forKey:@"DrivingDistance"];
     
 }
 
