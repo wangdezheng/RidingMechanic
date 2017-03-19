@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface RecvMessageAnalysis : NSObject
+
 -(void)updateSupportedPIDs: (NSString * )pid recvCode: (NSString *) code;
 -(NSString *)analysizeRcvcode:(NSString *)code baseOnPID:(NSString * )pid;
+
 @end

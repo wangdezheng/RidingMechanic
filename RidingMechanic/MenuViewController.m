@@ -14,6 +14,9 @@
 @end
 
 @implementation MenuViewController
+
+float totalDistance=0;
+int interval=1; //reload data interval
 static dispatch_source_t timerForMain;
 static MenuViewController * menuController = nil;
 
@@ -30,6 +33,7 @@ static MenuViewController * menuController = nil;
 -(void)viewWillAppear:(BOOL)animated
 {
     SendCommand * sendCommand=[SendCommand sharedSendCommand];
+    sendCommand.pid=@"010C";
     [sendCommand updateDataInTable];
 }
 
@@ -47,7 +51,7 @@ static MenuViewController * menuController = nil;
     //set timer property
     // GCD 1s=10^9 ns
     // start time and time interval
-    dispatch_source_set_timer(timerForMain, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0);
+    dispatch_source_set_timer(timerForMain, DISPATCH_TIME_NOW, interval * NSEC_PER_SEC, 0);
     
     // call task
     dispatch_source_set_event_handler(timerForMain, ^{
@@ -92,12 +96,15 @@ static MenuViewController * menuController = nil;
         UILabel *detailLabel = (UILabel *)[cell viewWithTag:2];
         UILabel *dataLabel = (UILabel *)[cell viewWithTag:3];
         if(indexPath.row==0){
-            detailLabel.text =@"Drive Time";
-            dataLabel.text=@"111";
+            detailLabel.text =@"Driving Time";
+            dataLabel.text=[dictionary valueForKey:@"RunTime"];
         }else if(indexPath.row==1){
+            [self getDrivingDistance];
             detailLabel.text =@"Driving Distance";
+            dataLabel.text=[dictionary valueForKey:@"DrivingDistance"];
         }else if(indexPath.row==2){
             detailLabel.text =@"Speed";
+            dataLabel.text=[dictionary valueForKey:@"Speed"];
         }else if(indexPath.row==3){
             detailLabel.text =@"Average Speed";
         }else if(indexPath.row==4){
@@ -111,13 +118,25 @@ static MenuViewController * menuController = nil;
             detailLabel.text =@"Fuel Cost";
         }else if(indexPath.row==8){
             detailLabel.text =@"Engine Coolant Temperature";
+            dataLabel.text=[dictionary valueForKey:@"EngineCoolantTemperature"];
         }else if(indexPath.row==9){
-            detailLabel.text =@"Idle Time";
+            detailLabel.text =@"Control Module Voltage";
+            dataLabel.text=[dictionary valueForKey:@"ControlModuleVoltage"];
         }else if(indexPath.row==10){
             detailLabel.text =@"Sharp Acceleration Times";
         }
 
     return cell;
+}
+
+-(void)getDrivingDistance
+{
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+
+    totalDistance+=([[dictionary valueForKey:@"Speed"] floatValue]+[[dictionary valueForKey:@"PreviousSpeed"] floatValue])/2/3600;// calculate distance using Calculus
+   
+    [dictionary setValue:[NSString stringWithFormat:@"%f", totalDistance] forKey:@"DrivingDistance"];
+    
 }
 
 

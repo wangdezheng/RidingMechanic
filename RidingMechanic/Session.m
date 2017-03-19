@@ -111,7 +111,7 @@ static Session * sharedSession = nil;
     while (self.connected) {
         FD_ZERO(&rset);
         FD_SET(sktfd,&rset);
-        timeout.tv_sec = 1;
+        timeout.tv_sec = 0.5;
         timeout.tv_usec = 0;
         ret = select(FD_SETSIZE, &rset, NULL, NULL, &timeout);
         if (FD_ISSET(sktfd,&rset)) {

@@ -12,6 +12,7 @@
 
 @interface SendCommand : NSObject <SessionReceiverProtocol>
 
+@property (strong,nonatomic) NSString* pid;
 + (instancetype)allocWithZone:(struct _NSZone *)zone;
 + (instancetype)sharedSendCommand;
 

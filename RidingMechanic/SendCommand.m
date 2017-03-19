@@ -12,7 +12,6 @@
 
 @interface SendCommand()
 
-@property (strong,nonatomic) NSString* pid;
 @property (strong,nonatomic) NSString* recvcode;
 
 @end
@@ -52,7 +51,7 @@ static  SendCommand* sharedSendCommand = nil;
     //set timer property
     // GCD 1s=10^9 ns
     // start time and time interval
-    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 2 * NSEC_PER_SEC, 0);
+    dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 0);
     
     // call task
     dispatch_source_set_event_handler(timer, ^{
@@ -107,8 +106,7 @@ static  SendCommand* sharedSendCommand = nil;
     dispatch_source_set_event_handler(timerForUpdate, ^{
         
         Session * session=[Session sharedSession];
-        self.pid=@"010C";
-        [session sendMessage:@"010C"];
+        [session sendMessage:self.pid];
         [self pauseTimerForUpdate];
     });
     
@@ -134,6 +132,9 @@ static  SendCommand* sharedSendCommand = nil;
 - (void) receiveMessage: (NSString *) message {
     //    NSLog(@"New Text:%@ %lu",message,message.length);
     self.recvcode=nil;
+    if(self.pid==nil){
+        return;
+    }
     
     NSError *error = nil;
     if(message.length>5){                       //message is not echo
