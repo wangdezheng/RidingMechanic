@@ -98,10 +98,15 @@
     NSError *error;
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
     
+    [dictionary setValue:@"0" forKey:@"DrivingTime"];
+    [dictionary setValue:@"0" forKey:@"DrivingDistance"];
     [dictionary setValue:@"0" forKey:@"Speed"];
     [dictionary setValue:@"0" forKey:@"PreviousSpeed"];
-    [dictionary setValue:@"0" forKey:@"DrivingDistance"];
-    [dictionary setValue:@"0" forKey:@"RPM"];//clear temporary database
+    [dictionary setValue:@"0" forKey:@"RPM"];
+    [dictionary setValue:@"0" forKey:@"RealtimeMPG"];
+    [dictionary setValue:@"0" forKey:@"TotalOilConsumption"];
+    [dictionary setValue:@"0" forKey:@"AverageOilConsumption"];
+    [dictionary setValue:@"0" forKey:@"SharpAccelerationTimes"];//clear temporary database
 
     
     

@@ -100,7 +100,7 @@ static  SendCommand* sharedSendCommand = nil;
     //set timer property
     // GCD 1s=10^9 ns
     // start time and time interval
-    dispatch_source_set_timer(timerForUpdate, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0);
+    dispatch_source_set_timer(timerForUpdate, DISPATCH_TIME_NOW, 0.25 * NSEC_PER_SEC, 0);
     
     // call task
     dispatch_source_set_event_handler(timerForUpdate, ^{
@@ -130,14 +130,10 @@ static  SendCommand* sharedSendCommand = nil;
 
 
 - (void) receiveMessage: (NSString *) message {
-    //    NSLog(@"New Text:%@ %lu",message,message.length);
-    self.recvcode=nil;
-    if(self.pid==nil){
-        return;
-    }
-    
+//    NSLog(@"Message:%@ %lu",message,message.length);
+
     NSError *error = nil;
-    if(message.length>5){                       //message is not echo
+    if(message.length>5&&![message containsString:@"STOPPED"]){   //message is not echo and has content
         NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\s" options:NSRegularExpressionCaseInsensitive error:&error];//remove space, tab
         message=[regex stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
         NSRegularExpression *REGEX = [NSRegularExpression regularExpressionWithPattern:@">+" options:NSRegularExpressionCaseInsensitive error:&error];//remove >
@@ -158,6 +154,22 @@ static  SendCommand* sharedSendCommand = nil;
             NSLog(@"Return Value:%@",returnValue);
         }
     }
+    
+    
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    if([self.pid isEqualToString:@"010C"]){ //Engine RPM (rmp)
+        self.pid=@"010D";
+    }else if([self.pid isEqualToString:@"010D"]){ //Vehicle speed
+        self.pid=@"0110";
+    }else if([self.pid isEqualToString:@"0110"]){ //MAF air flow rate
+        int drivingTime=[[dictionary valueForKey:@"DrivingTime"] intValue];
+        self.pid = drivingTime%2==0?@"0105":@"0142";
+    }else if([self.pid isEqualToString:@"0105"]){ //Engine coolant temperature(°C)
+        self.pid=@"010C";
+    }else if([self.pid isEqualToString:@"0142"]){ //Control module voltage
+        self.pid=@"010C";
+    }
+    [self resumeTimerForUpdate];
     
 }
 @end
