@@ -41,7 +41,7 @@ static MenuViewController * menuController = nil;
 -(void)viewWillAppear:(BOOL)animated
 {
     SendCommand * sendCommand=[SendCommand sharedSendCommand];
-    sendCommand.pid=@"010C";
+    sendCommand.pid=@"010D";
     [sendCommand updateDataInTable];
 }
 
@@ -158,7 +158,10 @@ static MenuViewController * menuController = nil;
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
 
-    totalDistance+=([[dictionary valueForKey:@"Speed"] floatValue]+[[dictionary valueForKey:@"PreviousSpeed"] floatValue])*interval/2/3600;// calculate distance using Calculus
+    float drivingDistanceEachSecond=([[dictionary valueForKey:@"Speed"] floatValue]+[[dictionary valueForKey:@"PreviousSpeed"] floatValue])*interval/2/3600; // calculate distance using Calculus
+    [dictionary setValue:[NSString stringWithFormat:@"%.2f", drivingDistanceEachSecond] forKey:@"DrivingDistanceForEachSecond"];
+    
+    totalDistance+=drivingDistanceEachSecond;
      [dictionary setValue:[NSString stringWithFormat:@"%.2f", totalDistance] forKey:@"DrivingDistance"];
     
 //    NSLog(@"Speed:%@, Previous Speed:%@",[dictionary valueForKey:@"Speed"],[dictionary valueForKey:@"PreviousSpeed"]);
@@ -178,6 +181,7 @@ static MenuViewController * menuController = nil;
 -(void)getRealtimeMPG //get realtime MPG
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    NSLog(@"MAF:%.2f", [[dictionary valueForKey:@"MAF"] floatValue]);
     
     MPG=710.7*[[dictionary valueForKey:@"Speed"] floatValue]/[[dictionary valueForKey:@"MAF"] floatValue]; //MPG = (14.7 * 6.17 * 4.54 * VSS * 0.621371) / (3600 * MAF / 100)= 710.7 * VSS / MAF
     
@@ -188,7 +192,13 @@ static MenuViewController * menuController = nil;
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
     
-    totalOilConsumption=[[dictionary valueForKey:@"DrivingDistance"] floatValue]/[[dictionary valueForKey:@"RealtimeMPG"] floatValue]; //totalOilConsumption=DrivingDistance/Realtime MPG
+    if([[dictionary valueForKey:@"RealtimeMPG"] floatValue]==0){
+        totalOilConsumption+=0;
+    }else{
+        totalOilConsumption+=([[dictionary valueForKey:@"DrivingDistanceForEachSecond"] floatValue])/([[dictionary valueForKey:@"RealtimeMPG"] floatValue]); //totalOilConsumption+=DrivingDistanceForEachSecond/Realtime MPG
+    }
+
+    NSLog(@"OIL CONSUMPTION:%.2f", totalOilConsumption);
     [dictionary setValue:[NSString stringWithFormat:@"%.2f", totalOilConsumption] forKey:@"TotalOilConsumption"];
     
 }

@@ -189,6 +189,7 @@ Boolean getPreviousSpeed=NO;
 -(NSString *)analysizeRcvcode:(NSString *)code baseOnPID:(NSString *)pid
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    SendCommand *sendcommand=[SendCommand sharedSendCommand];
     
     if([pid isEqualToString:@"0105"]){ //Engine coolant temperature(°C)
         if(code.length==2){
@@ -199,6 +200,7 @@ Boolean getPreviousSpeed=NO;
             }else{
                 result=[NSString stringWithFormat:@"%ld",(long)a];//get Engine coolant temperature (°C)
                 [dictionary setValue:result forKey:@"EngineCoolantTemperature"];
+                sendcommand.pid=@"010D";
             }
         }else{
             NSLog(@"Length of %@ is not correct",code);
@@ -213,6 +215,7 @@ Boolean getPreviousSpeed=NO;
                 }else{
                     result=[NSString stringWithFormat:@"%ld",(long)sum];//get Engine RPM (rmp)
                     [dictionary setValue:result forKey:@"RPM"];
+                    sendcommand.pid=@"010D";
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
@@ -230,6 +233,19 @@ Boolean getPreviousSpeed=NO;
                     }
                     [dictionary setValue:result forKey:@"Speed"];
                     getPreviousSpeed=YES;
+                    
+                    int drivingTime=[[dictionary valueForKey:@"DrivingTime"] intValue];
+                    if(drivingTime%2==0){
+                        if(drivingTime%5==0){
+                           sendcommand.pid=@"0105"; //sending rate is 1/10
+                        }else if(drivingTime%3==0){  //sending rate is about 1.3/10
+                            sendcommand.pid=@"0142"; //sending rate is about 2.7/10
+                        }else{
+                           sendcommand.pid=@"0110";
+                        }
+                    }else{
+                        sendcommand.pid=@"010C"; //sending rate is 1/2
+                    }
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
@@ -244,6 +260,7 @@ Boolean getPreviousSpeed=NO;
                 }else{
                     result=[NSString stringWithFormat:@"%.2f",sum];//get MAF air flow rate (grams/sec)
                     [dictionary setValue:result forKey:@"MAF"];
+                    sendcommand.pid=@"010D";
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
@@ -258,12 +275,13 @@ Boolean getPreviousSpeed=NO;
                 }else{
                     result=[NSString stringWithFormat:@"%.2f",sum];//get Control module voltage (V)
                     [dictionary setValue:result forKey:@"ControlModuleVoltage"];
+                    sendcommand.pid=@"010D";
                 }
             }else{
                 NSLog(@"Length of %@ is not correct",code);
             }
         }
-
+    [sendcommand resumeTimerForUpdate];
     return result;
 }
 
