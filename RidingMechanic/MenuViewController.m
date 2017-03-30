@@ -51,6 +51,24 @@ static MenuViewController * menuController = nil;
     self.MenuTableView.delegate = self;
     self.MenuTableView.dataSource=self;
     
+    self.alertController = [UIAlertController alertControllerWithTitle: @"Stop Recording?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        
+        [self performSegueWithIdentifier:@"goBackCarModelView" sender:nil];
+    }]];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"NO" style: UIAlertActionStyleDefault handler:nil]];
+    // Do any additional setup after loading the view.
+    
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:YES];
+    
     dispatch_queue_t mainQueue = dispatch_get_main_queue();  // main thread
     
     // create timer
@@ -72,23 +90,8 @@ static MenuViewController * menuController = nil;
     
     // start timer
     dispatch_resume(timerForMain);
-    
-    
-    
-    self.alertController = [UIAlertController alertControllerWithTitle: @"Stop Recording?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        
-        [self performSegueWithIdentifier:@"goBackCarModelView" sender:nil];
-    }]];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"NO" style: UIAlertActionStyleDefault handler:nil]];
-    // Do any additional setup after loading the view.
-    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)goBackCarModelView:(id)sender {
     [self presentViewController:self.alertController animated:YES completion:Nil];
 }

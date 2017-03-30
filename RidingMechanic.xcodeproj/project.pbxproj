@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D56B0481EEF0C5F657691130 /* libPods-RidingMechanic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E552620A5EB38BB9F54948E /* libPods-RidingMechanic.a */; };
 		E209004C1DF6509900798A32 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E21D27651DCE6A62001EAD26 /* WebKit.framework */; };
 		E20A8D411E06129600D18DCA /* SetInitialStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A8D401E06129600D18DCA /* SetInitialStatus.m */; };
 		E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A8D431E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m */; };
@@ -24,11 +25,13 @@
 		E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E259820F1D89EC5D00C07236 /* Assets.xcassets */; };
 		E259821E1D89EC5D00C07236 /* RidingMechanicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E259821D1D89EC5D00C07236 /* RidingMechanicTests.m */; };
 		E25982291D89EC5D00C07236 /* RidingMechanicUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */; };
+		E25D1B1F1E8C5A510053039B /* HealthScanViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E25D1B1E1E8C5A510053039B /* HealthScanViewController.m */; };
 		E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */; };
 		E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E270DC401E010B4300A40DC8 /* SpeedAlertTableViewController.m */; };
 		E27B74A01E5D384700FE5E54 /* RecvMessageAnalysis.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B749F1E5D384700FE5E54 /* RecvMessageAnalysis.m */; };
 		E27B74A61E5D3A1E00FE5E54 /* Session.m in Sources */ = {isa = PBXBuildFile; fileRef = E27B74A51E5D3A1E00FE5E54 /* Session.m */; };
 		E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E28ACCDE1DAD4389008C0E59 /* Main.storyboard */; };
+		E29AAB6E1E847A4B00330763 /* AnalysisViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E29AAB6D1E847A4B00330763 /* AnalysisViewController.m */; };
 		E29B3BA91E6FC90E00EC0D71 /* SendCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E29B3BA81E6FC90E00EC0D71 /* SendCommand.m */; };
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
@@ -54,23 +57,11 @@
 			remoteGlobalIDString = E25981FC1D89EC5D00C07236;
 			remoteInfo = RidingMechanic;
 		};
-		E2AFC6EF1E6674FC00D51940 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C7C71AB619F9C08B006C9400;
-			remoteInfo = IM;
-		};
-		E2AFC6F11E6674FC00D51940 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = C7C71ACF19F9C08B006C9400;
-			remoteInfo = IMTests;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5E552620A5EB38BB9F54948E /* libPods-RidingMechanic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RidingMechanic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B7B5E49D617F7A179FE8DB55 /* Pods-RidingMechanic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidingMechanic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RidingMechanic/Pods-RidingMechanic.debug.xcconfig"; sourceTree = "<group>"; };
 		E20A8D3F1E06129500D18DCA /* SetInitialStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetInitialStatus.h; sourceTree = "<group>"; };
 		E20A8D401E06129600D18DCA /* SetInitialStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetInitialStatus.m; sourceTree = "<group>"; };
 		E20A8D421E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterTemperatureAlertTableViewController.h; sourceTree = "<group>"; };
@@ -106,6 +97,8 @@
 		E25982241D89EC5D00C07236 /* RidingMechanicUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RidingMechanicUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E25982281D89EC5D00C07236 /* RidingMechanicUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RidingMechanicUITests.m; sourceTree = "<group>"; };
 		E259822A1D89EC5D00C07236 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E25D1B1D1E8C5A510053039B /* HealthScanViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HealthScanViewController.h; sourceTree = "<group>"; };
+		E25D1B1E1E8C5A510053039B /* HealthScanViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HealthScanViewController.m; sourceTree = "<group>"; };
 		E270DC3C1E00F87400A40DC8 /* AlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertTableViewController.h; sourceTree = "<group>"; };
 		E270DC3D1E00F87400A40DC8 /* AlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertTableViewController.m; sourceTree = "<group>"; };
 		E270DC3F1E010B4300A40DC8 /* SpeedAlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeedAlertTableViewController.h; sourceTree = "<group>"; };
@@ -115,13 +108,14 @@
 		E27B74A41E5D3A1E00FE5E54 /* Session.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Session.h; sourceTree = "<group>"; };
 		E27B74A51E5D3A1E00FE5E54 /* Session.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Session.m; sourceTree = "<group>"; };
 		E28ACCDE1DAD4389008C0E59 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E29AAB6C1E847A4B00330763 /* AnalysisViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnalysisViewController.h; sourceTree = "<group>"; };
+		E29AAB6D1E847A4B00330763 /* AnalysisViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnalysisViewController.m; sourceTree = "<group>"; };
 		E29B3BA71E6FC90E00EC0D71 /* SendCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendCommand.h; sourceTree = "<group>"; };
 		E29B3BA81E6FC90E00EC0D71 /* SendCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendCommand.m; sourceTree = "<group>"; };
 		E2A004311DECF24500FCC18E /* CarModelViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CarModelViewController.h; sourceTree = "<group>"; };
 		E2A004321DECF24500FCC18E /* CarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModelViewController.m; sourceTree = "<group>"; };
 		E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = IM.xcodeproj; path = ../IM/IM.xcodeproj; sourceTree = "<group>"; };
 		E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2C87D9F1DFA073F000E76FA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = RidingMechanicTests/Base.lproj; sourceTree = SOURCE_ROOT; };
 		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
@@ -129,6 +123,7 @@
 		E2F0004C1DFA161300B58506 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		E2FA78861DD2AE38006E730A /* RestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestAPI.h; sourceTree = "<group>"; };
 		E2FA78871DD2AE38006E730A /* RestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestAPI.m; sourceTree = "<group>"; };
+		F37B068098E7E2B5A443ACE7 /* Pods-RidingMechanic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidingMechanic.release.xcconfig"; path = "Pods/Target Support Files/Pods-RidingMechanic/Pods-RidingMechanic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +133,7 @@
 			files = (
 				E209004C1DF6509900798A32 /* WebKit.framework in Frameworks */,
 				E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */,
+				D56B0481EEF0C5F657691130 /* libPods-RidingMechanic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,6 +154,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D0300541CE19D1AABBD2FF3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B7B5E49D617F7A179FE8DB55 /* Pods-RidingMechanic.debug.xcconfig */,
+				F37B068098E7E2B5A443ACE7 /* Pods-RidingMechanic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		E21B33D01DF784AA00BE2B8A /* CarModel Screen */ = {
 			isa = PBXGroup;
 			children = (
@@ -199,12 +204,12 @@
 		E25981F41D89EC5D00C07236 = {
 			isa = PBXGroup;
 			children = (
-				E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */,
 				E25981FF1D89EC5D00C07236 /* RidingMechanic */,
 				E259821C1D89EC5D00C07236 /* RidingMechanicTests */,
 				E25982271D89EC5D00C07236 /* RidingMechanicUITests */,
 				E25981FE1D89EC5D00C07236 /* Products */,
 				E2BC6C9B1DC6915A000A2E49 /* Frameworks */,
+				8D0300541CE19D1AABBD2FF3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -221,6 +226,7 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
+				E25D1B1A1E8C5A080053039B /* ScanScreen */,
 				E27B749A1E5D376900FE5E54 /* SensorConnection */,
 				E259CC751DFA00340018F9F2 /* Model */,
 				E25982031D89EC5D00C07236 /* AppDelegate.h */,
@@ -234,6 +240,7 @@
 				E212107A1DD66E56002B4ED5 /* RegisterViewController.h */,
 				E212107B1DD66E56002B4ED5 /* RegisterViewController.m */,
 				E21B33D01DF784AA00BE2B8A /* CarModel Screen */,
+				E29AAB6B1E8479D500330763 /* AnalysisScreen */,
 				E21B33D31DF7851200BE2B8A /* More Screen */,
 				E259820F1D89EC5D00C07236 /* Assets.xcassets */,
 				E28ACCDE1DAD4389008C0E59 /* Main.storyboard */,
@@ -280,6 +287,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		E25D1B1A1E8C5A080053039B /* ScanScreen */ = {
+			isa = PBXGroup;
+			children = (
+				E25D1B1D1E8C5A510053039B /* HealthScanViewController.h */,
+				E25D1B1E1E8C5A510053039B /* HealthScanViewController.m */,
+			);
+			name = ScanScreen;
+			sourceTree = "<group>";
+		};
 		E27B749A1E5D376900FE5E54 /* SensorConnection */ = {
 			isa = PBXGroup;
 			children = (
@@ -293,13 +309,13 @@
 			name = SensorConnection;
 			sourceTree = "<group>";
 		};
-		E2AFC6EB1E6674FC00D51940 /* Products */ = {
+		E29AAB6B1E8479D500330763 /* AnalysisScreen */ = {
 			isa = PBXGroup;
 			children = (
-				E2AFC6F01E6674FC00D51940 /* IM.app */,
-				E2AFC6F21E6674FC00D51940 /* IMTests.xctest */,
+				E29AAB6C1E847A4B00330763 /* AnalysisViewController.h */,
+				E29AAB6D1E847A4B00330763 /* AnalysisViewController.m */,
 			);
-			name = Products;
+			name = AnalysisScreen;
 			sourceTree = "<group>";
 		};
 		E2BC6C9B1DC6915A000A2E49 /* Frameworks */ = {
@@ -307,6 +323,7 @@
 			children = (
 				E21D27651DCE6A62001EAD26 /* WebKit.framework */,
 				E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */,
+				5E552620A5EB38BB9F54948E /* libPods-RidingMechanic.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -318,9 +335,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E259822D1D89EC5D00C07236 /* Build configuration list for PBXNativeTarget "RidingMechanic" */;
 			buildPhases = (
+				245EA1ADDFAECA68A138410A /* [CP] Check Pods Manifest.lock */,
 				E25981F91D89EC5D00C07236 /* Sources */,
 				E25981FA1D89EC5D00C07236 /* Frameworks */,
 				E25981FB1D89EC5D00C07236 /* Resources */,
+				ED4F3FDC290E2A359238F24D /* [CP] Embed Pods Frameworks */,
+				13D485C531289D23DCFAF344 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -401,12 +421,6 @@
 			mainGroup = E25981F41D89EC5D00C07236;
 			productRefGroup = E25981FE1D89EC5D00C07236 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E2AFC6EB1E6674FC00D51940 /* Products */;
-					ProjectRef = E2AFC6EA1E6674FC00D51940 /* IM.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E25981FC1D89EC5D00C07236 /* RidingMechanic */,
@@ -415,23 +429,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E2AFC6F01E6674FC00D51940 /* IM.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = IM.app;
-			remoteRef = E2AFC6EF1E6674FC00D51940 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E2AFC6F21E6674FC00D51940 /* IMTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = IMTests.xctest;
-			remoteRef = E2AFC6F11E6674FC00D51940 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E25981FB1D89EC5D00C07236 /* Resources */ = {
@@ -460,6 +457,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		13D485C531289D23DCFAF344 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RidingMechanic/Pods-RidingMechanic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		245EA1ADDFAECA68A138410A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		ED4F3FDC290E2A359238F24D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-RidingMechanic/Pods-RidingMechanic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E25981F91D89EC5D00C07236 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -479,7 +524,9 @@
 				E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */,
 				E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
+				E29AAB6E1E847A4B00330763 /* AnalysisViewController.m in Sources */,
 				E2494A3C1E01F5CF00343E21 /* TiredDrivingAlertTableViewController.m in Sources */,
+				E25D1B1F1E8C5A510053039B /* HealthScanViewController.m in Sources */,
 				E29B3BA91E6FC90E00EC0D71 /* SendCommand.m in Sources */,
 				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
@@ -611,6 +658,7 @@
 		};
 		E259822E1D89EC5D00C07236 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B7B5E49D617F7A179FE8DB55 /* Pods-RidingMechanic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LWU597X333;
@@ -628,6 +676,7 @@
 		};
 		E259822F1D89EC5D00C07236 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F37B068098E7E2B5A443ACE7 /* Pods-RidingMechanic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = LWU597X333;
