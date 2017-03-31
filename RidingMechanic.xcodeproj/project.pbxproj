@@ -16,6 +16,7 @@
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
 		E2159B261E11C45000E505E3 /* HUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2159B251E11C45000E505E3 /* HUDViewController.m */; };
 		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
+		E223A7681E8E08B300E9E292 /* faultcode.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E223A7671E8E08B300E9E292 /* faultcode.rtf */; };
 		E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */; };
 		E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9DE1DCA6E9200D0776B /* Reachability.m */; };
 		E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2494A291E01AC4400343E21 /* AlertTableViewCell.m */; };
@@ -77,6 +78,7 @@
 		E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
 		E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		E21D27651DCE6A62001EAD26 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		E223A7671E8E08B300E9E292 /* faultcode.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = faultcode.rtf; sourceTree = "<group>"; };
 		E224698F1DF86EC200A4C207 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
 		E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		E244C9DD1DCA6E9200D0776B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
@@ -226,6 +228,7 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
+				E223A7671E8E08B300E9E292 /* faultcode.rtf */,
 				E25D1B1A1E8C5A080053039B /* ScanScreen */,
 				E27B749A1E5D376900FE5E54 /* SensorConnection */,
 				E259CC751DFA00340018F9F2 /* Model */,
@@ -435,6 +438,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E223A7681E8E08B300E9E292 /* faultcode.rtf in Resources */,
 				E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */,
 				E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */,
 			);

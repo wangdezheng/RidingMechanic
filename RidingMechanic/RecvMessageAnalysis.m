@@ -307,4 +307,135 @@ Boolean getPreviousSpeed=NO;
     return  value;
 }
 
+-(void)analysisDiagnosticCode:(NSString *)recvCode{
+    //byte to binary
+    NSString *firstBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(0, 1)]];
+    NSString *secondBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(1, 2)]];
+    NSString *thirdBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(2, 3)]];
+    NSString *fourthBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(3, 4)]];
+    
+    //get full binary string
+    NSString *binaryCode=[[[firstBinary stringByAppendingString:secondBinary] stringByAppendingString:thirdBinary] stringByAppendingString:fourthBinary];
+    
+    NSString *firstString=[binaryCode substringWithRange:NSMakeRange(0, 2)];//first two bits
+    NSString *secondString=[binaryCode substringWithRange:NSMakeRange(2, 4)]; //following two bits
+    NSString *thirdString=[binaryCode substringWithRange:NSMakeRange(4, 8)];  //following four bits
+    NSString *fourthString=[binaryCode substringWithRange:NSMakeRange(8, 12)];//following four bits
+    NSString *fifthString=[binaryCode substringWithRange:NSMakeRange(12, 16)];//last four bits
+    
+    //get final trouble code
+    NSString *troubleCode=@"";
+    if([firstString isEqualToString:@"00"]){
+        [troubleCode stringByAppendingString:@"P"];
+    }else if([firstString isEqualToString:@"01"]){
+        [troubleCode stringByAppendingString:@"C"];
+    }else if([firstString isEqualToString:@"10"]){
+        [troubleCode stringByAppendingString:@"B"];
+    }else if([firstString isEqualToString:@"11"]){
+        [troubleCode stringByAppendingString:@"U"];
+    }else{
+        NSLog(@"Error!!!");
+    }
+    
+    if([secondString isEqualToString:@"00"]){
+        [troubleCode stringByAppendingString:@"0"];
+    }else if([secondString isEqualToString:@"01"]){
+        [troubleCode stringByAppendingString:@"1"];
+    }else if([secondString isEqualToString:@"10"]){
+        [troubleCode stringByAppendingString:@"2"];
+    }else if([secondString isEqualToString:@"11"]){
+        [troubleCode stringByAppendingString:@"3"];
+    }else{
+        NSLog(@"Error!!!");
+    }
+    
+    [troubleCode stringByAppendingString:[self convertToHexadecimal:thirdString]];
+    [troubleCode stringByAppendingString:[self convertToHexadecimal:fourthString]];
+    [troubleCode stringByAppendingString:[self convertToHexadecimal:fifthString]];
+    
+    NSLog(@"Trouble code:%@",troubleCode);
+    
+    
+}
+
+-(NSString *)convertToBinary:(NSString *) halfByte{
+    NSString *value;
+    if([halfByte isEqualToString:@"0"]){
+        value=@"0000";
+    }else if([halfByte isEqualToString:@"1"]){
+        value=@"0001";
+    }else if([halfByte isEqualToString:@"2"]){
+        value=@"0010";
+    }else if([halfByte isEqualToString:@"3"]){
+        value=@"0011";
+    }else if([halfByte isEqualToString:@"4"]){
+        value=@"0100";
+    }else if([halfByte isEqualToString:@"5"]){
+        value=@"0101";
+    }else if([halfByte isEqualToString:@"6"]){
+        value=@"0110";
+    }else if([halfByte isEqualToString:@"7"]){
+        value=@"0111";
+    }else if([halfByte isEqualToString:@"8"]){
+        value=@"1000";
+    }else if([halfByte isEqualToString:@"9"]){
+        value=@"1001";
+    }else if([halfByte isEqualToString:@"A"]){
+        value=@"1010";
+    }else if([halfByte isEqualToString:@"B"]){
+        value=@"1011";
+    }else if([halfByte isEqualToString:@"C"]){
+        value=@"1100";
+    }else if([halfByte isEqualToString:@"D"]){
+        value=@"1101";
+    }else if([halfByte isEqualToString:@"E"]){
+        value=@"1110";
+    }else if([halfByte isEqualToString:@"F"]){
+        value=@"1111";
+    }else{
+        NSLog(@"Error!!!");
+    }
+    return  value;
+}
+
+-(NSString *)convertToHexadecimal:(NSString *) binaryString{
+    NSString *value;
+    if([binaryString isEqualToString:@"0000"]){
+        value=@"0";
+    }else if([binaryString isEqualToString:@"0001"]){
+        value=@"1";
+    }else if([binaryString isEqualToString:@"0010"]){
+        value=@"2";
+    }else if([binaryString isEqualToString:@"0011"]){
+        value=@"3";
+    }else if([binaryString isEqualToString:@"0100"]){
+        value=@"4";
+    }else if([binaryString isEqualToString:@"0101"]){
+        value=@"5";
+    }else if([binaryString isEqualToString:@"0110"]){
+        value=@"6";
+    }else if([binaryString isEqualToString:@"0111"]){
+        value=@"7";
+    }else if([binaryString isEqualToString:@"1000"]){
+        value=@"8";
+    }else if([binaryString isEqualToString:@"1001"]){
+        value=@"9";
+    }else if([binaryString isEqualToString:@"1010"]){
+        value=@"A";
+    }else if([binaryString isEqualToString:@"1011"]){
+        value=@"B";
+    }else if([binaryString isEqualToString:@"1100"]){
+        value=@"C";
+    }else if([binaryString isEqualToString:@"1101"]){
+        value=@"D";
+    }else if([binaryString isEqualToString:@"1110"]){
+        value=@"E";
+    }else if([binaryString isEqualToString:@"1111"]){
+        value=@"F";
+    }else{
+        NSLog(@"Error!!!");
+    }
+    return  value;
+}
+
 @end

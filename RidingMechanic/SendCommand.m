@@ -128,25 +128,35 @@ static  SendCommand* sharedSendCommand = nil;
     }
 }
 
+-(void) senDiagnosticCode{
+    self.pid=@"03";
+    Session * session=[Session sharedSession];
+    [session sendMessage:self.pid];
+}
+
 
 - (void) receiveMessage: (NSString *) message {
-    NSLog(@"Message:%@ %lu",message,message.length);
-
     NSError *error = nil;
-    if(message.length>5){   //message is not echo and has content
-        NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\s" options:NSRegularExpressionCaseInsensitive error:&error];//remove space, tab
-        message=[regex stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
-        NSRegularExpression *REGEX = [NSRegularExpression regularExpressionWithPattern:@">+" options:NSRegularExpressionCaseInsensitive error:&error];//remove >
-        message=[REGEX stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\s" options:NSRegularExpressionCaseInsensitive error:&error];//remove space, tab
+    message=[regex stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
+    NSRegularExpression *REGEX = [NSRegularExpression regularExpressionWithPattern:@">+" options:NSRegularExpressionCaseInsensitive error:&error];//remove >
+    message=[REGEX stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
+    NSLog(@"Message:%@ %lu",message,message.length);
+    
+    RecvMessageAnalysis *recvMsgAnalysis=[[RecvMessageAnalysis alloc] init];
+    
+    if([self.pid isEqualToString:@"03"]){  // message is diagnostic code
+        [recvMsgAnalysis analysisDiagnosticCode:message];
         
+    }else if(message.length>5){   //message is not echo and has content
+
         if([message containsString:self.pid]){        //message contains sending message
             self.recvcode=[message substringFromIndex:8];
         }else{                                        //message doesn't contains sending message
             self.recvcode=[message substringFromIndex:4];
         }
-        NSLog(@"Pid:%@",self.pid);
-        NSLog(@"Recvcode:%@,%lu",self.recvcode,self.recvcode.length);
-        RecvMessageAnalysis *recvMsgAnalysis=[[RecvMessageAnalysis alloc] init];
+        NSLog(@"Pid:%@,Recvcode:%@,%lu",self.pid,self.recvcode,self.recvcode.length);
+        
         if([self.pid isEqualToString:@"0100"]||[self.pid isEqualToString:@"0120"]||[self.pid isEqualToString:@"0140"]||[self.pid isEqualToString:@"0160"]){
             [recvMsgAnalysis updateSupportedPIDs:self.pid recvCode:self.recvcode];//update supported pid
         }else{

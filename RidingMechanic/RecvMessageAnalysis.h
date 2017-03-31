@@ -12,5 +12,6 @@
 
 -(void)updateSupportedPIDs: (NSString * )pid recvCode: (NSString *) code;
 -(NSString *)analysizeRcvcode:(NSString *)code baseOnPID:(NSString * )pid;
+-(void)analysisDiagnosticCode:(NSString *)recvCode;
 
 @end

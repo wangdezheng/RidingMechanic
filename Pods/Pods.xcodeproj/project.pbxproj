@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0044B49783AF340297FB00604AE9DBB2 /* HcdProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E2AEAA07916314A5AB43506E92C1D /* HcdProcessView.m */; };
+		885E1164BAFE9012149059EF267065D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		9BBD9DCF5D0FB20B5BBA7360C0844664 /* HcdProcessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A37BFE8480ABD1D157CAC38CE7E9D5 /* HcdProcessView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD522583A55BF347E0FCDED01B9D0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
+		BB6F67D0EC07B13FC309D86E9155C68D /* Pods-RidingMechanic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2738462E3296C7AD7F248CE1838657F5 /* Pods-RidingMechanic-dummy.m */; };
+		D59E0F0AD610AD850F6EF61147C32AC5 /* HcdProcessView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D0E65358B975CDCEA9F2C372807DDB /* HcdProcessView-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		288733840EC1A0F66D5D256EC1D81822 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 40712C8AD27779E2B76CD4232FD99984;
+			remoteInfo = HcdProcessView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0F31168849CC420564EED3EB521B0C73 /* libPods-RidingMechanic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-RidingMechanic.a"; path = "libPods-RidingMechanic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		21A37BFE8480ABD1D157CAC38CE7E9D5 /* HcdProcessView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HcdProcessView.h; path = HcdProcessView/HcdProcessView.h; sourceTree = "<group>"; };
+		21D0E65358B975CDCEA9F2C372807DDB /* HcdProcessView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HcdProcessView-dummy.m"; sourceTree = "<group>"; };
+		2738462E3296C7AD7F248CE1838657F5 /* Pods-RidingMechanic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RidingMechanic-dummy.m"; sourceTree = "<group>"; };
+		30DC44DE53626293EC1262361092E612 /* Pods-RidingMechanic-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RidingMechanic-resources.sh"; sourceTree = "<group>"; };
+		51C48A913BFE64D2BEB69170C78CC6B8 /* Pods-RidingMechanic-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RidingMechanic-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6565C1B9366532B0B3FBE34DFA9E119A /* Pods-RidingMechanic-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RidingMechanic-frameworks.sh"; sourceTree = "<group>"; };
+		6C50D9B37945978A9D2906D042C0A949 /* HcdProcessView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HcdProcessView-prefix.pch"; sourceTree = "<group>"; };
+		6E7E2AEAA07916314A5AB43506E92C1D /* HcdProcessView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HcdProcessView.m; path = HcdProcessView/HcdProcessView.m; sourceTree = "<group>"; };
+		7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HcdProcessView.xcconfig; sourceTree = "<group>"; };
+		78EB663754BA2CD98327921ACBA3FE68 /* Pods-RidingMechanic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RidingMechanic.debug.xcconfig"; sourceTree = "<group>"; };
+		8799873DC0B8DBB810AABE2685F061ED /* Pods-RidingMechanic-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RidingMechanic-acknowledgements.plist"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A9B54538A40737E980640679E45708EC /* Pods-RidingMechanic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RidingMechanic.release.xcconfig"; sourceTree = "<group>"; };
+		AF230897A5614BDFC799400E044CD838 /* libHcdProcessView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libHcdProcessView.a; path = libHcdProcessView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2AC21FB370FB0270C28D0C1BEE1E3847 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				885E1164BAFE9012149059EF267065D0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		89D6AF775CB2A7660D686C4DBA9A6F6B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9CD522583A55BF347E0FCDED01B9D0EB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0DDC82BE596A161C3CD7C4F30B96325B /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				A9893AF64F2198C9FD7A832116C3BA45 /* Pods-RidingMechanic */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
+				C8BCFB18B739E7A4BC429D9C518D1683 /* Pods */,
+				89899A0432FD4F993E353089CE3C8DF9 /* Products */,
+				0DDC82BE596A161C3CD7C4F30B96325B /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		89899A0432FD4F993E353089CE3C8DF9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				AF230897A5614BDFC799400E044CD838 /* libHcdProcessView.a */,
+				0F31168849CC420564EED3EB521B0C73 /* libPods-RidingMechanic.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9D88F8C330A9B5D11927C2259B5E1F6F /* HcdProcessView */ = {
+			isa = PBXGroup;
+			children = (
+				21A37BFE8480ABD1D157CAC38CE7E9D5 /* HcdProcessView.h */,
+				6E7E2AEAA07916314A5AB43506E92C1D /* HcdProcessView.m */,
+				DD2E8F58FDC3A9F1F2F04D3332EBA99A /* Support Files */,
+			);
+			name = HcdProcessView;
+			path = HcdProcessView;
+			sourceTree = "<group>";
+		};
+		A9893AF64F2198C9FD7A832116C3BA45 /* Pods-RidingMechanic */ = {
+			isa = PBXGroup;
+			children = (
+				51C48A913BFE64D2BEB69170C78CC6B8 /* Pods-RidingMechanic-acknowledgements.markdown */,
+				8799873DC0B8DBB810AABE2685F061ED /* Pods-RidingMechanic-acknowledgements.plist */,
+				2738462E3296C7AD7F248CE1838657F5 /* Pods-RidingMechanic-dummy.m */,
+				6565C1B9366532B0B3FBE34DFA9E119A /* Pods-RidingMechanic-frameworks.sh */,
+				30DC44DE53626293EC1262361092E612 /* Pods-RidingMechanic-resources.sh */,
+				78EB663754BA2CD98327921ACBA3FE68 /* Pods-RidingMechanic.debug.xcconfig */,
+				A9B54538A40737E980640679E45708EC /* Pods-RidingMechanic.release.xcconfig */,
+			);
+			name = "Pods-RidingMechanic";
+			path = "Target Support Files/Pods-RidingMechanic";
+			sourceTree = "<group>";
+		};
+		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8BCFB18B739E7A4BC429D9C518D1683 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9D88F8C330A9B5D11927C2259B5E1F6F /* HcdProcessView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DD2E8F58FDC3A9F1F2F04D3332EBA99A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */,
+				21D0E65358B975CDCEA9F2C372807DDB /* HcdProcessView-dummy.m */,
+				6C50D9B37945978A9D2906D042C0A949 /* HcdProcessView-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/HcdProcessView";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		3BEEEADA343A9C4F4BB77EACF9A1F106 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9BBD9DCF5D0FB20B5BBA7360C0844664 /* HcdProcessView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		40712C8AD27779E2B76CD4232FD99984 /* HcdProcessView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5ABE7B7D08636330DD7C76A6E6B7214 /* Build configuration list for PBXNativeTarget "HcdProcessView" */;
+			buildPhases = (
+				6914102911EBA1BA7EA947C533D9279B /* Sources */,
+				89D6AF775CB2A7660D686C4DBA9A6F6B /* Frameworks */,
+				3BEEEADA343A9C4F4BB77EACF9A1F106 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = HcdProcessView;
+			productName = HcdProcessView;
+			productReference = AF230897A5614BDFC799400E044CD838 /* libHcdProcessView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9F113BB0CF6B2368D00251E0D2238613 /* Pods-RidingMechanic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8CECE80E5554A1E8EB936A956D1B69CF /* Build configuration list for PBXNativeTarget "Pods-RidingMechanic" */;
+			buildPhases = (
+				45D27856595D3DB0A5758C2ED56F6C2B /* Sources */,
+				2AC21FB370FB0270C28D0C1BEE1E3847 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F0DDB17E730042859A899E0082586DD /* PBXTargetDependency */,
+			);
+			name = "Pods-RidingMechanic";
+			productName = "Pods-RidingMechanic";
+			productReference = 0F31168849CC420564EED3EB521B0C73 /* libPods-RidingMechanic.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0700;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 89899A0432FD4F993E353089CE3C8DF9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				40712C8AD27779E2B76CD4232FD99984 /* HcdProcessView */,
+				9F113BB0CF6B2368D00251E0D2238613 /* Pods-RidingMechanic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		45D27856595D3DB0A5758C2ED56F6C2B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BB6F67D0EC07B13FC309D86E9155C68D /* Pods-RidingMechanic-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6914102911EBA1BA7EA947C533D9279B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D59E0F0AD610AD850F6EF61147C32AC5 /* HcdProcessView-dummy.m in Sources */,
+				0044B49783AF340297FB00604AE9DBB2 /* HcdProcessView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7F0DDB17E730042859A899E0082586DD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = HcdProcessView;
+			target = 40712C8AD27779E2B76CD4232FD99984 /* HcdProcessView */;
+			targetProxy = 288733840EC1A0F66D5D256EC1D81822 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		05006A4BA81B61D2E788BFCCE4B49D66 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78EB663754BA2CD98327921ACBA3FE68 /* Pods-RidingMechanic.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5EEC3795E8F8BB6B536EA0E2471495AF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HcdProcessView/HcdProcessView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		7B025A19F16A6A9AB0F0A6E555B08CFC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/HcdProcessView/HcdProcessView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		AADB9822762AD81BBAE83335B2AB1EB0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1B5EB0850F98CB5AECDB015B690777F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		C34E9AA2EEDF246D2DB537A343F5B42B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A9B54538A40737E980640679E45708EC /* Pods-RidingMechanic.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1B5EB0850F98CB5AECDB015B690777F /* Debug */,
+				AADB9822762AD81BBAE83335B2AB1EB0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8CECE80E5554A1E8EB936A956D1B69CF /* Build configuration list for PBXNativeTarget "Pods-RidingMechanic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05006A4BA81B61D2E788BFCCE4B49D66 /* Debug */,
+				C34E9AA2EEDF246D2DB537A343F5B42B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5ABE7B7D08636330DD7C76A6E6B7214 /* Build configuration list for PBXNativeTarget "HcdProcessView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5EEC3795E8F8BB6B536EA0E2471495AF /* Debug */,
+				7B025A19F16A6A9AB0F0A6E555B08CFC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
