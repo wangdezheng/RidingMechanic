@@ -355,6 +355,28 @@ Boolean getPreviousSpeed=NO;
     
     NSLog(@"Trouble code:%@",troubleCode);
     
+    NSString *bundlePath = [[NSBundle mainBundle].resourcePath stringByAppendingPathComponent:@"Resource.bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:bundlePath];
+    
+    NSString *fileContents = [NSString stringWithContentsOfFile:[bundle pathForResource:@"OBDII-Fault code" ofType:@"txt"] encoding:NSUTF8StringEncoding error:NULL];
+    for (NSString *line in [fileContents componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]]) {
+        if([[line substringWithRange:NSMakeRange(0, 5)] isEqualToString:troubleCode]){
+            NSLog(@"Information:%@",[line substringFromIndex:6]);
+            
+            NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+            NSMutableDictionary *diagnosticDictionary=[[NSMutableDictionary alloc] init];
+            
+            if([dictionary valueForKey:@"DiagnosticInformation"]){ //read exist diagnostic information dictionary
+                diagnosticDictionary=[dictionary valueForKey:@"DiagnosticInformation"];
+                [diagnosticDictionary setValue:[line substringFromIndex:6] forKey:[line substringWithRange:NSMakeRange(0, 5)]];
+            }else{//doesn't exist and create diagnostic information dictionary
+                [diagnosticDictionary setValue:[line substringFromIndex:6] forKey:[line substringWithRange:NSMakeRange(0, 5)]];
+            }
+            [dictionary setValue:diagnosticDictionary forKey:@"DiagnosticInformation"];
+            return;
+        }
+    }
+    
     
 }
 

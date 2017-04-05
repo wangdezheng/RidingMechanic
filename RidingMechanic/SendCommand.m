@@ -128,10 +128,13 @@ static  SendCommand* sharedSendCommand = nil;
     }
 }
 
--(void) senDiagnosticCode{
-    self.pid=@"03";
-    Session * session=[Session sharedSession];
-    [session sendMessage:self.pid];
+-(void) senDiagnosticCode{  // excute in background
+    dispatch_sync(dispatch_get_global_queue(0, 0), ^{
+        self.pid=@"03";
+        Session * session=[Session sharedSession];
+        [session sendMessage:self.pid];
+    });
+    
 }
 
 

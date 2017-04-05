@@ -19,5 +19,8 @@
 -(void) sendInitialCommand;
 
 -(void) updateDataInTable;
+
 -(void) resumeTimerForUpdate;
+
+-(void) senDiagnosticCode;
 @end

@@ -16,7 +16,6 @@
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
 		E2159B261E11C45000E505E3 /* HUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2159B251E11C45000E505E3 /* HUDViewController.m */; };
 		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
-		E223A7681E8E08B300E9E292 /* faultcode.rtf in Resources */ = {isa = PBXBuildFile; fileRef = E223A7671E8E08B300E9E292 /* faultcode.rtf */; };
 		E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */; };
 		E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9DE1DCA6E9200D0776B /* Reachability.m */; };
 		E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2494A291E01AC4400343E21 /* AlertTableViewCell.m */; };
@@ -36,6 +35,7 @@
 		E29B3BA91E6FC90E00EC0D71 /* SendCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = E29B3BA81E6FC90E00EC0D71 /* SendCommand.m */; };
 		E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004321DECF24500FCC18E /* CarModelViewController.m */; };
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
+		E2B190801E948CD2004C404B /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2B1907F1E948CD2004C404B /* Resource.bundle */; };
 		E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		E2C87DA01DFA073F000E76FA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E2C87D9F1DFA073F000E76FA /* Base.lproj */; };
 		E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */; };
@@ -78,7 +78,6 @@
 		E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
 		E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		E21D27651DCE6A62001EAD26 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
-		E223A7671E8E08B300E9E292 /* faultcode.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = faultcode.rtf; sourceTree = "<group>"; };
 		E224698F1DF86EC200A4C207 /* ResetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResetPasswordViewController.h; sourceTree = "<group>"; };
 		E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResetPasswordViewController.m; sourceTree = "<group>"; };
 		E244C9DD1DCA6E9200D0776B /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Reachability.h; path = Reachability/Reachability/Reachability.h; sourceTree = SOURCE_ROOT; };
@@ -118,6 +117,7 @@
 		E2A004321DECF24500FCC18E /* CarModelViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CarModelViewController.m; sourceTree = "<group>"; };
 		E2A004401DEE6FC900FCC18E /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		E2B1907F1E948CD2004C404B /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
 		E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		E2C87D9F1DFA073F000E76FA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = RidingMechanicTests/Base.lproj; sourceTree = SOURCE_ROOT; };
 		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
@@ -228,20 +228,10 @@
 		E25981FF1D89EC5D00C07236 /* RidingMechanic */ = {
 			isa = PBXGroup;
 			children = (
-				E223A7671E8E08B300E9E292 /* faultcode.rtf */,
+				E2B190811E949F8D004C404B /* LoginAndRegister */,
 				E25D1B1A1E8C5A080053039B /* ScanScreen */,
 				E27B749A1E5D376900FE5E54 /* SensorConnection */,
 				E259CC751DFA00340018F9F2 /* Model */,
-				E25982031D89EC5D00C07236 /* AppDelegate.h */,
-				E25982041D89EC5D00C07236 /* AppDelegate.m */,
-				E20A8D3F1E06129500D18DCA /* SetInitialStatus.h */,
-				E20A8D401E06129600D18DCA /* SetInitialStatus.m */,
-				E2FA78861DD2AE38006E730A /* RestAPI.h */,
-				E2FA78871DD2AE38006E730A /* RestAPI.m */,
-				E21210771DD66DE2002B4ED5 /* LoginViewController.h */,
-				E21210781DD66DE2002B4ED5 /* LoginViewController.m */,
-				E212107A1DD66E56002B4ED5 /* RegisterViewController.h */,
-				E212107B1DD66E56002B4ED5 /* RegisterViewController.m */,
 				E21B33D01DF784AA00BE2B8A /* CarModel Screen */,
 				E29AAB6B1E8479D500330763 /* AnalysisScreen */,
 				E21B33D31DF7851200BE2B8A /* More Screen */,
@@ -250,6 +240,7 @@
 				E2C87D9F1DFA073F000E76FA /* Base.lproj */,
 				E25982141D89EC5D00C07236 /* Info.plist */,
 				E25982001D89EC5D00C07236 /* Supporting Files */,
+				E2B1907F1E948CD2004C404B /* Resource.bundle */,
 			);
 			path = RidingMechanic;
 			sourceTree = "<group>";
@@ -319,6 +310,23 @@
 				E29AAB6D1E847A4B00330763 /* AnalysisViewController.m */,
 			);
 			name = AnalysisScreen;
+			sourceTree = "<group>";
+		};
+		E2B190811E949F8D004C404B /* LoginAndRegister */ = {
+			isa = PBXGroup;
+			children = (
+				E25982031D89EC5D00C07236 /* AppDelegate.h */,
+				E25982041D89EC5D00C07236 /* AppDelegate.m */,
+				E20A8D3F1E06129500D18DCA /* SetInitialStatus.h */,
+				E20A8D401E06129600D18DCA /* SetInitialStatus.m */,
+				E2FA78861DD2AE38006E730A /* RestAPI.h */,
+				E2FA78871DD2AE38006E730A /* RestAPI.m */,
+				E21210771DD66DE2002B4ED5 /* LoginViewController.h */,
+				E21210781DD66DE2002B4ED5 /* LoginViewController.m */,
+				E212107A1DD66E56002B4ED5 /* RegisterViewController.h */,
+				E212107B1DD66E56002B4ED5 /* RegisterViewController.m */,
+			);
+			name = LoginAndRegister;
 			sourceTree = "<group>";
 		};
 		E2BC6C9B1DC6915A000A2E49 /* Frameworks */ = {
@@ -438,9 +446,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E223A7681E8E08B300E9E292 /* faultcode.rtf in Resources */,
 				E28ACCDF1DAD4389008C0E59 /* Main.storyboard in Resources */,
 				E25982101D89EC5D00C07236 /* Assets.xcassets in Resources */,
+				E2B190801E948CD2004C404B /* Resource.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
