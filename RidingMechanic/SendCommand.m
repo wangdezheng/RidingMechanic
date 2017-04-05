@@ -130,9 +130,13 @@ static  SendCommand* sharedSendCommand = nil;
 
 -(void) senDiagnosticCode{  // excute in background
     dispatch_sync(dispatch_get_global_queue(0, 0), ^{
-        self.pid=@"03";
-        Session * session=[Session sharedSession];
-        [session sendMessage:self.pid];
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            self.pid=@"03";
+            Session * session=[Session sharedSession];
+            [session sendMessage:self.pid];
+        });
+
     });
     
 }
@@ -146,9 +150,16 @@ static  SendCommand* sharedSendCommand = nil;
     message=[REGEX stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
     NSLog(@"Message:%@ %lu",message,message.length);
     
+    if([self.pid isEqualToString:message]||message.length<2){ //message is echo or message is empty
+        return;
+    }
+    
     RecvMessageAnalysis *recvMsgAnalysis=[[RecvMessageAnalysis alloc] init];
     
     if([self.pid isEqualToString:@"03"]){  // message is diagnostic code
+        if([message containsString:self.pid]){//contain echo
+            message=[message substringFromIndex:2];
+        }
         [recvMsgAnalysis analysisDiagnosticCode:message];
         
     }else if(message.length>5){   //message is not echo and has content

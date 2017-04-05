@@ -91,8 +91,8 @@ int count;
     self.customView.percent=1;
     
 //     send diagnostic pid to the car
-//    SendCommand *sendcommand=[SendCommand sharedSendCommand];
-//    [sendcommand senDiagnosticCode];
+    SendCommand *sendcommand=[SendCommand sharedSendCommand];
+    [sendcommand senDiagnosticCode];
 
 
     dispatch_queue_t mainQueue = dispatch_get_main_queue();  // main thread

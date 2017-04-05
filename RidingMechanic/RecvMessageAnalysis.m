@@ -309,49 +309,52 @@ Boolean getPreviousSpeed=NO;
 
 -(void)analysisDiagnosticCode:(NSString *)recvCode{
     //byte to binary
+    NSLog(@"%@,%lu",recvCode,recvCode.length);
+
     NSString *firstBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(0, 1)]];
-    NSString *secondBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(1, 2)]];
-    NSString *thirdBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(2, 3)]];
-    NSString *fourthBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(3, 4)]];
+    NSString *secondBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(1, 1)]];
+    NSString *thirdBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(2, 1)]];
+    NSString *fourthBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(3, 1)]];
+    
     
     //get full binary string
     NSString *binaryCode=[[[firstBinary stringByAppendingString:secondBinary] stringByAppendingString:thirdBinary] stringByAppendingString:fourthBinary];
     
     NSString *firstString=[binaryCode substringWithRange:NSMakeRange(0, 2)];//first two bits
-    NSString *secondString=[binaryCode substringWithRange:NSMakeRange(2, 4)]; //following two bits
-    NSString *thirdString=[binaryCode substringWithRange:NSMakeRange(4, 8)];  //following four bits
-    NSString *fourthString=[binaryCode substringWithRange:NSMakeRange(8, 12)];//following four bits
-    NSString *fifthString=[binaryCode substringWithRange:NSMakeRange(12, 16)];//last four bits
+    NSString *secondString=[binaryCode substringWithRange:NSMakeRange(2, 2)]; //following two bits
+    NSString *thirdString=[binaryCode substringWithRange:NSMakeRange(4, 4)];  //following four bits
+    NSString *fourthString=[binaryCode substringWithRange:NSMakeRange(8, 4)];//following four bits
+    NSString *fifthString=[binaryCode substringWithRange:NSMakeRange(12, 4)];//last four bits
     
     //get final trouble code
     NSString *troubleCode=@"";
     if([firstString isEqualToString:@"00"]){
-        [troubleCode stringByAppendingString:@"P"];
+        troubleCode=[troubleCode stringByAppendingString:@"P"];
     }else if([firstString isEqualToString:@"01"]){
-        [troubleCode stringByAppendingString:@"C"];
+        troubleCode=[troubleCode stringByAppendingString:@"C"];
     }else if([firstString isEqualToString:@"10"]){
-        [troubleCode stringByAppendingString:@"B"];
+        troubleCode=[troubleCode stringByAppendingString:@"B"];
     }else if([firstString isEqualToString:@"11"]){
-        [troubleCode stringByAppendingString:@"U"];
+        troubleCode=[troubleCode stringByAppendingString:@"U"];
     }else{
         NSLog(@"Error!!!");
     }
     
     if([secondString isEqualToString:@"00"]){
-        [troubleCode stringByAppendingString:@"0"];
+        troubleCode=[troubleCode stringByAppendingString:@"0"];
     }else if([secondString isEqualToString:@"01"]){
-        [troubleCode stringByAppendingString:@"1"];
+        troubleCode=[troubleCode stringByAppendingString:@"1"];
     }else if([secondString isEqualToString:@"10"]){
-        [troubleCode stringByAppendingString:@"2"];
+        troubleCode=[troubleCode stringByAppendingString:@"2"];
     }else if([secondString isEqualToString:@"11"]){
-        [troubleCode stringByAppendingString:@"3"];
+        troubleCode=[troubleCode stringByAppendingString:@"3"];
     }else{
         NSLog(@"Error!!!");
     }
     
-    [troubleCode stringByAppendingString:[self convertToHexadecimal:thirdString]];
-    [troubleCode stringByAppendingString:[self convertToHexadecimal:fourthString]];
-    [troubleCode stringByAppendingString:[self convertToHexadecimal:fifthString]];
+    troubleCode=[troubleCode stringByAppendingString:[self convertToHexadecimal:thirdString]];
+    troubleCode=[troubleCode stringByAppendingString:[self convertToHexadecimal:fourthString]];
+    troubleCode=[troubleCode stringByAppendingString:[self convertToHexadecimal:fifthString]];
     
     NSLog(@"Trouble code:%@",troubleCode);
     
