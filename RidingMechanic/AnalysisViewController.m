@@ -7,8 +7,13 @@
 //
 
 #import "AnalysisViewController.h"
+#import "ASDayPicker.h"
 
 @interface AnalysisViewController ()
+@property (strong, nonatomic) IBOutlet UITableView *showTripInfoTableView;
+@property (strong, nonatomic) IBOutlet ASDayPicker *datepicker;
+@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+
 
 @end
 
@@ -16,12 +21,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    NSDateComponents *components = [[NSDateComponents alloc] init];
+    [components setWeekday:2]; // Monday
+    [components setWeekdayOrdinal:1]; // The first Monday in the month
+    [components setMonth:4]; // April
+    [components setYear:2017];
+    NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDate *startDate = [gregorian dateFromComponents:components];
+    
+    self.datepicker.selectedDateBackgroundImage = [UIImage imageNamed:@"selection"];
+    [self.datepicker setStartDate:startDate endDate:[NSDate date]];
+    [self.datepicker addObserver:self forKeyPath:@"selectedDate" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    NSDate *day = change[NSKeyValueChangeNewKey];
+    self.timeLabel.text =  [NSDateFormatter localizedStringFromDate:day dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
 }
 
 /*

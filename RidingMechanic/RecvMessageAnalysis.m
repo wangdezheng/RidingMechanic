@@ -310,11 +310,19 @@ Boolean getPreviousSpeed=NO;
 -(void)analysisDiagnosticCode:(NSString *)recvCode{
     //byte to binary
     NSLog(@"%@,%lu",recvCode,recvCode.length);
+    for(int i=0;i<recvCode.length/4;i++){
+        [self findTroubleCode:[recvCode substringWithRange:NSMakeRange(i*4, 4)]];
+    }
 
-    NSString *firstBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(0, 1)]];
-    NSString *secondBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(1, 1)]];
-    NSString *thirdBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(2, 1)]];
-    NSString *fourthBinary=[self convertToBinary:[recvCode substringWithRange:NSMakeRange(3, 1)]];
+    
+}
+
+-(void)findTroubleCode:(NSString *)errorCode
+{
+    NSString *firstBinary=[self convertToBinary:[errorCode substringWithRange:NSMakeRange(0, 1)]];
+    NSString *secondBinary=[self convertToBinary:[errorCode substringWithRange:NSMakeRange(1, 1)]];
+    NSString *thirdBinary=[self convertToBinary:[errorCode substringWithRange:NSMakeRange(2, 1)]];
+    NSString *fourthBinary=[self convertToBinary:[errorCode substringWithRange:NSMakeRange(3, 1)]];
     
     
     //get full binary string
@@ -379,8 +387,7 @@ Boolean getPreviousSpeed=NO;
             return;
         }
     }
-    
-    
+
 }
 
 -(NSString *)convertToBinary:(NSString *) halfByte{

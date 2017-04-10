@@ -81,7 +81,7 @@
             </objects>
             <point key="canvasLocation" x="-599.20000000000005" y="-1075.4122938530736"/>
         </scene>
-        <!--analysis-->
+        <!--Trip Analysis-->
         <scene sceneID="HNR-6q-TcK">
             <objects>
                 <viewController id="hcZ-Ht-5mG" customClass="AnalysisViewController" sceneMemberID="viewController">
@@ -92,13 +92,47 @@
                     <view key="view" contentMode="scaleToFill" id="6MV-pe-x91">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="5o0-CB-mfW">
+                                <rect key="frame" x="0.0" y="167" width="375" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="xeA-Q4-OiJ">
+                                        <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xeA-Q4-OiJ" id="FIL-yB-65j">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6wp-Tm-wcI" customClass="ASDayPicker">
+                                <rect key="frame" x="0.0" y="504" width="375" height="76"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cac-uo-WkW">
+                                <rect key="frame" x="87" y="580" width="200" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="analysis" image="route-analysis" id="IYh-C2-fKw"/>
+                    <navigationItem key="navigationItem" title="Trip Analysis" id="2Fx-cm-ggN"/>
+                    <connections>
+                        <outlet property="datepicker" destination="6wp-Tm-wcI" id="6Xo-1t-CPE"/>
+                        <outlet property="showTripInfoTableView" destination="5o0-CB-mfW" id="dgl-b8-xep"/>
+                        <outlet property="timeLabel" destination="cac-uo-WkW" id="OOh-hE-6O4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ewq-5n-osY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1570" y="-837"/>
+            <point key="canvasLocation" x="2508" y="-837.03148425787117"/>
         </scene>
         <!--Riding Mechanic-->
         <scene sceneID="p3d-5T-msi">
@@ -155,7 +189,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="7VV-zr-l0F" kind="relationship" relationship="viewControllers" id="Kqw-G3-gek"/>
-                        <segue destination="hcZ-Ht-5mG" kind="relationship" relationship="viewControllers" id="6t4-fh-An9"/>
+                        <segue destination="kee-TB-f37" kind="relationship" relationship="viewControllers" id="6t4-fh-An9"/>
                         <segue destination="5ar-6Z-GE4" kind="relationship" relationship="viewControllers" id="GRC-zf-qSx"/>
                         <segue destination="bfB-EB-K0q" kind="relationship" relationship="viewControllers" id="JMk-H6-J8S"/>
                     </connections>
@@ -1142,6 +1176,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n2a-tc-6YI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1581.5999999999999" y="-1595.352323838081"/>
+        </scene>
+        <!--analysis-->
+        <scene sceneID="DH5-FI-qAe">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kee-TB-f37" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="analysis" image="route-analysis" id="IYh-C2-fKw"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5Xn-dm-igK">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hcZ-Ht-5mG" kind="relationship" relationship="rootViewController" id="Pte-dS-w59"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oDi-2p-BBJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1568.8" y="-837.03148425787117"/>
         </scene>
     </scenes>
     <resources>

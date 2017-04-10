@@ -13,6 +13,7 @@
 @interface SendCommand()
 
 @property (strong,nonatomic) NSString* recvcode;
+@property (strong,nonatomic) NSString* completeMessage;
 
 @end
 @implementation SendCommand
@@ -144,24 +145,28 @@ static  SendCommand* sharedSendCommand = nil;
 
 - (void) receiveMessage: (NSString *) message {
     NSError *error = nil;
-    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"\\s" options:NSRegularExpressionCaseInsensitive error:&error];//remove space, tab
+    NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[\\s|>+]" options:NSRegularExpressionCaseInsensitive error:&error];//remove space, tab,>
     message=[regex stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
-    NSRegularExpression *REGEX = [NSRegularExpression regularExpressionWithPattern:@">+" options:NSRegularExpressionCaseInsensitive error:&error];//remove >
-    message=[REGEX stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
     NSLog(@"Message:%@ %lu",message,message.length);
     
-    if([self.pid isEqualToString:message]||message.length<2){ //message is echo or message is empty
+    if([self.pid isEqualToString:message]||message.length<2||[message containsString:@"SEARCHING"]){ //message is echo or message is empty or message contains unuseful infomation
         return;
     }
     
     RecvMessageAnalysis *recvMsgAnalysis=[[RecvMessageAnalysis alloc] init];
     
     if([self.pid isEqualToString:@"03"]){  // message is diagnostic code
-        if([message containsString:self.pid]){//contain echo
+        if([[message substringWithRange:NSMakeRange(0, 2)] isEqualToString:self.pid]){//contain echo
             message=[message substringFromIndex:2];
         }
-        [recvMsgAnalysis analysisDiagnosticCode:message];
         
+        self.completeMessage=[self.completeMessage stringByAppendingString:message];
+        
+        if(self.completeMessage.length%4==0){ // message is  complete
+            [recvMsgAnalysis analysisDiagnosticCode:self.completeMessage];
+            self.completeMessage=@"";
+        }
+
     }else if(message.length>5){   //message is not echo and has content
 
         if([message containsString:self.pid]){        //message contains sending message
