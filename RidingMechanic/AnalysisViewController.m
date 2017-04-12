@@ -12,7 +12,7 @@
 @interface AnalysisViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *showTripInfoTableView;
 @property (strong, nonatomic) IBOutlet ASDayPicker *datepicker;
-@property (strong, nonatomic) IBOutlet UILabel *timeLabel;
+@property (strong, nonatomic)  UILabel *timeLabel;
 
 
 @end
@@ -21,6 +21,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(self.datepicker.frame.size.width/2-40, self.datepicker.frame.size.height-20, 80,20)];
+    [self.timeLabel setFont:[UIFont systemFontOfSize:13]];
+    
+    [self.datepicker addSubview:self.timeLabel];
+    
     NSDateComponents *components = [[NSDateComponents alloc] init];
     [components setWeekday:2]; // Monday
     [components setWeekdayOrdinal:1]; // The first Monday in the month
