@@ -131,13 +131,9 @@ static  SendCommand* sharedSendCommand = nil;
 
 -(void) senDiagnosticCode{  // excute in background
     dispatch_sync(dispatch_get_global_queue(0, 0), ^{
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
             self.pid=@"03";
             Session * session=[Session sharedSession];
             [session sendMessage:self.pid];
-        });
-
     });
     
 }
@@ -147,7 +143,7 @@ static  SendCommand* sharedSendCommand = nil;
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:@"[\\s|>+]" options:NSRegularExpressionCaseInsensitive error:&error];//remove space, tab,>
     message=[regex stringByReplacingMatchesInString:message options:0 range:NSMakeRange(0, message.length) withTemplate:@""];
-    NSLog(@"Message:%@ %lu",message,message.length);
+//    NSLog(@"Message:%@ %lu",message,message.length);
     
     if([self.pid isEqualToString:message]||message.length<2||[message containsString:@"SEARCHING"]){ //message is echo or message is empty or message contains unuseful infomation
         return;
@@ -160,8 +156,10 @@ static  SendCommand* sharedSendCommand = nil;
             message=[message substringFromIndex:2];
         }
         
+        if(self.completeMessage==nil){
+            self.completeMessage=@"";
+        }
         self.completeMessage=[self.completeMessage stringByAppendingString:message];
-        
         if(self.completeMessage.length%4==0){ // message is  complete
             [recvMsgAnalysis analysisDiagnosticCode:self.completeMessage];
             self.completeMessage=@"";
@@ -174,13 +172,13 @@ static  SendCommand* sharedSendCommand = nil;
         }else{                                        //message doesn't contains sending message
             self.recvcode=[message substringFromIndex:4];
         }
-        NSLog(@"Pid:%@,Recvcode:%@,%lu",self.pid,self.recvcode,self.recvcode.length);
+//        NSLog(@"Pid:%@,Recvcode:%@,%lu",self.pid,self.recvcode,self.recvcode.length);
         
         if([self.pid isEqualToString:@"0100"]||[self.pid isEqualToString:@"0120"]||[self.pid isEqualToString:@"0140"]||[self.pid isEqualToString:@"0160"]){
             [recvMsgAnalysis updateSupportedPIDs:self.pid recvCode:self.recvcode];//update supported pid
         }else{
             NSString *returnValue=[recvMsgAnalysis analysizeRcvcode:self.recvcode baseOnPID:self.pid];
-            NSLog(@"Return Value:%@",returnValue);
+//            NSLog(@"Return Value:%@",returnValue);
         }
     }
     

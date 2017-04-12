@@ -38,9 +38,9 @@
 		E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */; };
 		E2B190801E948CD2004C404B /* Resource.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E2B1907F1E948CD2004C404B /* Resource.bundle */; };
 		E2BC6C9D1DC6915A000A2E49 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		E2C2FBB41E9DE2BA00563F7B /* VehicleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FBB31E9DE2BA00563F7B /* VehicleTableViewController.m */; };
 		E2C87DA01DFA073F000E76FA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E2C87D9F1DFA073F000E76FA /* Base.lproj */; };
 		E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */; };
-		E2F000501DFA192100B58506 /* Database.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2F0004B1DFA161300B58506 /* Database.xcdatamodeld */; };
 		E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FA78871DD2AE38006E730A /* RestAPI.m */; };
 /* End PBXBuildFile section */
 
@@ -122,10 +122,11 @@
 		E2A004411DEE6FC900FCC18E /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
 		E2B1907F1E948CD2004C404B /* Resource.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resource.bundle; sourceTree = "<group>"; };
 		E2BC6C9C1DC6915A000A2E49 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		E2C2FBB21E9DE2BA00563F7B /* VehicleTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VehicleTableViewController.h; sourceTree = "<group>"; };
+		E2C2FBB31E9DE2BA00563F7B /* VehicleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VehicleTableViewController.m; sourceTree = "<group>"; };
 		E2C87D9F1DFA073F000E76FA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = RidingMechanicTests/Base.lproj; sourceTree = SOURCE_ROOT; };
 		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
 		E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
-		E2F0004C1DFA161300B58506 /* Database.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Database.xcdatamodel; sourceTree = "<group>"; };
 		E2FA78861DD2AE38006E730A /* RestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestAPI.h; sourceTree = "<group>"; };
 		E2FA78871DD2AE38006E730A /* RestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestAPI.m; sourceTree = "<group>"; };
 		F37B068098E7E2B5A443ACE7 /* Pods-RidingMechanic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidingMechanic.release.xcconfig"; path = "Pods/Target Support Files/Pods-RidingMechanic/Pods-RidingMechanic.release.xcconfig"; sourceTree = "<group>"; };
@@ -202,6 +203,8 @@
 				E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */,
 				E2494A281E01AC4400343E21 /* AlertTableViewCell.h */,
 				E2494A291E01AC4400343E21 /* AlertTableViewCell.m */,
+				E2C2FBB21E9DE2BA00563F7B /* VehicleTableViewController.h */,
+				E2C2FBB31E9DE2BA00563F7B /* VehicleTableViewController.m */,
 			);
 			name = "More Screen";
 			sourceTree = "<group>";
@@ -234,7 +237,6 @@
 				E2B190811E949F8D004C404B /* LoginAndRegister */,
 				E25D1B1A1E8C5A080053039B /* ScanScreen */,
 				E27B749A1E5D376900FE5E54 /* SensorConnection */,
-				E259CC751DFA00340018F9F2 /* Model */,
 				E21B33D01DF784AA00BE2B8A /* CarModel Screen */,
 				E29AAB6B1E8479D500330763 /* AnalysisScreen */,
 				E21B33D31DF7851200BE2B8A /* More Screen */,
@@ -276,14 +278,6 @@
 				E259822A1D89EC5D00C07236 /* Info.plist */,
 			);
 			path = RidingMechanicUITests;
-			sourceTree = "<group>";
-		};
-		E259CC751DFA00340018F9F2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				E2F0004B1DFA161300B58506 /* Database.xcdatamodeld */,
-			);
-			name = Model;
 			sourceTree = "<group>";
 		};
 		E25D1B1A1E8C5A080053039B /* ScanScreen */ = {
@@ -528,7 +522,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2159B261E11C45000E505E3 /* HUDViewController.m in Sources */,
-				E2F000501DFA192100B58506 /* Database.xcdatamodeld in Sources */,
 				E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */,
 				E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */,
 				E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */,
@@ -550,6 +543,7 @@
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */,
+				E2C2FBB41E9DE2BA00563F7B /* VehicleTableViewController.m in Sources */,
 				E27B74A61E5D3A1E00FE5E54 /* Session.m in Sources */,
 				E21195651E2D747C0005F728 /* MenuViewController.m in Sources */,
 				E27B74A01E5D384700FE5E54 /* RecvMessageAnalysis.m in Sources */,
@@ -798,19 +792,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		E2F0004B1DFA161300B58506 /* Database.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				E2F0004C1DFA161300B58506 /* Database.xcdatamodel */,
-			);
-			currentVersion = E2F0004C1DFA161300B58506 /* Database.xcdatamodel */;
-			path = Database.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = E25981F51D89EC5D00C07236 /* Project object */;
 }

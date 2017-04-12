@@ -9,7 +9,7 @@
 #import "AnalysisViewController.h"
 #import "ASDayPicker.h"
 
-@interface AnalysisViewController ()
+@interface AnalysisViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *showTripInfoTableView;
 @property (strong, nonatomic) IBOutlet ASDayPicker *datepicker;
 @property (strong, nonatomic)  UILabel *timeLabel;
@@ -21,7 +21,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(self.datepicker.frame.size.width/2-40, self.datepicker.frame.size.height-20, 80,20)];
+    self.showTripInfoTableView.delegate=self;
+    self.showTripInfoTableView.dataSource=self;
+//    CGRect frame = self.showTripInfoTableView.tableHeaderView.frame;
+//    frame.size.height = 1;
+//    UIView *headerView = [[UIView alloc] initWithFrame:frame];
+//    [self.self.showTripInfoTableView setTableHeaderView:headerView];
+    
+    self.timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(self.datepicker.frame.size.width/2-50, self.datepicker.frame.size.height-25, 80,20)];
     [self.timeLabel setFont:[UIFont systemFontOfSize:13]];
     
     [self.datepicker addSubview:self.timeLabel];
@@ -30,7 +37,7 @@
     [components setWeekday:2]; // Monday
     [components setWeekdayOrdinal:1]; // The first Monday in the month
     [components setMonth:4]; // April
-    [components setYear:2017];
+    [components setYear:2016];
     NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDate *startDate = [gregorian dateFromComponents:components];
     
@@ -49,14 +56,39 @@
     self.timeLabel.text =  [NSDateFormatter localizedStringFromDate:day dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 2;
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    
+    cell.textLabel.text=@"1";
+    
+    return cell;
+}
+
+- (NSString *) tableView: (UITableView *) tableView titleForHeaderInSection: (NSInteger) section {
+    NSString *sectionName;
+    switch (section)
+    {
+        case 0:
+            sectionName=@"04-01 12:00";
+            break;
+        case 1:
+            sectionName=@"03-01 10:00";
+            break;
+        default:
+            break;
+    }
+    return sectionName;
+}
+
+
 
 @end

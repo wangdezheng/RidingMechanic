@@ -22,8 +22,9 @@ float totalDistance=0;
 float averageSpeed=0;
 float MPG=0;
 float totalOilConsumption=0;
-float averageOilConsumption=0;
+float averageMPG=0;
 int sharpAccelerationTimes=0;
+int sharpBrakingTimes=0;
 
 static dispatch_source_t timerForMain;
 static MenuViewController * menuController = nil;
@@ -52,7 +53,10 @@ static MenuViewController * menuController = nil;
     self.MenuTableView.dataSource=self;
     
     self.alertController = [UIAlertController alertControllerWithTitle: @"Stop Recording?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){ //stop recording and store trip information
+        
+        
+        
         
         [self performSegueWithIdentifier:@"goBackCarModelView" sender:nil];
     }]];
@@ -92,6 +96,32 @@ static MenuViewController * menuController = nil;
     dispatch_resume(timerForMain);
 }
 
+-(void) writeDataToPlist{ // store information into temprory database
+    //use plist（automatically create one）
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArray objectAtIndex:0];
+    //get file path
+    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
+    NSLog(@"old sandBox is %@",sandBoxDataDic);
+    
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+    NSString *DateTime = [formatter stringFromDate:date];
+    sandBoxDataDic[@"DateTime"] = DateTime; //store date and time
+    
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    sandBoxDataDic[@"Distance"]=[dictionary valueForKey:@"DrivingDistance"];//store driving distance
+    
+    sandBoxDataDic[@"MPG"]=[dictionary valueForKey:@"AverageMPG"];//store average MPG
+    
+    
+    [sandBoxDataDic writeToFile:filePatch atomically:YES];
+    sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
+    NSLog(@"new sandBox is %@",sandBoxDataDic);
+}
+
 - (IBAction)goBackCarModelView:(id)sender {
     [self presentViewController:self.alertController animated:YES completion:Nil];
 }
@@ -101,7 +131,7 @@ static MenuViewController * menuController = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 11;
+    return 12;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -137,9 +167,9 @@ static MenuViewController * menuController = nil;
             detailLabel.text =@"Total Oil Consumption";
             dataLabel.text=[dictionary valueForKey:@"TotalOilConsumption"];
         }else if(indexPath.row==7){
-            [self getAverageOilConsumption]; //get average oil consimption
-            detailLabel.text =@"Average Oil Consumption";
-            dataLabel.text=[dictionary valueForKey:@"AverageOilConsumption"];
+            [self getAverageMPG]; //get average MPG
+            detailLabel.text =@"AverageMPG";
+            dataLabel.text=[dictionary valueForKey:@"AverageMPG"];
         }else if(indexPath.row==8){
             detailLabel.text =@"Fuel Cost";
         }else if(indexPath.row==9){
@@ -152,6 +182,10 @@ static MenuViewController * menuController = nil;
             [self getSharpAccelerationTimes]; //get sharp acceleration times
             detailLabel.text =@"Sharp Acceleration Times";
             dataLabel.text=[dictionary valueForKey:@"SharpAccelerationTimes"];
+        }else if(indexPath.row==12){
+            [self getSharpBrakingTimes]; //get sharp braking times
+            detailLabel.text =@"Sharp Braking Times";
+            dataLabel.text=[dictionary valueForKey:@"SharpBrakingTimes"];
         }
 
     return cell;
@@ -166,11 +200,6 @@ static MenuViewController * menuController = nil;
     
     totalDistance+=drivingDistanceEachSecond;
      [dictionary setValue:[NSString stringWithFormat:@"%.2f", totalDistance] forKey:@"DrivingDistance"];
-    
-//    NSLog(@"Speed:%@, Previous Speed:%@",[dictionary valueForKey:@"Speed"],[dictionary valueForKey:@"PreviousSpeed"]);
-    
-
-    
 }
 
 -(void)getAverageSpeed //get average speed
@@ -184,9 +213,8 @@ static MenuViewController * menuController = nil;
 -(void)getRealtimeMPG //get realtime MPG
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    NSLog(@"MAF:%.2f", [[dictionary valueForKey:@"MAF"] floatValue]);
     
-    MPG=710.7*[[dictionary valueForKey:@"Speed"] floatValue]/[[dictionary valueForKey:@"MAF"] floatValue]; //MPG = (14.7 * 6.17 * 4.54 * VSS * 0.621371) / (3600 * MAF / 100)= 710.7 * VSS / MAF
+    MPG=7.718*1.6*[[dictionary valueForKey:@"Speed"] floatValue]/[[dictionary valueForKey:@"MAF"] floatValue]; //MPG = (14.7 * 6.17 * 454 * VSS) / (3600 * MAF)= 7.718 * VSS(km/h) / MAF(g/h)
     
     [dictionary setValue:[NSString stringWithFormat:@"%.2f", MPG] forKey:@"RealtimeMPG"];
 }
@@ -198,6 +226,7 @@ static MenuViewController * menuController = nil;
     if([[dictionary valueForKey:@"RealtimeMPG"] floatValue]==0){
         totalOilConsumption+=0;
     }else{
+        NSLog(@"DrivingDistanceForEachSecond:%f", [[dictionary valueForKey:@"DrivingDistanceForEachSecond"] floatValue]);
         totalOilConsumption+=([[dictionary valueForKey:@"DrivingDistanceForEachSecond"] floatValue])/([[dictionary valueForKey:@"RealtimeMPG"] floatValue]); //totalOilConsumption+=DrivingDistanceForEachSecond/Realtime MPG
     }
 
@@ -206,12 +235,17 @@ static MenuViewController * menuController = nil;
     
 }
 
--(void)getAverageOilConsumption //get average oil consimption
+-(void)getAverageMPG //get average MPG
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
     
-    averageOilConsumption=3600*totalOilConsumption/drivingTime;
-    [dictionary setValue:[NSString stringWithFormat:@"%.2f", averageSpeed] forKey:@"AverageOilConsumption"];
+    if(totalOilConsumption!=0){
+        averageMPG=[[dictionary valueForKey:@"DrivingDistance"] floatValue]/totalOilConsumption;
+        [dictionary setValue:[NSString stringWithFormat:@"%.2f", averageMPG] forKey:@"AverageMPG"];
+    }else{
+        [dictionary setValue:@"0.00" forKey:@"AverageMPG"];
+    }
+
 }
 
 -(void)getSharpAccelerationTimes //get sharp acceleration times
@@ -220,6 +254,15 @@ static MenuViewController * menuController = nil;
     if([[dictionary valueForKey:@"Speed"] floatValue]-[[dictionary valueForKey:@"PreviousSpeed"] floatValue]>10){
         sharpAccelerationTimes++;
         [dictionary setValue:[NSString stringWithFormat:@"%d",sharpAccelerationTimes] forKey:@"SharpAccelerationTimes"];
+    }
+}
+
+-(void)getSharpBrakingTimes //get sharp braking times
+{
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    if([[dictionary valueForKey:@"Speed"] floatValue]-[[dictionary valueForKey:@"PreviousSpeed"] floatValue]<-10){
+        sharpBrakingTimes++;
+        [dictionary setValue:[NSString stringWithFormat:@"%d",sharpBrakingTimes] forKey:@"SharpBrakingTimes"];
     }
 }
 

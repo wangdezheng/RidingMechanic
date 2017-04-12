@@ -220,7 +220,7 @@ Boolean getPreviousSpeed=NO;
             }else{
                 NSLog(@"Length of %@ is not correct",code);
             }
-    }else if([pid isEqualToString:@"010D"]){//get Vehicle speed(km/h)
+    }else if([pid isEqualToString:@"010D"]){//get Vehicle speed(m/h)
             if(code.length==2){
                 NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
                 a=a/1.6;
@@ -379,7 +379,11 @@ Boolean getPreviousSpeed=NO;
             
             if([dictionary valueForKey:@"DiagnosticInformation"]){ //read exist diagnostic information dictionary
                 diagnosticDictionary=[dictionary valueForKey:@"DiagnosticInformation"];
-                [diagnosticDictionary setValue:[line substringFromIndex:6] forKey:[line substringWithRange:NSMakeRange(0, 5)]];
+                if(![diagnosticDictionary objectForKey:[line substringWithRange:NSMakeRange(0, 5)]]){
+                  [diagnosticDictionary setValue:[line substringFromIndex:6] forKey:[line substringWithRange:NSMakeRange(0, 5)]];
+                }
+
+
             }else{//doesn't exist and create diagnostic information dictionary
                 [diagnosticDictionary setValue:[line substringFromIndex:6] forKey:[line substringWithRange:NSMakeRange(0, 5)]];
             }
