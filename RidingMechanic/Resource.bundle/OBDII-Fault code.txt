@@ -4936,7 +4936,7 @@ C0292   Lost Communications With PCM
 C0291   Lost Communications With BCM
 C0297   Powertrain Configuration Data Not Received
 C0298   Powertrain Indicated Traction Control Malfunction
-C0300   Rear Speed Sensor Malfunction
+C0300   Rear Prop Shaft Circuit Malfunction
 C0305   Front Speed Sensor Malfunction
 C0306   Motor A or B Circuit
 C0308   Motor A/B Circuit Low
