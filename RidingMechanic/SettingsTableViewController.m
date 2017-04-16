@@ -98,7 +98,7 @@
         [self performSegueWithIdentifier:@"showAccount" sender:tableView];
     }else if(indexPath.section==0&&indexPath.row==1){
         [self performSegueWithIdentifier:@"showAlert" sender:tableView];
-    }else if(indexPath.section==0&&indexPath.row==1){
+    }else if(indexPath.section==1&&indexPath.row==0){
         [self performSegueWithIdentifier:@"showVehicle" sender:tableView];
     }
 }

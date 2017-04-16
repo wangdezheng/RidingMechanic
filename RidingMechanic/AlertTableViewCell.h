@@ -14,6 +14,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *tiredDrivingTextField;
 @property (strong, nonatomic) IBOutlet UITextField *waterTemperatureTextField;
 @property (strong, nonatomic) IBOutlet UILabel *waterTemperatureLabel;
+@property (strong, nonatomic) IBOutlet UITextField *oilPriceTextField;
+@property (strong, nonatomic) IBOutlet UILabel *oilPriceLabel;
 
 
 @end

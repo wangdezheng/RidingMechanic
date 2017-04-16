@@ -178,7 +178,7 @@ static  SendCommand* sharedSendCommand = nil;
             [recvMsgAnalysis updateSupportedPIDs:self.pid recvCode:self.recvcode];//update supported pid
         }else{
             NSString *returnValue=[recvMsgAnalysis analysizeRcvcode:self.recvcode baseOnPID:self.pid];
-//            NSLog(@"Return Value:%@",returnValue);
+            NSLog(@"Return Value:%@",returnValue);
         }
     }
     

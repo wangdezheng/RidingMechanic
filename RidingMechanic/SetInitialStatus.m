@@ -44,6 +44,10 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"350" forKey:@"WaterTemperature"];
     }
     
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"OilPrice"]){
+        [[NSUserDefaults standardUserDefaults] setObject:@"2.5" forKey:@"OilPrice"];
+    }
+    
 
 }
 @end

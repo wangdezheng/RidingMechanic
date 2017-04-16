@@ -22,6 +22,7 @@ float totalDistance=0;
 float averageSpeed=0;
 float MPG=0;
 float totalOilConsumption=0;
+float fuelCost=0;
 float averageMPG=0;
 int sharpAccelerationTimes=0;
 int sharpBrakingTimes=0;
@@ -52,12 +53,19 @@ static MenuViewController * menuController = nil;
     self.MenuTableView.delegate = self;
     self.MenuTableView.dataSource=self;
     
-    self.alertController = [UIAlertController alertControllerWithTitle: @"Stop Recording?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){ //stop recording and store trip information
+    NSDate *date = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+    NSString *DateTime = [formatter stringFromDate:date];
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    [dictionary setValue:DateTime forKey:@"StartDateTime"];// store start date time
+    
+    
+    self.alertController = [UIAlertController alertControllerWithTitle: @"Do you want to store trip information?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
         
-        
-        
-        
+        [self writeDataToPlist];//stop recording and store trip information into plist
+    
         [self performSegueWithIdentifier:@"goBackCarModelView" sender:nil];
     }]];
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"NO" style: UIAlertActionStyleDefault handler:nil]];
@@ -96,7 +104,7 @@ static MenuViewController * menuController = nil;
     dispatch_resume(timerForMain);
 }
 
--(void) writeDataToPlist{ // store information into temprory database
+-(void) writeDataToPlist{ // store information into temporary database
     //use plist（automatically create one）
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [pathArray objectAtIndex:0];
@@ -105,17 +113,92 @@ static MenuViewController * menuController = nil;
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     NSLog(@"old sandBox is %@",sandBoxDataDic);
     
-    NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
-    NSString *DateTime = [formatter stringFromDate:date];
-    sandBoxDataDic[@"DateTime"] = DateTime; //store date and time
-    
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    sandBoxDataDic[@"Distance"]=[dictionary valueForKey:@"DrivingDistance"];//store driving distance
+    if(sandBoxDataDic==nil){ //temporary database is empty
+        sandBoxDataDic = [NSMutableDictionary new];
+        NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];//store start date and time
+        [startDateTimeArray addObject:[dictionary valueForKey:@"StartDateTime"]];
+        sandBoxDataDic[@"StartDateTime"]=startDateTimeArray;
+        
+        NSDate *date = [NSDate date];//store end date and time
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+        NSString *DateTime = [formatter stringFromDate:date];
+        NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];
+        [endDateTimeArray addObject:DateTime];
+        sandBoxDataDic[@"EndDateTime"] = endDateTimeArray;
+        
+        NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
+        [drivingDistanceArray addObject:[dictionary valueForKey:@"DrivingDistance"]];
+        sandBoxDataDic[@"Distance"]=drivingDistanceArray;
+        
+        NSMutableArray * MPGArray=[[NSMutableArray alloc] init];//store average MPG
+        [MPGArray addObject:[dictionary valueForKey:@"AverageMPG"]];
+        sandBoxDataDic[@"AverageMPG"]=MPGArray;
+        
+        NSMutableArray * speedArray=[[NSMutableArray alloc] init];//store average speed
+        [speedArray addObject:[dictionary valueForKey:@"AverageSpeed"]];
+        sandBoxDataDic[@"AverageSpeed"]=speedArray;
+        
+        NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];//store fuel cost
+        [fuelCostArray addObject:[dictionary valueForKey:@"FuelCost"]];
+        sandBoxDataDic[@"FuelCost"]=fuelCostArray;
+        
+        NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];//store Sharp Acceleration Times
+        [accelerationArray addObject:[dictionary valueForKey:@"SharpAccelerationTimes"]];
+        sandBoxDataDic[@"SharpAccelerationTimes"]=accelerationArray;
+        
+        NSMutableArray * brakingArray=[[NSMutableArray alloc] init];//store store Sharp braking Times
+        [brakingArray addObject:[dictionary valueForKey:@"SharpBrakingTimes"]];
+        sandBoxDataDic[@"SharpBrakingTimes"]=brakingArray;
+        
+    }else{//temporary database is not empty
+        NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];//store start date and time
+        startDateTimeArray=sandBoxDataDic[@"StartDateTime"];
+        [startDateTimeArray addObject:[dictionary valueForKey:@"StartDateTime"]];
+        sandBoxDataDic[@"StartDateTime"]=startDateTimeArray;
+        
+        NSDate *date = [NSDate date];//store end date and time
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+        NSString *DateTime = [formatter stringFromDate:date];
+        NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];
+        endDateTimeArray=sandBoxDataDic[@"EndDateTime"];
+        [endDateTimeArray addObject:DateTime];
+        sandBoxDataDic[@"EndDateTime"] = endDateTimeArray;
+        
+        NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
+        drivingDistanceArray=sandBoxDataDic[@"DrivingDistance"];
+        [drivingDistanceArray addObject:[dictionary valueForKey:@"DrivingDistance"]];
+        sandBoxDataDic[@"Distance"]=drivingDistanceArray;
+        
+        NSMutableArray * MPGArray=[[NSMutableArray alloc] init];//store average MPG
+        MPGArray=sandBoxDataDic[@"AverageMPG"];
+        [MPGArray addObject:[dictionary valueForKey:@"AverageMPG"]];
+        sandBoxDataDic[@"AverageMPG"]=MPGArray;
+        
+        NSMutableArray * speedArray=[[NSMutableArray alloc] init];//store average speed
+        speedArray=sandBoxDataDic[@"AverageSpeed"];
+        [speedArray addObject:[dictionary valueForKey:@"AverageSpeed"]];
+        sandBoxDataDic[@"AverageSpeed"]=speedArray;
+        
+        NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];//store fuel cost
+        fuelCostArray=sandBoxDataDic[@"FuelCost"];
+        [fuelCostArray addObject:[dictionary valueForKey:@"FuelCost"]];
+        sandBoxDataDic[@"FuelCost"]=fuelCostArray;
+        
+        NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];//store Sharp Acceleration Times
+        accelerationArray=sandBoxDataDic[@"SharpAccelerationTimes"];
+        [accelerationArray addObject:[dictionary valueForKey:@"SharpAccelerationTimes"]];
+        sandBoxDataDic[@"SharpAccelerationTimes"]=accelerationArray;
+        
+        NSMutableArray * brakingArray=[[NSMutableArray alloc] init];//store store Sharp braking Times
+        brakingArray=sandBoxDataDic[@"SharpBrakingTimes"];
+        [brakingArray addObject:[dictionary valueForKey:@"SharpBrakingTimes"]];
+        sandBoxDataDic[@"SharpBrakingTimes"]=brakingArray;
+    }
     
-    sandBoxDataDic[@"MPG"]=[dictionary valueForKey:@"AverageMPG"];//store average MPG
-    
+
     
     [sandBoxDataDic writeToFile:filePatch atomically:YES];
     sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
@@ -131,7 +214,7 @@ static MenuViewController * menuController = nil;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 12;
+    return 13;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -171,7 +254,9 @@ static MenuViewController * menuController = nil;
             detailLabel.text =@"AverageMPG";
             dataLabel.text=[dictionary valueForKey:@"AverageMPG"];
         }else if(indexPath.row==8){
+            [self getFuelCost];//get fuel cost
             detailLabel.text =@"Fuel Cost";
+            dataLabel.text=[dictionary valueForKey:@"FuelCost"];
         }else if(indexPath.row==9){
             detailLabel.text =@"Engine Coolant Temperature";
             dataLabel.text=[dictionary valueForKey:@"EngineCoolantTemperature"];
@@ -233,6 +318,13 @@ static MenuViewController * menuController = nil;
     NSLog(@"OIL CONSUMPTION:%.2f", totalOilConsumption);
     [dictionary setValue:[NSString stringWithFormat:@"%.2f", totalOilConsumption] forKey:@"TotalOilConsumption"];
     
+}
+
+-(void)getFuelCost //get fuel cost
+{
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    fuelCost=[[dictionary valueForKey:@"TotalOilConsumption"] floatValue]*[[dictionary valueForKey:@"OilPrice"] floatValue]; // fuel cost=Total oil Consumption(g) * oil price
+    [dictionary setValue:[NSString stringWithFormat:@"%.2f",fuelCost] forKey:@"FuelCost"];
 }
 
 -(void)getAverageMPG //get average MPG
