@@ -8,9 +8,15 @@
 
 #import "AnalysisViewController.h"
 #import "ASDayPicker.h"
+#import "ShowTripInfoTableViewCell.h"
 
 @interface AnalysisViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (strong, nonatomic) IBOutlet UILabel *totalCostLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalMileLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalOilConsumptionLabel;
+
 @property (strong, nonatomic) IBOutlet UITableView *showTripInfoTableView;
+@property (strong,nonatomic) ShowTripInfoTableViewCell * tripInfoCell;
 @property (strong,nonatomic) NSMutableArray * targetArray;
 @property (strong, nonatomic) IBOutlet ASDayPicker *datepicker;
 @property (strong, nonatomic)  UILabel *timeLabel;
@@ -19,6 +25,10 @@
 @end
 
 @implementation AnalysisViewController
+float totoalCost=0;
+float totoalMile=0;
+float totoalOilConsumption=0;
+
 
 -(NSMutableArray *)targetArray
 {
@@ -30,7 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self test];
+//    [self test];
     self.targetArray=[self getDataFromPlist:[NSString stringWithFormat:@"%@",[NSDate date]]];
     
     self.showTripInfoTableView.delegate=self;
@@ -54,6 +64,7 @@
     [self.datepicker addObserver:self forKeyPath:@"selectedDate" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
 }
 
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -68,77 +79,32 @@
     self.timeLabel.text =  [NSDateFormatter localizedStringFromDate:day dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
     
     self.targetArray=[self getDataFromPlist:DateTime];
-    [self.showTripInfoTableView reloadData];
     
+    [self.showTripInfoTableView reloadData];//reload data in table
+    
+    [self updateTotal];
+    self.totalCostLabel.text=[NSString stringWithFormat:@"%.1f",totoalCost];
+    self.totalMileLabel.text=[NSString stringWithFormat:@"%.1f",totoalMile];
+    self.totalOilConsumptionLabel.text=[NSString stringWithFormat:@"%.1f",totoalOilConsumption];
     
 }
 
--(void) test{
+-(void) updateTotal{
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [pathArray objectAtIndex:0];
     //get file path
     NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
-    if(!sandBoxDataDic){
-         sandBoxDataDic = [NSMutableDictionary new];
-        NSLog(@"111");
-        NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];//store start date and time
-        [startDateTimeArray addObject:@"2017-04-13 08:12"];
-        [startDateTimeArray addObject:@"2017-04-13 22:12"];
-        [startDateTimeArray addObject:@"2017-04-14 09:12"];
-        sandBoxDataDic[@"StartDateTime"]=startDateTimeArray;
-        
-        NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];//store start date and time
-        [endDateTimeArray addObject:@"2017-04-13 09:12"];
-        [endDateTimeArray addObject:@"2017-04-13 23:12"];
-        [endDateTimeArray addObject:@"2017-04-14 10:12"];
-        sandBoxDataDic[@"EndDateTime"] = endDateTimeArray;
-        
-        NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
-        [drivingDistanceArray addObject:@"15"];
-        [drivingDistanceArray addObject:@"30"];
-        [drivingDistanceArray addObject:@"40"];
-        sandBoxDataDic[@"Distance"]=drivingDistanceArray;
-        
-        NSMutableArray * MPGArray=[[NSMutableArray alloc] init];//store average MPG
-        [MPGArray addObject:@"15.0"];
-        [MPGArray addObject:@"16.0"];
-        [MPGArray addObject:@"17.0"];
-        sandBoxDataDic[@"AverageMPG"]=MPGArray;
-        
-        NSMutableArray * speedArray=[[NSMutableArray alloc] init];//store average speed
-        [speedArray addObject:@"30.0"];
-        [speedArray addObject:@"35.0"];
-        [speedArray addObject:@"36.0"];
-        sandBoxDataDic[@"AverageSpeed"]=speedArray;
-        
-        NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];//store fuel cost
-        [fuelCostArray addObject:@"2.5"];
-        [fuelCostArray addObject:@"3.5"];
-        [fuelCostArray addObject:@"3.6"];
-        sandBoxDataDic[@"FuelCost"]=fuelCostArray;
-        
-        NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];//store Sharp Acceleration Times
-        [accelerationArray addObject:@"1"];
-        [accelerationArray addObject:@"2"];
-        [accelerationArray addObject:@"3"];
-        sandBoxDataDic[@"SharpAccelerationTimes"]=accelerationArray;
-        
-        NSMutableArray * brakingArray=[[NSMutableArray alloc] init];//store store Sharp braking Times
-        [brakingArray addObject:@"2"];
-        [brakingArray addObject:@"3"];
-        [brakingArray addObject:@"4"];
-        sandBoxDataDic[@"SharpBrakingTimes"]=brakingArray;
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    if(sandBoxDataDic){
+       NSMutableArray * costArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"FuelCost"]];
+       NSMutableArray * distanceArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"DrivingDistance"]];
+        for(int i=0;i<self.targetArray.count;i++){
+            totoalCost+=[[costArray objectAtIndex:[self.targetArray[i] integerValue]] floatValue];
+            totoalMile+=[[distanceArray objectAtIndex:[self.targetArray[i] integerValue]] floatValue];
+            totoalOilConsumption+=totoalCost/[[dictionary valueForKey:@"OilPrice"] floatValue];
+        }
     }
-    
-
-    
-    NSLog(@"new sandBox is %@",sandBoxDataDic);
-    
-    
-    [sandBoxDataDic writeToFile:filePatch atomically:YES];
-    sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
-    NSLog(@"new sandBox is %@",sandBoxDataDic);
 }
 
 -(NSMutableArray *) getDataFromPlist:(NSString *)dateTime{  //get corresponding data according to specific date
@@ -176,11 +142,36 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    self.tripInfoCell= (ShowTripInfoTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"tripInfoCell" forIndexPath:indexPath];
+    //get sand box path
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArray objectAtIndex:0];
+    //get file path
+    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
     
-    cell.textLabel.text=@"1";
+    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     
-    return cell;
+    if(sandBoxDataDic){
+        NSMutableArray * costArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"FuelCost"]];
+        NSMutableArray * MPGArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"AverageMPG"]];
+        NSMutableArray * distanceArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"DrivingDistance"]];
+        NSMutableArray * accelArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"SharpAccelerationTimes"]];
+        NSMutableArray * brakingArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"SharpBrakingTimes"]];
+        
+        self.tripInfoCell.costLabel.text=[[costArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue];
+        
+        self.tripInfoCell.mileLabel.text=[[distanceArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue];
+        
+        self.tripInfoCell.MPGLabel.text=[[MPGArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue];
+        
+        self.tripInfoCell.accelerationButton.userInteractionEnabled=NO;
+        [self.tripInfoCell.accelerationButton setTitle:[[accelArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue] forState:UIControlStateNormal];
+        
+        self.tripInfoCell.brakingButton.userInteractionEnabled=NO;
+        [self.tripInfoCell.brakingButton setTitle:[[brakingArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue] forState:UIControlStateNormal];
+    }
+    
+    return self.tripInfoCell;
 }
 
 - (NSString *) tableView: (UITableView *) tableView titleForHeaderInSection: (NSInteger) section {

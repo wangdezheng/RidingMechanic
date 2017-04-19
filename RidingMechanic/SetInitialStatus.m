@@ -45,7 +45,7 @@
     }
     
     if(![[NSUserDefaults standardUserDefaults] objectForKey:@"OilPrice"]){
-        [[NSUserDefaults standardUserDefaults] setObject:@"2.5" forKey:@"OilPrice"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"2.39" forKey:@"OilPrice"];
     }
     
 

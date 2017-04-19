@@ -100,6 +100,8 @@
         [self performSegueWithIdentifier:@"showAlert" sender:tableView];
     }else if(indexPath.section==1&&indexPath.row==0){
         [self performSegueWithIdentifier:@"showVehicle" sender:tableView];
+    }else if(indexPath.section==1&&indexPath.row==1){
+        [self performSegueWithIdentifier:@"showAdapter" sender:tableView];
     }
 }
 

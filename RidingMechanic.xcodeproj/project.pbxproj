@@ -15,7 +15,6 @@
 		E21195651E2D747C0005F728 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21195641E2D747C0005F728 /* MenuViewController.m */; };
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
-		E2159B261E11C45000E505E3 /* HUDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2159B251E11C45000E505E3 /* HUDViewController.m */; };
 		E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */; };
 		E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E22469901DF86EC200A4C207 /* ResetPasswordViewController.m */; };
 		E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = E244C9DE1DCA6E9200D0776B /* Reachability.m */; };
@@ -41,6 +40,7 @@
 		E2C2FBB41E9DE2BA00563F7B /* VehicleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2C2FBB31E9DE2BA00563F7B /* VehicleTableViewController.m */; };
 		E2C87DA01DFA073F000E76FA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E2C87D9F1DFA073F000E76FA /* Base.lproj */; };
 		E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */; };
+		E2E711F91EA405BB00699A05 /* ShowTripInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E711F81EA405BB00699A05 /* ShowTripInfoTableViewCell.m */; };
 		E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FA78871DD2AE38006E730A /* RestAPI.m */; };
 /* End PBXBuildFile section */
 
@@ -76,8 +76,6 @@
 		E21210781DD66DE2002B4ED5 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		E212107A1DD66E56002B4ED5 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		E212107B1DD66E56002B4ED5 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		E2159B241E11C45000E505E3 /* HUDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HUDViewController.h; sourceTree = "<group>"; };
-		E2159B251E11C45000E505E3 /* HUDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HUDViewController.m; sourceTree = "<group>"; };
 		E21B33CC1DF77D6C00BE2B8A /* AccountTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountTableViewController.h; sourceTree = "<group>"; };
 		E21B33CD1DF77D6C00BE2B8A /* AccountTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountTableViewController.m; sourceTree = "<group>"; };
 		E21D27651DCE6A62001EAD26 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -127,6 +125,8 @@
 		E2C87D9F1DFA073F000E76FA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = RidingMechanicTests/Base.lproj; sourceTree = SOURCE_ROOT; };
 		E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionViewController.h; sourceTree = "<group>"; };
 		E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
+		E2E711F71EA405BB00699A05 /* ShowTripInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowTripInfoTableViewCell.h; sourceTree = "<group>"; };
+		E2E711F81EA405BB00699A05 /* ShowTripInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTripInfoTableViewCell.m; sourceTree = "<group>"; };
 		E2FA78861DD2AE38006E730A /* RestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestAPI.h; sourceTree = "<group>"; };
 		E2FA78871DD2AE38006E730A /* RestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestAPI.m; sourceTree = "<group>"; };
 		F37B068098E7E2B5A443ACE7 /* Pods-RidingMechanic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidingMechanic.release.xcconfig"; path = "Pods/Target Support Files/Pods-RidingMechanic/Pods-RidingMechanic.release.xcconfig"; sourceTree = "<group>"; };
@@ -172,8 +172,6 @@
 		E21B33D01DF784AA00BE2B8A /* CarModel Screen */ = {
 			isa = PBXGroup;
 			children = (
-				E2159B241E11C45000E505E3 /* HUDViewController.h */,
-				E2159B251E11C45000E505E3 /* HUDViewController.m */,
 				E2A004311DECF24500FCC18E /* CarModelViewController.h */,
 				E2A004321DECF24500FCC18E /* CarModelViewController.m */,
 				E2E36B291DC2950A0086FB8A /* ConnectionViewController.h */,
@@ -307,6 +305,8 @@
 			children = (
 				E29AAB6C1E847A4B00330763 /* AnalysisViewController.h */,
 				E29AAB6D1E847A4B00330763 /* AnalysisViewController.m */,
+				E2E711F71EA405BB00699A05 /* ShowTripInfoTableViewCell.h */,
+				E2E711F81EA405BB00699A05 /* ShowTripInfoTableViewCell.m */,
 			);
 			name = AnalysisScreen;
 			sourceTree = "<group>";
@@ -521,7 +521,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2159B261E11C45000E505E3 /* HUDViewController.m in Sources */,
 				E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */,
 				E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */,
 				E22469911DF86EC200A4C207 /* ResetPasswordViewController.m in Sources */,
@@ -540,6 +539,7 @@
 				E25D1B1F1E8C5A510053039B /* HealthScanViewController.m in Sources */,
 				E29B3BA91E6FC90E00EC0D71 /* SendCommand.m in Sources */,
 				E2A004421DEE6FC900FCC18E /* SettingsTableViewController.m in Sources */,
+				E2E711F91EA405BB00699A05 /* ShowTripInfoTableViewCell.m in Sources */,
 				E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */,
 				E25982021D89EC5D00C07236 /* main.m in Sources */,
 				E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */,

@@ -37,7 +37,7 @@
         
     }else{
         self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi"];
-        [self.startTripButton setHidden:YES];
+        [self.startTripButton setHidden:NO];
     }
     
 }
@@ -45,7 +45,7 @@
 
 -(IBAction)startTrip:(id)sender
 {
-    
+    [self performSegueWithIdentifier:@"showMenu" sender:sender];
 }
 
 

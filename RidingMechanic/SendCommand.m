@@ -19,7 +19,7 @@
 @implementation SendCommand
 
 dispatch_source_t timer;
-dispatch_source_t timerForUpdate;
+
 
 static  SendCommand* sharedSendCommand = nil;
 
@@ -96,15 +96,15 @@ static  SendCommand* sharedSendCommand = nil;
     dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
     
     // create timer
-    timerForUpdate = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    self.timerForUpdate = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
     
     //set timer property
     // GCD 1s=10^9 ns
     // start time and time interval
-    dispatch_source_set_timer(timerForUpdate, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0);
+    dispatch_source_set_timer(self.timerForUpdate, DISPATCH_TIME_NOW, 0.5 * NSEC_PER_SEC, 0);
     
     // call task
-    dispatch_source_set_event_handler(timerForUpdate, ^{
+    dispatch_source_set_event_handler(self.timerForUpdate, ^{
         
         Session * session=[Session sharedSession];
         [session sendMessage:self.pid];
@@ -112,20 +112,20 @@ static  SendCommand* sharedSendCommand = nil;
     });
     
     // start timer
-    dispatch_resume(timerForUpdate);
+    dispatch_resume(self.timerForUpdate);
 }
 
 -(void) pauseTimerForUpdate{
-    // stop timerForUpdate
-    if(timerForUpdate){
-        dispatch_suspend(timerForUpdate);
+    // pause timerForUpdate
+    if(self.timerForUpdate){
+        dispatch_suspend(self.timerForUpdate);
     }
 }
 
 -(void) resumeTimerForUpdate{
     // resume timerForUpdate
-    if(timerForUpdate){
-        dispatch_resume(timerForUpdate);
+    if(self.timerForUpdate){
+        dispatch_resume(self.timerForUpdate);
     }
 }
 

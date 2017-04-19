@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MenuViewController : UIViewController
+@interface MenuViewController : UITableViewController
 
-@property (strong, nonatomic) IBOutlet UITableView *MenuTableView;
-
-+ (instancetype)sharedMenuController;
+//+ (instancetype)sharedMenuController;
 
 @end
