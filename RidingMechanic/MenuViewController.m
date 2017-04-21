@@ -281,7 +281,7 @@ static dispatch_source_t timerForMain;
             dataLabel.text=[NSString stringWithFormat:@"%.2f",self.MPG];
         }else if(indexPath.row==6){
             [self getTotalOilConsumption]; //get total oil consumption
-            detailLabel.text =@"Total Oil Consumption";
+            detailLabel.text =@"Total Fuel Consumption";
             dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalOilConsumption];
         }else if(indexPath.row==7){
             [self getAverageMPG]; //get average MPG
