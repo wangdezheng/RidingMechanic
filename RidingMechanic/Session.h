@@ -16,7 +16,6 @@
 
 @interface Session : NSObject
 
-@property (copy, nonatomic) NSString * identity;
 @property (nonatomic, readonly) BOOL connected;
 
 + (instancetype)allocWithZone:(struct _NSZone *)zone;
@@ -25,7 +24,6 @@
 - (BOOL) connectToServer: (NSString *) ipAddr onPort: (int) port;
 - (void) disconnect;
 
-- (BOOL) isAddr: (NSString *) addrstr;
 - (void) sendMessage: (NSString *) msg;
 - (void) recvMessage;
 

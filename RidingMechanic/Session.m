@@ -93,15 +93,6 @@ static Session * sharedSession = nil;
     close(sktfd);
 }
 
-- (BOOL) isAddr: (NSString *) addrstr
-{ int ret;
-    struct sockaddr_in addr;
-    
-    ret = inet_aton([addrstr cStringUsingEncoding: NSASCIIStringEncoding],&addr.sin_addr);
-    
-    return (ret == 1);
-}
-
 - (void) recvThread
 { int ret;
     fd_set rset;

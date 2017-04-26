@@ -10,7 +10,6 @@
 #import "SendCommand.h"
 
 @interface MenuViewController ()
-@property (weak,nonatomic) NSDictionary * dictionary;
 @property (strong,nonatomic) UIAlertController * alertController;
 @property (assign,nonatomic) NSInteger drivingTime;
 @property (assign,nonatomic) NSInteger interval;
