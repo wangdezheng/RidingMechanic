@@ -163,7 +163,8 @@
             NSLog(@"data can't convert to JSON type");
         }
         
-        [self httpPostRequest];
+        [self httpPostRequest];// update server database
+        
         self.alertController.title=@"Register Succeed";
         self.alertController.message=@"";
         [self presentViewController:self.alertController animated:YES completion:nil];
@@ -184,7 +185,8 @@
     self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: @"Please check your input" preferredStyle: UIAlertControllerStyleAlert];
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler:^(UIAlertAction *action){
         if([self.alertController.title isEqualToString:@"Register Succeed"]){
-                   [self performSegueWithIdentifier:@"registerSuccessfully" sender:nil];
+            [self.navigationController popViewControllerAnimated:YES];
+//                   [self performSegueWithIdentifier:@"registerSuccessfully" sender:nil];
         }
     }]];
     

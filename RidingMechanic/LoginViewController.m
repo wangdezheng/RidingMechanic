@@ -78,6 +78,7 @@
     }
 }
 
+
 -(IBAction) login:(id)sender
 {
     for(int i=0;i<self.emailList.count;i++){
@@ -87,7 +88,7 @@
             userInfoArray[1]=self.passwordField.text;
             [[NSUserDefaults standardUserDefaults] setObject:userInfoArray forKey:@"userInfo"];//store userInfo in default dictionary
             
-             dispatch_sync(dispatch_get_global_queue(0, 0), ^{ //load data from server  in background
+             dispatch_async(dispatch_get_global_queue(0, 0), ^{ //load data from server  in background
                  SetInitialStatus *setInit=[[SetInitialStatus alloc] init];
                  [setInit setInitial:self.emailField.text];
              });

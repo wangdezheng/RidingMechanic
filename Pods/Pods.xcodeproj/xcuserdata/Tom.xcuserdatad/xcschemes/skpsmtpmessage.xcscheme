@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'C347112BEA928C15265EF1D3D6DDB7D2'
-               BlueprintName = 'Pods-RidingMechanic'
+               BlueprintIdentifier = '3AEF9DE7E99530EE362D0683678F3CBF'
+               BlueprintName = 'skpsmtpmessage'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-RidingMechanic.a'>
+               BuildableName = 'libskpsmtpmessage.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

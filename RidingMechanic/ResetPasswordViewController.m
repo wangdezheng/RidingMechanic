@@ -108,9 +108,8 @@
         NSLog(@"data can't convert to JSON type");
     }
     
-    [self httpPutRequest];
+    [self httpPutRequest];//update server database
 
-    
     NSMutableArray *userInfo=[[NSMutableArray alloc] initWithCapacity:2];
     userInfo[0]=userInfoArray[0];
     userInfo[1]=self.pwdTextField.text;

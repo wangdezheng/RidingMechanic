@@ -9,6 +9,55 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Reset Passwprd-->
+        <scene sceneID="BPX-WW-hUM">
+            <objects>
+                <viewController id="2e0-aw-Uk2" customClass="ForgetPasswordViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5WI-5X-T9W"/>
+                        <viewControllerLayoutGuide type="bottom" id="gGy-8o-tUl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="kSF-nx-MsQ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wJ4-KL-she">
+                                <rect key="frame" x="23" y="79" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JEW-A5-xCa">
+                                <rect key="frame" x="23" y="117" width="331" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="resetPassword:" destination="2e0-aw-Uk2" eventType="touchUpInside" id="rGq-EC-sPd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New password will be sent to you email." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WkL-lQ-gW4">
+                                <rect key="frame" x="23" y="155" width="331" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Reset Passwprd" id="m8w-eM-TeK"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="wJ4-KL-she" id="fsA-oF-3e1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9t9-FG-RS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-551.20000000000005" y="-1825.6371814092954"/>
+        </scene>
         <!--Login View Controller-->
         <scene sceneID="oR2-rP-3fj">
             <objects>
@@ -52,12 +101,15 @@
                                     <segue destination="4cP-2M-Pam" kind="show" id="gAy-8V-F4d"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="KUR-qz-BIl">
-                                <rect key="frame" x="44" y="275" width="282" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KUR-qz-BIl">
+                                <rect key="frame" x="44" y="275" width="277" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="forgetPassword:" destination="4b0-oT-a2k" eventType="touchUpInside" id="eHI-Kb-Zaz"/>
+                                </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5De-QR-96T">
                                 <rect key="frame" x="44" y="323" width="282" height="21"/>
@@ -66,6 +118,14 @@
                                 <color key="textColor" red="1" green="0.42997095470000002" blue="0.2364157707" alpha="0.80259018459999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vL2-xj-K40">
+                                <rect key="frame" x="295" y="280" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Help"/>
+                                <connections>
+                                    <segue destination="2e0-aw-Uk2" kind="show" id="yWg-v6-QdM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -552,7 +612,7 @@
                     <navigationItem key="navigationItem" title="Account" id="XEg-Dp-bHG"/>
                     <connections>
                         <segue destination="hip-Hf-HKn" kind="show" identifier="showResetPassword" id="stR-na-E0X"/>
-                        <segue destination="4b0-oT-a2k" kind="presentation" identifier="logOut" id="m4B-kj-ixa"/>
+                        <segue destination="7KA-Mh-G0K" kind="presentation" identifier="logOut" id="0HN-BV-qf2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8XK-aX-qBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1017,7 +1077,6 @@
                         <outlet property="passwordField" destination="wCh-Ci-F6n" id="w35-58-O8h"/>
                         <outlet property="passwordPassLabel" destination="1H5-XI-W3K" id="Adh-RH-hpp"/>
                         <outlet property="passwordWarnLabel" destination="kSj-SE-vpW" id="p6P-ai-dV9"/>
-                        <segue destination="4b0-oT-a2k" kind="show" identifier="registerSuccessfully" id="9t7-JS-mrL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w7D-VX-wPK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1230,6 +1289,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Help" width="50" height="50"/>
         <image name="OBD_Port" width="750" height="420"/>
         <image name="Wi-Fi" width="25" height="25"/>
         <image name="account" width="256" height="256"/>
@@ -1239,7 +1299,4 @@
         <image name="route-analysis" width="25" height="25"/>
         <image name="selection" width="44" height="44"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="YPN-20-vpv"/>
-    </inferredMetricsTieBreakers>
 </document>

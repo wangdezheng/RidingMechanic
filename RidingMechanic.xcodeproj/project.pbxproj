@@ -12,6 +12,7 @@
 		E20A226A1E9B39F0009CFDA1 /* ASDayPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A22691E9B39F0009CFDA1 /* ASDayPicker.m */; };
 		E20A8D411E06129600D18DCA /* SetInitialStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A8D401E06129600D18DCA /* SetInitialStatus.m */; };
 		E20A8D441E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20A8D431E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m */; };
+		E20C7B751EB3C94A00F8BB68 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E20C7B741EB3C94A00F8BB68 /* ForgetPasswordViewController.m */; };
 		E21195651E2D747C0005F728 /* MenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21195641E2D747C0005F728 /* MenuViewController.m */; };
 		E21210791DD66DE2002B4ED5 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E21210781DD66DE2002B4ED5 /* LoginViewController.m */; };
 		E212107C1DD66E56002B4ED5 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E212107B1DD66E56002B4ED5 /* RegisterViewController.m */; };
@@ -70,6 +71,8 @@
 		E20A8D401E06129600D18DCA /* SetInitialStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetInitialStatus.m; sourceTree = "<group>"; };
 		E20A8D421E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WaterTemperatureAlertTableViewController.h; sourceTree = "<group>"; };
 		E20A8D431E0627FA00D18DCA /* WaterTemperatureAlertTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WaterTemperatureAlertTableViewController.m; sourceTree = "<group>"; };
+		E20C7B731EB3C94A00F8BB68 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		E20C7B741EB3C94A00F8BB68 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 		E21195631E2D747C0005F728 /* MenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuViewController.h; sourceTree = "<group>"; };
 		E21195641E2D747C0005F728 /* MenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuViewController.m; sourceTree = "<group>"; };
 		E21210771DD66DE2002B4ED5 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
@@ -324,6 +327,8 @@
 				E21210781DD66DE2002B4ED5 /* LoginViewController.m */,
 				E212107A1DD66E56002B4ED5 /* RegisterViewController.h */,
 				E212107B1DD66E56002B4ED5 /* RegisterViewController.m */,
+				E20C7B731EB3C94A00F8BB68 /* ForgetPasswordViewController.h */,
+				E20C7B741EB3C94A00F8BB68 /* ForgetPasswordViewController.m */,
 			);
 			name = LoginAndRegister;
 			sourceTree = "<group>";
@@ -529,6 +534,7 @@
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
 				E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
+				E20C7B751EB3C94A00F8BB68 /* ForgetPasswordViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
 				E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */,
 				E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */,

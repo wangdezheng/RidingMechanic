@@ -14,15 +14,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>skpsmtpmessage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>3AEF9DE7E99530EE362D0683678F3CBF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>40712C8AD27779E2B76CD4232FD99984</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9F113BB0CF6B2368D00251E0D2238613</key>
+		<key>C347112BEA928C15265EF1D3D6DDB7D2</key>
 		<dict>
 			<key>primary</key>
 			<true/>

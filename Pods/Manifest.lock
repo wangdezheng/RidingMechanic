@@ -1,12 +1,15 @@
 PODS:
   - HcdProcessView (1.0.0)
+  - skpsmtpmessage (0.0.1)
 
 DEPENDENCIES:
   - HcdProcessView
+  - skpsmtpmessage
 
 SPEC CHECKSUMS:
   HcdProcessView: d48587d9f15f14f7a168acf898032cc136a1ff29
+  skpsmtpmessage: f6e913380c784dd8d4a9f83c8790a302445a5e05
 
-PODFILE CHECKSUM: 9821048a5a57f615c39edef79ff42d4311a7008c
+PODFILE CHECKSUM: 70dda0ba92ce0070fd4d295466d1ba3973ccb4d4
 
 COCOAPODS: 1.2.0

@@ -7,49 +7,93 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0044B49783AF340297FB00604AE9DBB2 /* HcdProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E7E2AEAA07916314A5AB43506E92C1D /* HcdProcessView.m */; };
-		885E1164BAFE9012149059EF267065D0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		9BBD9DCF5D0FB20B5BBA7360C0844664 /* HcdProcessView.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A37BFE8480ABD1D157CAC38CE7E9D5 /* HcdProcessView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9CD522583A55BF347E0FCDED01B9D0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */; };
-		BB6F67D0EC07B13FC309D86E9155C68D /* Pods-RidingMechanic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2738462E3296C7AD7F248CE1838657F5 /* Pods-RidingMechanic-dummy.m */; };
-		D59E0F0AD610AD850F6EF61147C32AC5 /* HcdProcessView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21D0E65358B975CDCEA9F2C372807DDB /* HcdProcessView-dummy.m */; };
+		0044B49783AF340297FB00604AE9DBB2 /* HcdProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = E7EF9D5A9BA3BF77AC6F84978BA05C76 /* HcdProcessView.m */; };
+		068293476421291F1E0355ADC9816B6F /* NSData+Base64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E18DA90B8F3F89D9F320AAE9F73C1B9 /* NSData+Base64Additions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		1CA307E0EBDF3946E5DF46B6F33E535C /* NSData+Base64Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 87DE47BA6D03775DAA12C43D1A4D73F3 /* NSData+Base64Additions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2172AF40A463A48410A3346674F5B982 /* NSStream+SKPSMTPExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 14C8E91460E9F649A296509A9FB237E7 /* NSStream+SKPSMTPExtensions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2480F8FCA611D2F734604D9F04C95A12 /* Base64Transcoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB1B423694028739ACA2AB285024BE9 /* Base64Transcoder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		2FBBF5F568A0C2DBD252E55ED6E46D3A /* skpsmtpmessage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 82096B29AB24BC9C17CA1B6608B33F57 /* skpsmtpmessage-dummy.m */; };
+		4ADEE41BA28007D54CEA3155CA88224C /* HSK_CFUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = D719252C69CD93E9A9CA930F46E5B035 /* HSK_CFUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		725E07666E2F66ADA636B185F9DE5CAC /* SKPSMTPMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 54EBEA63FCEB04392417DD568839C86C /* SKPSMTPMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7EC75DABFA683DD6F84B82F490C24333 /* SKPSMTPMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E864DDAE16897431285568FA3733A5E /* SKPSMTPMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		945A1613EAB79F4FC229D0F3F46B188F /* NSStream+SKPSMTPExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 2AABAB3739A13BABF41DC2F67F7B8939 /* NSStream+SKPSMTPExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9BBD9DCF5D0FB20B5BBA7360C0844664 /* HcdProcessView.h in Headers */ = {isa = PBXBuildFile; fileRef = C0807BAD56FF48E1D51DF34393F6B29F /* HcdProcessView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CD522583A55BF347E0FCDED01B9D0EB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */; };
+		B33E3BD4E244500D8198713199520705 /* Base64Transcoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 459A50804AA645FB46F4BF40CF6EBE67 /* Base64Transcoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B965B8863C12E11D31DEC2F657850A32 /* Pods-RidingMechanic-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 2738462E3296C7AD7F248CE1838657F5 /* Pods-RidingMechanic-dummy.m */; };
+		C26CE33DCC651A4736C4FC1B5281962F /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */; };
+		C89082A075E3476C4FBF4EAAF16EE354 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBA5794656CD6EAD5432F6E93991FC63 /* CFNetwork.framework */; };
+		C928A7BBED43DC90BEF2A0759FED7E18 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */; };
+		D59E0F0AD610AD850F6EF61147C32AC5 /* HcdProcessView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 88B90D23A655B0C406BFCBCF49D571DE /* HcdProcessView-dummy.m */; };
+		EA9FFCCA5550E3BA712F9FDC18CC342E /* HSK_CFUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = F63496E8E55A00A32927B695A133CAB5 /* HSK_CFUtilities.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		288733840EC1A0F66D5D256EC1D81822 /* PBXContainerItemProxy */ = {
+		040F2578741B5534FA2A4665967F923D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 40712C8AD27779E2B76CD4232FD99984;
 			remoteInfo = HcdProcessView;
 		};
+		33EAB517F179A88DC6AD8D7CC2DD2715 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AEF9DE7E99530EE362D0683678F3CBF;
+			remoteInfo = skpsmtpmessage;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0F31168849CC420564EED3EB521B0C73 /* libPods-RidingMechanic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-RidingMechanic.a"; path = "libPods-RidingMechanic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		21A37BFE8480ABD1D157CAC38CE7E9D5 /* HcdProcessView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HcdProcessView.h; path = HcdProcessView/HcdProcessView.h; sourceTree = "<group>"; };
-		21D0E65358B975CDCEA9F2C372807DDB /* HcdProcessView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HcdProcessView-dummy.m"; sourceTree = "<group>"; };
+		14C8E91460E9F649A296509A9FB237E7 /* NSStream+SKPSMTPExtensions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSStream+SKPSMTPExtensions.m"; path = "SMTPLibrary/NSStream+SKPSMTPExtensions.m"; sourceTree = "<group>"; };
+		18E93AD5B459D5E1E54354FA01A46687 /* skpsmtpmessage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "skpsmtpmessage-prefix.pch"; sourceTree = "<group>"; };
+		20FF47BBF1A5202E5E19CD46B0191F61 /* HcdProcessView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HcdProcessView-prefix.pch"; sourceTree = "<group>"; };
 		2738462E3296C7AD7F248CE1838657F5 /* Pods-RidingMechanic-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-RidingMechanic-dummy.m"; sourceTree = "<group>"; };
+		2AABAB3739A13BABF41DC2F67F7B8939 /* NSStream+SKPSMTPExtensions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSStream+SKPSMTPExtensions.h"; path = "SMTPLibrary/NSStream+SKPSMTPExtensions.h"; sourceTree = "<group>"; };
 		30DC44DE53626293EC1262361092E612 /* Pods-RidingMechanic-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RidingMechanic-resources.sh"; sourceTree = "<group>"; };
+		3E18DA90B8F3F89D9F320AAE9F73C1B9 /* NSData+Base64Additions.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64Additions.m"; path = "SMTPLibrary/NSData+Base64Additions.m"; sourceTree = "<group>"; };
+		459A50804AA645FB46F4BF40CF6EBE67 /* Base64Transcoder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Base64Transcoder.h; path = SMTPLibrary/Base64Transcoder.h; sourceTree = "<group>"; };
 		51C48A913BFE64D2BEB69170C78CC6B8 /* Pods-RidingMechanic-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-RidingMechanic-acknowledgements.markdown"; sourceTree = "<group>"; };
+		54EBEA63FCEB04392417DD568839C86C /* SKPSMTPMessage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKPSMTPMessage.m; path = SMTPLibrary/SKPSMTPMessage.m; sourceTree = "<group>"; };
+		5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		5E864DDAE16897431285568FA3733A5E /* SKPSMTPMessage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKPSMTPMessage.h; path = SMTPLibrary/SKPSMTPMessage.h; sourceTree = "<group>"; };
+		62C772A7611621593364F8B319A1E404 /* libskpsmtpmessage.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libskpsmtpmessage.a; path = libskpsmtpmessage.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6565C1B9366532B0B3FBE34DFA9E119A /* Pods-RidingMechanic-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-RidingMechanic-frameworks.sh"; sourceTree = "<group>"; };
-		6C50D9B37945978A9D2906D042C0A949 /* HcdProcessView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "HcdProcessView-prefix.pch"; sourceTree = "<group>"; };
-		6E7E2AEAA07916314A5AB43506E92C1D /* HcdProcessView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HcdProcessView.m; path = HcdProcessView/HcdProcessView.m; sourceTree = "<group>"; };
-		7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HcdProcessView.xcconfig; sourceTree = "<group>"; };
+		77F4518D8614318AC4C5B814A43ED8A1 /* libPods-RidingMechanic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-RidingMechanic.a"; path = "libPods-RidingMechanic.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		78EB663754BA2CD98327921ACBA3FE68 /* Pods-RidingMechanic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RidingMechanic.debug.xcconfig"; sourceTree = "<group>"; };
+		82096B29AB24BC9C17CA1B6608B33F57 /* skpsmtpmessage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "skpsmtpmessage-dummy.m"; sourceTree = "<group>"; };
 		8799873DC0B8DBB810AABE2685F061ED /* Pods-RidingMechanic-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-RidingMechanic-acknowledgements.plist"; sourceTree = "<group>"; };
+		87DE47BA6D03775DAA12C43D1A4D73F3 /* NSData+Base64Additions.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64Additions.h"; path = "SMTPLibrary/NSData+Base64Additions.h"; sourceTree = "<group>"; };
+		88B90D23A655B0C406BFCBCF49D571DE /* HcdProcessView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "HcdProcessView-dummy.m"; sourceTree = "<group>"; };
+		8FB1B423694028739ACA2AB285024BE9 /* Base64Transcoder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = Base64Transcoder.m; path = SMTPLibrary/Base64Transcoder.m; sourceTree = "<group>"; };
+		9111AB5EE0166C0A9C9A4627CAF40AC3 /* HcdProcessView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = HcdProcessView.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A460344409A3C9B87027B45AE2ED8B7A /* skpsmtpmessage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = skpsmtpmessage.xcconfig; sourceTree = "<group>"; };
 		A9B54538A40737E980640679E45708EC /* Pods-RidingMechanic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-RidingMechanic.release.xcconfig"; sourceTree = "<group>"; };
-		AF230897A5614BDFC799400E044CD838 /* libHcdProcessView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libHcdProcessView.a; path = libHcdProcessView.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		C0807BAD56FF48E1D51DF34393F6B29F /* HcdProcessView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HcdProcessView.h; path = HcdProcessView/HcdProcessView.h; sourceTree = "<group>"; };
+		D719252C69CD93E9A9CA930F46E5B035 /* HSK_CFUtilities.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = HSK_CFUtilities.h; path = SMTPLibrary/HSK_CFUtilities.h; sourceTree = "<group>"; };
+		DBA5794656CD6EAD5432F6E93991FC63 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
+		E7EF9D5A9BA3BF77AC6F84978BA05C76 /* HcdProcessView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HcdProcessView.m; path = HcdProcessView/HcdProcessView.m; sourceTree = "<group>"; };
+		F55C86004690A2C160E75CBB921DA4F8 /* libHcdProcessView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libHcdProcessView.a; path = libHcdProcessView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F63496E8E55A00A32927B695A133CAB5 /* HSK_CFUtilities.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = HSK_CFUtilities.m; path = SMTPLibrary/HSK_CFUtilities.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2AC21FB370FB0270C28D0C1BEE1E3847 /* Frameworks */ = {
+		659F29E21F42F1E6E30ABF3A1505EA34 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				885E1164BAFE9012149059EF267065D0 /* Foundation.framework in Frameworks */,
+				C928A7BBED43DC90BEF2A0759FED7E18 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		858E64DDDA0075DE6F666194A2B4457A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C89082A075E3476C4FBF4EAAF16EE354 /* CFNetwork.framework in Frameworks */,
+				C26CE33DCC651A4736C4FC1B5281962F /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		07B963F066CF1C907024B787F3D5186F /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				DBA5794656CD6EAD5432F6E93991FC63 /* CFNetwork.framework */,
+				5C074C11AE6A5B57D6F593C07D4511E4 /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
 		0DDC82BE596A161C3CD7C4F30B96325B /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -72,43 +125,84 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */ = {
+		10F3E768BCAC73FA7547034FA9A23892 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */,
+				A460344409A3C9B87027B45AE2ED8B7A /* skpsmtpmessage.xcconfig */,
+				82096B29AB24BC9C17CA1B6608B33F57 /* skpsmtpmessage-dummy.m */,
+				18E93AD5B459D5E1E54354FA01A46687 /* skpsmtpmessage-prefix.pch */,
 			);
-			name = iOS;
+			name = "Support Files";
+			path = "../Target Support Files/skpsmtpmessage";
+			sourceTree = "<group>";
+		};
+		19052A270A3B9BC2F5796A1AD4519702 /* skpsmtpmessage */ = {
+			isa = PBXGroup;
+			children = (
+				459A50804AA645FB46F4BF40CF6EBE67 /* Base64Transcoder.h */,
+				8FB1B423694028739ACA2AB285024BE9 /* Base64Transcoder.m */,
+				D719252C69CD93E9A9CA930F46E5B035 /* HSK_CFUtilities.h */,
+				F63496E8E55A00A32927B695A133CAB5 /* HSK_CFUtilities.m */,
+				87DE47BA6D03775DAA12C43D1A4D73F3 /* NSData+Base64Additions.h */,
+				3E18DA90B8F3F89D9F320AAE9F73C1B9 /* NSData+Base64Additions.m */,
+				2AABAB3739A13BABF41DC2F67F7B8939 /* NSStream+SKPSMTPExtensions.h */,
+				14C8E91460E9F649A296509A9FB237E7 /* NSStream+SKPSMTPExtensions.m */,
+				5E864DDAE16897431285568FA3733A5E /* SKPSMTPMessage.h */,
+				54EBEA63FCEB04392417DD568839C86C /* SKPSMTPMessage.m */,
+				10F3E768BCAC73FA7547034FA9A23892 /* Support Files */,
+			);
+			name = skpsmtpmessage;
+			path = skpsmtpmessage;
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				07B963F066CF1C907024B787F3D5186F /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		702A455616A4871D8D6275698CDE58A2 /* HcdProcessView */ = {
+			isa = PBXGroup;
+			children = (
+				C0807BAD56FF48E1D51DF34393F6B29F /* HcdProcessView.h */,
+				E7EF9D5A9BA3BF77AC6F84978BA05C76 /* HcdProcessView.m */,
+				86C2F26001BFA35458DE72E81CC9CBD0 /* Support Files */,
+			);
+			name = HcdProcessView;
+			path = HcdProcessView;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				C8BCFB18B739E7A4BC429D9C518D1683 /* Pods */,
-				89899A0432FD4F993E353089CE3C8DF9 /* Products */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				96135619AE12A729B07AA4034C0AC560 /* Pods */,
+				C2108A9722756F1231156C81618B8D32 /* Products */,
 				0DDC82BE596A161C3CD7C4F30B96325B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		89899A0432FD4F993E353089CE3C8DF9 /* Products */ = {
+		86C2F26001BFA35458DE72E81CC9CBD0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				AF230897A5614BDFC799400E044CD838 /* libHcdProcessView.a */,
-				0F31168849CC420564EED3EB521B0C73 /* libPods-RidingMechanic.a */,
+				9111AB5EE0166C0A9C9A4627CAF40AC3 /* HcdProcessView.xcconfig */,
+				88B90D23A655B0C406BFCBCF49D571DE /* HcdProcessView-dummy.m */,
+				20FF47BBF1A5202E5E19CD46B0191F61 /* HcdProcessView-prefix.pch */,
 			);
-			name = Products;
+			name = "Support Files";
+			path = "../Target Support Files/HcdProcessView";
 			sourceTree = "<group>";
 		};
-		9D88F8C330A9B5D11927C2259B5E1F6F /* HcdProcessView */ = {
+		96135619AE12A729B07AA4034C0AC560 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				21A37BFE8480ABD1D157CAC38CE7E9D5 /* HcdProcessView.h */,
-				6E7E2AEAA07916314A5AB43506E92C1D /* HcdProcessView.m */,
-				DD2E8F58FDC3A9F1F2F04D3332EBA99A /* Support Files */,
+				702A455616A4871D8D6275698CDE58A2 /* HcdProcessView */,
+				19052A270A3B9BC2F5796A1AD4519702 /* skpsmtpmessage */,
 			);
-			name = HcdProcessView;
-			path = HcdProcessView;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		A9893AF64F2198C9FD7A832116C3BA45 /* Pods-RidingMechanic */ = {
@@ -126,36 +220,31 @@
 			path = "Target Support Files/Pods-RidingMechanic";
 			sourceTree = "<group>";
 		};
-		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
+		C2108A9722756F1231156C81618B8D32 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7531C8F8DE19F1AA3C8A7AC97A91DC29 /* iOS */,
+				F55C86004690A2C160E75CBB921DA4F8 /* libHcdProcessView.a */,
+				77F4518D8614318AC4C5B814A43ED8A1 /* libPods-RidingMechanic.a */,
+				62C772A7611621593364F8B319A1E404 /* libskpsmtpmessage.a */,
 			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		C8BCFB18B739E7A4BC429D9C518D1683 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9D88F8C330A9B5D11927C2259B5E1F6F /* HcdProcessView */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		DD2E8F58FDC3A9F1F2F04D3332EBA99A /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */,
-				21D0E65358B975CDCEA9F2C372807DDB /* HcdProcessView-dummy.m */,
-				6C50D9B37945978A9D2906D042C0A949 /* HcdProcessView-prefix.pch */,
-			);
-			name = "Support Files";
-			path = "../Target Support Files/HcdProcessView";
+			name = Products;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		05E32D0907569CBDBA10BE281A74C4BF /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B33E3BD4E244500D8198713199520705 /* Base64Transcoder.h in Headers */,
+				4ADEE41BA28007D54CEA3155CA88224C /* HSK_CFUtilities.h in Headers */,
+				1CA307E0EBDF3946E5DF46B6F33E535C /* NSData+Base64Additions.h in Headers */,
+				945A1613EAB79F4FC229D0F3F46B188F /* NSStream+SKPSMTPExtensions.h in Headers */,
+				7EC75DABFA683DD6F84B82F490C24333 /* SKPSMTPMessage.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		3BEEEADA343A9C4F4BB77EACF9A1F106 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -167,6 +256,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3AEF9DE7E99530EE362D0683678F3CBF /* skpsmtpmessage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 119A527B116DCB6D08F40924437A70CC /* Build configuration list for PBXNativeTarget "skpsmtpmessage" */;
+			buildPhases = (
+				22D36601CB872E4B76FCDABD81773034 /* Sources */,
+				858E64DDDA0075DE6F666194A2B4457A /* Frameworks */,
+				05E32D0907569CBDBA10BE281A74C4BF /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = skpsmtpmessage;
+			productName = skpsmtpmessage;
+			productReference = 62C772A7611621593364F8B319A1E404 /* libskpsmtpmessage.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		40712C8AD27779E2B76CD4232FD99984 /* HcdProcessView */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C5ABE7B7D08636330DD7C76A6E6B7214 /* Build configuration list for PBXNativeTarget "HcdProcessView" */;
@@ -181,24 +287,25 @@
 			);
 			name = HcdProcessView;
 			productName = HcdProcessView;
-			productReference = AF230897A5614BDFC799400E044CD838 /* libHcdProcessView.a */;
+			productReference = F55C86004690A2C160E75CBB921DA4F8 /* libHcdProcessView.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		9F113BB0CF6B2368D00251E0D2238613 /* Pods-RidingMechanic */ = {
+		C347112BEA928C15265EF1D3D6DDB7D2 /* Pods-RidingMechanic */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8CECE80E5554A1E8EB936A956D1B69CF /* Build configuration list for PBXNativeTarget "Pods-RidingMechanic" */;
+			buildConfigurationList = 496B6298213F47B017CE936C6FD532C4 /* Build configuration list for PBXNativeTarget "Pods-RidingMechanic" */;
 			buildPhases = (
-				45D27856595D3DB0A5758C2ED56F6C2B /* Sources */,
-				2AC21FB370FB0270C28D0C1BEE1E3847 /* Frameworks */,
+				838AF53ECA0EE8671DE1562009E84834 /* Sources */,
+				659F29E21F42F1E6E30ABF3A1505EA34 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7F0DDB17E730042859A899E0082586DD /* PBXTargetDependency */,
+				59F794780866F8EC185070BFACD01DE5 /* PBXTargetDependency */,
+				3831083AC564752FA725FD08A587AB78 /* PBXTargetDependency */,
 			);
 			name = "Pods-RidingMechanic";
 			productName = "Pods-RidingMechanic";
-			productReference = 0F31168849CC420564EED3EB521B0C73 /* libPods-RidingMechanic.a */;
+			productReference = 77F4518D8614318AC4C5B814A43ED8A1 /* libPods-RidingMechanic.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -218,22 +325,28 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 89899A0432FD4F993E353089CE3C8DF9 /* Products */;
+			productRefGroup = C2108A9722756F1231156C81618B8D32 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				40712C8AD27779E2B76CD4232FD99984 /* HcdProcessView */,
-				9F113BB0CF6B2368D00251E0D2238613 /* Pods-RidingMechanic */,
+				C347112BEA928C15265EF1D3D6DDB7D2 /* Pods-RidingMechanic */,
+				3AEF9DE7E99530EE362D0683678F3CBF /* skpsmtpmessage */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		45D27856595D3DB0A5758C2ED56F6C2B /* Sources */ = {
+		22D36601CB872E4B76FCDABD81773034 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BB6F67D0EC07B13FC309D86E9155C68D /* Pods-RidingMechanic-dummy.m in Sources */,
+				2480F8FCA611D2F734604D9F04C95A12 /* Base64Transcoder.m in Sources */,
+				EA9FFCCA5550E3BA712F9FDC18CC342E /* HSK_CFUtilities.m in Sources */,
+				068293476421291F1E0355ADC9816B6F /* NSData+Base64Additions.m in Sources */,
+				2172AF40A463A48410A3346674F5B982 /* NSStream+SKPSMTPExtensions.m in Sources */,
+				2FBBF5F568A0C2DBD252E55ED6E46D3A /* skpsmtpmessage-dummy.m in Sources */,
+				725E07666E2F66ADA636B185F9DE5CAC /* SKPSMTPMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -246,21 +359,58 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		838AF53ECA0EE8671DE1562009E84834 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B965B8863C12E11D31DEC2F657850A32 /* Pods-RidingMechanic-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7F0DDB17E730042859A899E0082586DD /* PBXTargetDependency */ = {
+		3831083AC564752FA725FD08A587AB78 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = skpsmtpmessage;
+			target = 3AEF9DE7E99530EE362D0683678F3CBF /* skpsmtpmessage */;
+			targetProxy = 33EAB517F179A88DC6AD8D7CC2DD2715 /* PBXContainerItemProxy */;
+		};
+		59F794780866F8EC185070BFACD01DE5 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = HcdProcessView;
 			target = 40712C8AD27779E2B76CD4232FD99984 /* HcdProcessView */;
-			targetProxy = 288733840EC1A0F66D5D256EC1D81822 /* PBXContainerItemProxy */;
+			targetProxy = 040F2578741B5534FA2A4665967F923D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		05006A4BA81B61D2E788BFCCE4B49D66 /* Debug */ = {
+		31944722D6C07379D25BA8E98021677A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 78EB663754BA2CD98327921ACBA3FE68 /* Pods-RidingMechanic.debug.xcconfig */;
+			baseConfigurationReference = A460344409A3C9B87027B45AE2ED8B7A /* skpsmtpmessage.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/skpsmtpmessage/skpsmtpmessage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5C94BB57C079163EA5A8CCF5BFC24E52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A460344409A3C9B87027B45AE2ED8B7A /* skpsmtpmessage.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -268,14 +418,14 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
-				MACH_O_TYPE = staticlib;
+				GCC_PREFIX_HEADER = "Target Support Files/skpsmtpmessage/skpsmtpmessage-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -283,7 +433,7 @@
 		};
 		5EEC3795E8F8BB6B536EA0E2471495AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */;
+			baseConfigurationReference = 9111AB5EE0166C0A9C9A4627CAF40AC3 /* HcdProcessView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -306,7 +456,7 @@
 		};
 		7B025A19F16A6A9AB0F0A6E555B08CFC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7653DC3A6351F5EC37F2546DE7B1DF4B /* HcdProcessView.xcconfig */;
+			baseConfigurationReference = 9111AB5EE0166C0A9C9A4627CAF40AC3 /* HcdProcessView.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -326,6 +476,29 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		8D6C522561940C1A8C7376012CC7ADD7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 78EB663754BA2CD98327921ACBA3FE68 /* Pods-RidingMechanic.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MACH_O_TYPE = staticlib;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		AADB9822762AD81BBAE83335B2AB1EB0 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -411,7 +584,7 @@
 			};
 			name = Debug;
 		};
-		C34E9AA2EEDF246D2DB537A343F5B42B /* Release */ = {
+		C6B1BF68E308C14D690FD2A33D80566C /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A9B54538A40737E980640679E45708EC /* Pods-RidingMechanic.release.xcconfig */;
 			buildSettings = {
@@ -437,6 +610,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		119A527B116DCB6D08F40924437A70CC /* Build configuration list for PBXNativeTarget "skpsmtpmessage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5C94BB57C079163EA5A8CCF5BFC24E52 /* Debug */,
+				31944722D6C07379D25BA8E98021677A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -446,11 +628,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		8CECE80E5554A1E8EB936A956D1B69CF /* Build configuration list for PBXNativeTarget "Pods-RidingMechanic" */ = {
+		496B6298213F47B017CE936C6FD532C4 /* Build configuration list for PBXNativeTarget "Pods-RidingMechanic" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				05006A4BA81B61D2E788BFCCE4B49D66 /* Debug */,
-				C34E9AA2EEDF246D2DB537A343F5B42B /* Release */,
+				8D6C522561940C1A8C7376012CC7ADD7 /* Debug */,
+				C6B1BF68E308C14D690FD2A33D80566C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
