@@ -60,7 +60,7 @@
         return cell;
     }else{
         self.alertCell= (AlertTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"TiredDriving" forIndexPath:indexPath];
-        self.alertCell.tiredDrivingTextField.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"TiredDrivingHour"];
+        self.alertCell.tiredDrivingTextField.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"TiredDrivingHour"] ;
         return self.alertCell;
     }
 }

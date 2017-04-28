@@ -27,7 +27,7 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
-    [[NSUserDefaults standardUserDefaults] setObject:self.oilPriceCell.oilPriceTextField.text forKey:@"OilPrice"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.oilPriceCell.oilPriceTextField.text forKey:@"FuelPrice"];
 }
 
 #pragma mark - Table view data source
@@ -42,8 +42,8 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if(indexPath.section==0&&indexPath.row==0){
-        self.oilPriceCell= (AlertTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"OilPrice" forIndexPath:indexPath];
-        self.oilPriceCell.oilPriceTextField.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"OilPrice"];
+        self.oilPriceCell= (AlertTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"FuelPrice" forIndexPath:indexPath];
+        self.oilPriceCell.oilPriceTextField.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"FuelPrice"] ;
         self.oilPriceCell.oilPriceLabel.text=@"$/gal";
     }
 

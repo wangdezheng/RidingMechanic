@@ -38,7 +38,7 @@
         cell.textLabel.text=@"Alert";
         UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
         cell.accessoryView=switchView;
-        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"AlertSwitch" ] isEqualToString:@"On"]){
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"AlertSwitch"] isEqualToString:@"On"]){
             [switchView setOn:YES];
         }else{
              [switchView setOn:NO];

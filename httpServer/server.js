@@ -8,12 +8,18 @@ http.createServer(function(req, resp){
         case "GET":
             if(req.url==="/"){
                 httpMsg.showHome(req,resp);
-            }else if(req.url==="/carmodels"){
-                table.getCarList(req,resp);
              }else if(req.url==="/userInfo"){
                 table.getUserList(req,resp);
             }else{
-                httpMsg.showHome(req,resp);
+                console.log(req.url);
+                var pattern=new RegExp("/userSettings/");
+                if(pattern.test(req.url)){
+                    var exp=pattern.exec(req.url);
+                    var username=req.url.replace(exp,"");
+                    table.getUserSettings(req,resp,username)
+                }else{
+                    httpMsg.show404(req,resp);
+                }                
             }
             break;
         case "POST":
@@ -58,6 +64,8 @@ http.createServer(function(req, resp){
             httpMsg.show405(req,resp);
             break;                                
     }
-}).listen(settings.webPort,function(){
-    console.log("Start listening at:"+ settings.webPort);
+}).listen(9000,function(){
+   var host = '138.49.101.87';
+   var port = '9000';
+    console.log("Start listening at:http://%s:%s", host,port);
 });

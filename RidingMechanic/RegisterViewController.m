@@ -88,8 +88,8 @@
     NSError *error=nil;
     NSMutableArray *emailArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     for(int i=0;i<emailArray.count;i++){
-        [self.emailList addObject:emailArray[i][@"email"]];
-//        NSLog(@"%@",emailArray[i][@"email"]);
+        [self.emailList addObject:emailArray[i][@"username"]];
+
     }
 }
 
@@ -98,7 +98,7 @@
     if(![_emailField.text containsString:@"@"]){
         [self.emailPassLabel setHidden:YES];
         [self.emailWarnLabel setHidden:NO];
-        [self.emailErrorLabel setText:@"Email must be of the format:your@example.org"];
+        [self.emailErrorLabel setText:@"Username must be of the format:your@example.org"];
         [self.emailErrorLabel setHidden:NO];
     }else{
         [self.emailErrorLabel setHidden:YES];
@@ -152,7 +152,7 @@
     }else{
         NSMutableDictionary *data=[[NSMutableDictionary alloc] init];
         
-        [data setObject:self.emailField.text forKey:@"email"];
+        [data setObject:self.emailField.text forKey:@"username"];
         [data setObject:self.passwordField.text forKey:@"password"];
         
         if([NSJSONSerialization isValidJSONObject:data]){

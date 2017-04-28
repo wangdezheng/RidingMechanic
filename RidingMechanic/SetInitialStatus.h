@@ -10,5 +10,5 @@
 
 @interface SetInitialStatus : NSObject
 
--(void)setInitial;
+-(void)setInitial:(NSString *) user;
 @end

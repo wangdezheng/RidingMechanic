@@ -97,7 +97,7 @@
     }
     
     NSMutableDictionary *data=[[NSMutableDictionary alloc] init];
-    [data setObject:userInfoArray[0] forKey:@"email"];
+    [data setObject:userInfoArray[0] forKey:@"username"];
     [data setObject:self.pwdTextField.text forKey:@"password"];
     
     if([NSJSONSerialization isValidJSONObject:data]){

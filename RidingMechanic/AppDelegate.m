@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-#import "SetInitialStatus.h"
 
 @interface AppDelegate ()
 
@@ -64,10 +63,6 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-//    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-//    NSLog(@"%@",[paths objectAtIndex:0]);
-    SetInitialStatus *setInit=[[SetInitialStatus alloc] init];
-    [setInit setInitial];
     return YES;
 }
 
