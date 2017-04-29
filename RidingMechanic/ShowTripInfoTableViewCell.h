@@ -11,6 +11,8 @@
 @interface ShowTripInfoTableViewCell : UITableViewCell
 @property (strong, nonatomic) IBOutlet UILabel *costLabel;
 @property (strong, nonatomic) IBOutlet UILabel *mileLabel;
+@property (strong, nonatomic) IBOutlet UILabel *mileUnitLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *MPGLabel;
 @property (strong, nonatomic) IBOutlet UIButton *accelerationButton;
 @property (strong, nonatomic) IBOutlet UIButton *brakingButton;

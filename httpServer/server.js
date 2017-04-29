@@ -10,7 +10,7 @@ http.createServer(function(req, resp){
                 httpMsg.showHome(req,resp);
              }else if(req.url==="/userInfo"){
                 table.getUserList(req,resp);
-            }else{
+            }else if(req.url.includes("/userSettings/")){
                 console.log(req.url);
                 var pattern=new RegExp("/userSettings/");
                 if(pattern.test(req.url)){
@@ -20,6 +20,16 @@ http.createServer(function(req, resp){
                 }else{
                     httpMsg.show404(req,resp);
                 }                
+            }else{
+                console.log(req.url);
+                var pattern=new RegExp("/tripInfo/");
+                if(pattern.test(req.url)){
+                    var exp=pattern.exec(req.url);
+                    var userID=req.url.replace(exp,"");
+                    table.getTrip(req,resp,userID)
+                }else{
+                    httpMsg.show404(req,resp);
+                }   
             }
             break;
         case "POST":
@@ -34,6 +44,19 @@ http.createServer(function(req, resp){
                 });
                 req.on("end",function(){
                     table.addUser(req,resp,reqBody);
+                });
+
+            }else if(req.url==="/tripInfo"){
+                var reqBody='';
+                req.on("data",function(data){
+                    reqBody+=data;
+                    if(reqBody.length>1e7)//10mb
+                    {
+                        httpMsg.show413(req,resp);
+                    }
+                });
+                req.on("end",function(){
+                    table.addTrip(req,resp,reqBody);
                 });
 
             }else{

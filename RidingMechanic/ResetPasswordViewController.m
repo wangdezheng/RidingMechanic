@@ -71,11 +71,10 @@
 
 -(IBAction)submit:(id)sender
 {
-    NSMutableArray *userInfoArray=[[NSMutableArray alloc] initWithCapacity:2];
-    userInfoArray=[[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
-    NSLog(@"%@",userInfoArray[0]);
-    NSLog(@"%@",userInfoArray[1]);
-    if(![_currentPwdTextField.text isEqualToString:userInfoArray[1]]){
+    NSString * usernameStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"username"];
+    NSString * passwordStr=[[NSUserDefaults standardUserDefaults] objectForKey:@"password"];
+
+    if(![_currentPwdTextField.text isEqualToString:passwordStr]){
         self.alertController.message=@"Current password is incorrect";
         [self presentViewController:self.alertController animated:YES completion:nil];
         return;
@@ -97,7 +96,7 @@
     }
     
     NSMutableDictionary *data=[[NSMutableDictionary alloc] init];
-    [data setObject:userInfoArray[0] forKey:@"username"];
+    [data setObject:usernameStr forKey:@"username"];
     [data setObject:self.pwdTextField.text forKey:@"password"];
     
     if([NSJSONSerialization isValidJSONObject:data]){
@@ -110,10 +109,8 @@
     
     [self httpPutRequest];//update server database
 
-    NSMutableArray *userInfo=[[NSMutableArray alloc] initWithCapacity:2];
-    userInfo[0]=userInfoArray[0];
-    userInfo[1]=self.pwdTextField.text;
-    [[NSUserDefaults standardUserDefaults] setObject:userInfo forKey:@"userInfo"];//update userInfo
+
+    [[NSUserDefaults standardUserDefaults] setObject:self.pwdTextField.text forKey:@"password"];//update temperoray db
 
     self.alertController.title=@"Password change succeed";
     self.alertController.message=@"";

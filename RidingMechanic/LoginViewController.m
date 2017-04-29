@@ -24,6 +24,7 @@
 
 @property (strong,nonatomic) NSMutableArray  *emailList;
 @property (strong,nonatomic) NSMutableArray  *passwordList;
+@property (strong,nonatomic) NSMutableArray  *IDList;
 
 @end
 
@@ -56,6 +57,15 @@
     return _passwordList;
 }
 
+-(NSMutableArray *)IDList
+{
+    if(!_IDList)
+    {
+        _IDList=[[NSMutableArray alloc] init];
+    }
+    return _IDList;
+}
+
 -(void)httpGetRequest
 {
     NSString *str=@"http://localhost:9000/userInfo";
@@ -71,10 +81,11 @@
 -(void)getReceivedData:(NSMutableData *)data sender:(RestAPI *)sender
 {
     NSError *error=nil;
-    NSMutableArray *emailArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    for(int i=0;i<emailArray.count;i++){
-        [self.emailList addObject:emailArray[i][@"username"]];
-        [self.passwordList addObject:emailArray[i][@"password"]];
+    NSMutableArray *userArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    for(int i=0;i<userArray.count;i++){
+        [self.emailList addObject:userArray[i][@"username"]];
+        [self.passwordList addObject:userArray[i][@"password"]];
+        [self.IDList addObject:userArray[i][@"userID"]];
     }
 }
 
@@ -83,12 +94,12 @@
 {
     for(int i=0;i<self.emailList.count;i++){
         if([self.emailList[i] isEqualToString: self.emailField.text]&&[self.passwordList[i] isEqualToString:self.passwordField.text]){
-            NSMutableArray *userInfoArray=[[NSMutableArray alloc] initWithCapacity:2];
-            userInfoArray[0]=self.emailField.text;
-            userInfoArray[1]=self.passwordField.text;
-            [[NSUserDefaults standardUserDefaults] setObject:userInfoArray forKey:@"userInfo"];//store userInfo in default dictionary
+
+            [[NSUserDefaults standardUserDefaults] setObject:self.emailField.text forKey:@"username"];
+            [[NSUserDefaults standardUserDefaults] setObject:self.passwordField.text forKey:@"password"];
+            [[NSUserDefaults standardUserDefaults] setObject:self.IDList[i] forKey:@"userID"];
             
-             dispatch_async(dispatch_get_global_queue(0, 0), ^{ //load data from server  in background
+             dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ //load data from server  in background
                  SetInitialStatus *setInit=[[SetInitialStatus alloc] init];
                  [setInit setInitial:self.emailField.text];
              });

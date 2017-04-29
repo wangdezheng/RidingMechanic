@@ -13,6 +13,8 @@
 @interface AnalysisViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UILabel *totalCostLabel;
 @property (strong, nonatomic) IBOutlet UILabel *totalMileLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalMileUnitLabel;
+
 @property (strong, nonatomic) IBOutlet UILabel *totalOilConsumptionLabel;
 
 @property (strong, nonatomic) IBOutlet UITableView *showTripInfoTableView;
@@ -84,7 +86,14 @@ float totoalOilConsumption=0;
     
     [self updateTotal];
     self.totalCostLabel.text=[NSString stringWithFormat:@"%.1f",totoalCost];
-    self.totalMileLabel.text=[NSString stringWithFormat:@"%.1f",totoalMile];
+    
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"unit"] isEqualToString:@"0"]){ //metric
+        self.totalMileUnitLabel.text=@"km";
+        self.totalMileLabel.text=[NSString stringWithFormat:@"%.1f",totoalMile*1.6];
+    }else{
+        self.totalMileUnitLabel.text=@"mile";
+        self.totalMileLabel.text=[NSString stringWithFormat:@"%.1f",totoalMile];
+    }
     self.totalOilConsumptionLabel.text=[NSString stringWithFormat:@"%.1f",totoalOilConsumption];
     
 }
@@ -102,7 +111,7 @@ float totoalOilConsumption=0;
         for(int i=0;i<self.targetArray.count;i++){
             totoalCost+=[[costArray objectAtIndex:[self.targetArray[i] integerValue]] floatValue];
             totoalMile+=[[distanceArray objectAtIndex:[self.targetArray[i] integerValue]] floatValue];
-            totoalOilConsumption+=totoalCost/[[dictionary valueForKey:@"OilPrice"] floatValue];
+            totoalOilConsumption+=totoalCost/[[dictionary valueForKey:@"FuelPrice"] floatValue];
         }
     }
 }
@@ -158,11 +167,22 @@ float totoalOilConsumption=0;
         NSMutableArray * accelArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"SharpAccelerationTimes"]];
         NSMutableArray * brakingArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"SharpBrakingTimes"]];
         
-        self.tripInfoCell.costLabel.text=[[costArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue];
-        
-        self.tripInfoCell.mileLabel.text=[[distanceArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue];
-        
-        self.tripInfoCell.MPGLabel.text=[[MPGArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue];
+        float cost=[[costArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
+        self.tripInfoCell.costLabel.text=[NSString stringWithFormat:@"%.1f",cost];
+
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"unit"] isEqualToString:@"0"]){ //metric
+            self.tripInfoCell.mileUnitLabel.text=@"km";
+            float distance=[[distanceArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
+            distance=distance*1.6;
+            self.tripInfoCell.mileLabel.text=[NSString stringWithFormat:@"%.1f",distance];
+        }else{
+            self.tripInfoCell.mileUnitLabel.text=@"mile";
+            float distance=[[distanceArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
+            self.tripInfoCell.mileLabel.text=[NSString stringWithFormat:@"%.1f",distance];
+        }
+
+        float mpg=[[MPGArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
+        self.tripInfoCell.MPGLabel.text=[NSString stringWithFormat:@"%.1f",mpg];
         
         self.tripInfoCell.accelerationButton.userInteractionEnabled=NO;
         [self.tripInfoCell.accelerationButton setTitle:[[accelArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue] forState:UIControlStateNormal];

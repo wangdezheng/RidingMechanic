@@ -45,9 +45,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"account" forIndexPath:indexPath];
     
     if(indexPath.section==0){
-        NSMutableArray *userInfoArray=[[NSMutableArray alloc] initWithCapacity:2];
-        userInfoArray=[[NSUserDefaults standardUserDefaults] objectForKey:@"userInfo"];
-        cell.textLabel.text=userInfoArray[0];//get username
+        cell.textLabel.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"username"];//get username
     }else{
         cell.textLabel.text=@"Reset Password";
         cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;

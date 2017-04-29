@@ -14,9 +14,9 @@
 @property (assign,nonatomic) NSInteger drivingTime;
 @property (assign,nonatomic) NSInteger interval;
 @property (assign,nonatomic) CGFloat totalDistance;
-@property (assign,nonatomic) NSInteger averageSpeed;
+@property (assign,nonatomic) CGFloat averageSpeed;
 @property (assign,nonatomic) CGFloat MPG;
-@property (assign,nonatomic) CGFloat totalOilConsumption;
+@property (assign,nonatomic) CGFloat totalFuelConsumption;
 @property (assign,nonatomic) CGFloat fuelCost;
 @property (assign,nonatomic) CGFloat averageMPG;
 @property (assign,nonatomic) NSInteger sharpAccelerationTimes;
@@ -39,9 +39,9 @@ static dispatch_source_t timerForMain;
     self.drivingTime=0;
     self.interval=1;
     self.totalDistance=0.0;
-    self.averageSpeed=0;
+    self.averageSpeed=0.0;
     self.MPG=0.0;
-    self.totalOilConsumption=0.0;
+    self.totalFuelConsumption=0.0;
     self.fuelCost=0.0;
     self.averageMPG=0.0;
     self.sharpAccelerationTimes=0;
@@ -139,7 +139,7 @@ static dispatch_source_t timerForMain;
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [pathArray objectAtIndex:0];
     //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
@@ -180,6 +180,8 @@ static dispatch_source_t timerForMain;
         NSMutableArray * brakingArray=[[NSMutableArray alloc] init];//store store Sharp braking Times
         [brakingArray addObject:[dictionary valueForKey:@"SharpBrakingTimes"]];
         sandBoxDataDic[@"SharpBrakingTimes"]=brakingArray;
+        
+        sandBoxDataDic[@"UserID"]=[dictionary valueForKey:@"userID"];
         
     }else{//temporary database is not empty
         NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];//store start date and time
@@ -225,6 +227,8 @@ static dispatch_source_t timerForMain;
         brakingArray=sandBoxDataDic[@"SharpBrakingTimes"];
         [brakingArray addObject:[dictionary valueForKey:@"SharpBrakingTimes"]];
         sandBoxDataDic[@"SharpBrakingTimes"]=brakingArray;
+        
+        sandBoxDataDic[@"UserID"]=[dictionary valueForKey:@"userID"];
     }
     
 
@@ -256,43 +260,77 @@ static dispatch_source_t timerForMain;
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
         UILabel *detailLabel = (UILabel *)[cell viewWithTag:2];
         UILabel *dataLabel = (UILabel *)[cell viewWithTag:3];
+        UILabel *unitLabel = (UILabel *)[cell viewWithTag:4];
 
         if(indexPath.row==0){
             detailLabel.text =@"Driving Time";
             dataLabel.text=[[NSNumber numberWithInteger:self.drivingTime] stringValue];
+            unitLabel.text=@"s";
         }else if(indexPath.row==1){
             [self getDrivingDistance]; //get driving distance
             detailLabel.text =@"Driving Distance";
-            dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalDistance];
+            
+            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+                dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalDistance*1.6];
+                unitLabel.text=@"km";
+            }else{//imperial
+                dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalDistance];
+                unitLabel.text=@"mile";
+            }
         }else if(indexPath.row==2){
             detailLabel.text =@"Speed";
-            dataLabel.text=[NSString stringWithFormat:@"%ld",[[dictionary valueForKey:@"Speed"] integerValue]];
+            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+                dataLabel.text=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]*1.6];
+                unitLabel.text=@"km/h";
+            }else{//imperial
+                dataLabel.text=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]];
+                unitLabel.text=@"mile/h";
+            }
         }else if(indexPath.row==3){
             [self getAverageSpeed]; //get average speed
             detailLabel.text =@"Average Speed";
-            dataLabel.text=[NSString stringWithFormat:@"%ld",self.averageSpeed];
+            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+                dataLabel.text=[NSString stringWithFormat:@"%.1f",self.averageSpeed*1.6];
+                unitLabel.text=@"km/h";
+            }else{//imperial
+                dataLabel.text=[NSString stringWithFormat:@"%.1f",self.averageSpeed];
+                unitLabel.text=@"mile/h";
+            }
         }else if(indexPath.row==4){
             detailLabel.text =@"RPM";
             dataLabel.text=[dictionary valueForKey:@"RPM"];
+            unitLabel.text=@"rmp";
         }else if(indexPath.row==5){
             [self getRealtimeMPG]; //get realtime MPG
             detailLabel.text =@"Realtime MPG";
             dataLabel.text=[NSString stringWithFormat:@"%.2f",self.MPG];
+            unitLabel.text=@"mpg";
         }else if(indexPath.row==6){
-            [self getTotalOilConsumption]; //get total oil consumption
+            [self getTotalFuelConsumption]; //get total fuel consumption
             detailLabel.text =@"Total Fuel Consumption";
-            dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalOilConsumption];
+            dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalFuelConsumption];
+            unitLabel.text=@"gal";
         }else if(indexPath.row==7){
             [self getAverageMPG]; //get average MPG
             detailLabel.text =@"AverageMPG";
             dataLabel.text=[NSString stringWithFormat:@"%.2f",self.averageMPG];
+            unitLabel.text=@"mpg";
         }else if(indexPath.row==8){
             [self getFuelCost];//get fuel cost
             detailLabel.text =@"Fuel Cost";
             dataLabel.text=[NSString stringWithFormat:@"%.2f",self.fuelCost];
+            unitLabel.text=@"gal";
         }else if(indexPath.row==9){
             detailLabel.text =@"Engine Coolant Temperature";
-            dataLabel.text=[dictionary valueForKey:@"EngineCoolantTemperature"];
+            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+                dataLabel.text=[dictionary valueForKey:@"EngineCoolantTemperature"];
+                unitLabel.text=@"°C";
+            }else{//imperial
+                int value=[[dictionary valueForKey:@"EngineCoolantTemperature"] floatValue];
+                value=(value*1.8)+32;
+                dataLabel.text=[NSString stringWithFormat:@"%d",value];
+                unitLabel.text=@"°F";
+            }
         }else if(indexPath.row==10){
             detailLabel.text =@"Control Module Voltage";
             dataLabel.text=[dictionary valueForKey:@"ControlModuleVoltage"];
@@ -341,21 +379,21 @@ static dispatch_source_t timerForMain;
     [dictionary setValue:@(self.MPG) forKey:@"RealtimeMPG"];
 }
 
--(void)getTotalOilConsumption //get total oil consumption
+-(void)getTotalFuelConsumption //get total fuel consumption
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
     
     if(self.MPG!=0.0){
-        self.totalOilConsumption+=([[dictionary valueForKey:@"DrivingDistanceForEachSecond"] doubleValue])/self.MPG; //totalOilConsumption+=DrivingDistanceForEachSecond/Realtime MPG
+        self.totalFuelConsumption+=([[dictionary valueForKey:@"DrivingDistanceForEachSecond"] doubleValue])/self.MPG; //totalFuelConsumption+=DrivingDistanceForEachSecond/Realtime MPG
     }
-    [dictionary setValue:@(self.totalOilConsumption) forKey:@"TotalOilConsumption"];
+    [dictionary setValue:@(self.totalFuelConsumption) forKey:@"TotalFuelConsumption"];
     
 }
 
 -(void)getFuelCost //get fuel cost
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    self.fuelCost=self.totalOilConsumption*[[dictionary valueForKey:@"OilPrice"] doubleValue]; // fuel cost=Total oil Consumption(g) * oil price
+    self.fuelCost=self.totalFuelConsumption*[[dictionary valueForKey:@"FuelPrice"] doubleValue]; // fuel cost=Total fuel Consumption(g) * fuel price
     [dictionary setValue:@(self.fuelCost) forKey:@"FuelCost"];
 }
 
@@ -363,8 +401,8 @@ static dispatch_source_t timerForMain;
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
     
-    if(self.totalOilConsumption!=0.0){
-        self.averageMPG=self.totalDistance/self.totalOilConsumption;
+    if(self.totalFuelConsumption!=0){
+        self.averageMPG=self.totalDistance/self.totalFuelConsumption;
     }
     
     [dictionary setValue:@(self.averageMPG)forKey:@"AverageMPG"];
@@ -373,7 +411,7 @@ static dispatch_source_t timerForMain;
 -(void)getSharpAccelerationTimes //get sharp acceleration times
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    if([[dictionary valueForKey:@"Speed"] floatValue]-[[dictionary valueForKey:@"PreviousSpeed"] floatValue]>10){
+    if([[dictionary valueForKey:@"Speed"] floatValue]-[[dictionary valueForKey:@"PreviousSpeed"] floatValue]>5){
         self.sharpAccelerationTimes++;
     }
     NSLog(@"%lu",self.sharpAccelerationTimes);
@@ -383,7 +421,7 @@ static dispatch_source_t timerForMain;
 -(void)getSharpBrakingTimes //get sharp braking times
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    if([[dictionary valueForKey:@"Speed"] floatValue]-[[dictionary valueForKey:@"PreviousSpeed"] floatValue]<-10){
+    if([[dictionary valueForKey:@"Speed"] floatValue]-[[dictionary valueForKey:@"PreviousSpeed"] floatValue]<-5){
         self.sharpBrakingTimes++;
     }
     
