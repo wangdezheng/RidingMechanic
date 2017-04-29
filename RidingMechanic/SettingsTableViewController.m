@@ -102,6 +102,10 @@
         [self performSegueWithIdentifier:@"showVehicle" sender:tableView];
     }else if(indexPath.section==1&&indexPath.row==1){
         [self performSegueWithIdentifier:@"showAdapter" sender:tableView];
+    }else if(indexPath.section==2&&indexPath.row==0){
+        [self performSegueWithIdentifier:@"showUnit" sender:tableView];
+    }else{
+        [self performSegueWithIdentifier:@"showAbout" sender:tableView];
     }
 }
 

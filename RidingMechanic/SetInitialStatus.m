@@ -65,8 +65,8 @@
         [self.userSettings setValue:infoArray[0][@"waterTemperatureAlertSwitch"] forKey:@"waterTemperatureAlertSwitch"];
         [self.userSettings setValue:infoArray[0][@"waterTemperatureLimit"] forKey:@"waterTemperatureLimit"];
         [self.userSettings setValue:infoArray[0][@"fuelPrice"] forKey:@"fuelPrice"];
+        [self.userSettings setValue:infoArray[0][@"unit"] forKey:@"unit"];
     }
-    NSLog(@"User:%@",self.userSettings);
 }
 
 -(void)httpGetRequest:(NSString *)body
@@ -192,10 +192,24 @@
     }else{// update server database from local database
         [self.localSettings setValue:[dictionary valueForKey:@"FuelPrice"] forKey:@"fuelPrice"];
     }
+    
+    if(![dictionary objectForKey:@"Unit"]){ //update local database from serverdatabase
+        if([[self.userSettings valueForKey:@"unit"] integerValue]==1){
+            [dictionary setObject:@"1" forKey:@"Unit"];
+        }else{
+            [dictionary setObject:@"0" forKey:@"Unit"];
+        }
+    }else{// update server database from local database
+        if([[dictionary objectForKey:@"Unit"] isEqualToString:@"1"]){
+            [self.localSettings setValue:@"1" forKey:@"unit"];
+        }else{
+            [self.localSettings setValue:@"0" forKey:@"unit"];
+        }
+    }
 
 
     if([self.localSettings valueForKey:@"totalAlertSwitch"]){
-        NSLog(@"Local: %@",[self.localSettings valueForKey:@"totalAlertSwitch"]);
+        NSLog(@"Local: %@",self.localSettings);
         [self.localSettings setValue:user forKey:@"username"];
         NSData *putBody=[[NSData alloc] init];
         if([NSJSONSerialization isValidJSONObject:self.localSettings]){

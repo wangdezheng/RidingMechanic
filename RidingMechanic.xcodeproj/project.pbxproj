@@ -42,6 +42,9 @@
 		E2C87DA01DFA073F000E76FA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = E2C87D9F1DFA073F000E76FA /* Base.lproj */; };
 		E2E36B2B1DC2950A0086FB8A /* ConnectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */; };
 		E2E711F91EA405BB00699A05 /* ShowTripInfoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E711F81EA405BB00699A05 /* ShowTripInfoTableViewCell.m */; };
+		E2F2D5F81EB440AC00336CA0 /* ConnectivityTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F2D5F71EB440AC00336CA0 /* ConnectivityTableViewController.m */; };
+		E2F2D5FB1EB4460600336CA0 /* UnitTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F2D5FA1EB4460600336CA0 /* UnitTableViewController.m */; };
+		E2F2D6011EB4663A00336CA0 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F2D6001EB4663A00336CA0 /* AboutViewController.m */; };
 		E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = E2FA78871DD2AE38006E730A /* RestAPI.m */; };
 /* End PBXBuildFile section */
 
@@ -130,6 +133,12 @@
 		E2E36B2A1DC2950A0086FB8A /* ConnectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectionViewController.m; sourceTree = "<group>"; };
 		E2E711F71EA405BB00699A05 /* ShowTripInfoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowTripInfoTableViewCell.h; sourceTree = "<group>"; };
 		E2E711F81EA405BB00699A05 /* ShowTripInfoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowTripInfoTableViewCell.m; sourceTree = "<group>"; };
+		E2F2D5F61EB440AC00336CA0 /* ConnectivityTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectivityTableViewController.h; sourceTree = "<group>"; };
+		E2F2D5F71EB440AC00336CA0 /* ConnectivityTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConnectivityTableViewController.m; sourceTree = "<group>"; };
+		E2F2D5F91EB4460600336CA0 /* UnitTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitTableViewController.h; sourceTree = "<group>"; };
+		E2F2D5FA1EB4460600336CA0 /* UnitTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnitTableViewController.m; sourceTree = "<group>"; };
+		E2F2D5FF1EB4663A00336CA0 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		E2F2D6001EB4663A00336CA0 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		E2FA78861DD2AE38006E730A /* RestAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestAPI.h; sourceTree = "<group>"; };
 		E2FA78871DD2AE38006E730A /* RestAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestAPI.m; sourceTree = "<group>"; };
 		F37B068098E7E2B5A443ACE7 /* Pods-RidingMechanic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RidingMechanic.release.xcconfig"; path = "Pods/Target Support Files/Pods-RidingMechanic/Pods-RidingMechanic.release.xcconfig"; sourceTree = "<group>"; };
@@ -206,6 +215,12 @@
 				E2494A291E01AC4400343E21 /* AlertTableViewCell.m */,
 				E2C2FBB21E9DE2BA00563F7B /* VehicleTableViewController.h */,
 				E2C2FBB31E9DE2BA00563F7B /* VehicleTableViewController.m */,
+				E2F2D5F61EB440AC00336CA0 /* ConnectivityTableViewController.h */,
+				E2F2D5F71EB440AC00336CA0 /* ConnectivityTableViewController.m */,
+				E2F2D5F91EB4460600336CA0 /* UnitTableViewController.h */,
+				E2F2D5FA1EB4460600336CA0 /* UnitTableViewController.m */,
+				E2F2D5FF1EB4663A00336CA0 /* AboutViewController.h */,
+				E2F2D6001EB4663A00336CA0 /* AboutViewController.m */,
 			);
 			name = "More Screen";
 			sourceTree = "<group>";
@@ -532,10 +547,13 @@
 				E2FA78881DD2AE38006E730A /* RestAPI.m in Sources */,
 				E20A8D411E06129600D18DCA /* SetInitialStatus.m in Sources */,
 				E2A004351DECF24600FCC18E /* CarModelViewController.m in Sources */,
+				E2F2D6011EB4663A00336CA0 /* AboutViewController.m in Sources */,
+				E2F2D5F81EB440AC00336CA0 /* ConnectivityTableViewController.m in Sources */,
 				E2494A2B1E01AC4400343E21 /* AlertTableViewCell.m in Sources */,
 				E21B33CE1DF77D6C00BE2B8A /* AccountTableViewController.m in Sources */,
 				E20C7B751EB3C94A00F8BB68 /* ForgetPasswordViewController.m in Sources */,
 				E244C9DF1DCA6E9200D0776B /* Reachability.m in Sources */,
+				E2F2D5FB1EB4460600336CA0 /* UnitTableViewController.m in Sources */,
 				E270DC3E1E00F87400A40DC8 /* AlertTableViewController.m in Sources */,
 				E270DC411E010B4300A40DC8 /* SpeedAlertTableViewController.m in Sources */,
 				E25982051D89EC5D00C07236 /* AppDelegate.m in Sources */,
