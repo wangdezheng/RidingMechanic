@@ -87,7 +87,7 @@ float totoalOilConsumption=0;
     [self updateTotal];
     self.totalCostLabel.text=[NSString stringWithFormat:@"%.1f",totoalCost];
     
-    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"unit"] isEqualToString:@"0"]){ //metric
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Unit"] isEqualToString:@"0"]){ //metric
         self.totalMileUnitLabel.text=@"km";
         self.totalMileLabel.text=[NSString stringWithFormat:@"%.1f",totoalMile*1.6];
     }else{
@@ -170,7 +170,7 @@ float totoalOilConsumption=0;
         float cost=[[costArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
         self.tripInfoCell.costLabel.text=[NSString stringWithFormat:@"%.1f",cost];
 
-        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"unit"] isEqualToString:@"0"]){ //metric
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Unit"] isEqualToString:@"0"]){ //metric
             self.tripInfoCell.mileUnitLabel.text=@"km";
             float distance=[[distanceArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
             distance=distance*1.6;

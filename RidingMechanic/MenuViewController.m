@@ -261,7 +261,6 @@ static dispatch_source_t timerForMain;
         UILabel *detailLabel = (UILabel *)[cell viewWithTag:2];
         UILabel *dataLabel = (UILabel *)[cell viewWithTag:3];
         UILabel *unitLabel = (UILabel *)[cell viewWithTag:4];
-
         if(indexPath.row==0){
             detailLabel.text =@"Driving Time";
             dataLabel.text=[[NSNumber numberWithInteger:self.drivingTime] stringValue];
@@ -270,7 +269,7 @@ static dispatch_source_t timerForMain;
             [self getDrivingDistance]; //get driving distance
             detailLabel.text =@"Driving Distance";
             
-            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+            if([[dictionary valueForKey:@"Unit"] isEqualToString:@"0"]){//metric
                 dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalDistance*1.6];
                 unitLabel.text=@"km";
             }else{//imperial
@@ -279,7 +278,7 @@ static dispatch_source_t timerForMain;
             }
         }else if(indexPath.row==2){
             detailLabel.text =@"Speed";
-            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+            if([[dictionary valueForKey:@"Unit"] isEqualToString:@"0"]){//metric
                 dataLabel.text=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]*1.6];
                 unitLabel.text=@"km/h";
             }else{//imperial
@@ -289,7 +288,7 @@ static dispatch_source_t timerForMain;
         }else if(indexPath.row==3){
             [self getAverageSpeed]; //get average speed
             detailLabel.text =@"Average Speed";
-            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+            if([[dictionary valueForKey:@"Unit"] isEqualToString:@"0"]){//metric
                 dataLabel.text=[NSString stringWithFormat:@"%.1f",self.averageSpeed*1.6];
                 unitLabel.text=@"km/h";
             }else{//imperial
@@ -322,7 +321,7 @@ static dispatch_source_t timerForMain;
             unitLabel.text=@"gal";
         }else if(indexPath.row==9){
             detailLabel.text =@"Engine Coolant Temperature";
-            if([[dictionary valueForKey:@"unit"] isEqualToString:@"0"]){//metric
+            if([[dictionary valueForKey:@"Unit"] isEqualToString:@"0"]){//metric
                 dataLabel.text=[dictionary valueForKey:@"EngineCoolantTemperature"];
                 unitLabel.text=@"°C";
             }else{//imperial
@@ -334,14 +333,17 @@ static dispatch_source_t timerForMain;
         }else if(indexPath.row==10){
             detailLabel.text =@"Control Module Voltage";
             dataLabel.text=[dictionary valueForKey:@"ControlModuleVoltage"];
+            unitLabel.text=@"V";
         }else if(indexPath.row==11){
             [self getSharpAccelerationTimes]; //get sharp acceleration times
-            detailLabel.text =@"Sharp Acceleration Times";
+            detailLabel.text =@"Sharp Acceleration";
             dataLabel.text=[[NSNumber numberWithInteger:self.sharpAccelerationTimes] stringValue];
+            unitLabel.text=@"time";
         }else if(indexPath.row==12){
             [self getSharpBrakingTimes]; //get sharp braking times
-            detailLabel.text =@"Sharp Braking Times";
+            detailLabel.text =@"Sharp Braking";
             dataLabel.text=[[NSNumber numberWithInteger:self.sharpBrakingTimes] stringValue];
+            unitLabel.text=@"time";
         }
 
     return cell;
