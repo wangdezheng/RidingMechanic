@@ -90,7 +90,7 @@
         [self.userSettings setValue:infoArray[0][@"fuelPrice"] forKey:@"fuelPrice"];
         [self.userSettings setValue:infoArray[0][@"unit"] forKey:@"unit"];
         [self.userSettings setValue:infoArray[0][@"userID"] forKey:@"userID"];
-    }else{//infoArray is tripInfo
+    }else{
         NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];
         NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];
         NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
