@@ -104,11 +104,19 @@
     XCTAssert(app.staticTexts[@"Incorrect username or password"].exists);
     
     [emailAddressTextField tap];
-    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    [emailAddressTextField typeText:@"w79301305333@gmail.com"];
     [passwordSecureTextField tap];
     [passwordSecureTextField typeText:@"123"];
     [loginButton tap];
+    XCTAssert(app.staticTexts[@"Incorrect username or password"].exists);
     
+    [emailAddressTextField tap];
+    [app.buttons[@"Clear text"] tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    [passwordSecureTextField tap];
+    [app.buttons[@"Clear text"] tap];
+    [passwordSecureTextField typeText:@"123"];
+    [loginButton tap];
     
     XCTAssert(!emailAddressTextField.exists);
     XCTAssert(!passwordSecureTextField.exists);
@@ -117,19 +125,73 @@
     XCTAssert(!app.staticTexts[@"Incorrect username or password"].exists);
 }
 
+-(void)testForgetPasswordFunction{
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    [app.buttons[@"Help"] tap];
+    
+    XCUIElement *emailTextField = app.textFields[@"Email address"];
+    XCTAssert(emailTextField.exists);
+    [emailTextField tap];
+    [emailTextField typeText:@"w7930130533@gmail.com"];
+    
+    XCUIElement *resetButton = app.buttons[@"Reset"];
+    [resetButton tap];
+    
+    XCTAssert(app.alerts[@"Error!"].exists);
+    XCUIElement *okButton = app.alerts[@"Error!"].buttons[@"OK"];
+    [okButton tap];
+    
+    XCUIElement *clearTextButton = app.buttons[@"Clear text"];
+    [clearTextButton tap];
+    
+    [resetButton tap];
+    XCTAssert(app.alerts[@"Error!"].exists);
+    [okButton tap];
+    
+    [emailTextField typeText:@"w793013053@gmail.com"];
+    [resetButton tap];
+    XCTAssert(!resetButton.exists);
+    
+}
+
 -(void)testRegisterFunction{
+    
     
     XCUIApplication *app = [[XCUIApplication alloc] init];
     [app.buttons[@"Register"] tap];
     
     XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
     [emailAddressTextField tap];
-    [emailAddressTextField typeText:@"w793013053@gmail.com"];
-    XCTAssert(app.staticTexts[@"!"].exists);
+    [emailAddressTextField typeText:@"793013053@qq.com"];
     XCTAssert(app.staticTexts[@"Sorry, this email had been used!"].exists);
     
-
+    [app.buttons[@"Clear text"] tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    XCTAssert(!app.staticTexts[@"Sorry, this email had been used!"].exists);
+    
+    XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    
+    XCUIElement *confirmPasswordSecureTextField = app.secureTextFields[@"Confirm password"];
+    [confirmPasswordSecureTextField tap];
+    [confirmPasswordSecureTextField typeText:@"12"];
+    
+    XCUIElement *submitButton = app.buttons[@"Submit"];
+    [submitButton tap];
+    XCTAssert(app.alerts[@"Error!"].exists);
+    [app.alerts[@"Error!"].buttons[@"OK"] tap];
+    
+    [confirmPasswordSecureTextField tap];
+    [confirmPasswordSecureTextField typeText:@"123"];
+    [submitButton tap];
+    XCTAssert(app.alerts[@"Register Succeed"].exists);
+    [app.alerts[@"Register Succeed"].buttons[@"OK"] tap];
+    
 }
+
+
 
 
 
