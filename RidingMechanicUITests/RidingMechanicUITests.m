@@ -33,56 +33,6 @@
 }
 
 
-- (void)testIfConnectionWork {  //test if the  "Connect to device screen exists"
-    XCUIApplication *app=[[XCUIApplication alloc] init];
-    [app.buttons[@"Start Connecting"] tap];
-    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
-}
-
--(void) testWifiCloseDisplay{ //test when wifi closes, if the screen can display normally
-    XCUIApplication *app=[[XCUIApplication alloc] init];
-    [app.buttons[@"Start Connecting"] tap];
-    
-    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
-    XCTAssert(app.staticTexts[@"    Plug in device"].exists);
-    XCTAssert(app.staticTexts[@"    Connect to device"].exists);
-    
-    XCTAssert(!app.buttons[@"Device plugged please scan now"].exists);
-    XCTAssert(!app.buttons[@"imagePortButton"].exists);
-    XCTAssert(!app.staticTexts[@"Hint: Pay attention to new WIFI appears in WIFI list"].exists);
-    XCTAssert(!app.buttons[@"Yes, Wifi conneted"].exists);
-}
-
--(void) testWifiOpenDisplay{//test if the screen can display normally when wifi opens
-    XCUIApplication *app=[[XCUIApplication alloc] init];
-    [app.buttons[@"Start Connecting"] tap];
-    
-    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
-    XCTAssert(app.staticTexts[@"    Plug in device"].exists);
-    XCTAssert(app.buttons[@"Device plugged please scan now"].exists);
-    XCTAssert(app.buttons[@"imagePortButton"].exists);
-    XCTAssert(app.staticTexts[@"    Connect to device"].exists);
-    
-    XCTAssert(!app.staticTexts[@"Hint: Pay attention to new WIFI appears in WIFI list"].exists);
-    XCTAssert(!app.buttons[@"Yes, Wifi conneted"].exists);
-
-}
-
--(void) testClickPlugInButton{//test if screen can display normally when click plugInButton
-    XCUIApplication *app=[[XCUIApplication alloc] init];
-    [app.buttons[@"Start Connecting"] tap];
-    [app.buttons[@"Device plugged please scan now"] tap];
-
-    XCTAssert(app.staticTexts[@"    Open WIFI"].exists);
-    XCTAssert(app.staticTexts[@"    Plug in device"].exists);
-    XCTAssert(app.staticTexts[@"    Connect to device"].exists);
-    XCTAssert(app.staticTexts[@"Hint: Pay attention to new WIFI appears in WIFI list"].exists);
-    XCTAssert(app.buttons[@"Yes, Wifi conneted"].exists);
-    
-    XCTAssert(!app.buttons[@"Device plugged please scan now"].exists);
-    XCTAssert(!app.buttons[@"imagePortButton"].exists);
-}
-
 -(void) testLoginFunction{//test if login funtion works correctly
     XCUIApplication *app = [[XCUIApplication alloc] init];
     XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
@@ -149,7 +99,7 @@
     XCTAssert(app.alerts[@"Error!"].exists);
     [okButton tap];
     
-    [emailTextField typeText:@"w793013053@gmail.com"];
+    [emailTextField typeText:@"793013053@qq.com"];
     [resetButton tap];
     XCTAssert(!resetButton.exists);
     
@@ -167,8 +117,7 @@
     XCTAssert(app.staticTexts[@"Sorry, this email had been used!"].exists);
     
     [app.buttons[@"Clear text"] tap];
-    [emailAddressTextField typeText:@"w793013053@gmail.com"];
-    XCTAssert(!app.staticTexts[@"Sorry, this email had been used!"].exists);
+    [emailAddressTextField typeText:@"351943031@qq.com.com"];
     
     XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
     [passwordSecureTextField tap];
@@ -190,6 +139,194 @@
     [app.alerts[@"Register Succeed"].buttons[@"OK"] tap];
     
 }
+
+
+-(void)testConnectionFunction{
+
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    
+    XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    [app.buttons[@"Login"] tap];
+    [app.navigationBars[@"Riding Mechanic"].buttons[@"Wi Fi"] tap];
+    [app.buttons[@"Device plugged please scan now"] tap];
+    [app.buttons[@"Yes, Wifi conneted"] tap];
+    
+    XCTAssert(app.buttons[@"Start Trip"].exists);
+}
+
+-(void)testMoreModule{
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    
+    XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    [app.buttons[@"Login"] tap];
+    [app.tabBars.buttons[@"More"] tap];
+    
+    XCUIElementQuery *tablesQuery2 = app.tables;
+    XCUIElementQuery *tablesQuery = tablesQuery2;
+    [tablesQuery.staticTexts[@"Alert"] tap];
+    [tablesQuery.switches[@"Alert"] tap];
+    [tablesQuery.switches[@"Alert"] tap];
+    [tablesQuery.staticTexts[@"Speed Alert"] tap];
+    [tablesQuery.switches[@"Speed Alert"] tap];
+    [tablesQuery.switches[@"Speed Alert"] tap];
+    
+    XCUIElement *textField = [[tablesQuery2.cells containingType:XCUIElementTypeStaticText identifier:@"Speed Limit"] childrenMatchingType:XCUIElementTypeTextField].element;
+    [textField tap];
+    [textField typeText:@"80"];
+    [app.navigationBars[@"Speed Alert"].buttons[@"Alert"] tap];
+    
+    XCUIElement *tiredDrivingAlertStaticText = tablesQuery.staticTexts[@"Tired Driving Alert"];
+    [tiredDrivingAlertStaticText tap];
+    [tablesQuery.switches[@"Tired Driving Alert"] tap];
+    [tablesQuery.switches[@"Tired Driving Alert"] tap];
+    
+    XCUIElement *textField2 = [[tablesQuery2.cells containingType:XCUIElementTypeStaticText identifier:@"Tired Driving Hour Limit"] childrenMatchingType:XCUIElementTypeTextField].element;
+    [textField2 tap];
+    [textField2 typeText:@"4"];
+    
+    XCUIElement *alertButton = app.navigationBars[@"Tired Driving Alert"].buttons[@"Alert"];
+    [alertButton tap];
+    [tiredDrivingAlertStaticText tap];
+    [alertButton tap];
+    [tablesQuery.staticTexts[@"Water Temperature Alert"] tap];
+    [tablesQuery.switches[@"Water Temperature Alert"] tap];
+    [tablesQuery.switches[@"Water Temperature Alert"] tap];
+    
+    XCUIElement *textField3 = [[tablesQuery2.cells containingType:XCUIElementTypeStaticText identifier:@"Water Temperature Limit"] childrenMatchingType:XCUIElementTypeTextField].element;
+    [textField3 tap];
+    [textField3 typeText:@"220"];
+    [app.navigationBars[@"Water Temperature Alert"].buttons[@"Alert"] tap];
+    [app.navigationBars[@"Alert"].buttons[@"More"] tap];
+    
+    XCUIElement *vehicleStaticText = tablesQuery.staticTexts[@"Vehicle"];
+    [vehicleStaticText tap];
+    
+    XCUIElement *textField4 = [tablesQuery2.cells childrenMatchingType:XCUIElementTypeTextField].element;
+    [textField4 tap];
+    [textField4 typeText:@"2.35"];
+    
+    XCUIElement *moreButton = app.navigationBars[@"Vehicle"].buttons[@"More"];
+    [moreButton tap];
+    [vehicleStaticText tap];
+    [moreButton tap];
+    [tablesQuery.staticTexts[@"Adapter"] tap];
+    [app.navigationBars[@"Connectivity"].buttons[@"More"] tap];
+    [tablesQuery.staticTexts[@"Unit"] tap];
+    [app.navigationBars[@"Unit"].buttons[@"More"] tap];
+    [tablesQuery.staticTexts[@"About"] tap];
+    [app.navigationBars[@"About"].buttons[@"More"] tap];
+    [tablesQuery.staticTexts[@"Account"] tap];
+    [tablesQuery.staticTexts[@"Reset Password"] tap];
+    
+    XCUIElement *currentPasswordSecureTextField = app.secureTextFields[@"Current password"];
+    [currentPasswordSecureTextField tap];
+    [currentPasswordSecureTextField typeText:@"123"];
+    
+    XCUIElement *newPasswordSecureTextField = app.secureTextFields[@"New password"];
+    [newPasswordSecureTextField tap];
+    [newPasswordSecureTextField tap];
+    [newPasswordSecureTextField typeText:@"111"];
+    
+    XCUIElement *confirmNewPasswordSecureTextField = app.secureTextFields[@"Confirm new password"];
+    [confirmNewPasswordSecureTextField tap];
+    [confirmNewPasswordSecureTextField tap];
+    [confirmNewPasswordSecureTextField typeText:@"111"];
+    [app.buttons[@"Submit"] tap];
+    [app.alerts[@"Password change succeed"].buttons[@"OK"] tap];
+    [tablesQuery.buttons[@"Log Out"] tap];
+    [app.alerts[@"Log Out Succeed!"].buttons[@"Ok"] tap];
+    
+}
+
+-(void)testHealthScanFunction{
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    
+    XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    [app.buttons[@"Login"] tap];
+    [app.tabBars.buttons[@"scan"] tap];
+    [app.buttons[@"Rediagnosis"] tap];
+}
+
+-(void)testTripAnalysisFunction{
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    
+    XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    [app.buttons[@"Login"] tap];
+    
+    XCUIElementQuery *tabBarsQuery = app.tabBars;
+    [tabBarsQuery.buttons[@"analysis"] tap];
+    
+    XCUIApplication *app2 = app;
+    [app2.buttons[@"8"] tap];
+    [app2.buttons[@"10"] swipeRight];
+    [app2.buttons[@"7"] tap];
+    [app2.buttons[@"6"] tap];
+    [app2.buttons[@"5"] tap];
+    [app2.buttons[@"4"] tap];
+    [app2.buttons[@"3"] tap];
+    [app2.buttons[@"2"] tap];
+    [app2.buttons[@"1"] tap];
+    [tabBarsQuery.buttons[@"More"] tap];
+    [app2.tables.staticTexts[@"Account"] tap];
+    [app.tables.buttons[@"Log Out"] tap];
+    [app.alerts[@"Log Out Succeed!"].buttons[@"Ok"] tap];
+
+}
+
+-(void)testStartTripFunction{
+    
+    
+    XCUIApplication *app = [[XCUIApplication alloc] init];
+    XCUIElement *emailAddressTextField = app.textFields[@"Email address"];
+    [emailAddressTextField tap];
+    [emailAddressTextField typeText:@"w793013053@gmail.com"];
+    
+    XCUIElement *passwordSecureTextField = app.secureTextFields[@"Password"];
+    [passwordSecureTextField tap];
+    [passwordSecureTextField typeText:@"123"];
+    [app.buttons[@"Login"] tap];
+    [app.navigationBars[@"Riding Mechanic"].buttons[@"Wi Fi"] tap];
+    [app.buttons[@"Device plugged please scan now"] tap];
+    [app.buttons[@"Yes, Wifi conneted"] tap];
+    [app.buttons[@"Start Trip"] tap];
+    
+    XCUIElementQuery *tablesQuery = app.tables;
+    [tablesQuery.staticTexts[@"Driving Distance"] tap];
+    [tablesQuery.staticTexts[@"Realtime MPG"] tap];
+    [tablesQuery.staticTexts[@"Total Fuel Consumption"] tap];
+    [tablesQuery.staticTexts[@"Fuel Cost"] tap];
+    [tablesQuery.staticTexts[@"Sharp Braking"] tap];
+    [app.navigationBars[@"Trip Information"].buttons[@"Stop"] tap];
+    [app.alerts[@"Do you want to store trip information?"].buttons[@"YES"] tap];
+    
+}
+
+
+
+
+
 
 
 

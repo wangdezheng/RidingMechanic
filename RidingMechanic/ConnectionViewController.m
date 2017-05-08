@@ -147,13 +147,13 @@
     
     
     Session * session=[Session sharedSession]; //check if connecting to sensor
-    Boolean status=false;
+    Boolean status=NO;
     status=[session connectToServer:@"192.168.0.10" onPort:35000];
     
     if(status){
         NSLog(@"Success! Start sneding initial commands");
         
-        [[NSUserDefaults standardUserDefaults] setObject:@"connected" forKey:@"wifiStatus"];
+        [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"wifiStatus"];
         
         [self.navigationController popViewControllerAnimated:YES];
         

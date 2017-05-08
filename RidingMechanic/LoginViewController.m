@@ -84,7 +84,7 @@
     NSMutableArray *userArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     for(int i=0;i<userArray.count;i++){
         [self.emailList addObject:userArray[i][@"username"]];
-        [self.passwordList addObject:userArray[i][@"password"]];
+        [self.passwordList addObject:userArray[i][@"cast(AES_Decrypt(password,username) AS CHAR)"]];
         [self.IDList addObject:userArray[i][@"userID"]];
     }
 }

@@ -24,6 +24,7 @@
 - (void)viewDidLoad
 {
    [super viewDidLoad];
+    [[NSUserDefaults standardUserDefaults] setObject:@"NO" forKey:@"wifiStatus"];
 }
 
 
@@ -31,13 +32,13 @@
 {
     NSString * wifiStatus=[[NSUserDefaults standardUserDefaults] objectForKey:@"wifiStatus"];
     
-    if([wifiStatus isEqualToString:@"connected"]){
+    if([wifiStatus isEqualToString:@"YES"]){
         self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi Filled"];
         [self.startTripButton setHidden:NO];
         
     }else{
         self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi"];
-        [self.startTripButton setHidden:NO];
+        [self.startTripButton setHidden:YES];
     }
     
 }

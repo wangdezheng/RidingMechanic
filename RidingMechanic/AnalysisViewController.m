@@ -102,7 +102,7 @@ float totoalOilConsumption=0;
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [pathArray objectAtIndex:0];
     //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
     if(sandBoxDataDic){
@@ -121,7 +121,7 @@ float totoalOilConsumption=0;
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [pathArray objectAtIndex:0];
     //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
    
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     NSLog(@"SAND BOX:%@",sandBoxDataDic);
@@ -156,7 +156,7 @@ float totoalOilConsumption=0;
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [pathArray objectAtIndex:0];
     //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
     
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     
@@ -201,7 +201,7 @@ float totoalOilConsumption=0;
     NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *path = [pathArray objectAtIndex:0];
     //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
     
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
 
