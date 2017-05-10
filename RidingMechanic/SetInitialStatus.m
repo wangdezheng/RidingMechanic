@@ -64,13 +64,30 @@
 
 -(void)setInitial:(NSString *) user
 {
+    
     [self httpGetRequest:user];
-    [self updateTrip];
-    int64_t delayInSeconds = 1;
-    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    
+    int64_t delayInSeconds = 500; //0.5s
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * USEC_PER_SEC);
     dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         [self setStatus:user];
+        
     });
+    
+    delayInSeconds = 1000;//1S
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * USEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+        [self updateTrip];
+    });
+
+    
+    delayInSeconds = 1500;//1.5s
+    popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * USEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
+       
+        [self httpGetTripRequest:[[NSUserDefaults standardUserDefaults] valueForKey:@"userID"]];
+    });
+    
 }
 
 
@@ -79,7 +96,8 @@
     NSError *error=nil;
     NSMutableArray *infoArray=[[NSMutableArray alloc] init];
     infoArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-    if(infoArray.count==1){ //infoArray is userInfo
+    NSLog(@"User From server:%@",infoArray);
+    if(infoArray[0][@"totalAlertSwitch"]){ //infoArray is user information
         [self.userSettings setValue:infoArray[0][@"totalAlertSwitch"] forKey:@"totalAlertSwitch"];
         [self.userSettings setValue:infoArray[0][@"speedAlertSwitch"] forKey:@"speedAlertSwitch"];
         [self.userSettings setValue:infoArray[0][@"speedLimit"] forKey:@"speedLimit"];
@@ -90,33 +108,6 @@
         [self.userSettings setValue:infoArray[0][@"fuelPrice"] forKey:@"fuelPrice"];
         [self.userSettings setValue:infoArray[0][@"unit"] forKey:@"unit"];
         [self.userSettings setValue:infoArray[0][@"userID"] forKey:@"userID"];
-    }else{
-        NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];
-        NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];
-        NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
-        NSMutableArray * MPGArray=[[NSMutableArray alloc] init];//store average MPG
-        NSMutableArray * speedArray=[[NSMutableArray alloc] init];//store average speed
-        NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];//store fuel cost
-        NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];//storeSharp Acceleration Times
-        NSMutableArray * brakingArray=[[NSMutableArray alloc] init];//store store Sharp braking Times
-        for(int i=0;i<infoArray.count;i++){
-            [startDateTimeArray addObject:infoArray[i][@"startDateTime"]];
-            [endDateTimeArray addObject:infoArray[i][@"endDateTime"]];
-            [drivingDistanceArray addObject:infoArray[i][@"drivingDistance"]];
-            [MPGArray addObject:infoArray[i][@"averageMPG"]];
-            [speedArray addObject:infoArray[i][@"averageSpeed"]];
-            [fuelCostArray addObject:infoArray[i][@"fuelCost"]];
-            [accelerationArray addObject:infoArray[i][@"sharpAccelerationTime"]];
-            [brakingArray addObject:infoArray[i][@"sharpBrakingTime"]];
-        }
-        [self.tripInfo setObject:startDateTimeArray forKey:@"StartDateTime"];
-        [self.tripInfo setObject:endDateTimeArray forKey:@"EndDateTime"];
-        [self.tripInfo setObject:drivingDistanceArray forKey:@"DrivingDistance"];
-        [self.tripInfo setObject:MPGArray forKey:@"AverageMPG"];
-        [self.tripInfo setObject:speedArray forKey:@"FuelCost"];
-        [self.tripInfo setObject:fuelCostArray forKey:@"StartDateTime"];
-        [self.tripInfo setObject:accelerationArray forKey:@"SharpAccelerationTime"];
-        [self.tripInfo setObject:brakingArray forKey:@"SharpBrakingTime"];
     }
 }
 
@@ -131,19 +122,65 @@
     [request setHTTPMethod:GET];
     self.restApi.delegate=self;
     [self.restApi httpRequest:request];
+
 }
 
 -(void)httpGetTripRequest:(NSString *)body
 {
     NSString *str=@"http://localhost:9000/tripInfo/";
-    str=[str stringByAppendingString:body];
+    
+    str=[str stringByAppendingString:[NSString stringWithFormat:@"%@",body]];
+
     NSCharacterSet *set = [NSCharacterSet URLQueryAllowedCharacterSet];
     str=[str stringByAddingPercentEncodingWithAllowedCharacters:set];
     NSURL *url=[NSURL URLWithString:str];
     NSMutableURLRequest *request=[NSMutableURLRequest requestWithURL:url];
     [request setHTTPMethod:GET];
-    self.restApi.delegate=self;
-    [self.restApi httpRequest:request];
+
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        NSMutableArray *infoArray=[[NSMutableArray alloc] init];
+        infoArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        if(infoArray){ //infoArray is trip information
+            NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];
+            NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];
+            NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
+            NSMutableArray * MPGArray=[[NSMutableArray alloc] init];//store average MPG
+            NSMutableArray * speedArray=[[NSMutableArray alloc] init];//store average speed
+            NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];//store fuel cost
+            NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];//storeSharp Acceleration Times
+            NSMutableArray * brakingArray=[[NSMutableArray alloc] init];//store store Sharp braking Times
+            for(int i=0;i<infoArray.count;i++){
+                [startDateTimeArray addObject:infoArray[i][@"startDateTime"]];
+                [endDateTimeArray addObject:infoArray[i][@"endDateTime"]];
+                [drivingDistanceArray addObject:infoArray[i][@"drivingDistance"]];
+                [MPGArray addObject:infoArray[i][@"averageMPG"]];
+                [speedArray addObject:infoArray[i][@"averageSpeed"]];
+                [fuelCostArray addObject:infoArray[i][@"fuelCost"]];
+                [accelerationArray addObject:infoArray[i][@"sharpAccelerationTime"]];
+                [brakingArray addObject:infoArray[i][@"sharpBrakingTime"]];
+            }
+            [self.tripInfo setObject:startDateTimeArray forKey:@"startDateTime"];
+            [self.tripInfo setObject:endDateTimeArray forKey:@"endDateTime"];
+            [self.tripInfo setObject:drivingDistanceArray forKey:@"drivingDistance"];
+            [self.tripInfo setObject:MPGArray forKey:@"averageMPG"];
+            [self.tripInfo setObject:speedArray forKey:@"averageSpeed"];
+            [self.tripInfo setObject:fuelCostArray forKey:@"fuelCost"];
+            [self.tripInfo setObject:accelerationArray forKey:@"sharpAccelerationTime"];
+            [self.tripInfo setObject:brakingArray forKey:@"sharpBrakingTime"];
+            
+            //down trip information from server database and give it to sandBoxDataDic
+            NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+            NSString *path = [pathArray objectAtIndex:0];
+            NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+            
+            [self.tripInfo writeToFile:filePatch atomically:YES];
+            NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
+            NSLog(@"Trip From server: %@",sandBoxDataDic);
+        }
+
+    }];
+    [task resume];
 }
 
 -(void)httpPutRequest:(NSData *)data
@@ -180,10 +217,11 @@
     //get file path
     NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
-    if(sandBoxDataDic){ //need to update
+    NSLog(@"Trip to server: %@",sandBoxDataDic);
+    if([sandBoxDataDic objectForKey:@"StartDateTime"]){ //need to update
         NSMutableArray *indexArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"StartDateTime"]];
+        NSMutableDictionary *tripInfo=[[NSMutableDictionary alloc] init];
         for(int i=0;i<indexArray.count;i++){
-            NSMutableDictionary *tripInfo=[[NSMutableDictionary alloc] init];
             tripInfo[@"userID"]=sandBoxDataDic[@"UserID"];
             tripInfo[@"startDateTime"]=sandBoxDataDic[@"StartDateTime"][i];
             tripInfo[@"endDateTime"]=sandBoxDataDic[@"EndDateTime"][i];
@@ -193,41 +231,28 @@
             tripInfo[@"fuelCost"]=sandBoxDataDic[@"FuelCost"][i];
             tripInfo[@"sharpAccelerationTime"]=sandBoxDataDic[@"SharpAccelerationTime"][i];
             tripInfo[@"sharpBrakingTime"]=sandBoxDataDic[@"SharpBrakingTime"][i];
-            
-            NSData *putBody=[[NSData alloc] init];
-            if([NSJSONSerialization isValidJSONObject:tripInfo]){
-                putBody=[[NSData alloc] init];
-                NSError *error=nil;
-                putBody=[NSJSONSerialization dataWithJSONObject:tripInfo options:NSJSONWritingPrettyPrinted error:&error];
-            }else{
-                NSLog(@"data can't convert to JSON type");
-            }
-            [self httpPostTripRequest:putBody]; //update
-            
         }
+
+        NSData *putBody=[[NSData alloc] init];
+        if([NSJSONSerialization isValidJSONObject:tripInfo]){
+            putBody=[[NSData alloc] init];
+            NSError *error=nil;
+            putBody=[NSJSONSerialization dataWithJSONObject:tripInfo options:NSJSONWritingPrettyPrinted error:&error];
+        }else{
+            NSLog(@"data can't convert to JSON type");
+        }
+        [self httpPostTripRequest:putBody]; //update server database
+        [sandBoxDataDic removeAllObjects];
+        [sandBoxDataDic writeToFile:filePatch atomically:YES];
     }
 }
 
--(void) downloadTrip
-{
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [pathArray objectAtIndex:0];
-    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
-    
-    //down trip information from server database and give it to sandBoxDataDic
-    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc] initWithDictionary:self.tripInfo];
-    
-    [sandBoxDataDic writeToFile:filePatch atomically:YES];
-    sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
-    NSLog(@"New: %@",sandBoxDataDic);
-}
 
 -(void)setStatus:(NSString *) user{
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
     
     [dictionary setObject:@"unconnected" forKey:@"wifiStatus"];
-    
-    
+
     if(![dictionary objectForKey:@"AlertSwitch"]){    //update local database from serverdatabase
         if([[self.userSettings valueForKey:@"totalAlertSwitch"] integerValue]==1){
             [dictionary setObject:@"On" forKey:@"AlertSwitch"];
@@ -323,10 +348,9 @@
             [self.localSettings setValue:@"0" forKey:@"unit"];
         }
     }
-    
     if([self.localSettings valueForKey:@"totalAlertSwitch"]){
-        NSLog(@"Local: %@",self.localSettings);
         [self.localSettings setValue:user forKey:@"username"];
+        NSLog(@"User To server:%@",self.localSettings);
         NSData *putBody=[[NSData alloc] init];
         if([NSJSONSerialization isValidJSONObject:self.localSettings]){
             putBody=[[NSData alloc] init];

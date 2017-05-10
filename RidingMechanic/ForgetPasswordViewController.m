@@ -101,7 +101,11 @@
             NSLog(@"data can't convert to JSON type");
         }
         [self httpPutRequest:putBody];
-        [self.navigationController popViewControllerAnimated:YES]; //reset successfully and go back
+
+        self.alertController.title=@"Reset successfully";
+        self.alertController.message=@"Please check your email";
+        [self presentViewController: self.alertController animated: YES completion: nil];
+        
     }else{
         [self presentViewController: self.alertController animated: YES completion: nil];
     }
@@ -143,6 +147,10 @@
     [self.navigationController setNavigationBarHidden:NO];
     self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: @"Eamil doesn't exist, please retry" preferredStyle: UIAlertControllerStyleAlert];
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler:^(UIAlertAction *action){
+        if([self.alertController.title isEqualToString:@"Reset successfully"]){
+             [self.navigationController popViewControllerAnimated:YES];//reset successfully and go back
+        }
+        
     }]];
 }
 

@@ -186,7 +186,6 @@
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleCancel handler:^(UIAlertAction *action){
         if([self.alertController.title isEqualToString:@"Register Succeed"]){
             [self.navigationController popViewControllerAnimated:YES];
-//                   [self performSegueWithIdentifier:@"registerSuccessfully" sender:nil];
         }
     }]];
     

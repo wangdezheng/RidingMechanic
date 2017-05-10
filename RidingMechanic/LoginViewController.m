@@ -82,6 +82,9 @@
 {
     NSError *error=nil;
     NSMutableArray *userArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+    self.emailList=[[NSMutableArray alloc] init];
+    self.passwordList=[[NSMutableArray alloc] init];
+    self.IDList=[[NSMutableArray alloc] init];
     for(int i=0;i<userArray.count;i++){
         [self.emailList addObject:userArray[i][@"username"]];
         [self.passwordList addObject:userArray[i][@"cast(AES_Decrypt(password,username) AS CHAR)"]];
@@ -92,6 +95,7 @@
 
 -(IBAction) login:(id)sender
 {
+
     for(int i=0;i<self.emailList.count;i++){
         if([self.emailList[i] isEqualToString: self.emailField.text]&&[self.passwordList[i] isEqualToString:self.passwordField.text]){
 
@@ -115,15 +119,22 @@
     }
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES];
-    [self httpGetRequest];
+    
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    if([dictionary valueForKey:@"username"]&&[dictionary valueForKey:@"password"]&&[dictionary valueForKey:@"userID"]){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{ //load data from server  in background
+            SetInitialStatus *setInit=[[SetInitialStatus alloc] init];
+            [setInit setInitial:[dictionary valueForKey:@"username"]];
+        });
+        
+        [self performSegueWithIdentifier:@"loginSuccessfully" sender:nil];
+    }else{
+       [self httpGetRequest];
+    }
+
 }
 
 - (void)didReceiveMemoryWarning {

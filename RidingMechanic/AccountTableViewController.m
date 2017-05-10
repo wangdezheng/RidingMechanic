@@ -27,7 +27,12 @@
 }
 
 - (IBAction)logOut:(id)sender {
-       [self presentViewController:self.alertController animated:YES completion:nil];
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    [dictionary setValue:nil forKey:@"username"];
+    [dictionary setValue:nil forKey:@"password"];
+    [dictionary setValue:nil forKey:@"userID"];
+    
+    [self presentViewController:self.alertController animated:YES completion:nil];
 }
 
 

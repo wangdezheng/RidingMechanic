@@ -11,7 +11,6 @@ http.createServer(function(req, resp){
              }else if(req.url==="/userInfo"){
                 table.getUserList(req,resp);
             }else if(req.url.includes("/userSettings/")){
-                console.log(req.url);
                 var pattern=new RegExp("/userSettings/");
                 if(pattern.test(req.url)){
                     var exp=pattern.exec(req.url);
@@ -21,7 +20,6 @@ http.createServer(function(req, resp){
                     httpMsg.show404(req,resp);
                 }                
             }else{
-                console.log(req.url);
                 var pattern=new RegExp("/tripInfo/");
                 if(pattern.test(req.url)){
                     var exp=pattern.exec(req.url);

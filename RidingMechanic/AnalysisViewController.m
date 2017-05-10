@@ -23,6 +23,8 @@
 @property (strong, nonatomic) IBOutlet ASDayPicker *datepicker;
 @property (strong, nonatomic)  UILabel *timeLabel;
 
+@property (strong,nonatomic) NSMutableDictionary * localTrip;
+
 
 @end
 
@@ -40,6 +42,14 @@ float totoalOilConsumption=0;
     return _targetArray;
 }
 
+-(NSMutableDictionary *)localTrip
+{
+    if(!_localTrip){
+        _localTrip=[[NSMutableDictionary alloc] init];
+    }
+    return _localTrip;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 //    [self test];
@@ -48,7 +58,7 @@ float totoalOilConsumption=0;
     self.showTripInfoTableView.delegate=self;
     self.showTripInfoTableView.dataSource=self;
     
-    self.timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(self.datepicker.frame.size.width/2-50, self.datepicker.frame.size.height-25, 80,20)];
+    self.timeLabel=[[UILabel alloc] initWithFrame:CGRectMake(self.datepicker.frame.size.width/2-40, self.datepicker.frame.size.height-20, 80,20)];
     [self.timeLabel setFont:[UIFont systemFontOfSize:13]];
     
     [self.datepicker addSubview:self.timeLabel];
@@ -64,6 +74,71 @@ float totoalOilConsumption=0;
     self.datepicker.selectedDateBackgroundImage = [UIImage imageNamed:@"selection"];
     [self.datepicker setStartDate:startDate endDate:[NSDate date]];
     [self.datepicker addObserver:self forKeyPath:@"selectedDate" options:NSKeyValueObservingOptionInitial|NSKeyValueObservingOptionNew context:nil];
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *path = [pathArray objectAtIndex:0];
+    NSString *filePatch = [path stringByAppendingPathComponent:@"TripInfo.plist"];
+    NSString *newFilePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
+    NSMutableDictionary *newSandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:newFilePatch]; // new added trip
+    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
+    if([newSandBoxDataDic valueForKey:@"StartDateTime"]){ //new added trip is not empty
+        NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];
+        NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];
+        NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];
+        NSMutableArray * MPGArray=[[NSMutableArray alloc] init];
+        NSMutableArray * speedArray=[[NSMutableArray alloc] init];
+        NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];
+        NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];
+        NSMutableArray * brakingArray=[[NSMutableArray alloc] init];
+        if([sandBoxDataDic valueForKey:@"startDateTime"]){ //local trip database is not empty
+            startDateTimeArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"startDateTime"]];
+            endDateTimeArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"endDateTime"]];
+            drivingDistanceArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"drivingDistance"]];
+            MPGArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"averageMPG"]];
+            speedArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"fuelCost"]];
+            fuelCostArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"averageSpeed"]];
+            accelerationArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"sharpAccelerationTime"]];
+            brakingArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"sharpBrakingTime"]];
+            
+            NSMutableArray * new=[[NSMutableArray alloc] initWithArray:newSandBoxDataDic[@"StartDateTime"]];
+            for(int i=0;i<new.count;i++){
+                [startDateTimeArray addObject:newSandBoxDataDic[@"StartDateTime"][i]];
+                [endDateTimeArray addObject:newSandBoxDataDic[@"EndDateTime"][i]];
+                [drivingDistanceArray addObject:newSandBoxDataDic[@"DrivingDistance"][i]];
+                [MPGArray addObject:newSandBoxDataDic[@"AverageMPG"][i]];
+                [speedArray addObject:newSandBoxDataDic[@"AverageSpeed"][i]];
+                [fuelCostArray addObject:newSandBoxDataDic[@"FuelCost"][i]];
+                [accelerationArray addObject:newSandBoxDataDic[@"SharpAccelerationTimes"][i]];
+                [brakingArray addObject:newSandBoxDataDic[@"SharpBrakingTimes"][i]];
+            }
+        }else{
+            NSMutableArray * new=[[NSMutableArray alloc] initWithArray:newSandBoxDataDic[@"StartDateTime"]];
+            for(int i=0;i<new.count;i++){
+                [startDateTimeArray addObject:newSandBoxDataDic[@"StartDateTime"][i]];
+                [endDateTimeArray addObject:newSandBoxDataDic[@"EndDateTime"][i]];
+                [drivingDistanceArray addObject:newSandBoxDataDic[@"DrivingDistance"][i]];
+                [MPGArray addObject:newSandBoxDataDic[@"AverageMPG"][i]];
+                [speedArray addObject:newSandBoxDataDic[@"AverageSpeed"][i]];
+                [fuelCostArray addObject:newSandBoxDataDic[@"FuelCost"][i]];
+                [accelerationArray addObject:newSandBoxDataDic[@"SharpAccelerationTimes"][i]];
+                [brakingArray addObject:newSandBoxDataDic[@"SharpBrakingTimes"][i]];
+            }
+        }
+        [sandBoxDataDic setObject:startDateTimeArray forKey:@"startDateTime"];
+        [sandBoxDataDic setObject:endDateTimeArray forKey:@"endDateTime"];
+        [sandBoxDataDic setObject:drivingDistanceArray forKey:@"drivingDistance"];
+        [sandBoxDataDic setObject:MPGArray forKey:@"averageMPG"];
+        [sandBoxDataDic setObject:speedArray forKey:@"fuelCost"];
+        [sandBoxDataDic setObject:fuelCostArray forKey:@"averageSpeed"];
+        [sandBoxDataDic setObject:accelerationArray forKey:@"sharpAccelerationTime"];
+        [sandBoxDataDic setObject:brakingArray forKey:@"sharpBrakingTime"];
+    }
+    self.localTrip=[[NSMutableDictionary alloc] initWithDictionary:sandBoxDataDic];
+    NSLog(@"Total:%@",self.localTrip);
 }
 
 
@@ -85,29 +160,27 @@ float totoalOilConsumption=0;
     [self.showTripInfoTableView reloadData];//reload data in table
     
     [self updateTotal];
-    self.totalCostLabel.text=[NSString stringWithFormat:@"%.1f",totoalCost];
+    self.totalCostLabel.text=[NSString stringWithFormat:@"%.2f",totoalCost];
     
     if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Unit"] isEqualToString:@"0"]){ //metric
         self.totalMileUnitLabel.text=@"km";
-        self.totalMileLabel.text=[NSString stringWithFormat:@"%.1f",totoalMile*1.6];
+        self.totalMileLabel.text=[NSString stringWithFormat:@"%.2f",totoalMile*1.6];
     }else{
         self.totalMileUnitLabel.text=@"mile";
-        self.totalMileLabel.text=[NSString stringWithFormat:@"%.1f",totoalMile];
+        self.totalMileLabel.text=[NSString stringWithFormat:@"%.2f",totoalMile];
     }
-    self.totalOilConsumptionLabel.text=[NSString stringWithFormat:@"%.1f",totoalOilConsumption];
+    self.totalOilConsumptionLabel.text=[NSString stringWithFormat:@"%.2f",totoalOilConsumption];
     
 }
 
 -(void) updateTotal{
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [pathArray objectAtIndex:0];
-    //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
-    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    if(sandBoxDataDic){
-       NSMutableArray * costArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"FuelCost"]];
-       NSMutableArray * distanceArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"DrivingDistance"]];
+    totoalCost=0;
+    totoalMile=0;
+    totoalOilConsumption=0;
+    if(self.localTrip){
+       NSMutableArray * costArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"fuelCost"]];
+       NSMutableArray * distanceArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"drivingDistance"]];
         for(int i=0;i<self.targetArray.count;i++){
             totoalCost+=[[costArray objectAtIndex:[self.targetArray[i] integerValue]] floatValue];
             totoalMile+=[[distanceArray objectAtIndex:[self.targetArray[i] integerValue]] floatValue];
@@ -117,19 +190,10 @@ float totoalOilConsumption=0;
 }
 
 -(NSMutableArray *) getDataFromPlist:(NSString *)dateTime{  //get corresponding data according to specific date
-    //get sand box path
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [pathArray objectAtIndex:0];
-    //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
-   
-    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
-    NSLog(@"SAND BOX:%@",sandBoxDataDic);
     NSMutableArray *indexArray=[[NSMutableArray alloc] init];
-    if (sandBoxDataDic) {
-         NSLog(@"Date:%@",dateTime);
+    if (self.localTrip) {
         NSArray *dateArray=[[NSArray alloc] init];
-        dateArray=sandBoxDataDic[@"StartDateTime"];
+        dateArray=self.localTrip[@"startDateTime"];
         for(int i=0;i<dateArray.count;i++){
             if([[dateArray[i] substringWithRange:NSMakeRange(0, 10)] isEqualToString:dateTime]){
                 [indexArray addObject:[NSNumber numberWithInteger:i]];
@@ -152,37 +216,30 @@ float totoalOilConsumption=0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     self.tripInfoCell= (ShowTripInfoTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"tripInfoCell" forIndexPath:indexPath];
-    //get sand box path
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [pathArray objectAtIndex:0];
-    //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
     
-    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
-    
-    if(sandBoxDataDic){
-        NSMutableArray * costArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"FuelCost"]];
-        NSMutableArray * MPGArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"AverageMPG"]];
-        NSMutableArray * distanceArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"DrivingDistance"]];
-        NSMutableArray * accelArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"SharpAccelerationTimes"]];
-        NSMutableArray * brakingArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"SharpBrakingTimes"]];
+    if(self.localTrip){
+        NSMutableArray * costArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"fuelCost"]];
+        NSMutableArray * MPGArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"averageMPG"]];
+        NSMutableArray * distanceArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"drivingDistance"]];
+        NSMutableArray * accelArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"sharpAccelerationTime"]];
+        NSMutableArray * brakingArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"sharpBrakingTime"]];
         
         float cost=[[costArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
-        self.tripInfoCell.costLabel.text=[NSString stringWithFormat:@"%.1f",cost];
+        self.tripInfoCell.costLabel.text=[NSString stringWithFormat:@"%.2f",cost];
 
         if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Unit"] isEqualToString:@"0"]){ //metric
             self.tripInfoCell.mileUnitLabel.text=@"km";
             float distance=[[distanceArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
             distance=distance*1.6;
-            self.tripInfoCell.mileLabel.text=[NSString stringWithFormat:@"%.1f",distance];
+            self.tripInfoCell.mileLabel.text=[NSString stringWithFormat:@"%.2f",distance];
         }else{
             self.tripInfoCell.mileUnitLabel.text=@"mile";
             float distance=[[distanceArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
-            self.tripInfoCell.mileLabel.text=[NSString stringWithFormat:@"%.1f",distance];
+            self.tripInfoCell.mileLabel.text=[NSString stringWithFormat:@"%.2f",distance];
         }
 
         float mpg=[[MPGArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] floatValue];
-        self.tripInfoCell.MPGLabel.text=[NSString stringWithFormat:@"%.1f",mpg];
+        self.tripInfoCell.MPGLabel.text=[NSString stringWithFormat:@"%.2f",mpg];
         
         self.tripInfoCell.accelerationButton.userInteractionEnabled=NO;
         [self.tripInfoCell.accelerationButton setTitle:[[accelArray objectAtIndex:[[self.targetArray objectAtIndex:indexPath.section] integerValue]] stringValue] forState:UIControlStateNormal];
@@ -196,24 +253,19 @@ float totoalOilConsumption=0;
 
 - (NSString *) tableView: (UITableView *) tableView titleForHeaderInSection: (NSInteger) section {
     NSString *sectionName=@"";
-    
-    //get sand box path
-    NSArray *pathArray = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *path = [pathArray objectAtIndex:0];
-    //get file path
-    NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
-    
-    NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
 
-    if(sandBoxDataDic){
-        NSMutableArray * startdateArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"StartDateTime"]];
-        NSMutableArray * enddateArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"EndDateTime"]];
+    if(self.localTrip){
+        NSMutableArray * startdateArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"startDateTime"]];
+        NSMutableArray * enddateArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"endDateTime"]];
+    
         sectionName=[startdateArray objectAtIndex:[self.targetArray[section] integerValue]];
         sectionName=[sectionName stringByAppendingString:@"-----"];
         sectionName=[sectionName stringByAppendingString:[enddateArray objectAtIndex:[self.targetArray[section] integerValue]]];
     }
     return sectionName;
 }
+
+
 
 
 

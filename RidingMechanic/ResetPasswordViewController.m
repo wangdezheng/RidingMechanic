@@ -55,8 +55,8 @@
     [super viewDidLoad];
      self.alertController = [UIAlertController alertControllerWithTitle: @"Error!" message: @"" preferredStyle: UIAlertControllerStyleAlert];
      [self.alertController addAction: [UIAlertAction actionWithTitle: @"OK" style: UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
-         if([self.alertController.message isEqualToString:@""]){
-            [self.navigationController popViewControllerAnimated:YES];
+         if([self.alertController.title isEqualToString:@"Password change succeed"]){
+            [self performSegueWithIdentifier:@"resetAndLogOut" sender:nil];
          }
      }]];
     
@@ -114,6 +114,10 @@
 
     self.alertController.title=@"Password change succeed";
     self.alertController.message=@"";
+    NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
+    [dictionary setValue:nil forKey:@"username"];
+    [dictionary setValue:nil forKey:@"password"];
+    [dictionary setValue:nil forKey:@"userID"];
     [self presentViewController:self.alertController animated:YES completion:nil];
 }
 

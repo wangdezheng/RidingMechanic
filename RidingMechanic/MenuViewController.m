@@ -158,19 +158,19 @@ static dispatch_source_t timerForMain;
         sandBoxDataDic[@"EndDateTime"] = endDateTimeArray;
         
         NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
-        [drivingDistanceArray addObject:[dictionary valueForKey:@"DrivingDistance"]];
+        [drivingDistanceArray addObject:[NSString stringWithFormat:@"%.2f",[[dictionary valueForKey:@"DrivingDistance"] floatValue]]];
         sandBoxDataDic[@"DrivingDistance"]=drivingDistanceArray;
         
         NSMutableArray * MPGArray=[[NSMutableArray alloc] init];//store average MPG
-        [MPGArray addObject:[dictionary valueForKey:@"AverageMPG"]];
+        [MPGArray addObject:[NSString stringWithFormat:@"%.2f",[[dictionary valueForKey:@"AverageMPG"] floatValue]]];
         sandBoxDataDic[@"AverageMPG"]=MPGArray;
         
         NSMutableArray * speedArray=[[NSMutableArray alloc] init];//store average speed
-        [speedArray addObject:[dictionary valueForKey:@"AverageSpeed"]];
+        [speedArray addObject:[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"AverageSpeed"] floatValue]]];
         sandBoxDataDic[@"AverageSpeed"]=speedArray;
         
         NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];//store fuel cost
-        [fuelCostArray addObject:[dictionary valueForKey:@"FuelCost"]];
+        [fuelCostArray addObject:[NSString stringWithFormat:@"%.2f",[[dictionary valueForKey:@"FuelCost"] floatValue]]];
         sandBoxDataDic[@"FuelCost"]=fuelCostArray;
         
         NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];//store Sharp Acceleration Times
@@ -200,22 +200,23 @@ static dispatch_source_t timerForMain;
         
         NSMutableArray * drivingDistanceArray=[[NSMutableArray alloc] init];//store driving distance
         drivingDistanceArray=sandBoxDataDic[@"DrivingDistance"];
-        [drivingDistanceArray addObject:[dictionary valueForKey:@"DrivingDistance"]];
+       ;
+        [drivingDistanceArray addObject:[NSString stringWithFormat:@"%.2f",[[dictionary valueForKey:@"DrivingDistance"] floatValue]]];
         sandBoxDataDic[@"DrivingDistance"]=drivingDistanceArray;
         
         NSMutableArray * MPGArray=[[NSMutableArray alloc] init];//store average MPG
         MPGArray=sandBoxDataDic[@"AverageMPG"];
-        [MPGArray addObject:[dictionary valueForKey:@"AverageMPG"]];
+        [MPGArray addObject:[NSString stringWithFormat:@"%.2f",[[dictionary valueForKey:@"AverageMPG"] floatValue]]];
         sandBoxDataDic[@"AverageMPG"]=MPGArray;
         
         NSMutableArray * speedArray=[[NSMutableArray alloc] init];//store average speed
         speedArray=sandBoxDataDic[@"AverageSpeed"];
-        [speedArray addObject:[dictionary valueForKey:@"AverageSpeed"]];
+        [speedArray addObject:[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"AverageSpeed"] floatValue]]];
         sandBoxDataDic[@"AverageSpeed"]=speedArray;
         
         NSMutableArray * fuelCostArray=[[NSMutableArray alloc] init];//store fuel cost
         fuelCostArray=sandBoxDataDic[@"FuelCost"];
-        [fuelCostArray addObject:[dictionary valueForKey:@"FuelCost"]];
+        [fuelCostArray addObject:[NSString stringWithFormat:@"%.2f",[[dictionary valueForKey:@"FuelCost"] floatValue]]];
         sandBoxDataDic[@"FuelCost"]=fuelCostArray;
         
         NSMutableArray * accelerationArray=[[NSMutableArray alloc] init];//store Sharp Acceleration Times
@@ -302,12 +303,12 @@ static dispatch_source_t timerForMain;
         }else if(indexPath.row==5){
             [self getRealtimeMPG]; //get realtime MPG
             detailLabel.text =@"Realtime MPG";
-            dataLabel.text=[NSString stringWithFormat:@"%.2f",self.MPG];
+            dataLabel.text=[NSString stringWithFormat:@"%f",self.MPG];
             unitLabel.text=@"mpg";
         }else if(indexPath.row==6){
             [self getTotalFuelConsumption]; //get total fuel consumption
             detailLabel.text =@"Total Fuel Consumption";
-            dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalFuelConsumption];
+            dataLabel.text=[NSString stringWithFormat:@"%f",self.totalFuelConsumption];
             unitLabel.text=@"gal";
         }else if(indexPath.row==7){
             [self getAverageMPG]; //get average MPG
