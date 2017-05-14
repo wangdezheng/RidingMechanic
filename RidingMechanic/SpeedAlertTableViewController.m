@@ -46,7 +46,7 @@
         cell.textLabel.text=@"Speed Alert";
         UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
         cell.accessoryView=switchView;
-        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"AlertSwitch" ] isEqualToString:@"On"]){
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"AlertSwitch"] isEqualToString:@"On"]){
             if([[[NSUserDefaults standardUserDefaults] objectForKey:@"SpeedAlertSwitch" ] isEqualToString:@"On"]){
                 [switchView setOn:YES];
             }else{
@@ -62,7 +62,12 @@
     }else{
         self.alertCell= (AlertTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SpeedLimit" forIndexPath:indexPath];
         self.alertCell.speedTextField.text=[[NSUserDefaults standardUserDefaults] objectForKey:@"SpeedLimit"];
-        self.alertCell.speedLabel.text=@"mph";
+        if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Unit"] isEqualToString:@"0"]){
+            self.alertCell.speedLabel.text=@"km/h";
+        }else{
+            self.alertCell.speedLabel.text=@"mile/h";
+        }
+        
         return self.alertCell;
     }
 }

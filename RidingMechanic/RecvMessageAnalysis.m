@@ -224,6 +224,9 @@ Boolean getPreviousSpeed=NO;
             if(code.length==2){
                 NSInteger a=[self convertToDecimal:[code substringWithRange:NSMakeRange(0, 1)]]*16+[self convertToDecimal:[code substringWithRange:NSMakeRange(1, 1)]];
                 a=a/1.6;
+                if(a!=0){
+                    a=a+1;
+                }
                 if(a<0||a>255){
                     NSLog(@"Speed out of bounds");
                 }else{

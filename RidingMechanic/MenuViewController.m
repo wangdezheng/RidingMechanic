@@ -83,15 +83,14 @@ static dispatch_source_t timerForMain;
     
     self.alertController = [UIAlertController alertControllerWithTitle: @"Do you want to store trip information?" message: @"" preferredStyle: UIAlertControllerStyleAlert];
     [self.alertController addAction: [UIAlertAction actionWithTitle: @"YES" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        if([self.alertController.title isEqualToString:@"Do you want to store trip information?"]){
+            [self writeDataToPlist];//stop recording and store trip information into plist
+            
+            [self.navigationController popViewControllerAnimated:YES];
+        }
 
-        [self writeDataToPlist];//stop recording and store trip information into plist
-    
-        [self.navigationController popViewControllerAnimated:YES];
     }]];
-    [self.alertController addAction: [UIAlertAction actionWithTitle: @"NO" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
-        
-        [self.navigationController popViewControllerAnimated:YES];
-    }]];
+
 
     // Do any additional setup after loading the view.
     
@@ -143,7 +142,7 @@ static dispatch_source_t timerForMain;
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
     
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    if(sandBoxDataDic==nil){ //temporary database is empty
+    if(![sandBoxDataDic valueForKey:@"StartDateTime"]){ //temporary database is empty
         sandBoxDataDic = [NSMutableDictionary new];
         NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];//store start date and time
         [startDateTimeArray addObject:[dictionary valueForKey:@"StartDateTime"]];
@@ -245,6 +244,13 @@ static dispatch_source_t timerForMain;
     
     [self stopTimerForMain];
     
+    self.alertController.title=@"Do you want to store trip information?";
+    [self.alertController addAction: [UIAlertAction actionWithTitle: @"NO" style: UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+        if([self.alertController.title isEqualToString:@"Do you want to store trip information?"]){
+            [self.navigationController popViewControllerAnimated:YES];
+        }
+    }]];
+    
     [self presentViewController:self.alertController animated:YES completion:Nil];
 }
 
@@ -281,6 +287,13 @@ static dispatch_source_t timerForMain;
             detailLabel.text =@"Speed";
             if([[dictionary valueForKey:@"Unit"] isEqualToString:@"0"]){//metric
                 dataLabel.text=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]*1.6];
+                float speed=[[dictionary valueForKey:@"Speed"] floatValue]*1.6;
+                if([[dictionary valueForKey:@"AlertSwitch"] isEqualToString:@"On"]&&[[dictionary valueForKey:@"SpeedAlertSwitch"] isEqualToString:@"On"]&&speed>=[[dictionary valueForKey:@"SpeedLimit"] floatValue]){
+                    if(self.presentedViewController==nil){
+                        self.alertController.title=@"Over Speed";
+                        [self presentViewController:self.alertController animated:YES completion:nil];
+                    }
+                }
                 unitLabel.text=@"km/h";
             }else{//imperial
                 dataLabel.text=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]];
@@ -303,12 +316,12 @@ static dispatch_source_t timerForMain;
         }else if(indexPath.row==5){
             [self getRealtimeMPG]; //get realtime MPG
             detailLabel.text =@"Realtime MPG";
-            dataLabel.text=[NSString stringWithFormat:@"%f",self.MPG];
+            dataLabel.text=[NSString stringWithFormat:@"%.2f",self.MPG];
             unitLabel.text=@"mpg";
         }else if(indexPath.row==6){
             [self getTotalFuelConsumption]; //get total fuel consumption
             detailLabel.text =@"Total Fuel Consumption";
-            dataLabel.text=[NSString stringWithFormat:@"%f",self.totalFuelConsumption];
+            dataLabel.text=[NSString stringWithFormat:@"%.2f",self.totalFuelConsumption];
             unitLabel.text=@"gal";
         }else if(indexPath.row==7){
             [self getAverageMPG]; //get average MPG

@@ -141,6 +141,7 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         NSMutableArray *infoArray=[[NSMutableArray alloc] init];
         infoArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+        NSLog(@"From server:%@",infoArray);
         if(infoArray){ //infoArray is trip information
             NSMutableArray * startDateTimeArray=[[NSMutableArray alloc] init];
             NSMutableArray * endDateTimeArray=[[NSMutableArray alloc] init];
@@ -217,8 +218,9 @@
     //get file path
     NSString *filePatch = [path stringByAppendingPathComponent:@"NewTripInfo.plist"];
     NSMutableDictionary *sandBoxDataDic = [[NSMutableDictionary alloc]initWithContentsOfFile:filePatch];
-    NSLog(@"Trip to server: %@",sandBoxDataDic);
+    
     if([sandBoxDataDic objectForKey:@"StartDateTime"]){ //need to update
+        
         NSMutableArray *indexArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"StartDateTime"]];
         NSMutableDictionary *tripInfo=[[NSMutableDictionary alloc] init];
         for(int i=0;i<indexArray.count;i++){
@@ -229,10 +231,10 @@
             tripInfo[@"averageMPG"]=sandBoxDataDic[@"AverageMPG"][i];
             tripInfo[@"averageSpeed"]=sandBoxDataDic[@"AverageSpeed"][i];
             tripInfo[@"fuelCost"]=sandBoxDataDic[@"FuelCost"][i];
-            tripInfo[@"sharpAccelerationTime"]=sandBoxDataDic[@"SharpAccelerationTime"][i];
-            tripInfo[@"sharpBrakingTime"]=sandBoxDataDic[@"SharpBrakingTime"][i];
+            tripInfo[@"sharpAccelerationTime"]=sandBoxDataDic[@"SharpAccelerationTimes"][i];
+            tripInfo[@"sharpBrakingTime"]=sandBoxDataDic[@"SharpBrakingTimes"][i];
         }
-
+        NSLog(@"Trip to server: %@",tripInfo);
         NSData *putBody=[[NSData alloc] init];
         if([NSJSONSerialization isValidJSONObject:tripInfo]){
             putBody=[[NSData alloc] init];

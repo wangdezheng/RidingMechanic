@@ -139,6 +139,28 @@ float totoalOilConsumption=0;
     }
     self.localTrip=[[NSMutableDictionary alloc] initWithDictionary:sandBoxDataDic];
     NSLog(@"Total:%@",self.localTrip);
+    
+    NSDate *day = [NSDate date];
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateFormat:@"YYYY-MM-dd"];
+    NSString *DateTime = [formatter stringFromDate:day]; //convert to require format
+    
+    self.timeLabel.text =  [NSDateFormatter localizedStringFromDate:day dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
+    
+    self.targetArray=[self getDataFromPlist:DateTime];
+    [self.showTripInfoTableView reloadData];
+    
+    [self updateTotal];
+    if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Unit"] isEqualToString:@"0"]){ //metric
+        self.totalMileUnitLabel.text=@"km";
+        self.totalMileLabel.text=[NSString stringWithFormat:@"%.2f",totoalMile*1.6];
+    }else{
+        self.totalMileUnitLabel.text=@"mile";
+        self.totalMileLabel.text=[NSString stringWithFormat:@"%.2f",totoalMile];
+    }
+    
+
+
 }
 
 
@@ -257,10 +279,25 @@ float totoalOilConsumption=0;
     if(self.localTrip){
         NSMutableArray * startdateArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"startDateTime"]];
         NSMutableArray * enddateArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"endDateTime"]];
+        
+        
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+        NSDate *startDate = [dateFormatter dateFromString:[startdateArray objectAtIndex:[self.targetArray[section] integerValue]]];
+        NSDate *endDate = [dateFormatter dateFromString:[enddateArray objectAtIndex:[self.targetArray[section] integerValue]]];
+        
+        
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+        NSString *start = [formatter stringFromDate:startDate];
+        NSString *end=[formatter stringFromDate:endDate];
+        
+
     
-        sectionName=[startdateArray objectAtIndex:[self.targetArray[section] integerValue]];
+        sectionName=start;
         sectionName=[sectionName stringByAppendingString:@"-----"];
-        sectionName=[sectionName stringByAppendingString:[enddateArray objectAtIndex:[self.targetArray[section] integerValue]]];
+        sectionName=[sectionName stringByAppendingString:end];
+
     }
     return sectionName;
 }
