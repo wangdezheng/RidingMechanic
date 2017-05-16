@@ -149,17 +149,15 @@
     Session * session=[Session sharedSession]; //check if connecting to sensor
     Boolean status=NO;
     status=[session connectToServer:@"192.168.0.10" onPort:35000];
-    NSLog(@"%hhu",status);
-    
     if(status){
-        NSLog(@"Success! Start sneding initial commands");
+        NSLog(@"Success! Start sending initial commands");
         
         [[NSUserDefaults standardUserDefaults] setObject:@"YES" forKey:@"wifiStatus"];
         
         [self.navigationController popViewControllerAnimated:YES];
         
-        SendCommand * sendCommand=[SendCommand sharedSendCommand];
-        [sendCommand sendInitialCommand];
+//        SendCommand * sendCommand=[SendCommand sharedSendCommand];
+//        [sendCommand sendInitialCommand];
        
     }else{
         NSLog(@"Fail! Please check wifi conncetion");

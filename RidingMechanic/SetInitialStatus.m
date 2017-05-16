@@ -97,7 +97,7 @@
     NSMutableArray *infoArray=[[NSMutableArray alloc] init];
     infoArray=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
     NSLog(@"User From server:%@",infoArray);
-    if(infoArray[0][@"totalAlertSwitch"]){ //infoArray is user information
+    if(infoArray.count!=0){ //infoArray is user information
         [self.userSettings setValue:infoArray[0][@"totalAlertSwitch"] forKey:@"totalAlertSwitch"];
         [self.userSettings setValue:infoArray[0][@"speedAlertSwitch"] forKey:@"speedAlertSwitch"];
         [self.userSettings setValue:infoArray[0][@"speedLimit"] forKey:@"speedLimit"];

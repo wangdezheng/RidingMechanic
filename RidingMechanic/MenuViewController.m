@@ -31,10 +31,10 @@ static dispatch_source_t timerForMain;
 -(void)initialize
 {
     NSUserDefaults *dictionary=[NSUserDefaults standardUserDefaults];
-    [dictionary setValue:@"0" forKey:@"Speed"];
-    [dictionary setValue:@"0" forKey:@"RPM"];
-    [dictionary setValue:@"0" forKey:@"EngineCoolantTemperature"];
-    [dictionary setValue:@"0" forKey:@"ControlModuleVoltage"];
+//    [dictionary setValue:@"0" forKey:@"Speed"];
+//    [dictionary setValue:@"0" forKey:@"RPM"];
+//    [dictionary setValue:@"0" forKey:@"EngineCoolantTemperature"];
+//    [dictionary setValue:@"0" forKey:@"ControlModuleVoltage"];
     
     self.drivingTime=0;
     self.interval=1;
@@ -297,7 +297,14 @@ static dispatch_source_t timerForMain;
                 unitLabel.text=@"km/h";
             }else{//imperial
                 dataLabel.text=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]];
-                unitLabel.text=@"mile/h";
+                float speed=[[dictionary valueForKey:@"Speed"] floatValue];
+                if([[dictionary valueForKey:@"AlertSwitch"] isEqualToString:@"On"]&&[[dictionary valueForKey:@"SpeedAlertSwitch"] isEqualToString:@"On"]&&speed>=[[dictionary valueForKey:@"SpeedLimit"] floatValue]){
+                    if(self.presentedViewController==nil){
+                        self.alertController.title=@"Over Speed";
+                        [self presentViewController:self.alertController animated:YES completion:nil];
+                    }
+                }
+                unitLabel.text=@"m/h";
             }
         }else if(indexPath.row==3){
             [self getAverageSpeed]; //get average speed
@@ -307,7 +314,7 @@ static dispatch_source_t timerForMain;
                 unitLabel.text=@"km/h";
             }else{//imperial
                 dataLabel.text=[NSString stringWithFormat:@"%.1f",self.averageSpeed];
-                unitLabel.text=@"mile/h";
+                unitLabel.text=@"m/h";
             }
         }else if(indexPath.row==4){
             detailLabel.text =@"RPM";
@@ -332,15 +339,22 @@ static dispatch_source_t timerForMain;
             [self getFuelCost];//get fuel cost
             detailLabel.text =@"Fuel Cost";
             dataLabel.text=[NSString stringWithFormat:@"%.2f",self.fuelCost];
-            unitLabel.text=@"gal";
+            unitLabel.text=@"$";
         }else if(indexPath.row==9){
             detailLabel.text =@"Engine Coolant Temperature";
+            NSLog(@"1111:%@",[dictionary valueForKey:@"EngineCoolantTemperature"]);
             if([[dictionary valueForKey:@"Unit"] isEqualToString:@"0"]){//metric
                 dataLabel.text=[dictionary valueForKey:@"EngineCoolantTemperature"];
                 unitLabel.text=@"°C";
             }else{//imperial
-                int value=[[dictionary valueForKey:@"EngineCoolantTemperature"] floatValue];
-                value=(value*1.8)+32;
+                int value = 0;
+                if([dictionary valueForKey:@"EngineCoolantTemperature"]){
+                    value=[[dictionary valueForKey:@"EngineCoolantTemperature"] intValue];
+                    if(value!=0){
+                        value=(value*1.8)+32;
+                    }
+                }
+
                 dataLabel.text=[NSString stringWithFormat:@"%d",value];
                 unitLabel.text=@"°F";
             }

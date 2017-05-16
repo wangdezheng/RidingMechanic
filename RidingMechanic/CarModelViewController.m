@@ -53,6 +53,7 @@ static dispatch_source_t timerForMain;
         self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi Filled"];
         [self.startTripButton setHidden:NO];
         
+        self.drivingTime=0;
         SendCommand * sendCommand=[SendCommand sharedSendCommand];
         if(sendCommand.timerForUpdate){
             [sendCommand resumeTimerForUpdate];
@@ -60,7 +61,7 @@ static dispatch_source_t timerForMain;
             sendCommand.pid=@"010D";
             [sendCommand updateDataInTable];
         }
-        self.drivingTime=0;
+        
         if(timerForMain){
             [self resumeTimer];
         }else{
@@ -70,7 +71,7 @@ static dispatch_source_t timerForMain;
         
     }else{
         self.wifiStatus.image=[UIImage imageNamed:@"Wi-Fi"];
-        [self.startTripButton setHidden:NO];
+        [self.startTripButton setHidden:YES];
         self.speedLabel.text=@"N/A";
         self.RMPLabel.text=@"N/A";
         self.temperatureLabel.text=@"N/A";
@@ -79,12 +80,15 @@ static dispatch_source_t timerForMain;
     
 }
 
--(void)viewDidDisappear:(BOOL)animated{
-    [super viewDidDisappear:animated];
+-(void) viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
     SendCommand * sendCommand=[SendCommand sharedSendCommand];
     [sendCommand pauseTimerForUpdate];
     [self pauseTimer];
 }
+
+
 
 -(void)pauseTimer
 {
@@ -117,29 +121,31 @@ static dispatch_source_t timerForMain;
         NSString * speed=@"";
         if([[dictionary valueForKey:@"Unit"] isEqualToString:@"1"]){
             speed=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]];//mile/h
-            speed=[speed stringByAppendingString:@"\tmile/h"];
+            speed=[speed stringByAppendingString:@" m/h"];
         }else{
             speed=[NSString stringWithFormat:@"%.1f",[[dictionary valueForKey:@"Speed"] floatValue]*1.6]; //km/h
-            speed=[speed stringByAppendingString:@"\tkm/h"];
+            speed=[speed stringByAppendingString:@" km/h"];
         }
         self.speedLabel.text=speed;
         
         self.RMPLabel.text=[dictionary valueForKey:@"RPM"];
         
         NSString * voltage=@"";
-        voltage=[dictionary valueForKey:@"RPM"];
-        voltage=[voltage stringByAppendingString:@"\t V"];
+        voltage=[dictionary valueForKey:@"ControlModuleVoltage"];
+        voltage=[voltage stringByAppendingString:@" V"];
         self.voltageLabel.text=voltage;
         
         NSString *tem=@"";
         if([[dictionary valueForKey:@"Unit"] isEqualToString:@"1"]){
             int value=[[dictionary valueForKey:@"EngineCoolantTemperature"] floatValue];
-            value=(value*1.8)+32;
+            if(value!=0){
+                value=(value*1.8)+32;
+            }
             tem=[NSString stringWithFormat:@"%d",value];
-            tem=[tem stringByAppendingString:@"\t°F"];
+            tem=[tem stringByAppendingString:@" °F"];
         }else{
             tem=[dictionary valueForKey:@"EngineCoolantTemperature"]; //C
-            tem=[tem stringByAppendingString:@"\t°C"];
+            tem=[tem stringByAppendingString:@" °C"];
         }
         self.temperatureLabel.text=tem;
         [self.view setNeedsDisplay];
@@ -154,6 +160,7 @@ static dispatch_source_t timerForMain;
 
 -(IBAction)startTrip:(id)sender
 {
+
     [self performSegueWithIdentifier:@"showMenu" sender:sender];
 }
 

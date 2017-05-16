@@ -99,8 +99,8 @@ float totoalOilConsumption=0;
             endDateTimeArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"endDateTime"]];
             drivingDistanceArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"drivingDistance"]];
             MPGArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"averageMPG"]];
-            speedArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"fuelCost"]];
-            fuelCostArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"averageSpeed"]];
+            speedArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"averageSpeed"]];
+            fuelCostArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"fuelCost"]];
             accelerationArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"sharpAccelerationTime"]];
             brakingArray=[[NSMutableArray alloc] initWithArray:sandBoxDataDic[@"sharpBrakingTime"]];
             
@@ -132,8 +132,8 @@ float totoalOilConsumption=0;
         [sandBoxDataDic setObject:endDateTimeArray forKey:@"endDateTime"];
         [sandBoxDataDic setObject:drivingDistanceArray forKey:@"drivingDistance"];
         [sandBoxDataDic setObject:MPGArray forKey:@"averageMPG"];
-        [sandBoxDataDic setObject:speedArray forKey:@"fuelCost"];
-        [sandBoxDataDic setObject:fuelCostArray forKey:@"averageSpeed"];
+        [sandBoxDataDic setObject:speedArray forKey:@"averageSpeed"];
+        [sandBoxDataDic setObject:fuelCostArray forKey:@"fuelCost"];
         [sandBoxDataDic setObject:accelerationArray forKey:@"sharpAccelerationTime"];
         [sandBoxDataDic setObject:brakingArray forKey:@"sharpBrakingTime"];
     }
@@ -147,10 +147,12 @@ float totoalOilConsumption=0;
     
     self.timeLabel.text =  [NSDateFormatter localizedStringFromDate:day dateStyle:NSDateFormatterMediumStyle timeStyle:NSDateFormatterNoStyle];
     
-    self.targetArray=[self getDataFromPlist:DateTime];
-    [self.showTripInfoTableView reloadData];
     
+    self.targetArray=[self getDataFromPlist:DateTime];
+    [self.showTripInfoTableView reloadData];//reload data in table
     [self updateTotal];
+    self.totalCostLabel.text=[NSString stringWithFormat:@"%.2f",totoalCost];
+    
     if([[[NSUserDefaults standardUserDefaults] objectForKey:@"Unit"] isEqualToString:@"0"]){ //metric
         self.totalMileUnitLabel.text=@"km";
         self.totalMileLabel.text=[NSString stringWithFormat:@"%.2f",totoalMile*1.6];
@@ -158,7 +160,7 @@ float totoalOilConsumption=0;
         self.totalMileUnitLabel.text=@"mile";
         self.totalMileLabel.text=[NSString stringWithFormat:@"%.2f",totoalMile];
     }
-    
+    self.totalOilConsumptionLabel.text=[NSString stringWithFormat:@"%.2f",totoalOilConsumption];
 
 
 }
@@ -202,6 +204,7 @@ float totoalOilConsumption=0;
     totoalOilConsumption=0;
     if(self.localTrip){
        NSMutableArray * costArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"fuelCost"]];
+        NSLog(@"COST:%@",costArray);
        NSMutableArray * distanceArray=[[NSMutableArray alloc] initWithArray:self.localTrip[@"drivingDistance"]];
         for(int i=0;i<self.targetArray.count;i++){
             totoalCost+=[[costArray objectAtIndex:[self.targetArray[i] integerValue]] floatValue];
@@ -282,18 +285,27 @@ float totoalOilConsumption=0;
         
         
         NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
-        NSDate *startDate = [dateFormatter dateFromString:[startdateArray objectAtIndex:[self.targetArray[section] integerValue]]];
-        NSDate *endDate = [dateFormatter dateFromString:[enddateArray objectAtIndex:[self.targetArray[section] integerValue]]];
+        NSString *str=[startdateArray objectAtIndex:[self.targetArray[section] integerValue]];
         
+        NSString *start=@"";
+        NSString *end=@"";
         
-        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-        [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
-        NSString *start = [formatter stringFromDate:startDate];
-        NSString *end=[formatter stringFromDate:endDate];
+        if(str.length>20){
+            [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
+            NSDate *startDate = [dateFormatter dateFromString:[startdateArray objectAtIndex:[self.targetArray[section] integerValue]]];
+            NSDate *endDate = [dateFormatter dateFromString:[enddateArray objectAtIndex:[self.targetArray[section] integerValue]]];
+            
+            
+            NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+            [formatter setDateFormat:@"YYYY-MM-dd hh:mm"];
+             start= [formatter stringFromDate:startDate];
+             end=[formatter stringFromDate:endDate];
+        }else{
+            start=[startdateArray objectAtIndex:[self.targetArray[section] integerValue]];
+            end=[enddateArray objectAtIndex:[self.targetArray[section] integerValue]];
+        }
         
 
-    
         sectionName=start;
         sectionName=[sectionName stringByAppendingString:@"-----"];
         sectionName=[sectionName stringByAppendingString:end];
